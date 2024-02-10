@@ -26,13 +26,44 @@ def login() -> str:
         input_username = request.form.get("username", "")
         input_password = request.form.get("password", "")
         if is_login_valid(input_username, input_password):
-            
+             
             return redirect(url_for('main'))
         else:
             error = "The password and/or the username is invalid."
             print(error)
     if request.method == "GET":
         return render_template("login.html")
+    
+    else:
+        error = "I haven't coded the get method yet."
+
+    return error
+
+
+
+@app.route("/sign-up", methods=["POST", "GET"])
+def sign_up() -> str:
+    error: str = ""
+    
+
+    return render_template("sign-up.html")
+    print("/sign-up was accessed")
+    if request.method == "POST":
+        print("/sign-up POST entered")
+        input_username = request.form.get("username", "")
+        input_password = request.form.get("password", "")
+        if is_login_valid(input_username, input_password):
+             
+
+
+            return redirect(url_for('main'))
+        else:
+            error = "The password and/or the username is invalid."
+            print(error)
+
+
+    if request.method == "GET":
+        return render_template("sign_up.html")
     
     else:
         error = "I haven't coded the get method yet."
