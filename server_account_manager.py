@@ -18,7 +18,7 @@ class ServerAccountManager:
     def __init__(self) -> None:
         self.accounts: list[Account] = []
         print(f"ServerAccountManager created.")
-    
+
 
     def create_account(self, input_username: str, input_password: str) -> Account:
         new_account: Account = Account(input_username, get_hash(input_password), get_uuid())
