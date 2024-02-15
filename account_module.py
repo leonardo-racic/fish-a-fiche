@@ -1,8 +1,16 @@
 class Account:
-    def __init__(self, username: str, password: str, id: int) -> None:
+    def __init__(
+        self,
+        username: str,
+        password: str,
+        profile_picture: str = "",
+        description: str = "..."
+    ) -> None:
+        
         self.username: str = username
         self.password: str = password # keep in mind that the password is hashed before being passed.
-        self.id: str = id
+        self.profile_picture: str = profile_picture
+        self.description: str = description
         print(f"Initialised account with username {self.get_username()!r}")
 
 
@@ -30,7 +38,24 @@ class Account:
 
     def get_password(self) -> str:
         return self.password
+    
 
+    def get_description(self) -> str:
+        return self.description
+    
+
+    def get_profile_picture(self) -> str:
+        return self.profile_picture
+    
+
+    def get_info(self) -> dict:
+        return {
+            "username": self.get_username(),
+            "password": self.get_password(),
+            "description": self.get_description(),
+            "profile_picture": self.get_profile_picture(),
+        }
+    
 
 
 if __name__ == "__main__":
