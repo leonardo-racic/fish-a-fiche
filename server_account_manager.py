@@ -136,12 +136,12 @@ class ServerAccountManager:
         return True
     
 
-    def get_user_account_info(self) -> dict:
+    def get_user_account_info(self) -> tuple[dict, bool]:
         account_info_cookie: dict = load_json(request.cookies.get("account-info", "{}"))
         user_account_info: dict; username_exists: bool
-        user_account_info, username_exists = self.get_account_info_by_username(account_info_cookie["username"])
+        user_account_info, username_exists = self.get_account_info_by_username(account_info_cookie.get("username", ""))
         if not username_exists:
-            return {}
+            return ({}, False)
         return self.get_account_info_by_username(user_account_info["username"])
 
 
