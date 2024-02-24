@@ -35,7 +35,6 @@ def read_accounts_json() -> list[Account]:
 class ServerAccountManager:
     def __init__(self) -> None:
         self.accounts: list[Account] = read_accounts_json()
-        print(f"ServerAccountManager created.")
 
 
     def create_account(self, input_username: str, input_password: str, description: str = "", profile_picture: str = "") -> Account:
@@ -51,7 +50,6 @@ class ServerAccountManager:
 
     def set_account(self, input_username: str, input_password: str, description: str, profile_picture: str) -> None:
         _new_account: Account = self.create_account(input_username, input_password, description, profile_picture)
-        print(f"Account with username {input_username} created.")
     
 
     def get_account_info_by_username(self, account_username: str) -> tuple[dict, bool]:
@@ -79,7 +77,6 @@ class ServerAccountManager:
         with open("accounts.json", "w") as f:
             f.write(to_json(json_data, indent=4))
         self.accounts = read_accounts_json()
-        print(f"Account with username {account.get_username()} deleted.")
     
 
     def delete_account_by_username(self, account_username: str) -> None:
@@ -87,9 +84,6 @@ class ServerAccountManager:
         account, exists = self.get_account_by_username(account_username)
         if exists:
             self.delete_account(account)
-            print(f"Account with username {account_username} deleted.")
-        else:
-            print(f"Account with username {account_username} cannot be deleted.")
 
 
     def get_accounts(self) -> list[Account]:
@@ -104,27 +98,18 @@ class ServerAccountManager:
     def has_account_username(self, current_username: str) -> bool:
         username_exists: bool
         _, username_exists = self.get_account_info_by_username(current_username)
-        print(current_username, username_exists)
         return username_exists
 
 
     def is_login_valid(self, username: str, password: str) -> tuple[bool, bool, bool]:
         is_input_valid: bool = username != "" and password != ""
         if not is_input_valid:
-            print(f"The login input is not valid.")
             return (False, False, False)
          
         target_account: Account; username_exists: bool
         target_account, username_exists = self.get_account_by_username(username)
         password_hash: str = get_hash(password)
         password_correct: bool = target_account.check_password(password_hash) if username_exists else False
-        if username_exists:
-            if password_correct:
-                print(f"Login is successfull.")
-            else:
-                print(f"Login is not successfull : the password is incorrect.")
-        else:
-            print(f"Login is not successfull : the account with username {username} does not exist.")
         return (is_input_valid, username_exists, password_correct)
 
 
@@ -172,7 +157,6 @@ class ServerAccountManager:
             return False
         elif self.has_account_username(username) and check_if_username_exists:
             return False
-        print(f"username {username} is valid")
         return True
     
     
@@ -191,8 +175,7 @@ class ServerAccountManager:
             with open("accounts.json", "w") as f:
                 f.write(to_json(data, indent=4))
             self.accounts = read_accounts_json()
-        else:
-            print(f"Account info cannot be modified.")
+
 
 
 if __name__ == "__main__":

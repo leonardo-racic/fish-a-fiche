@@ -12,7 +12,6 @@ def main() -> Response:
     account_info: dict
     account_info, _ = server_account_manager.get_user_account_info()
     logged_in: bool = server_account_manager.is_user_logged_in()
-    print(account_info, logged_in)
     if logged_in:
         return render_template("home_page.html", logged_in=logged_in, username=account_info["username"])
     else:

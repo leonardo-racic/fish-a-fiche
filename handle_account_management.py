@@ -142,7 +142,7 @@ def handle_profile(server_account_manager: ServerAccountManager, username: str) 
             username = account_info["username"],
             description = account_info["description"],
             profile_picture = account_info["profile_picture"],
-            is_user = username == user_account_info["username"]
+            is_user = bool(username == user_account_info["username"])
         ))
         if username == user_account_info["username"]:
             user_account_info_bytes: str = dict_to_json(user_account_info)

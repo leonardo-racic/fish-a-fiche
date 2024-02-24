@@ -21,6 +21,12 @@
         "username": "Car",
         "password": "90250dea65efa6b0d9d11a8f7803ae769fca5a50eeb5e3bc0bc76ab3270f6eb3",
         "description": "This is my new description ^^",
-        "profile_picture": "20230917_150911.jpg"
+        "profile_picture": ""
+    },
+    {
+        "username": "Hello",
+        "password": "486ea46224d1bb4fb680f34f7c9ad96a8f24ec88be73ea8e5a6c65260e9cb8a7",
+        "description": "I am a newdfdsf user and I am happy to be here, available for everyone :D!",
+        "profile_picture": ""
     }
 ]

@@ -11,7 +11,6 @@ class Account:
         self.password: str = password # keep in mind that the password is hashed before being passed.
         self.profile_picture: str = profile_picture
         self.description: str = description
-        print(f"Initialised account with username {self.get_username()!r}")
 
 
     def __str__(self) -> str:
