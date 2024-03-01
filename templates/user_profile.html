@@ -37,7 +37,7 @@
 
     {% if logged_in %}
         <div class="container">
-            <div class="card">
+            <div class="card mb-2">
                 <div class="card-body">
                     <div class="d-flex flex-column align-items-center text-center">
                         {% if profile_picture == "" %}
@@ -58,7 +58,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex flex-column align-items-center text-center">
-                        <h4>My public cheat-sheet</h4>
+                        <h4>{{"My public cheat-sheets" if is_user else "Their public cheat-sheets"}}</h4>
                     </div>
                 </div>
             </div>

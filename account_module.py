@@ -7,9 +7,10 @@ class Account:
         username: str,
         password: str,
         profile_picture: str = "",
-        description: str = "..."
+        description: str = "...",
+        id: str = "",
     ) -> None:
-        self.id: str = str(get_uuid())
+        self.id: str = str(get_uuid()) if id == "" else id
         self.username: str = username
         self.password: str = password # keep in mind that the password is hashed before being passed.
         self.profile_picture: str = profile_picture
@@ -60,6 +61,7 @@ class Account:
             "password": self.get_password(),
             "description": self.get_description(),
             "profile_picture": self.get_profile_picture(),
+            "id": self.get_id(),
         }
     
 
