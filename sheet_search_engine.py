@@ -1,48 +1,45 @@
-import whoosh
+import os.path
+from whoosh.index import create_in
+from whoosh.fields import Schema, TEXT , KEYWORD , DATETIME , NUMERIC , STORED
+from whoosh.query import *
+import whoosh.index as index
 
-sheet_folder = "sheets"
-
-def generate_sheet_path(user , sheet_name, local_path = ""):
-    """
-    Generate the path to a specific sheet file.
-
-    Parameters
-    ----------
-    user : str
-        The username of the user who owns the sheet.
-    sheet_name : str
-        The name of the sheet file.
-    local_path : str, optional
-        The local path to the folder where the sheets are stored, by default "".
-
-    Returns
-    -------
-    str
-        The full path to the sheet file.
-
-    """
-    #might need a function to tell where is the folder relativeto where you are
-    sheet_path = local_path + "/" + sheet_folder + "/" + user + "/" + sheet_name
-    return sheet_path
+schema = Schema(title=TEXT(stored=True),
+                author=TEXT(stored=True) ,
+                date=DATETIME(stored=True),
+                lang=KEYWORD(stored=True) ,
+                subject=TEXT(stored=True),
+                keyword=KEYWORD(stored=True),
+                description=TEXT(stored=True),
+                likes=NUMERIC(stored=True),
+                dislikes=NUMERIC(stored=True),
+                comments=NUMERIC(stored=True),
+                views=NUMERIC(stored=True),
+                path=STORED
+                )
 
 
-def search_sheet(subject):
-    """
-    Search for a specific subject in the database.
 
-    Parameters
-    ----------
-    subject : str
-        The subject to search for.
 
-    Returns
-    -------
-    list
-        A list of all the documents that match the subject.
 
-    """
-    index = whoosh.filedb.FileStorage(generate_sheet_path(subject))
-    searcher = whoosh.index.Index(index)
-    query = searcher.query(whoosh.qparser.MultifieldParser("subject", [whoosh.fields.TEXT(stored=True)]))
-    results = query.all()
-    return results
+if not os.path.exists("index"):
+    os.mkdir("index")
+    ix = create_in("index", schema)
+
+ix = index.open_dir("index")
+
+writer = ix.writer()
+
+writer.add_document(title=u"physique", author=u"maxime",
+                    path=u"/a", views=3, likes=8)
+writer.add_document(title=u"math", author=u"maxime",
+                    path=u"/b", views=5, likes=9)
+writer.add_document(title=u"franc", author=u"lonardo",
+                    path=u"/c", views=98, likes=45)
+writer.commit()
+
+with ix.searcher() as searcher:
+    
+    myquery = Term("author", u"maxime")
+    results = searcher.search(myquery)
+    print(results[0])

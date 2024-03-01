@@ -1,12 +1,1 @@
-{
-    "accounts": {
-        "token": {
-            "username": "User123",
-            "description": "I am the first user in this website.",
-            "profile-picture": "",
-            "cheat-sheets": [],
-            "collections": {},
-            "sign-up-date": ""
-        }
-    }
-}
+[]
