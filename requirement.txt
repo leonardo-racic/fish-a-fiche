@@ -1,6 +1,4 @@
 flask
-json
+jsons
 logging
 whoosh
-__future__
-hashlib
