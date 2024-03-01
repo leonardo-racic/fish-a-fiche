@@ -84,6 +84,10 @@ class ServerAccountManager:
             if account_info["username"] == current_username:
                 return True
         return False
+    
+
+    def get_account_by_username(self, username: str) -> tuple[Account, bool]:
+        pass
 
 
     def is_login_valid(self, username: str, password: str) -> tuple[bool, bool, bool]:
