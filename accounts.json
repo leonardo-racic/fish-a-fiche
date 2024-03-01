@@ -1,38 +1,12 @@
-[
-    {
-        "username": "a",
-        "password": "043a718774c572bd8a25adbeb1bfcd5c0256ae11cecf9f9c3f925d0e52beaf89",
-        "description": "...",
-        "profile_picture": ""
-    },
-    {
-        "username": "Ado",
-        "password": "b3a8e0e1f9ab1bfe3a36f231f676f78bb30a519d2b21e6c530c0eee8ebb4a5d0",
-        "description": "I agree.",
-        "profile_picture": ""
-    },
-    {
-        "username": "s",
-        "password": "70ba33708cbfb103f1a8e34afef333ba7dc021022b2d9aaa583aabb8058d8d67",
-        "description": "qsdqsdsd",
-        "profile_picture": ""
-    },
-    {
-        "username": "Car",
-        "password": "90250dea65efa6b0d9d11a8f7803ae769fca5a50eeb5e3bc0bc76ab3270f6eb3",
-        "description": "This is my new description ^^",
-        "profile_picture": ""
-    },
-    {
-        "username": "Hello",
-        "password": "486ea46224d1bb4fb680f34f7c9ad96a8f24ec88be73ea8e5a6c65260e9cb8a7",
-        "description": "I am a newdfdsf user and I am happy to be here, available for everyone :D!",
-        "profile_picture": ""
-    },
-    {
-        "username": "gandelf",
-        "password": "936a185caaa266bb9cbe981e9e05cb78cd732b0b3280eb944412bb6f8f8f07af",
-        "description": "test",
-        "profile_picture": ""
+{
+    "accounts": {
+        "token": {
+            "username": "User123",
+            "description": "I am the first user in this website.",
+            "profile-picture": "",
+            "cheat-sheets": [],
+            "collections": {},
+            "sign-up-date": ""
+        }
     }
-]
+}

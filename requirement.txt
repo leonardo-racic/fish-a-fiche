@@ -1,0 +1,6 @@
+flask
+json
+logging
+whoosh
+__future__
+hashlib
