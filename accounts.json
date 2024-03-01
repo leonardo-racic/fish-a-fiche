@@ -1,1 +1,10 @@
-[]
+{
+    "accounts": {
+        "7bbfc8fd-e25e-41a1-9192-6465739256e9": {
+            "username": "User2332",
+            "password": "11d0499938ad7e023017e3674ffe9b502a318e9fd9fd1016d392d7194bed7fe6",
+            "description": "",
+            "profile_picture": ""
+        }
+    }
+}

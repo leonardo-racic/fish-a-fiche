@@ -67,8 +67,7 @@ def handle_post_sign_up(server_account_manager: ServerAccountManager, input_user
         else:
             new_account: Account = server_account_manager.create_account(input_username, input_password)
             response: Response = make_response(redirect(url_for("main")))
-            response.set_cookie("account-info", dict_to_json(new_account.get_info()))
-            
+            response.set_cookie("account-token", new_account.get_id())
             return response
     return render_template("sign_up.html", input_not_valid=True)
 

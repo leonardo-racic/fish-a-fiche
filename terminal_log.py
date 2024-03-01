@@ -12,10 +12,6 @@ def run_logging() -> None:
         datefmt="[%m/%d/%y %h:%m:%s]",
         filename=log_file,
     )
-    inform("Logging started")
-    debug("Logging debug message")
-    warn("Logging warning message")
-    log_error("Logging error message")
 
 
 def debug(msg: str, *args) -> None:

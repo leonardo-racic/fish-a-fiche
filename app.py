@@ -1,6 +1,7 @@
 from flask import Flask, Response, render_template
 from server_account_manager import ServerAccountManager
 from handle_account_management import handle_login, handle_sign_up, handle_sign_out, handle_modify_profile, handle_profile
+from terminal_log import run_logging
 
 
 app: Flask = Flask(__name__)
@@ -42,3 +43,6 @@ def modify_profile() -> Response:
 def sign_out() -> Response:
     return handle_sign_out()
 
+
+if __name__ == "__main__":
+    run_logging()
