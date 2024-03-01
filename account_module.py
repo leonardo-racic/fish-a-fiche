@@ -1,3 +1,6 @@
+from uuid import uuid4 as get_uuid, UUID
+
+
 class Account:
     def __init__(
         self,
@@ -6,7 +9,7 @@ class Account:
         profile_picture: str = "",
         description: str = "..."
     ) -> None:
-        
+        self.id: UUID = get_uuid()
         self.username: str = username
         self.password: str = password # keep in mind that the password is hashed before being passed.
         self.profile_picture: str = profile_picture
@@ -23,7 +26,7 @@ class Account:
 
     def __eq__(self, other_account: object) -> bool:
         if isinstance(other_account, Account):
-            return self.get_username() == other_account.get_username()
+            return self.get_id() == other_account.get_id()
         return False
     
 
@@ -47,8 +50,13 @@ class Account:
         return self.profile_picture
     
 
+    def get_id(self) -> UUID:
+        return self.id
+    
+
     def get_info(self) -> dict:
         return {
+            "id": self.get_id(),
             "username": self.get_username(),
             "password": self.get_password(),
             "description": self.get_description(),
