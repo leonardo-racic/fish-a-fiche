@@ -9,7 +9,7 @@ class Account:
         profile_picture: str = "",
         description: str = "..."
     ) -> None:
-        self.id: UUID = get_uuid()
+        self.id: str = str(get_uuid())
         self.username: str = username
         self.password: str = password # keep in mind that the password is hashed before being passed.
         self.profile_picture: str = profile_picture
@@ -17,11 +17,11 @@ class Account:
 
 
     def __str__(self) -> str:
-        return f"Account(username={self.get_username()!r}, password={self.get_password()!r})"
+        return f"Account({self.get_id()})"
     
 
     def __repr__(self) -> str:
-        return f"Account(username={self.get_username()!r}, password={self.get_password()!r})"
+        return f"Account({self.get_id()})"
     
 
     def __eq__(self, other_account: object) -> bool:
@@ -50,13 +50,12 @@ class Account:
         return self.profile_picture
     
 
-    def get_id(self) -> UUID:
+    def get_id(self) -> str:
         return self.id
     
 
     def get_info(self) -> dict:
         return {
-            "id": self.get_id(),
             "username": self.get_username(),
             "password": self.get_password(),
             "description": self.get_description(),
