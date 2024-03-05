@@ -52,3 +52,14 @@ def search() -> Response:
 if __name__ == "__main__":
     app.run()
     run_logging()
+
+# partie de Maxime(aide par Leonardo) ; permet d'ouvrir la page de creation de fiche de revision 
+
+@app.route("/create-cheat-sheet", methods=["GET", "POST"])
+def create_cheat_sheet():
+    if request.method == "GET":
+        return render_template("cheat_sheet_creator.html")
+    elif request.method == "POST":
+        print(dict(request.form))
+        return "OKAY"
+    return "METHOD UNKNOWN"

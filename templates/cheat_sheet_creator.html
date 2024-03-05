@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <!-- titre de la page affiché à l'utilisateur-->
+        <title>Cheat Sheet Creator Panel</title>
+        <!-- mise en forme de la page afin d'avoir de grand espace d'entrée pour que l'utilisateur voit ce qu'il écrit-->
+        <style>
+            label {
+                display: block;
+            }
+
+            #title-input {
+                width: 80vw;
+                height: 1vw;
+            }
+
+            #content-input {
+                width: 80vw;
+                height: 30vw;
+            }
+
+            #comment-input {
+                width: 80vw;
+                height: 5vw;
+            }
+        </style>
+    </head>
+    <!-- contenu de la page en elle-même-->
+    <body>
+        <!-- ouverture formulaire à remplir par le créateur de la fiche, permet de le récupérer rapidement-->
+        <form method="post" action="/create-cheat-sheet">
+            <!-- nom de la fiche de révision-->
+            <label for="title-input">votre titre de fiche</label>
+            <input type ="text" id="title-input" name="title" autocomplete="off">
+            <!-- contenu de la fiche de révision, rédigée impérativement en markdown-->
+            <label for="content-input">le corps de texte de votre fiche de <s>triche</s> de révision <strong>/ ! \ ATTENTION  rédiger en markdown impérativement</strong></label>
+            <textarea id="content-input" name="content" autocomplete="off"></textarea>
+            <!-- commentaire du créateur de la fiche à propos de sa fiche-->
+            <label for="comment-input">votre commentaire quand à votre propre fiche</label>
+            <textarea id="comment-input" name="comment" autocomplete="off"></textarea>
+            <!-- bouton permettant à l'utilisateur de sauvegarder son travail et donc mettre sa fiche en ligne-->
+            <label id="button">bouton pour sauvegarder vos Modifications</label>
+            <button type="submit" id="button">Submit</button>
+        </form>
+    </body>
+</html>
