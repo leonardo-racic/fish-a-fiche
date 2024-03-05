@@ -1,6 +1,9 @@
 from uuid import uuid4 as get_uuid
 from json import dumps as dict_to_json
 from datetime import datetime
+import os.path
+from whoosh.index import create_in
+import whoosh.index as index
 
 
 def get_current_date() -> str:
@@ -51,6 +54,29 @@ class CheatSheet:
             "comments": self.comments,
         }
 
+    def store_to_index(self):
+        ix = index.open_dir("index")
+        writer = ix.writer()
+
+        writer.add_document(title=self.title,
+                            author_token=self.author_token,
+                            date = self.date,
+                            lang = self.original_lang,
+                            subject = self.sgebdbf,#add this to the class
+                            keyword = self.keywords,
+                            description = self.context,
+                            views=0,
+                            likes=0,
+                            dislikes=self.dislikes,
+                            comments = self.comments,
+                            comments_counter = 0, #add this to the class
+                            path = str(self.author_token,"/",self.title))
+
+        writer.commit()
+
+        
+
+    def update_document():
 
 
     def to_json(self) -> str:
