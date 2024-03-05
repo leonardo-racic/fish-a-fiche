@@ -1,11 +1,13 @@
-from flask import Flask, Response, render_template
+from flask import Flask, Response, render_template, request
 from server_account_manager import ServerAccountManager
 from handle_account_management import handle_login, handle_sign_up, handle_sign_out, handle_modify_profile, handle_profile
 from terminal_log import run_logging
+from handle_upload import handle_upload
 
 
 app: Flask = Flask(__name__)
 server_account_manager: ServerAccountManager = ServerAccountManager()
+
 
 
 @app.route("/")
@@ -42,6 +44,10 @@ def modify_profile() -> Response:
 def sign_out() -> Response:
     return handle_sign_out()
 
+
+@app.route("/upload", methods=["POST", "GET"])
+def search() -> Response:
+    return handle_upload()
 
 if __name__ == "__main__":
     run_logging()
