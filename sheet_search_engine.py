@@ -29,7 +29,6 @@ if not os.path.exists("index"):
 ix = index.open_dir("index")
 
 writer = ix.writer()
-
 writer.add_document(title=u"physique", author=u"maxime",
                     path=u"/a", views=3, likes=8)
 writer.add_document(title=u"math", author=u"maxime",
