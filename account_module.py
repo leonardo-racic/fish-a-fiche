@@ -1,4 +1,4 @@
-from uuid import uuid4 as get_uuid, UUID
+from uuid import uuid4 as get_uuid
 
 
 class Account:

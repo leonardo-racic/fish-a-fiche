@@ -44,4 +44,5 @@ def sign_out() -> Response:
 
 
 if __name__ == "__main__":
+    app.run()
     run_logging()

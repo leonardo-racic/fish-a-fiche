@@ -13,6 +13,13 @@
             "description": "",
             "profile_picture": "",
             "id": "bd2e7790-080a-4300-a792-e5987729a6fb"
+        },
+        "3d95a768-ede2-4e6b-b7be-4250ca7918a1": {
+            "username": "Hello",
+            "password": "486ea46224d1bb4fb680f34f7c9ad96a8f24ec88be73ea8e5a6c65260e9cb8a7",
+            "description": "This is my new description!!!",
+            "profile_picture": "",
+            "id": "3d95a768-ede2-4e6b-b7be-4250ca7918a1"
         }
     }
 }
