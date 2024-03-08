@@ -25,7 +25,7 @@ class CheatSheet:
         likes: int = 0,
         dislikes: int = 0,
         keywords: list[str] = [],
-        token: str = str(get_uuid()),
+        token: str = str(get_uuid())
     ) -> None:
         self.token: str = token
         self.title: str = title
@@ -51,25 +51,22 @@ class CheatSheet:
             "dislikes": self.dislikes,
             "original_lang": self.original_lang,
             "keywords": self.keywords,
-            "comments": self.comments,
+            "comments": self.comments
         }
 
     def store_to_index(self):
         ix = index.open_dir("index")
         writer = ix.writer()
-
         writer.add_document(title=self.title,
                             author_token=self.author_token,
                             date = self.date,
                             lang = self.original_lang,
-                            subject = self.sgebdbf,#add this to the class
                             keyword = self.keywords,
                             description = self.context,
-                            views=0,
-                            likes=0,
+                            likes=self.likes,
                             dislikes=self.dislikes,
                             comments = self.comments,
-                            comments_counter = 0, #add this to the class
+                            comments_counter = len(self.comments)
                             path = str(self.author_token,"/",self.title))
 
         writer.commit()

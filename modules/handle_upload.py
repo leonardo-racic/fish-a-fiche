@@ -2,6 +2,8 @@ import os
 from flask import Flask, flash, request, redirect, url_for , render_template
 from werkzeug.utils import secure_filename
 import os.path
+from cheat_sheet_module import CheatSheet
+from server_account_manager import get_user
 
 
 UPLOAD_FOLDER = 'sheets'
@@ -36,3 +38,14 @@ def handle_upload():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return 'upload succesfull'
     return render_template('upload.html')
+
+
+def create_cheat_sheet():
+
+    title = request.form.get("title")
+    author_token = 
+    content = request.form.get("file")
+    description = request.form.get("description")
+
+    new_cs = CheatSheet(titl, author_token, content, description,)
+    new_cs.keywords = 
