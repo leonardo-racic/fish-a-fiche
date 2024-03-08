@@ -50,11 +50,6 @@ def upload() -> Response:
     print("upload starting")
     return handle_upload(server_account_manager)
 
-if __name__ == "__main__":
-    app.run(debug=True)
-    run_logging()
-
-# partie de Maxime(aide par Leonardo) ; permet d'ouvrir la page de creation de fiche de revision 
 
 @app.route("/create-cheat-sheet", methods=["GET", "POST"])
 def create_cheat_sheet():
@@ -63,3 +58,8 @@ def create_cheat_sheet():
     elif request.method == "POST":
         return "OKAY"
     return "METHOD UNKNOWN"
+
+
+if __name__ == "__main__":
+    app.run()
+    run_logging()

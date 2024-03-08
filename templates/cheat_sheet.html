@@ -48,9 +48,29 @@
                 <zero-md>{{context}}</zero-md>
             </div>
             <div class="card-footer text-muted">
-                2 days ago
+                {{date}}
             </div>
-          </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                Likes : {{likes}}
+            </div>
+            <div class="col">
+                Dislikes: {{Dislikes}}
+            </div>
+            <div class="col">
+                <button>Report</button>
+            </div>
+            <div class="col">
+                <button>Options</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">Comments</div>
+            {% for comment in comments}
+                <p>{{comment["content"]}}</p>
+            {% endfor %}
+        </div>
     </div>
 
 
