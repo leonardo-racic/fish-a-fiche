@@ -35,22 +35,30 @@ def handle_upload(server_account_manager: ServerAccountManager):
             flash('No selected file')
             return redirect(request.url)
         if file and allowed_file(file.filename):
+            
 
+            print("handle upload starting")
             new_cs = create_cheat_sheet(server_account_manager)
-
+            print("handle_upload ok")
             new_cs.store_to_index()
 
 
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return 'upload succesfull'
-    return render_template('upload.html')
+        
+    
+    logged_in: bool = server_account_manager.is_user_logged_in()
+    print(logged_in)
+    return render_template('upload.html',logged_in=logged_in)
 
 
 def create_cheat_sheet(server_account_manager: ServerAccountManager):
 
     title = request.form.get("title")
-    author_token = ServerAccountManager.get_user_account_token()
+    print("create cs starting")
+    author_token = server_account_manager.get_user_account_token()
+    print("create cs ok")
     content = request.form.get("file")
     description = request.form.get("description")
     keywords = request.form.get("keywords")
