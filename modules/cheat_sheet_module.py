@@ -8,8 +8,8 @@ import whoosh.index as index
 
 def get_current_date() -> str:
     now: datetime = datetime.now()
-    #date_str: str = now.strftime("%d/%m/%Y - %H:%M")
-    return now
+    date_str: str = now.strftime("%d/%m/%Y - %H:%M")
+    return date_str
 
 
 class CheatSheet:
@@ -59,7 +59,7 @@ class CheatSheet:
         writer = ix.writer()
         writer.add_document(title=self.title,
                             author_token=self.author_token,
-                            date = self.date,
+                            date = datetime.now(),
                             lang = self.original_lang,
                             keyword = " ".join(self.keywords),
                             description = self.context,
@@ -80,14 +80,18 @@ class CheatSheet:
 
     def to_json(self) -> str:
         info: dict = self.get_info()
+        print(info)
         json_str: str = dict_to_json(info, indent=4)
         return json_str
     
+    def create_file(self):
+        f = open("test.json", "w")
+        f.write(self.to_json())
 
 
 if __name__ == "__main__":
     cs: CheatSheet = CheatSheet("Volumic mass", "Ado's token", "p=m/V", "for science stuff")
-    print(cs.to_json())
+    cs.create_file()
         
 
 

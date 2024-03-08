@@ -20,6 +20,13 @@
             "description": "This is my new description!!!",
             "profile_picture": "",
             "id": "3d95a768-ede2-4e6b-b7be-4250ca7918a1"
+        },
+        "a8fc2acb-58e7-4082-a0fa-0db98684acf6": {
+            "username": "test",
+            "password": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
+            "description": "",
+            "profile_picture": "",
+            "id": "a8fc2acb-58e7-4082-a0fa-0db98684acf6"
         }
     }
 }
