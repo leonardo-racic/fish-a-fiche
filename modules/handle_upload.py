@@ -3,7 +3,8 @@ from flask import Flask, flash, request, redirect, url_for , render_template
 from werkzeug.utils import secure_filename
 import os.path
 from cheat_sheet_module import CheatSheet
-from server_account_manager import get_user
+from server_account_manager import ServerAccountManager
+
 
 
 UPLOAD_FOLDER = 'sheets'
@@ -20,7 +21,7 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-def handle_upload():
+def handle_upload(server_account_manager: ServerAccountManager):
 
     if request.method == 'POST':
         # check if the post request has the file part
@@ -40,10 +41,10 @@ def handle_upload():
     return render_template('upload.html')
 
 
-def create_cheat_sheet():
+def create_cheat_sheet(server_account_manager: ServerAccountManager):
 
     title = request.form.get("title")
-    author_token = 
+    author_token = ServerAccountManager.get_user_account_token()
     content = request.form.get("file")
     description = request.form.get("description")
 

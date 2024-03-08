@@ -47,7 +47,7 @@ def sign_out() -> Response:
 
 @app.route("/upload", methods=["POST", "GET"])
 def search() -> Response:
-    return handle_upload()
+    return handle_upload(server_account_manager)
 
 if __name__ == "__main__":
     app.run()
