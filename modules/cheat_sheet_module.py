@@ -63,17 +63,19 @@ class CheatSheet:
                             lang = self.original_lang,
                             keyword = self.keywords,
                             description = self.context,
-                            likes=self.likes,
+                            likes = self.likes,
                             dislikes=self.dislikes,
                             comments = self.comments,
-                            comments_counter = len(self.comments)
-                            path = str(self.author_token,"/",self.title))
+                            comments_counter = len(self.comments),
+                            path = str(self.author_token,"/",self.title),
+                        )
 
         writer.commit()
 
         
 
     def update_document():
+        pass
 
 
     def to_json(self) -> str:

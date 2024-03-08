@@ -1,6 +1,6 @@
 from flask import Response, render_template, make_response, redirect, url_for, request
-from account_module import Account
-from server_account_manager import ServerAccountManager
+from .account_module import Account
+from .server_account_manager import ServerAccountManager
 from json import dumps as dict_to_json
 
 
