@@ -8,8 +8,8 @@ import whoosh.index as index
 
 def get_current_date() -> str:
     now: datetime = datetime.now()
-    date_str: str = now.strftime("%d/%m/%Y - %H:%M")
-    return date_str
+    #date_str: str = now.strftime("%d/%m/%Y - %H:%M")
+    return now
 
 
 class CheatSheet:
@@ -61,13 +61,13 @@ class CheatSheet:
                             author_token=self.author_token,
                             date = self.date,
                             lang = self.original_lang,
-                            keyword = self.keywords,
+                            keyword = " ".join(self.keywords),
                             description = self.context,
                             likes = self.likes,
                             dislikes=self.dislikes,
                             comments = self.comments,
                             comments_counter = len(self.comments),
-                            path = str(self.author_token,"/",self.title),
+                            path = str(self.author_token+"/"+self.title),
                         )
 
         writer.commit()

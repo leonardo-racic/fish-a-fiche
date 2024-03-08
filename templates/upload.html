@@ -12,33 +12,37 @@
 
 
 <body>
-    <div class="container">
-        <form method=post enctype=multipart/form-data>
-            <input type=file name=file>
-            <input type=text name="title">
-            <select name="original_langauge">
-                <option value="">--Please choose an option--</option>
-                <option value="EN">English</option>
-                <option value="FR">French</option>
-            </select>
-            <select name="subject">
-                <option value="">--Please choose an option--</option>
-                <option value="Maths">Maths</option>
-                <option value="Science">Science</option>
-                <option value="French">Francais</option>
-                <option value="History">History</option>
-                <option value="Geography">Geography</option>
-                <option value="Politics">Politics</option>
-                <option value="Art">Art</option>
-                <option value="Music">Music</option>
-                <option value="Sports">Sports</option>
+    {% if not logged_in %}
+        you are not logged in 
+    {% else %}
+        <div class="container">
+            <form method=post enctype=multipart/form-data>
+                <input type=file name=file>
+                <input type=text name="title">
+                <select name="original_langauge">
+                    <option value="">--Please choose an option--</option>
+                    <option value="EN">English</option>
+                    <option value="FR">French</option>
+                </select>
+                <select name="subject">
+                    <option value="">--Please choose an option--</option>
+                    <option value="Maths">Maths</option>
+                    <option value="Science">Science</option>
+                    <option value="French">Francais</option>
+                    <option value="History">History</option>
+                    <option value="Geography">Geography</option>
+                    <option value="Politics">Politics</option>
+                    <option value="Art">Art</option>
+                    <option value="Music">Music</option>
+                    <option value="Sports">Sports</option>
 
-            </select>
-            <input type=text name ="keywords">
-            <input type=text name = "description">
-            <input type=submit value=Upload>
-        </form>
-    </div>
+                </select>
+                <input type=text name ="keywords">
+                <input type=text name = "description">
+                <input type=submit value=Upload>
+            </form>
+        </div>
+    {% endif %}
 
     
     <!-- These scripts are necessary for Bootstrap to work, DO NOT REMOVE THEM! -->

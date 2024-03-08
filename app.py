@@ -46,11 +46,12 @@ def sign_out() -> Response:
 
 
 @app.route("/upload", methods=["POST", "GET"])
-def search() -> Response:
+def upload() -> Response:
+    print("upload starting")
     return handle_upload(server_account_manager)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
     run_logging()
 
 # partie de Maxime(aide par Leonardo) ; permet d'ouvrir la page de creation de fiche de revision 
