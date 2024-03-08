@@ -60,6 +60,24 @@ def create_cheat_sheet():
     return "METHOD UNKNOWN"
 
 
+@app.route("/test-cheat-sheet", methods=["GET"])
+def test():
+    from json import load
+    with open("modules/cheat_sheet_test.json") as f:
+        data = load(f)
+    return render_template(
+        "cheat_sheet.html",
+        title=data["title"],
+        is_logged_in=server_account_manager.is_user_logged_in(),
+        context=data["context"],
+        content=data["content"],
+        date=data["date"],
+        likes=data["likes"],
+        dislikes=data["dislikes"],
+        comments=data["comments"],
+    )
+
+
 if __name__ == "__main__":
     app.run(debug=True)
     run_logging()
