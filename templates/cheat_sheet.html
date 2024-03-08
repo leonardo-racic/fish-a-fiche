@@ -12,6 +12,18 @@
         type="module"
         src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@2/dist/zero-md.min.js"
     ></script>
+    <script>
+        MathJax = {
+          tex: {
+            inlineMath: [
+              ['$', '$'],
+              ['\\(', '\\)']
+            ]
+          }
+        }
+        addEventListener('zero-md-rendered', () => MathJax.typeset())
+      </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 
 
@@ -39,13 +51,23 @@
             </ul>
         </header>
         <h1 class="display-1">{{title}}</h1>
-        <zero-md>{{content}}</zero-md>
+        <zero-md>
+            <script type="text/markdown">
+                # THINGS TO KNOW FOR CHEMISTRY!!!
+                Basically the formula is:
+                $g=m/kg^3$
+            </script>
+        </zero-md>
         <div class="card text-center">
             <div class="card-header">
                 Description
             </div>
             <div class="card-body">
-                <zero-md>{{context}}</zero-md>
+                <zero-md>
+                    <script type="text/markdown">
+                        {{context}}
+                    </script>    
+                </zero-md>
             </div>
             <div class="card-footer text-muted">
                 {{date}}
@@ -56,19 +78,19 @@
                 Likes : {{likes}}
             </div>
             <div class="col">
-                Dislikes: {{Dislikes}}
+                Dislikes: {{dislikes}}
             </div>
             <div class="col">
-                <button>Report</button>
+                <button type="button", class="btn btn-primary">Report</button>
             </div>
             <div class="col">
-                <button>Options</button>
+                <button type="button", class="btn btn-outline-primaryc">Options</button>
             </div>
         </div>
         <div class="card">
             <div class="card-header">Comments</div>
-            {% for comment in comments}
-                <p>{{comment["content"]}}</p>
+            {% for comment in comments %}
+                <p><strong>{{comment["username"]}}</strong>{{comment["content"]}}</p>
             {% endfor %}
         </div>
     </div>
