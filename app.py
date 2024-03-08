@@ -1,8 +1,8 @@
 from flask import Flask, Response, render_template, request
-from server_account_manager import ServerAccountManager
-from handle_account_management import handle_login, handle_sign_up, handle_sign_out, handle_modify_profile, handle_profile
-from terminal_log import run_logging
-from handle_upload import handle_upload
+from modules.server_account_manager import ServerAccountManager
+from modules.handle_account_management import handle_login, handle_sign_up, handle_sign_out, handle_modify_profile, handle_profile
+from modules.terminal_log import run_logging
+from modules.handle_upload import handle_upload
 
 
 app: Flask = Flask(__name__)
@@ -60,6 +60,5 @@ def create_cheat_sheet():
     if request.method == "GET":
         return render_template("cheat_sheet_creator.html")
     elif request.method == "POST":
-        print(dict(request.form))
         return "OKAY"
     return "METHOD UNKNOWN"
