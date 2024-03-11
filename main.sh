@@ -1,15 +1,13 @@
 #!/bin/bash
 
 run-flask () {
-    echo Activating the virtual environment...
-    source .venv/bin/activate && echo .venv has been successfully activated.
     echo Running Flask...
 
     currentport="${1:-8000}"
     echo Flask is going to run in port: $currentport
 
     {
-        flask run --port $currentport 
+        flask --debug run --port $currentport
     } || {
         echo main.sh has failed.
         while true; do

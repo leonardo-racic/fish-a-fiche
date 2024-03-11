@@ -1,7 +1,7 @@
 from uuid import uuid4 as get_uuid
 from json import dumps as dict_to_json
 from datetime import datetime
-import os.path
+from typing import List
 from whoosh.index import create_in
 import whoosh.index as index
 
@@ -24,7 +24,7 @@ class CheatSheet:
         comments: dict = {},
         likes: int = 0,
         dislikes: int = 0,
-        keywords: list[str] = [],
+        keywords: List[str] = [],
         token: str = str(get_uuid())
     ) -> None:
         self.token: str = token

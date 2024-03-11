@@ -1,13 +1,15 @@
 from flask import Flask, Response, render_template, request
 from modules.server_account_manager import ServerAccountManager
+from modules.cheat_sheet_manager import CheatSheetManager
 from modules.handle_account_management import handle_login, handle_sign_up, handle_sign_out, handle_modify_profile, handle_profile
 from modules.terminal_log import run_logging
 from modules.handle_upload import handle_upload
+from modules.handle_cheat_sheet import handle_cheat_sheet, handle_test
 
 
 app: Flask = Flask(__name__)
 server_account_manager: ServerAccountManager = ServerAccountManager()
-
+cheat_sheet_manager: CheatSheetManager = CheatSheetManager()
 
 
 @app.route("/")
@@ -52,7 +54,7 @@ def upload() -> Response:
 
 
 @app.route("/create-cheat-sheet", methods=["GET", "POST"])
-def create_cheat_sheet():
+def create_cheat_sheet() -> Response:
     if request.method == "GET":
         return render_template("cheat_sheet_creator.html")
     elif request.method == "POST":
@@ -61,21 +63,13 @@ def create_cheat_sheet():
 
 
 @app.route("/test-cheat-sheet", methods=["GET"])
-def test():
-    from json import load
-    with open("modules/cheat_sheet_test.json") as f:
-        data = load(f)
-    return render_template(
-        "cheat_sheet.html",
-        title=data["title"],
-        is_logged_in=server_account_manager.is_user_logged_in(),
-        context=data["context"],
-        content=data["content"],
-        date=data["date"],
-        likes=data["likes"],
-        dislikes=data["dislikes"],
-        comments=data["comments"],
-    )
+def test() -> Response:
+    return handle_test(server_account_manager)
+
+
+@app.route("/cheat-sheet/<token>")
+def cheat_sheet(token: str) -> Response:
+    return handle_cheat_sheet(cheat_sheet_manager, server_account_manager, token)
 
 
 if __name__ == "__main__":

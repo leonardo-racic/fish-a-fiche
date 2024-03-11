@@ -1,4 +1,6 @@
 from uuid import uuid4 as get_uuid
+from .cheat_sheet_module import CheatSheet
+from typing import List
 
 
 class Account:
@@ -9,12 +11,16 @@ class Account:
         profile_picture: str = "",
         description: str = "...",
         id: str = "",
+        cheat_sheet: List[CheatSheet] = [],
+        collections: dict = {},
     ) -> None:
         self.id: str = str(get_uuid()) if id == "" else id
         self.username: str = username
         self.password: str = password # keep in mind that the password is hashed before being passed.
         self.profile_picture: str = profile_picture
         self.description: str = description
+        self.cheat_sheet: List[CheatSheet] = cheat_sheet
+        self.collections: list = collections
 
 
     def __str__(self) -> str:
@@ -55,6 +61,14 @@ class Account:
         return self.id
     
 
+    def get_collections(self) -> dict:
+        return self.collections
+    
+
+    def get_cheat_sheet(self) -> List[CheatSheet]:
+        return self.cheat_sheet
+    
+
     def get_info(self) -> dict:
         return {
             "username": self.get_username(),
@@ -62,6 +76,8 @@ class Account:
             "description": self.get_description(),
             "profile_picture": self.get_profile_picture(),
             "id": self.get_id(),
+            "cheat_sheet": self.get_cheat_sheet(),
+            "collections": self.get_collections(),
         }
     
 

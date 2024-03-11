@@ -29,7 +29,7 @@ def read_accounts_json() -> dict:
         except Exception:
             with open("accounts.json", "w") as f:
                 f.write("{\n    \"accounts\":{}\n}")
-            return []
+            return {}
         
     
 
@@ -78,6 +78,13 @@ class ServerAccountManager:
     def get_accounts_dict(self) -> dict:
         self.accounts = read_accounts_json()
         return self.accounts
+    
+
+    def get_current_username_from_token(self, token: str) -> str:
+        account: Account = self.get_account_by_token(token)
+        if account is None:
+            return ""
+        return account.get_username()
     
 
     def has_account(self, specific_account: Account) -> bool:

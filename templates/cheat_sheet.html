@@ -51,12 +51,15 @@
             </ul>
         </header>
         <div class="mb-4">
-            <h1 class="display-1">{{title}}</h1>
+            <div class="mb-4">
+                <h1 class="display-1">{{title}}</h1>
+                <h6 class="display-6">By {{author_username}}</h6>
+            </div>
             <zero-md no-shadow>
                 <script type="text/markdown">{{content}}</script>
             </zero-md>
         </div>
-        <div class="card text-center">
+        <div class="card text-center mb-4">
             <div class="card-header">
                 Description
             </div>
@@ -69,7 +72,7 @@
                 {{date}}
             </div>
         </div>
-        <div class="row">
+        <div class="row mb-4">
             <div class="col">
                 Likes : {{likes}}
             </div>
@@ -84,9 +87,9 @@
             </div>
         </div>
         <div class="card">
-            <div class="card-header">Comments</div>
+            <div class="card-header ml-2">Comments</div>
             {% for comment in comments %}
-                <p><strong>{{comment["username"]}}</strong>{{comment["content"]}}</p>
+                <p><strong>{{comment["username"]}} : </strong>{{comment["content"]}}</p>
             {% endfor %}
         </div>
     </div>

@@ -1,32 +1,13 @@
 {
     "accounts": {
-        "2cb8369b-fcf7-432e-895b-41e41f0874c8": {
-            "username": "za",
-            "password": "3c42d9ac9807bbf91745b921d4887371b41b4a52e4e78f0dd127358e967dd4e0",
-            "description": "tebe",
+        "5dc6bd83-3ae0-4b4e-81ad-a7d70e6e82ae": {
+            "username": "ado",
+            "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+            "description": "Hello world!",
             "profile_picture": "",
-            "id": "2cb8369b-fcf7-432e-895b-41e41f0874c8"
-        },
-        "bd2e7790-080a-4300-a792-e5987729a6fb": {
-            "username": "p",
-            "password": "acac86c0e609ca906f632b0e2dacccb2b77d22b0621f20ebece1a4835b93f6f0",
-            "description": "",
-            "profile_picture": "",
-            "id": "bd2e7790-080a-4300-a792-e5987729a6fb"
-        },
-        "3d95a768-ede2-4e6b-b7be-4250ca7918a1": {
-            "username": "Hello",
-            "password": "486ea46224d1bb4fb680f34f7c9ad96a8f24ec88be73ea8e5a6c65260e9cb8a7",
-            "description": "This is my new description!!!",
-            "profile_picture": "",
-            "id": "3d95a768-ede2-4e6b-b7be-4250ca7918a1"
-        },
-        "a8fc2acb-58e7-4082-a0fa-0db98684acf6": {
-            "username": "test",
-            "password": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
-            "description": "",
-            "profile_picture": "",
-            "id": "a8fc2acb-58e7-4082-a0fa-0db98684acf6"
+            "id": "5dc6bd83-3ae0-4b4e-81ad-a7d70e6e82ae",
+            "cheat_sheet": [],
+            "collections": {}
         }
     }
 }
