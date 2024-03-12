@@ -1,7 +1,8 @@
-from flask import Response, render_template, make_response
-from json import load
+from flask import Response, render_template, request
+from json import load, loads
 from .server_account_manager import ServerAccountManager
 from .cheat_sheet_manager import CheatSheetManager
+from .cheat_sheet_module import CheatSheet
 
 
 def handle_test(server_account_manager: ServerAccountManager) -> Response:
@@ -33,8 +34,7 @@ def handle_cheat_sheet(
     if cheat_sheet_info == {} or author_username == "":
         return Response("Well uhhhhh", status=404)
 
-    print("cheat_sheet_info", cheat_sheet_info)
-    print("comments", cheat_sheet_info["comments"])
+
     return render_template(
         "cheat_sheet.html",
         title=cheat_sheet_info["title"],
@@ -47,3 +47,13 @@ def handle_cheat_sheet(
         dislikes=cheat_sheet_info["dislikes"],
         comments=cheat_sheet_info["comments"],
     )
+
+
+def handle_create_cheat_sheet(
+    cheat_sheet_manager: CheatSheetManager,
+) -> Response:
+    cheat_sheet_data: dict = loads(request.data)
+    print(cheat_sheet_data)
+    cheat_sheet: CheatSheet = cheat_sheet_manager.create_new_cheat_sheet(cheat_sheet_data)
+    return "RECEIVED"
+    

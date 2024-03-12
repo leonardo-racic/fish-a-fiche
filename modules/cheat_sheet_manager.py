@@ -1,5 +1,6 @@
 from json import loads as load_json, dumps
 from .cheat_sheet_module import CheatSheet
+from .server_account_manager import ServerAccountManager
 
 
 def json_to_cheat_sheet(cheat_sheet_info: dict) -> CheatSheet:
@@ -54,8 +55,33 @@ class CheatSheetManager:
         return cheat_sheet
     
 
+    def update(self) -> None:
+        self.cheat_sheet = read_cheat_sheet_json()
+    
+
     def get_cheat_sheet_info(self, token: str) -> dict:
         cheat_sheet: CheatSheet = self.get_cheat_sheet(token)
         if cheat_sheet is None:
             return {}
         return cheat_sheet.get_info()
+    
+
+    def add_cheat_sheet(self, new_cheat_sheet: CheatSheet) -> None:
+        with open("cheat_sheet.json") as f:
+            cheat_sheet_data: dict = load_json(f.read())
+        cheat_sheet_data["cheat_sheet"][new_cheat_sheet.author_token] = new_cheat_sheet.get_info()
+        with open("cheat_sheet.json", "w") as f:
+            f.write(dumps(cheat_sheet_data, indent=4))
+        self.update()
+
+
+    def create_new_cheat_sheet(self, cheat_sheet_info: dict) -> CheatSheet:
+        new_cheat_sheet: CheatSheet = CheatSheet(
+            cheat_sheet_info["title"],
+            cheat_sheet_info["account_token"],
+            cheat_sheet_info["content"],
+            cheat_sheet_info["context"],
+        )
+        self.add_cheat_sheet(new_cheat_sheet)
+        return new_cheat_sheet
+        

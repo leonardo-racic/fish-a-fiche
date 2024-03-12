@@ -4,11 +4,13 @@ An online website where you can find small cheat-sheets for any subject, theme, 
 This project is realised thanks to GALTIER Maxime, DUCLOS Marc-Antoine, and RAČIĆ Leonardo.
 
 ## Tools for the project
+
 (Check out the venv/virtual environment in order to get the exact version of each module and interpreter)
 - Python language used with the Flask application
 - HTML & CSS (current's project imposed condition)
 
 ## To-do list
+
 - Handle user authentication by hashing, storing account information, and handling the home page according to the user's account status (logged, not connected yet, etc.)
 - Create a HTML website that helps creating cheat-sheets using markdown (or a custom dialect) and that helps previewing the cheat-sheets before publishing
 - Handle user profiles with their own cheat-sheets by displaying their username, description, said localisation, pronouns, languages, user icon, cheat-sheets, their favorite cheat-sheets...
