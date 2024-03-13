@@ -56,10 +56,12 @@ def upload() -> Response:
 @app.route("/create-cheat-sheet", methods=["GET", "POST"])
 def create_cheat_sheet() -> Response:
     if request.method == "GET":
-        return render_template("create_cheat_sheet.html")
+        return render_template(
+            "create_cheat_sheet.html", 
+            logged_in=server_account_manager.is_user_logged_in()
+        )
     elif request.method == "POST":
-        print(request.data, "before handle_create_sheet")
-        return handle_create_cheat_sheet(cheat_sheet_manager)
+        return handle_create_cheat_sheet(cheat_sheet_manager, server_account_manager)
     return "METHOD UNKNOWN"
 
 

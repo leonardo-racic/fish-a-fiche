@@ -147,7 +147,7 @@ class ServerAccountManager:
 
 
     def get_user_account_token(self) -> str:
-        return request.cookies.get("account-token", "x")
+        return request.cookies.get("account-token", "")
 
 
     def get_user_account(self) -> Account:

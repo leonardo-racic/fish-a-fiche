@@ -1,5 +1,5 @@
-from flask import Response, render_template, request
-from json import load, loads
+from flask import Response, render_template, redirect, request
+from json import load
 from .server_account_manager import ServerAccountManager
 from .cheat_sheet_manager import CheatSheetManager
 from .cheat_sheet_module import CheatSheet
@@ -29,7 +29,7 @@ def handle_cheat_sheet(
     token: str
 ) -> Response:
     cheat_sheet_info: dict = cheat_sheet_manager.get_cheat_sheet_info(token)
-    author_token: str = cheat_sheet_info.get("author_token", "")
+    author_token: str = server_account_manager.get_user_account_token()
     author_username: str = server_account_manager.get_current_username_from_token(author_token)
     if cheat_sheet_info == {} or author_username == "":
         return Response("Well uhhhhh", status=404)
@@ -51,9 +51,16 @@ def handle_cheat_sheet(
 
 def handle_create_cheat_sheet(
     cheat_sheet_manager: CheatSheetManager,
+    server_account_manager: ServerAccountManager,
 ) -> Response:
-    cheat_sheet_data: dict = loads(request.data)
+    cheat_sheet_data: dict = dict(request.form)
     print(cheat_sheet_data)
-    cheat_sheet: CheatSheet = cheat_sheet_manager.create_new_cheat_sheet(cheat_sheet_data)
-    return "RECEIVED"
+    if server_account_manager.is_user_logged_in():
+        print("logged in")
+        cheat_sheet_data["author_token"] = server_account_manager.get_user_account_token()
+        cheat_sheet: CheatSheet = cheat_sheet_manager.create_new_cheat_sheet(cheat_sheet_data)
+        return redirect("main")
+    else:
+        print("not logged in")
+        return render_template("create_cheat_sheet.html", logged_in=False)
     
