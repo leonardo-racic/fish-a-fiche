@@ -17,7 +17,12 @@ def main() -> Response:
     account_info: dict = server_account_manager.get_user_account_info()
     logged_in: bool = server_account_manager.is_user_logged_in()
     if logged_in:
-        return render_template("home_page.html", logged_in=logged_in, username=account_info["username"])
+        return render_template(
+            "home_page.html",
+            logged_in=logged_in,
+            username=account_info["username"],
+            token=account_info["id"],
+        )
     else:
         return render_template("home_page.html")
 
@@ -32,9 +37,9 @@ def sign_up() -> Response:
     return handle_sign_up(server_account_manager)
 
 
-@app.route("/profile/<string:username>", methods=["GET"])
-def profile(username: str) -> Response:
-    return handle_profile(server_account_manager, username)
+@app.route("/profile/<string:token>", methods=["GET"])
+def profile(token: str) -> Response:
+    return handle_profile(server_account_manager, token)
 
 
 @app.route("/modify-profile", methods=["POST", "GET"])
@@ -58,7 +63,8 @@ def create_cheat_sheet() -> Response:
     if request.method == "GET":
         return render_template(
             "create_cheat_sheet.html", 
-            logged_in=server_account_manager.is_user_logged_in()
+            logged_in=server_account_manager.is_user_logged_in(),
+            token=server_account_manager.get_user_account_token(),
         )
     elif request.method == "POST":
         return handle_create_cheat_sheet(cheat_sheet_manager, server_account_manager)

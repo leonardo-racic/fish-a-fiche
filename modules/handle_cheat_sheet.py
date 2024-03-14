@@ -59,7 +59,8 @@ def handle_create_cheat_sheet(
         print("logged in")
         cheat_sheet_data["author_token"] = server_account_manager.get_user_account_token()
         cheat_sheet: CheatSheet = cheat_sheet_manager.create_new_cheat_sheet(cheat_sheet_data)
-        return redirect("main")
+        server_account_manager.add_cheat_sheet_to_user(cheat_sheet)
+        return redirect("/")
     else:
         print("not logged in")
         return render_template("create_cheat_sheet.html", logged_in=False)

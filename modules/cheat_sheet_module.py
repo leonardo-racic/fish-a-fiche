@@ -89,6 +89,24 @@ class CheatSheet:
         f.write(self.to_json())
 
 
+def check_then_update(cs: CheatSheet, json_dict: dict, data: str) -> None:
+    if json_dict.get(data):
+        cs.__dict__[data] = json_dict.get(data)
+
+
+def json_to_cheat_sheet(json_dict: dict) -> CheatSheet:
+    new_cs = CheatSheet(
+        json_dict["title"],
+        json_dict["author_token"],
+        json_dict["content"],
+        json_dict["context"],
+    )
+    check_then_update(new_cs, json_dict, "token")
+    check_then_update(new_cs, json_dict, "likes")
+    check_then_update(new_cs, json_dict, "dislikes")
+    check_then_update(new_cs, json_dict, "likes")
+
+
 if __name__ == "__main__":
     cs: CheatSheet = CheatSheet("Volumic mass", "Ado's token", "p=m/V", "for science stuff")
     cs.create_file()

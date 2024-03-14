@@ -125,8 +125,8 @@ def handle_post_modify_profile(server_account_manager: ServerAccountManager) -> 
 
 
 # Display profile
-def handle_profile(server_account_manager: ServerAccountManager, username: str) -> Response:
-    account_info: dict = server_account_manager.get_account_info_by_username(username)
+def handle_profile(server_account_manager: ServerAccountManager, token: str) -> Response:
+    account_info: dict = server_account_manager.get_account_info_by_token(token)
     does_account_exist: bool = account_info != {}
     logged_in: bool = server_account_manager.is_user_logged_in()
     if does_account_exist:
@@ -137,10 +137,8 @@ def handle_profile(server_account_manager: ServerAccountManager, username: str) 
             username=account_info["username"],
             description=account_info["description"],
             profile_picture=account_info["profile_picture"],
-            is_user=bool(account_info["id"] == user_account_info["id"])
+            is_user=bool(account_info["id"] == user_account_info["id"]),
+            cheat_sheet=server_account_manager.get_account_cheat_sheet_info(token)
         ))
-        if username == user_account_info["username"]:
-            user_account_info_bytes: bytes = dict_to_json(user_account_info)
-            response.set_cookie("account-info", user_account_info_bytes)
         return response
     return "that user does not exist"

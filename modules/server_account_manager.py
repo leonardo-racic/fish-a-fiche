@@ -1,6 +1,7 @@
 # The first import module is only to guarantee a secure variable typing.
 from __future__ import annotations
 from .account_module import Account
+from .cheat_sheet_module import CheatSheet
 from json import loads as load_json, dumps as to_json
 from flask import request
 from .terminal_log import inform
@@ -39,6 +40,10 @@ class ServerAccountManager:
         self.accounts: dict = read_accounts_json()
 
 
+    def update(self) -> None:
+        self.accounts = read_accounts_json()
+
+
     def get_all_accounts(self) -> list[Account]:
         return list(self.get_accounts_dict().values())
     
@@ -56,13 +61,21 @@ class ServerAccountManager:
         json_data["accounts"][new_account.get_id()] = new_account.get_info()
         with open("accounts.json", "w") as f:
             f.write(to_json(json_data, indent=4))
-        self.accounts = read_accounts_json()
+        self.update()
         inform(f"Account with id {new_account.get_id()} created successfully.")
         return new_account
 
 
     def get_account_by_token(self, token: str) -> Account:
         return self.get_accounts_dict().get(token, None)
+    
+
+    def get_account_info_by_token(self, token: str) -> dict:
+        account: Account = self.get_account_by_token(token)
+        print(account)
+        i: dict = account.get_info()
+        print(i)
+        return i
     
 
     def delete_account(self, account: Account) -> None:
@@ -72,7 +85,7 @@ class ServerAccountManager:
         json_data.pop(account.get_id())
         with open("accounts.json", "w") as f:
             f.write(to_json(json_data, indent=4))
-        self.accounts = read_accounts_json()
+        self.update()
 
 
     def get_accounts_dict(self) -> dict:
@@ -184,7 +197,26 @@ class ServerAccountManager:
                     break
             with open("accounts.json", "w") as f:
                 f.write(to_json({"accounts": data}, indent=4))
-            self.accounts = read_accounts_json()
+            self.update()
+    
+
+    def add_cheat_sheet_to_user(self, cheat_sheet: CheatSheet) -> None:
+        cheat_sheet_info: dict = cheat_sheet.get_info()
+        with open("accounts.json", "r") as f:
+            json_data: dict = load_json(f.read())
+        json_data["accounts"][cheat_sheet.author_token]["cheat_sheet"].append(cheat_sheet_info)
+        with open("accounts.json", "w") as f:
+            f.write(to_json(json_data, indent=4))
+        self.update()
+
+
+    def get_account_cheat_sheet_info(self, token: str) -> list:
+        c: list = self.get_account_info_by_token(token).get("cheat_sheet", None)
+        print(c)
+        return c
+    
+
+    
 
 
 
