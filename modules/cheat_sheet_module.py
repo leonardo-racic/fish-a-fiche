@@ -105,6 +105,10 @@ def json_to_cheat_sheet(json_dict: dict) -> CheatSheet:
     check_then_update(new_cs, json_dict, "likes")
     check_then_update(new_cs, json_dict, "dislikes")
     check_then_update(new_cs, json_dict, "likes")
+    check_then_update(new_cs, json_dict, "original_lang")
+    check_then_update(new_cs, json_dict, "keywords")
+    check_then_update(new_cs, json_dict, "comments")
+    return new_cs
 
 
 if __name__ == "__main__":
