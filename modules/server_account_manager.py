@@ -74,11 +74,8 @@ class ServerAccountManager:
     
 
     def get_account_info_by_token(self, token: str) -> dict:
-        print("sam, token", token)
         account: Account = self.get_account_by_token(token)
-        print("sam, account", account)
         i: dict = account.get_info()
-        print("sam, i", i)
         return i
     
 
@@ -227,5 +224,10 @@ class ServerAccountManager:
 
 if __name__ == "__main__":
     s: ServerAccountManager = ServerAccountManager()
-    s.create_account("User2332", "€uehfiuzhefoizef")
+    account: Account = s.create_account("Hello", "world")
+    new_cs: CheatSheet = CheatSheet("Hello", "NNN", "za", "xc")
+    new_cs.author_token = account.get_id()
+    s.add_cheat_sheet_to_user(new_cs)
+    print(s.get_account_cheat_sheet_info(account.get_id()))
+    
     

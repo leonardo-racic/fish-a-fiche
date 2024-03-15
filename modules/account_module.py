@@ -1,5 +1,5 @@
 from uuid import uuid4 as get_uuid
-from .cheat_sheet_module import CheatSheet
+from .cheat_sheet_module import CheatSheet, json_to_cheat_sheet
 from typing import List
 
 
@@ -66,7 +66,7 @@ class Account:
     
 
     def get_cheat_sheet(self) -> List[CheatSheet]:
-        return self.cheat_sheet
+        return [json_to_cheat_sheet(cs) for cs in self.cheat_sheet]
     
 
     def get_info(self) -> dict:
