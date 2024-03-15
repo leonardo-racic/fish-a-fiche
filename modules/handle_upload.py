@@ -54,7 +54,6 @@ def handle_upload(server_account_manager: ServerAccountManager):
 
 
 def create_cheat_sheet(server_account_manager: ServerAccountManager):
-    file = request.files['file']
     title = request.form.get("title")
     print("create cs starting")
     author_token = server_account_manager.get_user_account_token()
