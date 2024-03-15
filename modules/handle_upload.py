@@ -4,6 +4,7 @@ from werkzeug.utils import secure_filename
 import os.path
 from .cheat_sheet_module import CheatSheet
 from .server_account_manager import ServerAccountManager
+from .cheat_sheet_manager import CheatSheetManager
 
 
 
@@ -15,7 +16,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 
-
+csm = CheatSheetManager()
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -41,7 +42,7 @@ def handle_upload(server_account_manager: ServerAccountManager):
             new_cs = create_cheat_sheet(server_account_manager)
             print("handle_upload ok")
             new_cs.store_to_index()
-
+            csm.add_cheat_sheet(new_cs)
 
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
@@ -59,7 +60,7 @@ def create_cheat_sheet(server_account_manager: ServerAccountManager):
     print("create cs starting")
     author_token = server_account_manager.get_user_account_token()
     print("create cs ok")
-    content = request.form.get("file")
+    content = read_md("file/loactoin")
     description = request.form.get("description")
     keywords = request.form.get("keywords")
     keywords = keywords.split()
@@ -67,3 +68,7 @@ def create_cheat_sheet(server_account_manager: ServerAccountManager):
     new_cs.keywords = keywords
 
     return new_cs
+
+def read_md(file):
+    with open(file) as md:
+        return md.read()

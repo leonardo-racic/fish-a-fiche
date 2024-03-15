@@ -79,10 +79,6 @@ def create_cheat_sheet() -> Response:
     return "METHOD UNKNOWN"
 
 
-@app.route("/test-cheat-sheet", methods=["GET"])
-def test() -> Response:
-    return handle_test(server_account_manager)
-
 
 @app.route("/cheat-sheet/<string:token>")
 def cheat_sheet(token: str) -> Response:
