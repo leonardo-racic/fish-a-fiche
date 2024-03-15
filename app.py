@@ -12,6 +12,10 @@ server_account_manager: ServerAccountManager = ServerAccountManager()
 cheat_sheet_manager: CheatSheetManager = CheatSheetManager()
 
 
+def sep() -> None:
+    print("-" * 20)
+
+
 @app.route("/")
 def main() -> Response:
     account_info: dict = server_account_manager.get_user_account_info()
@@ -39,7 +43,11 @@ def sign_up() -> Response:
 
 @app.route("/profile/<string:token>", methods=["GET"])
 def profile(token: str) -> Response:
-    return handle_profile(server_account_manager, token)
+    sep()
+    print("profile, token:", token)
+    resp: Response = handle_profile(server_account_manager, token)
+    sep()
+    return resp
 
 
 @app.route("/modify-profile", methods=["POST", "GET"])
@@ -76,7 +84,7 @@ def test() -> Response:
     return handle_test(server_account_manager)
 
 
-@app.route("/cheat-sheet/<token>")
+@app.route("/cheat-sheet/<string:token>")
 def cheat_sheet(token: str) -> Response:
     return handle_cheat_sheet(cheat_sheet_manager, server_account_manager, token)
 

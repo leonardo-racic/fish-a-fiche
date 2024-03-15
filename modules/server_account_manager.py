@@ -25,6 +25,9 @@ def read_accounts_json() -> dict:
                     account_info["description"],
                     token,
                 )
+                for cheat_sheet in account_info["cheat_sheet"]:
+                    new_cheat_sheet: CheatSheet = json_to_cheat_sheet(cheat_sheet)
+                    new_account.add_cheat_sheet(new_cheat_sheet)
                 accounts_dict[token] = new_account
             return accounts_dict
         except Exception:
@@ -71,10 +74,11 @@ class ServerAccountManager:
     
 
     def get_account_info_by_token(self, token: str) -> dict:
+        print("sam, token", token)
         account: Account = self.get_account_by_token(token)
-        print(account)
+        print("sam, account", account)
         i: dict = account.get_info()
-        print(i)
+        print("sam, i", i)
         return i
     
 
@@ -89,7 +93,7 @@ class ServerAccountManager:
 
 
     def get_accounts_dict(self) -> dict:
-        self.accounts = read_accounts_json()
+        self.update()
         return self.accounts
     
 
@@ -153,6 +157,7 @@ class ServerAccountManager:
     
 
     def get_user_account_info(self) -> dict:
+        self.update()
         user_account: Account = self.get_user_account()
         if user_account is None:
             return {}
@@ -212,7 +217,7 @@ class ServerAccountManager:
 
     def get_account_cheat_sheet_info(self, token: str) -> list:
         c: list = self.get_account_info_by_token(token).get("cheat_sheet", None)
-        print(c)
+        print("sam, c", c)
         return c
     
 

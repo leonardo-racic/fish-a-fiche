@@ -1,72 +1,19 @@
 {
     "accounts": {
-        "5dc6bd83-3ae0-4b4e-81ad-a7d70e6e82ae": {
-            "username": "ado",
-            "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-            "description": "Hello world!",
-            "profile_picture": "",
-            "id": "5dc6bd83-3ae0-4b4e-81ad-a7d70e6e82ae",
-            "cheat_sheet": [],
-            "collections": {}
-        },
-        "514df918-ab16-4698-9190-8c5710c1bb48": {
-            "username": "netko",
-            "password": "aa58b21b01d6b8a99c1a5856962dbac36c758a79dc0a77c2e013ce2c39ecdc8a",
+        "caf08581-2b75-475b-802d-70a8f672b152": {
+            "username": "ABC",
+            "password": "967c5a5b7e2fbbe3080a0c5cefea7c279570b16ae8465525538bc3b115267a45",
             "description": "",
             "profile_picture": "",
-            "id": "514df918-ab16-4698-9190-8c5710c1bb48",
-            "cheat_sheet": [],
-            "collections": {}
-        },
-        "d7b245f9-2464-408a-b7f0-2dfdfbb838a7": {
-            "username": "a",
-            "password": "4f9878c2befbaf9834c5c3d6906dba6bc393b4b6462949cf1fea375c093cf778",
-            "description": "",
-            "profile_picture": "",
-            "id": "d7b245f9-2464-408a-b7f0-2dfdfbb838a7",
-            "cheat_sheet": [],
-            "collections": {}
-        },
-        "8acb5252-2021-44d8-9cbd-fe8ecf1a19c7": {
-            "username": "ping",
-            "password": "9795c5ff8937f23526ccb207a5684c1fc94a7854e19c021b39d944e51f5baef2",
-            "description": "",
-            "profile_picture": "",
-            "id": "8acb5252-2021-44d8-9cbd-fe8ecf1a19c7",
+            "id": "caf08581-2b75-475b-802d-70a8f672b152",
             "cheat_sheet": [
                 {
-                    "token": "f0e7d07c-2716-4274-8d08-236736e929bd",
-                    "title": "Prvo",
-                    "author_token": "8acb5252-2021-44d8-9cbd-fe8ecf1a19c7",
-                    "content": "Drugo",
-                    "context": "Cetvrti",
-                    "date": "14/03/2024 - 11:39",
-                    "likes": 0,
-                    "dislikes": 0,
-                    "original_lang": "EN",
-                    "keywords": [],
-                    "comments": {}
-                },
-                {
-                    "token": "f0e7d07c-2716-4274-8d08-236736e929bd",
+                    "token": "91e37327-820b-4cf4-9828-15f2aae30a4e",
                     "title": "Hello",
-                    "author_token": "8acb5252-2021-44d8-9cbd-fe8ecf1a19c7",
-                    "content": "This is wowwww **INCREDIBLE!!!!**",
-                    "context": "yup",
-                    "date": "14/03/2024 - 11:39",
-                    "likes": 0,
-                    "dislikes": 0,
-                    "original_lang": "EN",
-                    "keywords": [],
-                    "comments": {}
-                },
-                {
-                    "token": "25c78929-b0a1-4c0b-a334-67803370858e",
-                    "title": "U",
-                    "author_token": "8acb5252-2021-44d8-9cbd-fe8ecf1a19c7",
-                    "content": "E",
-                    "context": "I",
-                    "date": "14/03/2024 - 11:56",
+                    "author_token": "caf08581-2b75-475b-802d-70a8f672b152",
+                    "content": "world",
+                    "context": "this is me!",
+                    "date": "15/03/2024 - 09:11",
                     "likes": 0,
                     "dislikes": 0,
                     "original_lang": "EN",

@@ -38,6 +38,11 @@ class CheatSheet:
         self.keywords: list[str] = keywords
         self.likes: int = likes
         self.dislikes: int = dislikes
+    
+
+    def __repr__(self) -> str:
+        return f"CheatSheet({self.token})"
+
 
     def get_info(self) -> dict:
         return {
@@ -53,6 +58,7 @@ class CheatSheet:
             "keywords": self.keywords,
             "comments": self.comments
         }
+
 
     def store_to_index(self):
         ix = index.open_dir("index")
@@ -100,14 +106,14 @@ def json_to_cheat_sheet(json_dict: dict) -> CheatSheet:
         json_dict["author_token"],
         json_dict["content"],
         json_dict["context"],
+        json_dict["date"],
+        json_dict["original_lang"],
+        json_dict["comments"],
+        json_dict["likes"],
+        json_dict["dislikes"],
+        json_dict["keywords"],
+        json_dict["token"],
     )
-    check_then_update(new_cs, json_dict, "token")
-    check_then_update(new_cs, json_dict, "likes")
-    check_then_update(new_cs, json_dict, "dislikes")
-    check_then_update(new_cs, json_dict, "likes")
-    check_then_update(new_cs, json_dict, "original_lang")
-    check_then_update(new_cs, json_dict, "keywords")
-    check_then_update(new_cs, json_dict, "comments")
     return new_cs
 
 
