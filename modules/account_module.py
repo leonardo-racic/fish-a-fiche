@@ -65,9 +65,16 @@ class Account:
         return self.collections
     
 
-    def get_cheat_sheet(self) -> List[CheatSheet]:
-        return [json_to_cheat_sheet(cs) for cs in self.cheat_sheet]
+    def get_cheat_sheet(self) -> list:
+        return self.cheat_sheet
     
+
+    def get_cheat_sheet_info(self) -> list:
+        cheat_sheet_info: list = []
+        for cs in self.get_cheat_sheet():
+            cheat_sheet_info.append(cs.to_json())
+        return cheat_sheet_info
+
 
     def get_info(self) -> dict:
         return {
@@ -82,7 +89,8 @@ class Account:
     
 
     def add_cheat_sheet(self, new_cheat_sheet: CheatSheet):
-        self.cheat_sheet.append(new_cheat_sheet)
+        if new_cheat_sheet not in self.cheat_sheet:
+            self.cheat_sheet.append(new_cheat_sheet)
 
 
 if __name__ == "__main__":

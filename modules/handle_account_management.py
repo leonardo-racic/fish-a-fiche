@@ -126,9 +126,10 @@ def handle_post_modify_profile(server_account_manager: ServerAccountManager) -> 
 
 # Display profile
 def handle_profile(server_account_manager: ServerAccountManager, token: str) -> Response:
-    print("handle_profile token", token)
+    print("help")
     account_info: dict = server_account_manager.get_account_info_by_token(token)
-    does_account_exist: bool = account_info != {}
+    print("after account_info")
+    does_account_exist: bool = account_info != {} and account_info is not None
     logged_in: bool = server_account_manager.is_user_logged_in()
     if does_account_exist:
         user_account_info: dict = server_account_manager.get_user_account_info()

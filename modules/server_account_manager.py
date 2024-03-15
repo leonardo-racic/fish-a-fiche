@@ -30,7 +30,8 @@ def read_accounts_json() -> dict:
                     new_account.add_cheat_sheet(new_cheat_sheet)
                 accounts_dict[token] = new_account
             return accounts_dict
-        except Exception:
+        except Exception as err:
+            print(repr(err))
             with open("accounts.json", "w") as f:
                 f.write("{\n    \"accounts\":{}\n}")
             return {}
@@ -70,11 +71,15 @@ class ServerAccountManager:
 
 
     def get_account_by_token(self, token: str) -> Account:
+        print(f"get_account_by_token: {token}")
         return self.get_accounts_dict().get(token, None)
     
 
     def get_account_info_by_token(self, token: str) -> dict:
+        print(f"get_account_info_by_token: {token}")
         account: Account = self.get_account_by_token(token)
+        if account is None:
+            return None
         i: dict = account.get_info()
         return i
     
@@ -90,7 +95,8 @@ class ServerAccountManager:
 
 
     def get_accounts_dict(self) -> dict:
-        self.update()
+        accounts_dict: dict = self.accounts
+        print(accounts_dict)
         return self.accounts
     
 
@@ -154,7 +160,6 @@ class ServerAccountManager:
     
 
     def get_user_account_info(self) -> dict:
-        self.update()
         user_account: Account = self.get_user_account()
         if user_account is None:
             return {}
@@ -213,13 +218,10 @@ class ServerAccountManager:
 
 
     def get_account_cheat_sheet_info(self, token: str) -> list:
-        c: list = self.get_account_info_by_token(token).get("cheat_sheet", None)
-        print("sam, c", c)
+        current_account_info: dict = self.get_account_info_by_token(token)
+        print(current_account_info)
+        c: list = current_account_info.get("cheat_sheet", None)
         return c
-    
-
-    
-
 
 
 if __name__ == "__main__":

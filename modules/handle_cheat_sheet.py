@@ -1,4 +1,4 @@
-from flask import Response, render_template, redirect, request
+from flask import Response, render_template, redirect, url_for, request
 from json import load
 from .server_account_manager import ServerAccountManager
 from .cheat_sheet_manager import CheatSheetManager
@@ -54,14 +54,11 @@ def handle_create_cheat_sheet(
     server_account_manager: ServerAccountManager,
 ) -> Response:
     cheat_sheet_data: dict = dict(request.form)
-    print(cheat_sheet_data)
     if server_account_manager.is_user_logged_in():
-        print("logged in")
         cheat_sheet_data["author_token"] = server_account_manager.get_user_account_token()
         cheat_sheet: CheatSheet = cheat_sheet_manager.create_new_cheat_sheet(cheat_sheet_data)
         server_account_manager.add_cheat_sheet_to_user(cheat_sheet)
-        return redirect("/")
+        return redirect(url_for("main"))
     else:
-        print("not logged in")
         return render_template("create_cheat_sheet.html", logged_in=False)
     

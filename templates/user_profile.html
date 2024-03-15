@@ -64,11 +64,10 @@
                         {% else %}
                             {% for c in cheat_sheet %}
                                 <div class="card">
-                                    <img class="card-img-top" src="...", alt="Card image cap">
                                     <div class="card-body">
                                         <h5 class="card-title">{{c["title"]}}</h5>
                                         <p class="card-text">{{c["context"]}}</p>
-                                        <a href={{"/cheat-sheet" ~ c["token"]}} class="btn btn-primary">Display</a>
+                                        <a href=/cheat-sheet/{{token}} class="btn btn-primary">Display</a>
                                     </div>
                                 </div>
                             {% endfor %}
