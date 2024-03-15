@@ -25,9 +25,11 @@ def read_accounts_json() -> dict:
                     account_info["description"],
                     token,
                 )
-                for cheat_sheet in account_info["cheat_sheet"]:
-                    new_cheat_sheet: CheatSheet = json_to_cheat_sheet(cheat_sheet)
-                    new_account.add_cheat_sheet(new_cheat_sheet)
+                print(len(account_info["cheat_sheet"]))
+                for cheat_sheet_json in account_info["cheat_sheet"]:
+                    print(cheat_sheet_json)
+                    cheat_sheet: CheatSheet = json_to_cheat_sheet(cheat_sheet_json)
+                    new_account.add_cheat_sheet(cheat_sheet)
                 accounts_dict[token] = new_account
             return accounts_dict
         except Exception:
@@ -75,7 +77,10 @@ class ServerAccountManager:
 
     def get_account_info_by_token(self, token: str) -> dict:
         account: Account = self.get_account_by_token(token)
-        i: dict = account.get_info()
+        if account is not None:
+            i: dict = account.get_info()
+        else:
+            i: None = None
         return i
     
 
@@ -213,10 +218,23 @@ class ServerAccountManager:
 
 
     def get_account_cheat_sheet_info(self, token: str) -> list:
-        c: list = self.get_account_info_by_token(token).get("cheat_sheet", None)
-        print("sam, c", c)
+        account_info: dict = self.get_account_info_by_token(token)
+        c: list = account_info.get("cheat_sheet", None)
         return c
     
+
+    def get_account_from_hashed_token(self, hashed_token: str) -> Account:
+        for account in self.get_all_accounts():
+            if get_hash(account.get_id()) == hashed_token:
+                return account
+        return None
+    
+
+    def get_account_info_from_hashed_token(self, hashed_token: str) -> Account:
+        account: Account = self.get_account_from_hashed_token(hashed_token)
+        if account is None:
+            return None
+        return account.get_info()
 
     
 
@@ -228,6 +246,5 @@ if __name__ == "__main__":
     new_cs: CheatSheet = CheatSheet("Hello", "NNN", "za", "xc")
     new_cs.author_token = account.get_id()
     s.add_cheat_sheet_to_user(new_cs)
-    print(s.get_account_cheat_sheet_info(account.get_id()))
-    
+
     

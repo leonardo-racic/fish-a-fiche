@@ -1,6 +1,6 @@
 from flask import Response, render_template, make_response, redirect, url_for, request
 from .account_module import Account
-from .server_account_manager import ServerAccountManager
+from .server_account_manager import ServerAccountManager, get_hash
 from json import dumps as dict_to_json
 
 
@@ -103,32 +103,16 @@ def handle_post_modify_profile(server_account_manager: ServerAccountManager) -> 
     description_input: str = request.form.get("description_input", "")
     username_input: str = request.form.get("username_input", "")
     if server_account_manager.has_account(server_account_manager.get_user_account()):
-        server_account_manager.modify_profile(new_image_input, description_input, username_input)
-        user_account_info_bytes: bytes = dict_to_json(server_account_manager.get_user_account_info())
-        response: Response = make_response(redirect(url_for("profile", username=username_input)))
-        response.set_cookie("account-info", user_account_info_bytes)
-        return response
-    
-
-    user_account_info: dict = server_account_manager.get_user_account_info()
-    logged_in: bool = server_account_manager.is_user_logged_in()
-    return render_template(
-        "user_profile.html",
-        logged_in=logged_in,
-        username=user_account_info["username"],
-        description=user_account_info["description"],
-        profile_picture=user_account_info["profile_picture"],
-        is_user = True,
-    )
+        server_account_manager.modify_profile(new_image_input, description_input, username_input)    
+    return redirect("/")
 
 
 
 
 # Display profile
-def handle_profile(server_account_manager: ServerAccountManager, token: str) -> Response:
-    print("handle_profile token", token)
-    account_info: dict = server_account_manager.get_account_info_by_token(token)
-    does_account_exist: bool = account_info != {}
+def handle_profile(server_account_manager: ServerAccountManager, hashed_token: str) -> Response:
+    account_info: dict = server_account_manager.get_account_info_from_hashed_token(hashed_token)
+    does_account_exist: bool = account_info is not None
     logged_in: bool = server_account_manager.is_user_logged_in()
     if does_account_exist:
         user_account_info: dict = server_account_manager.get_user_account_info()
@@ -139,7 +123,7 @@ def handle_profile(server_account_manager: ServerAccountManager, token: str) -> 
             description=account_info["description"],
             profile_picture=account_info["profile_picture"],
             is_user=bool(account_info["id"] == user_account_info["id"]),
-            cheat_sheet=server_account_manager.get_account_cheat_sheet_info(token)
+            cheat_sheet=server_account_manager.get_account_cheat_sheet_info(account_info["id"])
         ))
         return response
-    return "that user does not exist"
+    return "That account does not exist"

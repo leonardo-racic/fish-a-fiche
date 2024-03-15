@@ -86,7 +86,6 @@ class CheatSheet:
 
     def to_json(self) -> str:
         info: dict = self.get_info()
-        print(info)
         json_str: str = dict_to_json(info, indent=4)
         return json_str
     
@@ -116,6 +115,21 @@ def json_to_cheat_sheet(json_dict: dict) -> CheatSheet:
     )
     return new_cs
 
+
+def cheat_sheet_to_json(cs: CheatSheet) -> dict:
+    return {
+        "title": cs.title,
+        "likes": cs.likes,
+        "author_token": cs.author_token,
+        "token": cs.author_token,
+        "comments": cs.comments,
+        "dislikes": cs.dislikes,
+        "content": cs.content,
+        "context": cs.context,
+        "keywords": cs.keywords,
+        "date": cs.date,
+        "original_lang": cs.original_lang,
+    }
 
 if __name__ == "__main__":
     cs: CheatSheet = CheatSheet("Volumic mass", "Ado's token", "p=m/V", "for science stuff")

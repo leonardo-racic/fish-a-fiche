@@ -1,6 +1,22 @@
 from uuid import uuid4 as get_uuid
-from .cheat_sheet_module import CheatSheet, json_to_cheat_sheet
+from .cheat_sheet_module import CheatSheet
 from typing import List
+
+
+def cheat_sheet_to_json(cs: CheatSheet) -> dict:
+    return {
+        "title": cs.title,
+        "likes": cs.likes,
+        "author_token": cs.author_token,
+        "token": cs.author_token,
+        "comments": cs.comments,
+        "dislikes": cs.dislikes,
+        "content": cs.content,
+        "context": cs.context,
+        "keywords": cs.keywords,
+        "date": cs.date,
+        "original_lang": cs.original_lang,
+    }
 
 
 class Account:
@@ -65,8 +81,11 @@ class Account:
         return self.collections
     
 
-    def get_cheat_sheet(self) -> List[CheatSheet]:
-        return [json_to_cheat_sheet(cs) for cs in self.cheat_sheet]
+    def get_cheat_sheet_json(self) -> list:
+        cheat_sheet: list = []
+        for cs in self.cheat_sheet:
+            cheat_sheet.append(cheat_sheet_to_json(cs))
+        return cheat_sheet
     
 
     def get_info(self) -> dict:
@@ -76,7 +95,7 @@ class Account:
             "description": self.get_description(),
             "profile_picture": self.get_profile_picture(),
             "id": self.get_id(),
-            "cheat_sheet": self.get_cheat_sheet(),
+            "cheat_sheet": self.get_cheat_sheet_json(),
             "collections": self.get_collections(),
         }
     
@@ -88,5 +107,3 @@ class Account:
 if __name__ == "__main__":
     account: Account = Account("test", "test")
     input_password: str = "test"
-    print(account)
-    print(account.check_password(input_password))
