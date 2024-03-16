@@ -28,3 +28,5 @@ This project is realised thanks to GALTIER Maxime, DUCLOS Marc-Antoine, and RAČ
  ## bug fixing
 
 when you save your profile, you are redirected to /profile/username instead of /profile/usertoken
+
+token leak: whean viewing the profile of someone his token is leaked throught the url
