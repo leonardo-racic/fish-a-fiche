@@ -25,9 +25,13 @@ def read_accounts_json() -> dict:
                     account_info["description"],
                     token,
                 )
-                for cheat_sheet in account_info["cheat_sheet"]:
-                    new_cheat_sheet: CheatSheet = json_to_cheat_sheet(cheat_sheet)
-                    new_account.add_cheat_sheet(new_cheat_sheet)
+                account_cheat_sheet: list = account_info.get("cheat_sheet")
+                if len(account_cheat_sheet) == 0:
+                    new_account.cheat_sheet = []
+                else:
+                    for cheat_sheet in account_cheat_sheet:
+                        new_cheat_sheet: CheatSheet = json_to_cheat_sheet(cheat_sheet)
+                        new_account.add_cheat_sheet(new_cheat_sheet)
                 accounts_dict[token] = new_account
             return accounts_dict
         except Exception as err:
@@ -41,11 +45,10 @@ def read_accounts_json() -> dict:
 
 class ServerAccountManager:
     def __init__(self) -> None:
-        self.accounts: dict = read_accounts_json()
-
-
+        self.update()
+    
     def update(self) -> None:
-        self.accounts = read_accounts_json()
+        self.accounts: dict = read_accounts_json()
 
 
     def get_all_accounts(self) -> list[Account]:
