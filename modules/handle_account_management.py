@@ -1,6 +1,6 @@
 from flask import Response, render_template, make_response, redirect, url_for, request
 from .account_module import Account
-from .server_account_manager import ServerAccountManager
+from .server_account_manager import ServerAccountManager, get_hash
 from json import dumps as dict_to_json
 
 
@@ -139,6 +139,7 @@ def handle_profile(server_account_manager: ServerAccountManager, hashed_token: s
             profile_picture=account_info["profile_picture"],
             is_user=bool(account_info["id"] == user_account_info["id"]),
             cheat_sheet=account_info["cheat_sheet"],
+            token=get_hash(user_account_info["id"]),
         ))
         return response
     return "that user does not exist"

@@ -39,6 +39,7 @@ def handle_cheat_sheet(
         "cheat_sheet.html",
         title=cheat_sheet_info["title"],
         author_username=author_username,
+        author_hashed_token=get_hash(author_token),
         token=get_hash(server_account_manager.get_user_account_token()),
         cheat_sheet_token=token,
         is_user_author=server_account_manager.get_user_account_token() == cheat_sheet_info["author_token"],
