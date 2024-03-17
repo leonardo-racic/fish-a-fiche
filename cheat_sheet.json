@@ -218,6 +218,19 @@
             "original_lang": "EN",
             "keywords": [],
             "comments": {}
+        },
+        "0e1632c8-346c-4a5f-81aa-6dd26ac6b386": {
+            "token": "0e1632c8-346c-4a5f-81aa-6dd26ac6b386",
+            "title": "Mecanic energy",
+            "author_token": "73ef8f40-51c3-40ad-b439-94d1b50fb45a",
+            "content": "$\\text{So basically mecanic energy is the sum of kinetic and gravitational energy, as such : }$\r\n$E_m=E_c+E_g$",
+            "context": "Short summary",
+            "date": "17/03/2024 - 12:36",
+            "likes": 0,
+            "dislikes": 0,
+            "original_lang": "EN",
+            "keywords": [],
+            "comments": {}
         }
     }
 }

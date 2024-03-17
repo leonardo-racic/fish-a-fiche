@@ -83,7 +83,7 @@ class Account:
             "description": self.get_description(),
             "profile_picture": self.get_profile_picture(),
             "id": self.get_id(),
-            "cheat_sheet": self.get_cheat_sheet(),
+            "cheat_sheet": self.get_cheat_sheet_info(),
             "collections": self.get_collections(),
         }
     
@@ -96,5 +96,3 @@ class Account:
 if __name__ == "__main__":
     account: Account = Account("test", "test")
     input_password: str = "test"
-    print(account)
-    print(account.check_password(input_password))

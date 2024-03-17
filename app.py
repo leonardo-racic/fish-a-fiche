@@ -1,5 +1,5 @@
 from flask import Flask, Response, render_template, request
-from modules.server_account_manager import ServerAccountManager
+from modules.server_account_manager import ServerAccountManager, get_hash
 from modules.cheat_sheet_manager import CheatSheetManager
 from modules.handle_account_management import handle_login, handle_sign_up, handle_sign_out, handle_modify_profile, handle_profile
 from modules.handle_cheat_sheet import handle_cheat_sheet, handle_test, handle_create_cheat_sheet
@@ -21,7 +21,7 @@ def main() -> Response:
             "home_page.html",
             logged_in=logged_in,
             username=account_info["username"],
-            token=account_info["id"],
+            token=get_hash(account_info["id"]),
         )
     else:
         return render_template("home_page.html")
@@ -37,9 +37,9 @@ def sign_up() -> Response:
     return handle_sign_up(server_account_manager)
 
 
-@app.route("/profile/<string:token>", methods=["GET"])
-def profile(token: str) -> Response:
-    return handle_profile(server_account_manager, token)
+@app.route("/profile/<string:hashed_token>", methods=["GET"])
+def profile(hashed_token: str) -> Response:
+    return handle_profile(server_account_manager, hashed_token)
 
 
 @app.route("/modify-profile", methods=["POST", "GET"])

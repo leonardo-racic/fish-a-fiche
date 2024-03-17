@@ -1,45 +1,19 @@
 {
     "accounts": {
-        "2f21fa9c-b452-4995-a762-41dd70df41f9": {
-            "username": "cherry",
-            "password": "dc9c5edb8b2d479e697b4b0b8ab874f32b325138598ce9e7b759eb8292110622",
+        "73ef8f40-51c3-40ad-b439-94d1b50fb45a": {
+            "username": "new",
+            "password": "04f8996da763b7a969b1028ee3007569eaf3a635486ddab211d512c85b9df8fb",
             "description": "",
             "profile_picture": "",
-            "id": "2f21fa9c-b452-4995-a762-41dd70df41f9",
+            "id": "73ef8f40-51c3-40ad-b439-94d1b50fb45a",
             "cheat_sheet": [
                 {
-                    "token": "9e2a4585-dc5e-4623-a714-6bb62509a770",
-                    "title": "p",
-                    "author_token": "2f21fa9c-b452-4995-a762-41dd70df41f9",
-                    "content": "i",
-                    "context": "d",
-                    "date": "15/03/2024 - 22:54",
-                    "likes": 0,
-                    "dislikes": 0,
-                    "original_lang": "EN",
-                    "keywords": [],
-                    "comments": {}
-                },
-                {
-                    "token": "9d94957f-396f-4e1f-9f97-37bfef1832ea",
-                    "title": "How",
-                    "author_token": "2f21fa9c-b452-4995-a762-41dd70df41f9",
-                    "content": "Bj",
-                    "context": "Ksd",
-                    "date": "15/03/2024 - 23:12",
-                    "likes": 0,
-                    "dislikes": 0,
-                    "original_lang": "EN",
-                    "keywords": [],
-                    "comments": {}
-                },
-                {
-                    "token": "9d94957f-396f-4e1f-9f97-37bfef1832ea",
-                    "title": "az",
-                    "author_token": "2f21fa9c-b452-4995-a762-41dd70df41f9",
-                    "content": "a",
-                    "context": "bv",
-                    "date": "15/03/2024 - 23:12",
+                    "token": "0e1632c8-346c-4a5f-81aa-6dd26ac6b386",
+                    "title": "Mecanic energy",
+                    "author_token": "73ef8f40-51c3-40ad-b439-94d1b50fb45a",
+                    "content": "$\\text{So basically mecanic energy is the sum of kinetic and gravitational energy, as such : }$\r\n$E_m=E_c+E_g$",
+                    "context": "Short summary",
+                    "date": "17/03/2024 - 12:36",
                     "likes": 0,
                     "dislikes": 0,
                     "original_lang": "EN",

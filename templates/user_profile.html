@@ -27,7 +27,7 @@
                     <a href="/sign-out">
                         <button class="btn btn-outline-primary me-2">Sign-out</button>
                     </a>
-                    <a href="/profile">
+                    <a>
                         <button class="btn btn-secondary me-2">Profile</button>
                     </a>
                 {% endif %}
@@ -55,12 +55,13 @@
                     </div>
                 </div>
             </div>
-            <div class="card">
+            <div class="card mb-2">
                 <div class="card-body">
                     <div class="d-flex flex-column align-items-center text-center">
                         <h4>{{"My public cheat-sheets" if is_user else "Their public cheat-sheets"}}</h4>
                         {% if cheat_sheet == [] %}
                             <small class="text-muted">No personally made cheat sheet yet...</small>
+                            <a href="/create-cheat-sheet" class="btn btn-primary">Create new cheat sheet</a>
                         {% else %}
                             {% for c in cheat_sheet %}
                                 <div class="card">
