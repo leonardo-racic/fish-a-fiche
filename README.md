@@ -18,15 +18,11 @@ This project is realised thanks to GALTIER Maxime, DUCLOS Marc-Antoine, and RAČ
 - Handle Cheat-Sheet Posts (CSP) in which there is the rendered version of the cheat-sheet, that people can eventually like, favorite, comment and discuss under it (or on an extract if possible).
 - Documentations for each file employed in the project
   
-  
-
 ## Dependencies
 
 - Flask, and its own dependencies (Jinja...)
 - Python 3, including venv
 
- ## bug fixing
+## Bug fixing
 
-when you save your profile, you are redirected to /profile/username instead of /profile/usertoken
-
-token leak: whean viewing the profile of someone his token is leaked throught the url
+In case you have found any bug that has not been fixed yet, please report them in the issue section of the github repository.
