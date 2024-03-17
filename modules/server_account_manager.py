@@ -30,7 +30,8 @@ def read_accounts_json() -> dict:
                     new_account.add_cheat_sheet(new_cheat_sheet)
                 accounts_dict[token] = new_account
             return accounts_dict
-        except Exception:
+        except Exception as err:
+            print(repr(err))
             with open("accounts.json", "w") as f:
                 f.write("{\n    \"accounts\":{}\n}")
             return {}

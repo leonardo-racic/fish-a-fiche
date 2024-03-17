@@ -16,19 +16,19 @@
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                 <a href="/cheet-sheet-market" class="nav-link px-2 link-dark">Cheat-Sheet Market</a>
                 <a href="/" class="nav-link px-2 link-dark">Home</a>
-                {% if not logged_in %}
+                {% if logged_in %}
+                    <a href="/sign-out">
+                        <button class="btn btn-outline-primary me-2">Sign-out</button>
+                    </a>
+                    <a href="/profile/{{token}}">
+                        <button class="btn btn-secondary me-2">Profile</button>
+                    </a>
+                {% else %}
                     <a href="/login">
                         <button class="btn btn-outline-primary me-2">Login</button>
                     </a>
                     <a href="/sign-up">
                         <button class="btn btn-primary">Sign-up</button>
-                    </a>
-                {% else %}
-                    <a href="/sign-out">
-                        <button class="btn btn-outline-primary me-2">Sign-out</button>
-                    </a>
-                    <a>
-                        <button class="btn btn-secondary me-2">Profile</button>
                     </a>
                 {% endif %}
             </ul>
@@ -63,15 +63,17 @@
                             <small class="text-muted">No personally made cheat sheet yet...</small>
                             <a href="/create-cheat-sheet" class="btn btn-primary">Create new cheat sheet</a>
                         {% else %}
-                            {% for c in cheat_sheet %}
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{c["title"]}}</h5>
-                                        <p class="card-text">{{c["context"]}}</p>
-                                        <a href=/cheat-sheet/{{token}} class="btn btn-primary">Display</a>
+                            <div class="row">
+                                {% for c in cheat_sheet %}
+                                    <div class="card col">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{c["title"]}}</h5>
+                                            <p class="card-text">{{c["context"]}}</p>
+                                            <a href=/cheat-sheet/{{c["token"]}} class="btn btn-primary">Display</a>
+                                        </div>
                                     </div>
-                                </div>
-                            {% endfor %}
+                                {% endfor %}
+                            </div>
                         {% endif %}
                     </div>
                 </div>

@@ -86,7 +86,6 @@ class CheatSheet:
 
     def to_json(self) -> str:
         info: dict = self.get_info()
-        print(info)
         json_str: str = dict_to_json(info, indent=4)
         return json_str
     

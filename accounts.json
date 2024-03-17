@@ -1,19 +1,19 @@
 {
     "accounts": {
-        "73ef8f40-51c3-40ad-b439-94d1b50fb45a": {
-            "username": "new",
-            "password": "04f8996da763b7a969b1028ee3007569eaf3a635486ddab211d512c85b9df8fb",
+        "cea94ce3-b012-4fce-80fa-8b4c3948e592": {
+            "username": "physics",
+            "password": "de0152f952776f09f537d309f1f3f0ec7369c8df1297071e946952f798c86063",
             "description": "",
             "profile_picture": "",
-            "id": "73ef8f40-51c3-40ad-b439-94d1b50fb45a",
+            "id": "cea94ce3-b012-4fce-80fa-8b4c3948e592",
             "cheat_sheet": [
                 {
-                    "token": "0e1632c8-346c-4a5f-81aa-6dd26ac6b386",
-                    "title": "Mecanic energy",
-                    "author_token": "73ef8f40-51c3-40ad-b439-94d1b50fb45a",
-                    "content": "$\\text{So basically mecanic energy is the sum of kinetic and gravitational energy, as such : }$\r\n$E_m=E_c+E_g$",
-                    "context": "Short summary",
-                    "date": "17/03/2024 - 12:36",
+                    "token": "7b3136f7-3b4d-4c53-842f-68837d1c4d89",
+                    "title": "Kinetic energy theorem",
+                    "author_token": "cea94ce3-b012-4fce-80fa-8b4c3948e592",
+                    "content": "$\\text{Basically the theorem goes as follows:}$\r\n$\\Delta E_m=\\sum W_{AB}(\\overrightarrow{F})\r\n",
+                    "context": "useful for physics",
+                    "date": "17/03/2024 - 12:57",
                     "likes": 0,
                     "dislikes": 0,
                     "original_lang": "EN",

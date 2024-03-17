@@ -19,7 +19,7 @@ class Account:
         self.password: str = password # keep in mind that the password is hashed before being passed.
         self.profile_picture: str = profile_picture
         self.description: str = description
-        self.cheat_sheet: List[CheatSheet] = cheat_sheet
+        self.cheat_sheet: list[CheatSheet] = cheat_sheet
         self.collections: list = collections
 
 
@@ -72,7 +72,7 @@ class Account:
     def get_cheat_sheet_info(self) -> list:
         cheat_sheet_info: list = []
         for cs in self.get_cheat_sheet():
-            cheat_sheet_info.append(cs.to_json())
+            cheat_sheet_info.append(cs.get_info())
         return cheat_sheet_info
 
 
