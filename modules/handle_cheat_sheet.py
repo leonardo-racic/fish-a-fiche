@@ -40,6 +40,8 @@ def handle_cheat_sheet(
         title=cheat_sheet_info["title"],
         author_username=author_username,
         token=get_hash(server_account_manager.get_user_account_token()),
+        cheat_sheet_token=token,
+        is_user_author=server_account_manager.get_user_account_token() == cheat_sheet_info["author_token"],
         logged_in=server_account_manager.is_user_logged_in(),
         context=cheat_sheet_info["context"],
         content=cheat_sheet_info["content"],
@@ -62,4 +64,26 @@ def handle_create_cheat_sheet(
         return redirect(url_for("main"))
     else:
         return render_template("create_cheat_sheet.html", logged_in=False)
-    
+
+
+def handle_modify_cheat_sheet(
+    cheat_sheet_manager: CheatSheetManager,
+    server_account_manager: ServerAccountManager,
+    token: str
+) -> Response:
+    cheat_sheet: CheatSheet = cheat_sheet_manager.get_cheat_sheet(token)
+    if cheat_sheet is None:
+        return Response(f"CheatSheet({token}) does not exist.", status=404)
+    if request.method == "POST":
+        new_cheat_sheet_info: dict = dict(request.form)
+        cheat_sheet_manager.modify_cheat_sheet(token, new_cheat_sheet_info)
+        return redirect(url_for("main"))
+    elif request.method == "GET":
+        return render_template(
+            "modify_cheat_sheet.html",
+            logged_in=server_account_manager.is_user_logged_in(),
+            token=server_account_manager.get_user_account_token(),
+            old_cheat_sheet=cheat_sheet.get_info()
+        )
+
+    return "not done yet"

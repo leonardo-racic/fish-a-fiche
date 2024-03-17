@@ -2,9 +2,9 @@
     "cheat_sheet": {
         "7b3136f7-3b4d-4c53-842f-68837d1c4d89": {
             "token": "7b3136f7-3b4d-4c53-842f-68837d1c4d89",
-            "title": "Kinetic energy theorem",
+            "title": "Kinetic",
             "author_token": "cea94ce3-b012-4fce-80fa-8b4c3948e592",
-            "content": "$\\Delta E_c = \\sum W_{AB}(\\overrightarrow{F})$",
+            "content": "$\\Delta E_c = \\sum W_{AB}(\\overrightarrow{F})$\r\nThis will work?",
             "context": "useful for physics",
             "date": "17/03/2024 - 12:57",
             "likes": 0,

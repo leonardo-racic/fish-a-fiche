@@ -83,7 +83,17 @@
                 <button type="button", class="btn btn-primary">Report</button>
             </div>
             <div class="col">
-                <button type="button", class="btn btn-outline-primaryc">Options</button>
+                <button
+                    class="btn btn-outline-primary dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                >Options</button>
+                <ul class="dropdown-menu">
+                    {% if is_user_author %}
+                        <li><a href="/modify-cheat-sheet/{{cheat_sheet_token}}" class="dropdown-item">Edit</a></li>
+                    {% endif %}
+                    <li><a href="#" class="dropdown-item">Save cheat sheet</a></li>
+                </ul>
             </div>
         </div>
         <div class="card">

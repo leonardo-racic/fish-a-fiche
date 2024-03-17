@@ -24,6 +24,8 @@ def json_to_cheat_sheet(cheat_sheet_info: dict) -> CheatSheet:
         new_cheat_sheet.original_lang = cheat_sheet_info["original_lang"]
     if cheat_sheet_info.get("comments"):
         new_cheat_sheet.comments = cheat_sheet_info["comments"]
+    if cheat_sheet_info.get("token"):
+        new_cheat_sheet.token = cheat_sheet_info["token"]
 
 
     return new_cheat_sheet
@@ -37,7 +39,8 @@ def read_cheat_sheet_json() -> dict:
             for token, cheat_sheet_info in cheat_sheet_json.items():
                 new_cheat_sheet: CheatSheet = json_to_cheat_sheet(cheat_sheet_info)
                 cheat_sheet_dict[token] = new_cheat_sheet
-        except Exception as e:
+        except Exception as err:
+            print(repr(err))
             with open("cheat_sheet.json", "w") as f:
                 f.write(dumps({"cheat_sheet":{}}, indent=4))
         finally:
@@ -84,4 +87,15 @@ class CheatSheetManager:
         )
         self.add_cheat_sheet(new_cheat_sheet)
         return new_cheat_sheet
+    
+
+    def modify_cheat_sheet(self, token: str, new_cheat_sheet_info: dict) -> None:
+        with open("cheat_sheet.json") as f:
+            cheat_sheet_data: dict = load_json(f.read())
+        cheat_sheet_data["cheat_sheet"][token]["title"] = new_cheat_sheet_info["title"]
+        cheat_sheet_data["cheat_sheet"][token]["content"] = new_cheat_sheet_info["content"]
+        cheat_sheet_data["cheat_sheet"][token]["context"] = new_cheat_sheet_info["context"]
+        with open("cheat_sheet.json", "w") as f:
+            f.write(dumps(cheat_sheet_data, indent=4))
+        self.update()
         
