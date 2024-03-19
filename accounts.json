@@ -31,6 +31,74 @@
             "id": "f29ddedf-d33e-4319-965e-2a89f10dc77c",
             "cheat_sheet": [],
             "collections": {}
+        },
+        "527751a5-0197-408c-9f30-d2839205dd4b": {
+            "username": "power",
+            "password": "07d715edb696fb5f628f7298e5d7217ed4d2bdfc5347a1c55fee30832267f21d",
+            "description": "",
+            "profile_picture": "",
+            "id": "527751a5-0197-408c-9f30-d2839205dd4b",
+            "cheat_sheet": [
+                {
+                    "token": "7b3136f7-3b4d-4c53-842f-68837d1c4d89",
+                    "title": "Kinetic energy theorem",
+                    "author_token": "cea94ce3-b012-4fce-80fa-8b4c3948e592",
+                    "content": "$\\text{Basically the theorem goes as follows:}$\r\n$\\Delta E_m=\\sum W_{AB}(\\overrightarrow{F})\r\n",
+                    "context": "useful for physics",
+                    "date": "17/03/2024 - 12:57",
+                    "likes": 0,
+                    "dislikes": 0,
+                    "original_lang": "EN",
+                    "keywords": [],
+                    "comments": {}
+                }
+            ],
+            "collections": {}
+        },
+        "1171ff30-a18e-41c2-8742-e920c602ab5e": {
+            "username": "new",
+            "password": "04f8996da763b7a969b1028ee3007569eaf3a635486ddab211d512c85b9df8fb",
+            "description": "",
+            "profile_picture": "",
+            "id": "1171ff30-a18e-41c2-8742-e920c602ab5e",
+            "cheat_sheet": [
+                {
+                    "token": "7b3136f7-3b4d-4c53-842f-68837d1c4d89",
+                    "title": "Kinetic energy theorem",
+                    "author_token": "cea94ce3-b012-4fce-80fa-8b4c3948e592",
+                    "content": "$\\text{Basically the theorem goes as follows:}$\r\n$\\Delta E_m=\\sum W_{AB}(\\overrightarrow{F})\r\n",
+                    "context": "useful for physics",
+                    "date": "17/03/2024 - 12:57",
+                    "likes": 0,
+                    "dislikes": 0,
+                    "original_lang": "EN",
+                    "keywords": [],
+                    "comments": {}
+                },
+                {
+                    "token": "7b3136f7-3b4d-4c53-842f-68837d1c4d89",
+                    "title": "Kinetic energy theorem",
+                    "author_token": "cea94ce3-b012-4fce-80fa-8b4c3948e592",
+                    "content": "$\\text{Basically the theorem goes as follows:}$\r\n$\\Delta E_m=\\sum W_{AB}(\\overrightarrow{F})\r\n",
+                    "context": "useful for physics",
+                    "date": "17/03/2024 - 12:57",
+                    "likes": 0,
+                    "dislikes": 0,
+                    "original_lang": "EN",
+                    "keywords": [],
+                    "comments": {}
+                }
+            ],
+            "collections": {}
+        },
+        "2d06403e-44f7-439b-b21f-5463ee5738a9": {
+            "username": "nee",
+            "password": "5b4412d8fe0dc5095a5d241531c2261dcdc9ab4f09bfb1899a735667824cf445",
+            "description": "",
+            "profile_picture": "",
+            "id": "2d06403e-44f7-439b-b21f-5463ee5738a9",
+            "cheat_sheet": [],
+            "collections": {}
         }
     }
 }
