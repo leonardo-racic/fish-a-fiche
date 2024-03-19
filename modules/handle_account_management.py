@@ -104,22 +104,11 @@ def handle_post_modify_profile(server_account_manager: ServerAccountManager) -> 
     username_input: str = request.form.get("username_input", "")
     if server_account_manager.has_account(server_account_manager.get_user_account()):
         server_account_manager.modify_profile(new_image_input, description_input, username_input)
-        user_account_info_bytes: bytes = dict_to_json(server_account_manager.get_user_account_info())
         response: Response = make_response(redirect(url_for("profile", username=username_input)))
-        response.set_cookie("account-info", user_account_info_bytes)
         return response
     
-
-    user_account_info: dict = server_account_manager.get_user_account_info()
-    logged_in: bool = server_account_manager.is_user_logged_in()
-    return render_template(
-        "user_profile.html",
-        logged_in=logged_in,
-        username=user_account_info["username"],
-        description=user_account_info["description"],
-        profile_picture=user_account_info["profile_picture"],
-        is_user = True,
-    )
+    
+    return redirect("/")
 
 
 

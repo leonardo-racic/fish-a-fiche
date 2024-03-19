@@ -3,7 +3,7 @@ from flask import Flask, flash, request, redirect, render_template
 from werkzeug.utils import secure_filename
 import os.path
 from .cheat_sheet_module import CheatSheet
-from .server_account_manager import ServerAccountManager
+from .server_account_manager import ServerAccountManager, get_hash
 from .cheat_sheet_manager import CheatSheetManager
 
 
@@ -60,7 +60,7 @@ def handle_upload(server_account_manager: ServerAccountManager):
     
     logged_in: bool = server_account_manager.is_user_logged_in()
     print(logged_in)
-    return render_template('upload.html',logged_in=logged_in)
+    return render_template('upload.html',logged_in=logged_in, token=get_hash(server_account_manager.get_user_account_token()))
 
 
 def create_cheat_sheet(server_account_manager: ServerAccountManager):
