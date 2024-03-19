@@ -1,72 +1,38 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <!-- titre de la page affiché à l'utilisateur-->
-        <title>Cheat Sheet Upload Panel</title>
-        <!-- mise en forme de la page afin d'avoir de grand espace d'entrée pour que l'utilisateur voit ce qu'il écrit-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    </head>
-    <!-- contenu de la page en elle-même-->
-    <body>
-        <!-- ouverture formulaire à remplir par le créateur de la fiche, permet de le récupérer rapidement-->
-        
-        <div class="container">
-            <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                    <a href="/cheat-sheet-market" class="nav-link px-2 link-dark">Cheat-Sheet Market</a>
-                    <a href="#" class="nav-link px-2 link-secondary">Home</a>
-                    {% if not logged_in %}
-                        <a href="/login">
-                            <button class="btn btn-outline-primary me-2">Login</button>
-                        </a>
-                        <a href="/sign-up">
-                            <button class="btn btn-primary">Sign-up</button>
-                        </a>
-                    {% else %}
-                        <a href="/sign-out">
-                            <button class="btn btn-outline-primary me-2">Sign-out</button>
-                        </a>
-                        <a href="/profile/{{token}}">
-                            <button class="btn btn-primary me-2">Profile</button>
-                        </a>
-                    {% endif %}
-                </ul>
-            </header>
-            <form method="post" enctype=multipart/form-data>
+{% extends "base.html" %}
+
+
+{% block body %}
+    <div class="container">
+        <form method="post" enctype=multipart/form-data>
                 
-                <input type= "file" name= "file" class="btn btn-outline-primary me-2">
+            <input type= "file" name= "file" class="btn btn-outline-primary me-2">
 
-                <!-- nom de la fiche de révision-->
-                <div class="form-group">
-                    <label for="title-input">Cheat sheet's title</label>
-                    <input class="form-control" type="text" id="title-input" name="title" autocomplete="off">
+            <!-- nom de la fiche de révision-->
+            <div class="form-group">
+                <label for="title-input">Cheat sheet's title</label>
+                <input class="form-control" type="text" id="title-input" name="title" autocomplete="off">
+            </div>
+
+
+            <!-- commentaire du créateur de la fiche à propos de sa fiche-->
+            <div class="form-group mb-4">
+                <label for="comment-input">Cheat sheet's description</label>
+                <textarea class="form-control" id="context-input" name = "description" autocomplete="off"></textarea>
+            </div>
+
+
+            <div class="form-group mb-4">
+                <label for="comment-input">Cheat sheet's keywords</label>
+                <textarea class="form-control" id="context-input" name ="keywords" autocomplete="off"></textarea>
+            </div>
+            
+            <!-- bouton permettant à l'utilisateur de sauvegarder son travail et donc mettre sa fiche en ligne-->
+            <button class="btn btn-primary" value=Upload type="submit">Upload cheat sheet</button>
+            {% if not logged_in %}
+                <div class="alert alert-warning">
+                    You have to <strong>log in</strong> to upload! 
                 </div>
-
-
-                <!-- commentaire du créateur de la fiche à propos de sa fiche-->
-                <div class="form-group mb-4">
-                    <label for="comment-input">Cheat sheet's description</label>
-                    <textarea class="form-control" id="context-input" name = "description" autocomplete="off"></textarea>
-                </div>
-
-
-                <div class="form-group mb-4">
-                    <label for="comment-input">Cheat sheet's keywords</label>
-                    <textarea class="form-control" id="context-input" name ="keywords" autocomplete="off"></textarea>
-                </div>
-                
-                <!-- bouton permettant à l'utilisateur de sauvegarder son travail et donc mettre sa fiche en ligne-->
-                <button class="btn btn-primary" value=Upload type="submit">Upload cheat sheet</button>
-                {% if not logged_in %}
-                    <div class="alert alert-warning">
-                        You have to <strong>log in</strong> to upload! 
-                    </div>
-                {% endif %}
-            </form>
-        </div>
-
-
-        
-    </body>
-</html>
+            {% endif %}
+        </form>
+    </div>
+{% endblock %}

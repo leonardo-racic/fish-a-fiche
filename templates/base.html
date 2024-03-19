@@ -1,6 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
+{% block base %}
+    <!DOCTYPE html>
+    <html lang="en">
+{% endblock %}
 
 <head>
     {% block head %}
@@ -29,39 +30,31 @@
 </head>
 <body>
     {% block header %}
-        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <a href="/cheet-sheet-market" class="nav-link px-2 link-dark">Cheat-Sheet Market</a>
-                <a href="#" class="nav-link px-2 link-secondary">Home</a>
-                {% if not logged_in %}
-                    <a href="/login">
-                        <button class="btn btn-outline-primary me-2">Login</button>
-                    </a>
-                    <a href="/sign-up">
-                        <button class="btn btn-primary">Sign-up</button>
-                    </a>
-                {% else %}
-
-
-                    <a href="/sign-out">
-                        <button class="btn btn-outline-primary me-2">Sign-out</button>
-                    </a>
-                    <a href="/profile/{{token}}">
-                        <button class="btn btn-primary me-2">Profile</button>
-                    </a>
-
-
-                    <a href="/upload">
-                        <button class="btn btn-outline-primary me-2">Upload</button>
-                    </a>
-                    <a href="/create-cheat-sheet">
-                        <button class="btn btn-outline-primary me-2">Create</button>
-                    </a>
-
-                {% endif %}
-            </ul>
-        </header>
+        <div class="container">
+            <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                    <a href="/cheat-sheet-market" class="nav-link px-2 link-dark">Cheat-Sheet Market</a>
+                    <a href="/" class="nav-link px-2 link-secondary">Home</a>
+                    {% if not logged_in %}
+                        <a href="/login">
+                            <button class="btn btn-outline-primary me-2">Login</button>
+                        </a>
+                        <a href="/sign-up">
+                            <button class="btn btn-primary">Sign-up</button>
+                        </a>
+                    {% else %}
+                        <a href="/sign-out">
+                            <button class="btn btn-outline-primary me-2">Sign-out</button>
+                        </a>
+                        <a href="/profile/{{token}}">
+                            <button class="btn btn-primary me-2">Profile</button>
+                        </a>
+                    {% endif %}
+                </ul>
+            </header>
+        </div>
     {% endblock %}
-    {% block body %}
-    {% endblock %}
+    
+    
+    {% block body %}{% endblock %}
 </body>
