@@ -11,7 +11,16 @@
             "dislikes": 0,
             "original_lang": "EN",
             "keywords": [],
-            "comments": {}
+            "comments": [
+                {
+                    "content": "sdqsdsqdsqd",
+                    "id": "cea94ce3-b012-4fce-80fa-8b4c3948e592"
+                },
+                {
+                    "content": "I really like this comment section!!!",
+                    "id": "cea94ce3-b012-4fce-80fa-8b4c3948e592"
+                }
+            ]
         },
         "7856975c-2d8c-4adb-bcac-dc3307756b64": {
             "token": "7856975c-2d8c-4adb-bcac-dc3307756b64",
@@ -26,7 +35,7 @@
             "keywords": [
                 "test"
             ],
-            "comments": {}
+            "comments": []
         },
         "2cf465c2-c701-406d-b852-66c6e316e243": {
             "token": "2cf465c2-c701-406d-b852-66c6e316e243",
@@ -41,7 +50,7 @@
             "keywords": [
                 "test"
             ],
-            "comments": {}
+            "comments": []
         }
     }
 }

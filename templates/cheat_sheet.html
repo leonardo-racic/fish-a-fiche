@@ -108,7 +108,12 @@
         <div class="card">
             <div class="card-header ml-2">Comments</div>
             {% for comment in comments %}
-                <p><strong>{{comment["username"]}} : </strong>{{comment["content"]}}</p>
+                <span>
+                    <a class="link" href="/profile/{{comment['id']}}">{{comment["username"]}}</a>
+                    <br>
+                    {{comment["content"]}}
+                </span>
+                <div class="panel panel-info"></div>
             {% endfor %}
         </div>
     </div>
