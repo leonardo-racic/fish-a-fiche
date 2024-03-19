@@ -25,12 +25,23 @@
                         <button class="btn btn-primary">Sign-up</button>
                     </a>
                 {% else %}
+
+
                     <a href="/sign-out">
                         <button class="btn btn-outline-primary me-2">Sign-out</button>
                     </a>
                     <a href="/profile/{{token}}">
                         <button class="btn btn-primary me-2">Profile</button>
                     </a>
+
+
+                    <a href="/upload">
+                        <button class="btn btn-outline-primary me-2">Upload</button>
+                    </a>
+                    <a href="/create-cheat-sheet">
+                        <button class="btn btn-outline-primary me-2">Create</button>
+                    </a>
+
                 {% endif %}
             </ul>
         </header>

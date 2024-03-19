@@ -40,16 +40,21 @@ def handle_upload(server_account_manager: ServerAccountManager):
             return redirect(request.url)
         print(file.filename)
         if file and allowed_file(file.filename):
-            print("saving file")
-            filename = secure_filename(request.form.get("title"))
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
             print("handle upload starting")
             new_cs = create_cheat_sheet(server_account_manager)
-            print("handle_upload ok")
+            print("saving file")
+
+            filename = secure_filename(request.form.get("title"))
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], new_cs.token))
+
+            new_cs.content = read_md(UPLOAD_FOLDER+"/"+str(secure_filename(new_cs.token)))
+
             new_cs.store_to_index()
             csm.add_cheat_sheet(new_cs)
             server_account_manager.add_cheat_sheet_to_user(new_cs)
+
+            print("handle_upload ok")
             return 'upload succesfull'
         
     
@@ -63,11 +68,11 @@ def create_cheat_sheet(server_account_manager: ServerAccountManager):
     print("create cs starting")
     author_token = server_account_manager.get_user_account_token()
     print("create cs ok")
-    content = read_md(UPLOAD_FOLDER+"/"+str(secure_filename(request.form.get("title"))))
+    content = None
     description = request.form.get("description")
     keywords = request.form.get("keywords")
     keywords = keywords.split()
-    new_cs = CheatSheet(title, author_token, content, description,)
+    new_cs = CheatSheet(title, author_token, content, description)
     new_cs.keywords = keywords
 
     return new_cs
