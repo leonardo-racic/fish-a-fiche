@@ -220,9 +220,12 @@ class ServerAccountManager:
 
 
     def get_account_cheat_sheet_info(self, token: str) -> list[dict]:
-        current_account_info: dict = self.get_account_info_by_token(token)
-        c: list = current_account_info.get("cheat_sheet", None)
-        return c
+        with open("accounts.json") as f:
+            accounts_json: dict = load_json(f.read())["accounts"]
+        account: Account = accounts_json.get(token, None)
+        if account is not None:
+            return account["cheat_sheet"]
+        return None
     
 
     def get_account_from_hashed_token(self, hashed_token: str) -> Account:

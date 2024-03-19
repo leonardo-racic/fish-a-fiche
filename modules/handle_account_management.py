@@ -131,6 +131,7 @@ def handle_profile(server_account_manager: ServerAccountManager, hashed_token: s
     logged_in: bool = server_account_manager.is_user_logged_in()
     if does_account_exist:
         user_account_info: dict = server_account_manager.get_user_account_info()
+        cheat_sheet_info: list[dict] = server_account_manager.get_account_cheat_sheet_info(account_info["id"])
         response: Response = make_response(render_template(
             "user_profile.html",
             logged_in=logged_in,
@@ -138,7 +139,7 @@ def handle_profile(server_account_manager: ServerAccountManager, hashed_token: s
             description=account_info["description"],
             profile_picture=account_info["profile_picture"],
             is_user=bool(account_info["id"] == user_account_info["id"]),
-            cheat_sheet=account_info["cheat_sheet"],
+            cheat_sheet=cheat_sheet_info,
             token=get_hash(user_account_info["id"]),
         ))
         return response
