@@ -109,8 +109,6 @@ def handle_post_modify_profile(server_account_manager: ServerAccountManager) -> 
     return redirect("/")
 
 
-
-
 # Display profile
 def handle_profile(server_account_manager: ServerAccountManager, hashed_token: str) -> Response:
     account_info: dict = server_account_manager.get_account_info_from_hashed_token(hashed_token)
