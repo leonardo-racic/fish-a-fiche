@@ -9,24 +9,26 @@ from .cheat_sheet_manager import CheatSheetManager
 
 
 UPLOAD_FOLDER = 'sheets'
-ALLOWED_EXTENSIONS = {'md','MD'}
+ALLOWED_EXTENSIONS = {'md','MD','txt'}
 
 app: Flask = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 
-csm = CheatSheetManager()
+csm: CheatSheetManager = CheatSheetManager()
 
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 def handle_upload(server_account_manager: ServerAccountManager):
-
+    print("hqndleing upload")
     if request.method == 'POST':
+        print("request is POST")
         # check if the post request has the file part
         if 'file' not in request.files:
+            print("no files")
             flash('No file part')
             return redirect(request.url)
         file = request.files['file']
@@ -34,9 +36,11 @@ def handle_upload(server_account_manager: ServerAccountManager):
         # empty file without a filename.
         if file.filename == '':
             flash('No selected file')
+            print('No selected file')
             return redirect(request.url)
+        print(file.filename)
         if file and allowed_file(file.filename):
-
+            print("saving file")
             filename = secure_filename(request.form.get("title"))
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
@@ -45,6 +49,7 @@ def handle_upload(server_account_manager: ServerAccountManager):
             print("handle_upload ok")
             new_cs.store_to_index()
             csm.add_cheat_sheet(new_cs)
+            server_account_manager.add_cheat_sheet_to_user(new_cs)
             return 'upload succesfull'
         
     
