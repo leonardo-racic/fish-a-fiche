@@ -80,7 +80,7 @@
                 Dislikes: {{dislikes}}
             </div>
             <div class="col">
-                <button type="button", class="btn btn-primary">Report</button>
+                <button class="btn btn-primary">Report</button>
             </div>
             <div class="col">
                 <button
@@ -96,6 +96,15 @@
                 </ul>
             </div>
         </div>
+        {% if logged_in %}
+            <form action="/cheat-sheet/{{cheat_sheet_token}}" method="post">
+                <div class="form-group">
+                    <label for="comment-input">Comment</label>
+                    <textarea id="comment-input" name="comment_input" class="form-control"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary mb-4">Add comment</button>
+            </form>
+        {% endif %}
         <div class="card">
             <div class="card-header ml-2">Comments</div>
             {% for comment in comments %}
