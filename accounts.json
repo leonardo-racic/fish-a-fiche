@@ -1,4 +1,13 @@
 {
     "accounts": {
+        "5ff617b7-674c-4c42-8494-13a6ac127923": {
+            "username": "user",
+            "password": "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824",
+            "description": "This is my description",
+            "profile_picture": "",
+            "id": "5ff617b7-674c-4c42-8494-13a6ac127923",
+            "cheat_sheet": [],
+            "collections": {}
+        }
     }
 }

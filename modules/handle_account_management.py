@@ -104,10 +104,8 @@ def handle_post_modify_profile(server_account_manager: ServerAccountManager) -> 
     username_input: str = request.form.get("username_input", "")
     if server_account_manager.has_account(server_account_manager.get_user_account()):
         server_account_manager.modify_profile(new_image_input, description_input, username_input)
-        response: Response = make_response(redirect(url_for("profile", username=username_input)))
+        response: Response = make_response(redirect(url_for("profile", hashed_token=get_hash(server_account_manager.get_user_account_token()))))
         return response
-    
-    
     return redirect("/")
 
 
