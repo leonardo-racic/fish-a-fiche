@@ -1,67 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- This link is used to import Bootstrap's CSS, DO NOT REMOVE IT! -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <title>Fish a fiche</title>
-</head>
+{% block body %}
+    <div class="container">
+        <form method="post" enctype=multipart/form-data>
+                
+            <input type= "file" name= "file" class="btn btn-outline-primary me-2">
+
+            <!-- nom de la fiche de révision-->
+            <div class="form-group">
+                <label for="title-input">Cheat sheet's title</label>
+                <input class="form-control" type="text" id="title-input" name="title" autocomplete="off">
+            </div>
 
 
-<body>
-    {% if not logged_in %}
-        you are not logged in 
-    {% else %}
-        <div class="container">
-            <form method=post enctype=multipart/form-data>
-                <input type=file name=file>
-                <input type=text name="title">
-                <select name="original_langauge">
-                    <option value="">--Please choose an option--</option>
-                    <option value="EN">English</option>
-                    <option value="FR">French</option>
-                </select>
-                <select name="subject">
-                    <option value="">--Please choose an option--</option>
-                    <option value="Maths">Maths</option>
-                    <option value="Science">Science</option>
-                    <option value="French">Francais</option>
-                    <option value="History">History</option>
-                    <option value="Geography">Geography</option>
-                    <option value="Politics">Politics</option>
-                    <option value="Art">Art</option>
-                    <option value="Music">Music</option>
-                    <option value="Sports">Sports</option>
-
-                </select>
-                <input type=text name ="keywords">
-                <input type=text name = "description">
-                <input type=submit value=Upload>
-            </form>
-        </div>
-    {% endif %}
-
-    
-    <!-- These scripts are necessary for Bootstrap to work, DO NOT REMOVE THEM! -->
-    <script 
-        src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
-        crossorigin="anonymous"
-    ></script>
-    <script 
-        src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" 
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" 
-        crossorigin="anonymous"
-    ></script>
-    <script 
-        src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"
-    ></script>
-</body>
+            <!-- commentaire du créateur de la fiche à propos de sa fiche-->
+            <div class="form-group mb-4">
+                <label for="comment-input">Cheat sheet's description</label>
+                <textarea class="form-control" id="context-input" name = "description" autocomplete="off"></textarea>
+            </div>
 
 
-</html>
+            <div class="form-group mb-4">
+                <label for="comment-input">Cheat sheet's keywords</label>
+                <textarea class="form-control" id="context-input" name ="keywords" autocomplete="off"></textarea>
+            </div>
+            
+            <button class="btn btn-primary" value=Upload type="submit">Upload cheat sheet</button>
+            {% if not logged_in %}
+                <div class="alert alert-warning">
+                    You have to <strong>log in</strong> to upload! 
+                </div>
+            {% endif %}
+        </form>
+    </div>
+{% endblock %}

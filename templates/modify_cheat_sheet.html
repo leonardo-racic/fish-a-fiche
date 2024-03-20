@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+    <div class="container">
+        {% if not logged_in %}
+            <h1 class="display-1">Hey, watch where you are going!</h1>
+            <h2 class="display-2">You can't go and modify cheat sheet if you aren't even logged in!</h2>
+        {% else %}
+            <h3 class="display-3 mb-4">Modify cheat sheet</h1>
+            <form action="/modify-cheat-sheet/{{old_cheat_sheet["token"]}}", method="post">
+                <div class="form-group">
+                    <label for="title-input">Cheat sheet's title</label>
+                    <input class="form-control" type="text" id="title-input" name="title"
+                        autocomplete="off" value={{old_cheat_sheet["title"]}}>
+                </div>
+
+                <div class="form-group">
+                    <label for="content-input">Content of the new cheat sheet <strong>written in markdown</strong></label>
+                    <textarea class="form-control" id="content-input" name="content" autocomplete="off">{{old_cheat_sheet["content"]}}</textarea>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label for="comment-input">Cheat sheet's context</label>
+                    <textarea class="form-control" id="context-input" name="context" autocomplete="off">{{old_cheat_sheet["context"]}}</textarea>
+                </div>
+                
+                <button class="btn btn-primary" type="submit">Save edits</button>
+            </form>
+        {% endif %}
+    </div>
+
+{% endblock %}
