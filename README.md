@@ -25,6 +25,4 @@ This project is realised thanks to GALTIER Maxime, DUCLOS Marc-Antoine, and RAČ
 - Flask, and its own dependencies (Jinja...)
 - Python 3, including venv
 
- ## bug fixing
-
-when you save your profile, you are redirected to /profile/username instead of /profile/usertoken
+ 

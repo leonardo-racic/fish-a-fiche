@@ -1,5 +1,5 @@
 import os
-from flask import Flask, flash, request, redirect, render_template
+from flask import Flask, flash, request, redirect, url_for , render_template
 from werkzeug.utils import secure_filename
 import os.path
 from .cheat_sheet_module import CheatSheet
@@ -36,15 +36,16 @@ def handle_upload(server_account_manager: ServerAccountManager):
             flash('No selected file')
             return redirect(request.url)
         if file and allowed_file(file.filename):
-
-            filename = secure_filename(request.form.get("title"))
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            
 
             print("handle upload starting")
             new_cs = create_cheat_sheet(server_account_manager)
             print("handle_upload ok")
             new_cs.store_to_index()
             csm.add_cheat_sheet(new_cs)
+
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return 'upload succesfull'
         
     
@@ -54,12 +55,12 @@ def handle_upload(server_account_manager: ServerAccountManager):
 
 
 def create_cheat_sheet(server_account_manager: ServerAccountManager):
-    file = request.files['file']
+
     title = request.form.get("title")
     print("create cs starting")
     author_token = server_account_manager.get_user_account_token()
     print("create cs ok")
-    content = read_md(UPLOAD_FOLDER+"/"+str(secure_filename(request.form.get("title"))))
+    content = read_md("file/loactoin")
     description = request.form.get("description")
     keywords = request.form.get("keywords")
     keywords = keywords.split()
