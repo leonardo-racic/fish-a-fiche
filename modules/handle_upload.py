@@ -50,7 +50,11 @@ def handle_upload(server_account_manager: ServerAccountManager):
     
     logged_in: bool = server_account_manager.is_user_logged_in()
     print(logged_in)
-    return render_template('upload.html',logged_in=logged_in)
+    return render_template(
+        'upload.html',
+        logged_in=logged_in,
+        hashed_token=server_account_manager.get_user_account_hashed_token(),
+    )
 
 
 def create_cheat_sheet(server_account_manager: ServerAccountManager):

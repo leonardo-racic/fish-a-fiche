@@ -12,10 +12,6 @@ server_account_manager: ServerAccountManager = ServerAccountManager()
 cheat_sheet_manager: CheatSheetManager = CheatSheetManager()
 
 
-def sep() -> None:
-    print("-" * 20)
-
-
 @app.route("/")
 def main() -> Response:
     account_info: dict = server_account_manager.get_user_account_info()
@@ -70,7 +66,7 @@ def create_cheat_sheet() -> Response:
         return render_template(
             "create_cheat_sheet.html", 
             logged_in=server_account_manager.is_user_logged_in(),
-            token=server_account_manager.get_user_account_token(),
+            hashed_token=server_account_manager.get_user_account_hashed_token(),
         )
     elif request.method == "POST":
         return handle_create_cheat_sheet(cheat_sheet_manager, server_account_manager)

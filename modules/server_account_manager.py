@@ -218,9 +218,9 @@ class ServerAccountManager:
 
 
     def get_account_cheat_sheet_info(self, token: str) -> list:
-        account_info: dict = self.get_account_info_by_token(token)
-        c: list = account_info.get("cheat_sheet", None)
-        return c
+        with open("accounts.json") as f:
+            accounts_dict: dict = load_json(f.read())["accounts"]
+        return accounts_dict[token]["cheat_sheet"]
     
 
     def get_account_from_hashed_token(self, hashed_token: str) -> Account:
@@ -236,6 +236,11 @@ class ServerAccountManager:
             return None
         return account.get_info()
 
+
+    def get_user_account_hashed_token(self) -> str:
+        user_token: str = self.get_user_account_token()
+        user_hashed_token: str = get_hash(user_token)
+        return user_hashed_token
     
 
 
