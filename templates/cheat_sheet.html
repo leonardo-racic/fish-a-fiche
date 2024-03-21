@@ -39,11 +39,28 @@
                 <button type="button", class="btn btn-outline-primaryc">Options</button>
             </div>
         </div>
+        <form method="post" action="/cheat-sheet/{{cheat_sheet_token}}" class="mb-4">
+            <div class="form-group">
+                <label for="comment-input">Content</label>
+                <textarea class="form-control mb-2" id="comment-input" name="comment"></textarea>
+            </div>
+            <input type="hidden" value="comment_input" name="input_type"/>
+            <button class="btn btn-primary" type="submit">Comment</button>
+        </form>
         <div class="card">
             <div class="card-header ml-2">Comments</div>
-            {% for comment in comments %}
-                <p><strong>{{comment["username"]}} : </strong>{{comment["content"]}}</p>
-            {% endfor %}
+            {% if len(comments) == 0}
+                <small class="text-muted">No comments yet...</small>
+            {% else %}
+                {% for comment in comments %}
+                    <span>
+                        <a href="/profile/{{comment.id}}" class="link">
+                            {{comment.username}}
+                        </a>
+                        {{comment.content}}
+                    </span>
+                {% endfor %}
+            {% endif %}
         </div>
     </div>
 {% endblock %}

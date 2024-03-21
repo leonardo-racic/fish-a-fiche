@@ -20,6 +20,7 @@ def handle_cheat_sheet(
     return render_template(
         "cheat_sheet.html",
         title=cheat_sheet_info["title"],
+        cheat_sheet_token=token,
         author_username=author_username,
         hashed_token=server_account_manager.get_user_account_hashed_token(),
         is_logged_in=server_account_manager.is_user_logged_in(),
