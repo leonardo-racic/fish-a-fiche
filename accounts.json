@@ -1,27 +1,3 @@
 {
-    "accounts": {
-        "22b68963-535e-4ec1-8891-c3e6b1ea2547": {
-            "username": "hello",
-            "password": "486ea46224d1bb4fb680f34f7c9ad96a8f24ec88be73ea8e5a6c65260e9cb8a7",
-            "description": "",
-            "profile_picture": "",
-            "id": "22b68963-535e-4ec1-8891-c3e6b1ea2547",
-            "cheat_sheet": [
-                {
-                    "token": "af2ed7fb-e74b-49d4-9f03-b33696362169",
-                    "title": "tu",
-                    "author_token": "22b68963-535e-4ec1-8891-c3e6b1ea2547",
-                    "content": "el",
-                    "context": "is\r\n",
-                    "date": "21/03/2024 - 11:32",
-                    "likes": 0,
-                    "dislikes": 0,
-                    "original_lang": "EN",
-                    "keywords": [],
-                    "comments": {}
-                }
-            ],
-            "collections": {}
-        }
-    }
+    "accounts":{}
 }
