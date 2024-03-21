@@ -1,3 +1,13 @@
 {
-    "accounts":{}
+    "accounts": {
+        "776ecf98-cd1f-4496-b5b8-3734a58a97ab": {
+            "username": "test",
+            "password": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
+            "description": "",
+            "profile_picture": "",
+            "id": "776ecf98-cd1f-4496-b5b8-3734a58a97ab",
+            "cheat_sheet": [],
+            "collections": {}
+        }
+    }
 }
