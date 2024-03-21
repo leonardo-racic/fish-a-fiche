@@ -101,7 +101,8 @@ class Account:
     
 
     def add_cheat_sheet(self, new_cheat_sheet: CheatSheet):
-        self.cheat_sheet.append(new_cheat_sheet)
+        if new_cheat_sheet not in self.cheat_sheet:
+            self.cheat_sheet.append(new_cheat_sheet)
 
 
 if __name__ == "__main__":

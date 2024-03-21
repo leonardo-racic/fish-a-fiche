@@ -25,9 +25,7 @@ def read_accounts_json() -> dict:
                     account_info["description"],
                     token,
                 )
-                print(len(account_info["cheat_sheet"]))
                 for cheat_sheet_json in account_info["cheat_sheet"]:
-                    print(cheat_sheet_json)
                     cheat_sheet: CheatSheet = json_to_cheat_sheet(cheat_sheet_json)
                     new_account.add_cheat_sheet(cheat_sheet)
                 accounts_dict[token] = new_account

@@ -84,4 +84,14 @@ class CheatSheetManager:
         )
         self.add_cheat_sheet(new_cheat_sheet)
         return new_cheat_sheet
+    
+
+    def add_comment_to_cheat_sheet(self, token: str, comment: dict) -> None:
+        with open("cheat_sheet.json") as f:
+            cheat_sheet_data: dict = load_json(f.read())
+        cheat_sheet_data["cheat_sheet"][token]["comments"].append(comment)
+        with open("cheat_sheet.json", "w") as f:
+            f.write(dumps(cheat_sheet_data, indent=4))
+        self.update()
+
         

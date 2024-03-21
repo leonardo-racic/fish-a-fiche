@@ -49,7 +49,7 @@
         </form>
         <div class="card">
             <div class="card-header ml-2">Comments</div>
-            {% if len(comments) == 0}
+            {% if comments == [] %}
                 <small class="text-muted">No comments yet...</small>
             {% else %}
                 {% for comment in comments %}

@@ -74,7 +74,7 @@ def create_cheat_sheet() -> Response:
 
 
 
-@app.route("/cheat-sheet/<string:token>")
+@app.route("/cheat-sheet/<string:token>", methods=["GET", "POST"])
 def cheat_sheet(token: str) -> Response:
     return handle_cheat_sheet(cheat_sheet_manager, server_account_manager, token)
 

@@ -21,7 +21,7 @@ class CheatSheet:
         context: str,
         date: str = get_current_date(),
         original_lang: str = "EN",
-        comments: dict = {},
+        comments: list = [],
         likes: int = 0,
         dislikes: int = 0,
         keywords: List[str] = [],
@@ -34,7 +34,7 @@ class CheatSheet:
         self.date: str = date
         self.original_lang: str = original_lang
         self.context: str = context
-        self.comments: dict = comments
+        self.comments: list = comments
         self.keywords: list[str] = keywords
         self.likes: int = likes
         self.dislikes: int = dislikes

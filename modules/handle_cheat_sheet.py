@@ -10,27 +10,39 @@ def handle_cheat_sheet(
     server_account_manager: ServerAccountManager,
     token: str
 ) -> Response:
-    cheat_sheet_info: dict = cheat_sheet_manager.get_cheat_sheet_info(token)
-    author_token: str = server_account_manager.get_user_account_token()
-    author_username: str = server_account_manager.get_current_username_from_token(author_token)
-    if cheat_sheet_info == {} or author_username == "":
-        return Response("Well uhhhhh", status=404)
+    if request.method == "GET":
+        cheat_sheet_info: dict = cheat_sheet_manager.get_cheat_sheet_info(token)
+        author_token: str = server_account_manager.get_user_account_token()
+        author_username: str = server_account_manager.get_current_username_from_token(author_token)
+        if cheat_sheet_info == {} or author_username == "":
+            return Response("Well uhhhhh", status=404)
 
 
-    return render_template(
-        "cheat_sheet.html",
-        title=cheat_sheet_info["title"],
-        cheat_sheet_token=token,
-        author_username=author_username,
-        hashed_token=server_account_manager.get_user_account_hashed_token(),
-        is_logged_in=server_account_manager.is_user_logged_in(),
-        context=cheat_sheet_info["context"],
-        content=cheat_sheet_info["content"],
-        date=cheat_sheet_info["date"],
-        likes=cheat_sheet_info["likes"],
-        dislikes=cheat_sheet_info["dislikes"],
-        comments=cheat_sheet_info["comments"],
-    )
+        return render_template(
+            "cheat_sheet.html",
+            title=cheat_sheet_info["title"],
+            cheat_sheet_token=token,
+            author_username=author_username,
+            hashed_token=server_account_manager.get_user_account_hashed_token(),
+            is_logged_in=server_account_manager.is_user_logged_in(),
+            context=cheat_sheet_info["context"],
+            content=cheat_sheet_info["content"],
+            date=cheat_sheet_info["date"],
+            likes=cheat_sheet_info["likes"],
+            dislikes=cheat_sheet_info["dislikes"],
+            comments=cheat_sheet_info["comments"],
+        )
+    
+
+    elif request.method == "POST":
+        form_data: dict = dict(request.form)
+        if form_data["input_type"] == "comment_input":
+            new_comment: dict = {
+                "token": server_account_manager.get_user_account_token(),
+                "content": form_data["comment"]
+            }
+            cheat_sheet_manager.add_comment_to_cheat_sheet(token, new_comment)
+        return redirect(f"/cheat-sheet/{token}")
 
 
 def handle_create_cheat_sheet(
