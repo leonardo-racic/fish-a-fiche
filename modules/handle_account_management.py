@@ -156,7 +156,15 @@ def handle_profile(server_account_manager: ServerAccountManager, hashed_token: s
 def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response:
     if request.method == "GET":
         target_account: Account = sam.get_account_from_hashed_token(hashed_token)
-        return "get handle_collections"
+        collections: list = list(target_account.get_collections().values())
+        is_user: bool = hashed_token == sam.get_user_account_hashed_token()
+        return render_html(
+            "collections.html",
+            sam,
+            username=target_account.get_username(),
+            collections=collections,
+            is_user=is_user,
+        )
     elif request.method == "POST":
         return "post handle_collections"
     return "WIP, come back later! ^^"
