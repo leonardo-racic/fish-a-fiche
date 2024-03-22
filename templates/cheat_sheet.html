@@ -36,17 +36,32 @@
                 <button type="button", class="btn btn-primary">Report</button>
             </div>
             <div class="col">
-                <button type="button", class="btn btn-outline-primaryc">Options</button>
+                <div class="dropdown">
+                    <button
+                        class="btn btn-outline-primary dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                    >Options</button>
+                    <ul class="dropdown-menu">
+                        {% if is_user_author %}
+                            <li><a href="/modify-cheat-sheet/{{cheat_sheet_token}}" class="dropdown-item">Edit</a></li>
+                        {% endif %}
+                        <li><a href="#" class="dropdown-item">Save cheat sheet</a></li>
+                    </ul>
+                </div>
             </div>
+            
         </div>
-        <form method="post" action="/cheat-sheet/{{cheat_sheet_token}}" class="mb-4">
-            <div class="form-group">
-                <label for="comment-input">Content</label>
-                <textarea class="form-control mb-2" id="comment-input" name="comment"></textarea>
-            </div>
-            <input type="hidden" value="comment_input" name="input_type"/>
-            <button class="btn btn-primary" type="submit">Comment</button>
-        </form>
+        {% if logged_in %}
+            <form method="post" action="/cheat-sheet/{{cheat_sheet_token}}" class="mb-4">
+                <div class="form-group">
+                    <label for="comment-input">Content</label>
+                    <textarea class="form-control mb-2" id="comment-input" name="comment"></textarea>
+                </div>
+                <input type="hidden" value="comment_input" name="input_type"/>
+                <button class="btn btn-primary mb-2" type="submit">Comment</button>
+            </form>
+        {% endif %}
         <div class="card">
             <div class="card-header ml-2">Comments</div>
             {% if comments == [] %}
@@ -54,13 +69,16 @@
             {% else %}
                 {% for comment in comments %}
                     <span>
-                        <a href="/profile/{{comment.id}}" class="link">
+                        <a href="/profile/{{comment.token}}" class="link">
                             {{comment.username}}
                         </a>
+                        <br>
                         {{comment.content}}
                     </span>
                 {% endfor %}
             {% endif %}
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 {% endblock %}

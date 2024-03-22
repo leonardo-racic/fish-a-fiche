@@ -58,6 +58,7 @@ class ServerAccountManager:
 
     def create_account(self, input_username: str, input_password: str, description: str = "", profile_picture: str = "") -> Account:
         new_account: Account = Account(input_username, get_hash(input_password), profile_picture, description)
+        new_account.cheat_sheet = []
         inform(f"{new_account} is being created")
         with open("accounts.json", "r") as f:
             json_data: dict = load_json(f.read())

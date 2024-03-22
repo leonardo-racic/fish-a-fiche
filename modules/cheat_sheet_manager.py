@@ -3,6 +3,11 @@ from .cheat_sheet_module import CheatSheet
 from .server_account_manager import ServerAccountManager
 
 
+def check(csi: dict, cs: CheatSheet, info: str) -> None:
+    if csi.get(info):
+        cs.__dict__[info] = csi.get(info)
+
+
 def json_to_cheat_sheet(cheat_sheet_info: dict) -> CheatSheet:
     new_cheat_sheet: CheatSheet = CheatSheet(
         cheat_sheet_info["title"],
@@ -12,18 +17,13 @@ def json_to_cheat_sheet(cheat_sheet_info: dict) -> CheatSheet:
     )
 
 
-    if cheat_sheet_info.get("date"):
-        new_cheat_sheet.date = cheat_sheet_info["date"]
-    if cheat_sheet_info.get("likes"):
-        new_cheat_sheet.likes = cheat_sheet_info["likes"]
-    if cheat_sheet_info.get("dislikes"):
-        new_cheat_sheet.dislikes = cheat_sheet_info["dislikes"]
-    if cheat_sheet_info.get("keywords"):
-        new_cheat_sheet.keywords = cheat_sheet_info["keywords"]
-    if cheat_sheet_info.get("original_lang"):
-        new_cheat_sheet.original_lang = cheat_sheet_info["original_lang"]
-    if cheat_sheet_info.get("comments"):
-        new_cheat_sheet.comments = cheat_sheet_info["comments"]
+    check(cheat_sheet_info, new_cheat_sheet, "date")
+    check(cheat_sheet_info, new_cheat_sheet, "likes")
+    check(cheat_sheet_info, new_cheat_sheet, "dislikes")
+    check(cheat_sheet_info, new_cheat_sheet, "keywords")
+    check(cheat_sheet_info, new_cheat_sheet, "comments")
+    check(cheat_sheet_info, new_cheat_sheet, "token")
+    check(cheat_sheet_info, new_cheat_sheet, "original_lang")
 
 
     return new_cheat_sheet
@@ -50,9 +50,13 @@ class CheatSheetManager:
     
 
     def get_cheat_sheet(self, token: str) -> CheatSheet:
-        self.cheat_sheet = read_cheat_sheet_json()
-        cheat_sheet: CheatSheet = self.cheat_sheet.get(token, None)
-        return cheat_sheet
+        with open("cheat_sheet.json", "r") as f:
+            cheat_sheet_json: dict = load_json(f.read())["cheat_sheet"]
+        cheat_sheet_info: dict = cheat_sheet_json.get(token)
+        if cheat_sheet_info is None:
+            return None
+        print("cheat sheet info", cheat_sheet_info)
+        return json_to_cheat_sheet(cheat_sheet_info)
     
 
     def update(self) -> None:
@@ -90,6 +94,17 @@ class CheatSheetManager:
         with open("cheat_sheet.json") as f:
             cheat_sheet_data: dict = load_json(f.read())
         cheat_sheet_data["cheat_sheet"][token]["comments"].append(comment)
+        with open("cheat_sheet.json", "w") as f:
+            f.write(dumps(cheat_sheet_data, indent=4))
+        self.update()
+
+    
+    def modify_cheat_sheet(self, token: str, new_cheat_sheet_info: dict) -> None:
+        with open("cheat_sheet.json") as f:
+            cheat_sheet_data: dict = load_json(f.read())
+        cheat_sheet_data["cheat_sheet"][token]["title"] = new_cheat_sheet_info["title"]
+        cheat_sheet_data["cheat_sheet"][token]["content"] = new_cheat_sheet_info["content"]
+        cheat_sheet_data["cheat_sheet"][token]["context"] = new_cheat_sheet_info["context"]
         with open("cheat_sheet.json", "w") as f:
             f.write(dumps(cheat_sheet_data, indent=4))
         self.update()

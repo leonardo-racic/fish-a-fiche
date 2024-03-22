@@ -1,8 +1,9 @@
-from flask import Flask, Response, render_template, request
+from flask import Flask, Response, request
+from singletons import render_html
 from modules.server_account_manager import ServerAccountManager, get_hash
 from modules.cheat_sheet_manager import CheatSheetManager
 from modules.handle_account_management import handle_login, handle_sign_up, handle_sign_out, handle_modify_profile, handle_profile
-from modules.handle_cheat_sheet import handle_cheat_sheet, handle_create_cheat_sheet
+from modules.handle_cheat_sheet import handle_cheat_sheet, handle_create_cheat_sheet, handle_modify_cheat_sheet
 from modules.terminal_log import run_logging
 from modules.handle_upload import handle_upload
 
@@ -17,15 +18,16 @@ def main() -> Response:
     account_info: dict = server_account_manager.get_user_account_info()
     logged_in: bool = server_account_manager.is_user_logged_in()
     if logged_in:
-        hashed_token: str = get_hash(account_info["id"])
-        return render_template(
+        return render_html(
             "home_page.html",
-            logged_in=logged_in,
+            server_account_manager,
             username=account_info["username"],
-            hashed_token=hashed_token,
         )
     else:
-        return render_template("home_page.html")
+        return render_html(
+            "home_page.html",
+            server_account_manager,
+        )
 
 
 @app.route("/login", methods=["POST", "GET"])
@@ -63,10 +65,9 @@ def upload() -> Response:
 @app.route("/create-cheat-sheet", methods=["GET", "POST"])
 def create_cheat_sheet() -> Response:
     if request.method == "GET":
-        return render_template(
+        return render_html(
             "create_cheat_sheet.html", 
-            logged_in=server_account_manager.is_user_logged_in(),
-            hashed_token=server_account_manager.get_user_account_hashed_token(),
+            server_account_manager,
         )
     elif request.method == "POST":
         return handle_create_cheat_sheet(cheat_sheet_manager, server_account_manager)
@@ -77,6 +78,11 @@ def create_cheat_sheet() -> Response:
 @app.route("/cheat-sheet/<string:token>", methods=["GET", "POST"])
 def cheat_sheet(token: str) -> Response:
     return handle_cheat_sheet(cheat_sheet_manager, server_account_manager, token)
+
+
+@app.route("/modify-cheat-sheet/<string:token>", methods=["GET", "POST"])
+def modify_cheat_sheet(token: str) -> Response:
+    return handle_modify_cheat_sheet(cheat_sheet_manager, server_account_manager, token)
 
 
 if __name__ == "__main__":
