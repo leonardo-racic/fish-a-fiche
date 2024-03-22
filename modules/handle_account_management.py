@@ -129,7 +129,7 @@ def handle_post_modify_profile(server_account_manager: ServerAccountManager) -> 
     username_input: str = request.form.get("username_input", "")
     if server_account_manager.has_account(server_account_manager.get_user_account()):
         server_account_manager.modify_profile(new_image_input, description_input, username_input)    
-    return redirect("/")
+    return redirect(f"/profile/{server_account_manager.get_user_account_hashed_token()}")
 
 
 

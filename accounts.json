@@ -26,7 +26,7 @@
         "f5ed0df0-f98d-4230-820b-20d7dcfff078": {
             "username": "second",
             "password": "7692c3ad3540bb803c020b3aee66cd8887123234ea0c6e7143c0add73ff431ed",
-            "description": "",
+            "description": "...",
             "profile_picture": "",
             "id": "f5ed0df0-f98d-4230-820b-20d7dcfff078",
             "cheat_sheet": [
@@ -37,6 +37,32 @@
                     "content": "u",
                     "context": "ks",
                     "date": "22/03/2024 - 12:10",
+                    "likes": 0,
+                    "dislikes": 0,
+                    "original_lang": "EN",
+                    "keywords": [],
+                    "comments": []
+                },
+                {
+                    "token": "e1c94aad-d558-4927-afd0-e09ccddec32e",
+                    "title": "p",
+                    "author_token": "f5ed0df0-f98d-4230-820b-20d7dcfff078",
+                    "content": "l",
+                    "context": "m",
+                    "date": "22/03/2024 - 12:15",
+                    "likes": 0,
+                    "dislikes": 0,
+                    "original_lang": "EN",
+                    "keywords": [],
+                    "comments": []
+                },
+                {
+                    "token": "18438e03-954a-4e77-9d68-916523105f8c",
+                    "title": "a",
+                    "author_token": "f5ed0df0-f98d-4230-820b-20d7dcfff078",
+                    "content": "o",
+                    "context": "p",
+                    "date": "22/03/2024 - 12:16",
                     "likes": 0,
                     "dislikes": 0,
                     "original_lang": "EN",

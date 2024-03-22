@@ -72,7 +72,7 @@ def handle_create_cheat_sheet(
         cheat_sheet_data["author_token"] = server_account_manager.get_user_account_token()
         cheat_sheet: CheatSheet = cheat_sheet_manager.create_new_cheat_sheet(cheat_sheet_data)
         server_account_manager.add_cheat_sheet_to_user(cheat_sheet)
-        return redirect("/")
+        return redirect(f"/cheat-sheet/{cheat_sheet.token}")
     else:
         return render_html(
             "create_cheat_sheet.html",
