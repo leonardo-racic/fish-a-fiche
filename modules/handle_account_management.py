@@ -151,3 +151,12 @@ def handle_profile(server_account_manager: ServerAccountManager, hashed_token: s
         ))
         return response
     return "That account does not exist"
+
+
+def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response:
+    if request.method == "GET":
+        target_account: Account = sam.get_account_from_hashed_token(hashed_token)
+        return "get handle_collections"
+    elif request.method == "POST":
+        return "post handle_collections"
+    return "WIP, come back later! ^^"

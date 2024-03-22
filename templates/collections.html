@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+    <div class="container">
+        <h1 class="display-1">
+            <a href="/profile/{{hashed_token}}" class="link">{{username}}</a>'s collections
+        </h1>
+        {% if collections == [] %}
+            {% if is_user %}
+                <h6 class="display-6">Create a collection then go save all your cheatsheet, it'll show up!</h6>
+                <button class="btn btn-primary mb-2" aria-labelledby="create-collection-label" data-toggle="modal" data-target="#create-collection">
+                    Create a collection
+                </button>
+                <div class="modal fade" id="create-collection">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="create-collection-label">Create a new collection</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group mb-2">
+                                    <label for="collection-input">Collection name</label>
+                                    <input type="text" name="collection_name" id="collection-input">
+                                    <input type="hidden" name="input_type" value="create_collection_input">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <h6 class="display-6">Umm, they have no collections... awkward...</h6>
+            {% endif %}
+        {% else %}
+
+        {% endif %}
+    </div>
+{% endblock %}

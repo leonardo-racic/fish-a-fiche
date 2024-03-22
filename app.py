@@ -2,7 +2,10 @@ from flask import Flask, Response, request
 from singletons import render_html
 from modules.server_account_manager import ServerAccountManager, get_hash
 from modules.cheat_sheet_manager import CheatSheetManager
-from modules.handle_account_management import handle_login, handle_sign_up, handle_sign_out, handle_modify_profile, handle_profile
+from modules.handle_account_management import (
+    handle_login, handle_sign_up, handle_sign_out,
+    handle_modify_profile, handle_profile, handle_collections,
+)
 from modules.handle_cheat_sheet import handle_cheat_sheet, handle_create_cheat_sheet, handle_modify_cheat_sheet
 from modules.terminal_log import run_logging
 from modules.handle_upload import handle_upload
@@ -83,6 +86,12 @@ def cheat_sheet(token: str) -> Response:
 @app.route("/modify-cheat-sheet/<string:token>", methods=["GET", "POST"])
 def modify_cheat_sheet(token: str) -> Response:
     return handle_modify_cheat_sheet(cheat_sheet_manager, server_account_manager, token)
+
+
+@app.route("/collections/<string:hashed_token>", methods=["GET", "POST"])
+def collections(hashed_token: str) -> Response:
+    return handle_collections(server_account_manager, hashed_token)
+
 
 
 if __name__ == "__main__":

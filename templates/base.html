@@ -59,6 +59,9 @@
                         <a href="/create-cheat-sheet">
                             <button class="btn btn-outline-primary me-2">Create</button>
                         </a>
+                        <a href="/collections/{{hashed_token}}">
+                            <button class="btn btn-outline-primary me-2">Collections</button>
+                        </a>
                     {% endif %}
                 </ul>
             </header>
@@ -71,7 +74,7 @@
 
     {% block footer %}
         <div class="container">
-            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top fixed-bottom">
                 <p class="text-muted">Fish a fiche @ 2024 Company, Inc</p>
                 <ul class="nav col-md-4 justify-content-end">
                     <li class="nav-item">
