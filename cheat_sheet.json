@@ -87,6 +87,71 @@
                     "content": "hello world"
                 }
             ]
+        },
+        "b6275cbd-3e99-4a4c-9422-73d7219de183": {
+            "token": "b6275cbd-3e99-4a4c-9422-73d7219de183",
+            "title": "Quadratic",
+            "author_token": "35b3bc9c-aa91-4c5f-a4af-08e555c71428",
+            "content": "$ax^2+bx+c$ is the form of all quadratic polynomials\\\r\n$\\Delta=\\dfrac{-b}{2a}$ is the expression of the discriminant",
+            "context": "ax\u00b2+bx+c type of stuff",
+            "date": "22/03/2024 - 11:18",
+            "likes": 0,
+            "dislikes": 0,
+            "original_lang": "EN",
+            "keywords": [],
+            "comments": []
+        },
+        "2f3f9da8-aad4-4b72-ad4f-be7e5237b425": {
+            "token": "2f3f9da8-aad4-4b72-ad4f-be7e5237b425",
+            "title": "hello",
+            "author_token": "d1ffa8f2-3737-4955-b26e-2e245de68f9b",
+            "content": "world",
+            "context": "hello world",
+            "date": "22/03/2024 - 11:45",
+            "likes": 0,
+            "dislikes": 0,
+            "original_lang": "EN",
+            "keywords": [],
+            "comments": []
+        },
+        "d46a20f6-5cfc-4686-98cc-c94026705c7b": {
+            "token": "d46a20f6-5cfc-4686-98cc-c94026705c7b",
+            "title": "a",
+            "author_token": "7e774c3c-4019-436e-ba1d-e96ac8dd1566",
+            "content": "b",
+            "context": "c",
+            "date": "22/03/2024 - 11:45",
+            "likes": 0,
+            "dislikes": 0,
+            "original_lang": "EN",
+            "keywords": [],
+            "comments": []
+        },
+        "1e16af73-d1cb-477a-bb99-8c8f9686f367": {
+            "token": "1e16af73-d1cb-477a-bb99-8c8f9686f367",
+            "title": "this",
+            "author_token": "3a2ff6ed-bdbc-4afc-b8b8-61fe40a46a74",
+            "content": "is",
+            "context": "a cheatsheet",
+            "date": "22/03/2024 - 11:49",
+            "likes": 0,
+            "dislikes": 0,
+            "original_lang": "EN",
+            "keywords": [],
+            "comments": []
+        },
+        "a06e6360-0fba-41b2-a1fb-7ddb3736bd5f": {
+            "token": "a06e6360-0fba-41b2-a1fb-7ddb3736bd5f",
+            "title": "t",
+            "author_token": "f5ed0df0-f98d-4230-820b-20d7dcfff078",
+            "content": "u",
+            "context": "ks",
+            "date": "22/03/2024 - 12:10",
+            "likes": 0,
+            "dislikes": 0,
+            "original_lang": "EN",
+            "keywords": [],
+            "comments": []
         }
     }
 }

@@ -117,6 +117,7 @@ def handle_modify_profile(server_account_manager: ServerAccountManager) -> Respo
             username=current_account_info["username"],
             description=current_account_info["description"],
             profile_picture=current_account_info["profile_picture"],
+            cheat_sheet=current_account_info["cheat_sheet"],
         )
     else:
         return f"I haven't coded the {request.method} method yet."
@@ -137,7 +138,6 @@ def handle_post_modify_profile(server_account_manager: ServerAccountManager) -> 
 def handle_profile(server_account_manager: ServerAccountManager, hashed_token: str) -> Response:
     account_info: dict = server_account_manager.get_account_info_from_hashed_token(hashed_token)
     does_account_exist: bool = account_info is not None
-    logged_in: bool = server_account_manager.is_user_logged_in()
     if does_account_exist:
         user_account_info: dict = server_account_manager.get_user_account_info()
         response: Response = make_response(render_html(

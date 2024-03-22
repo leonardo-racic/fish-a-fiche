@@ -5,7 +5,7 @@ from .server_account_manager import ServerAccountManager
 
 def check(csi: dict, cs: CheatSheet, info: str) -> None:
     if csi.get(info):
-        cs.__dict__[info] = csi.get(info)
+        cs.__dict__[info] = csi[info]
 
 
 def json_to_cheat_sheet(cheat_sheet_info: dict) -> CheatSheet:
@@ -55,7 +55,6 @@ class CheatSheetManager:
         cheat_sheet_info: dict = cheat_sheet_json.get(token)
         if cheat_sheet_info is None:
             return None
-        print("cheat sheet info", cheat_sheet_info)
         return json_to_cheat_sheet(cheat_sheet_info)
     
 

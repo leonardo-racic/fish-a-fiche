@@ -4,7 +4,7 @@
     <div class="container">
         {% if logged_in %}
             <form method="post" action="/modify-profile" enctype="multipart/form-data">
-                <div class="card">
+                <div class="card mb-2">
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
                             {% if profile_picture == "" %}
@@ -27,6 +27,15 @@
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
                             <h4>My public cheat-sheet</h4>
+                            {% for c in cheat_sheet %}
+                                <div class="card col">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{c.title}}</h5>
+                                        <p class="card-text">{{c.context}}</p>
+                                        <a href=/cheat-sheet/{{c.token}} class="btn btn-primary">Display</a>
+                                    </div>
+                                </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>

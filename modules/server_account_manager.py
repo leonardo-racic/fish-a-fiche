@@ -12,28 +12,40 @@ def get_hash(this_text: str) -> str:
     return hashlib.sha256(this_text.encode()).hexdigest()
 
 
+def check(account: Account, account_json: dict, data: str) -> None:
+    if account_json.get(data):
+        account.__dict__[data] = account_json[data]
+
+
+def json_to_account(account_json: dict) -> Account:
+    new_account: Account = Account(
+        account_json["username"],
+        account_json["password"]
+    )
+    check(new_account, account_json, "description")
+    check(new_account, account_json, "profile_picture")
+    check(new_account, account_json, "id")
+    check(new_account, account_json, "collections")
+    new_account.cheat_sheet = []
+    for cheat_sheet_info in account_json.get("cheat_sheet", []):
+        cheat_sheet: CheatSheet = json_to_cheat_sheet(cheat_sheet_info)
+        new_account.cheat_sheet.append(cheat_sheet)
+
+    return new_account
+
+
 def read_accounts_json() -> dict:
-    with open("accounts.json", "r") as f:
-        try:
-            accounts_json: dict = load_json(f.read())["accounts"]
-            accounts_dict: dict = {}
-            for token, account_info in accounts_json.items():
-                new_account: Account = Account(
-                    account_info["username"],
-                    account_info["password"],
-                    account_info["profile_picture"],
-                    account_info["description"],
-                    token,
-                )
-                for cheat_sheet_json in account_info["cheat_sheet"]:
-                    cheat_sheet: CheatSheet = json_to_cheat_sheet(cheat_sheet_json)
-                    new_account.add_cheat_sheet(cheat_sheet)
-                accounts_dict[token] = new_account
-            return accounts_dict
-        except Exception:
-            with open("accounts.json", "w") as f:
-                f.write("{\n    \"accounts\":{}\n}")
-            return {}
+    with open("accounts.json") as f:
+        accounts_json: dict = load_json(f.read())["accounts"]
+        accounts_dict: dict = {}
+        for token, account_info in accounts_json.items():
+            new_account: Account = json_to_account(account_info)
+            for cheat_sheet_json in account_info["cheat_sheet"]:
+                cheat_sheet: CheatSheet = json_to_cheat_sheet(cheat_sheet_json)
+                new_account.add_cheat_sheet(cheat_sheet)
+            accounts_dict[token] = new_account
+        return accounts_dict
+
         
     
 
@@ -170,9 +182,14 @@ class ServerAccountManager:
 
 
     def get_user_account(self) -> Account:
+        with open("accounts.json") as f:
+            accounts_json: dict = load_json(f.read())["accounts"]
         account_token: str = self.get_user_account_token()
-        user_account: Account = self.get_account_by_token(account_token)
-        return user_account
+        target_account_info: Account = accounts_json.get(account_token)
+        if target_account_info is None:
+            return None
+        target_account: Account = json_to_account(target_account_info)
+        return target_account
     
 
     def is_user_logged_in(self) -> bool:

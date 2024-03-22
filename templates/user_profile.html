@@ -25,7 +25,7 @@
                 <div class="d-flex flex-column align-items-center text-center">
                     <h4>{{"My public cheat-sheets" if is_user else "Their public cheat-sheets"}}</h4>
                     {% if cheat_sheet == [] %}
-                        <small class="text-muted">No personally made cheat sheet yet...</small>
+                        <small class="text-muted mb-2">No personally made cheat sheet yet...</small>
                         <a href="/create-cheat-sheet" class="btn btn-primary">Create new cheat sheet</a>
                     {% else %}
                         <div class="row">
