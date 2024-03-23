@@ -83,7 +83,6 @@ class Account:
 
     def get_cheat_sheet_json(self) -> list:
         cheat_sheet: list = []
-        print("self.cheat_sheet", self.cheat_sheet)
         for cs in self.cheat_sheet:
             cheat_sheet.append(cheat_sheet_to_json(cs))
         return cheat_sheet

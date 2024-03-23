@@ -9,31 +9,33 @@
         {% if collections == [] %}
             {% if is_user %}
                 <h6 class="display-6">Create a collection then go save all your cheatsheet, it'll show up!</h6>
-                <button class="btn btn-primary mb-2" aria-labelledby="create-collection-label" data-toggle="modal" data-target="#create-collection">
-                    Create a collection
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#create-collection">
+                    Launch demo modal
                 </button>
-                <div class="modal fade" id="create-collection">
-                    <div class="modal-dialog" role="document">
-                        <form action="/collections{{hashed_token}}" method="post">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="create-collection-label">Create a new collection</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+                <div class="modal fade" id="create-collection" tabindex="-1" aria-labelledby="create-collection-label" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="create-collection-label">Create a new collection</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form action="/collections/{{hashed_token}}" method="post">
+                            <div class="modal-body">
+                                <div class="form-group mb-2">
+                                    <label class="form-label" for="collection-name">Collection's name</label>
+                                    <input class="form-control" type="text" name="collection_name" id="collection-name">
                                 </div>
-                                <div class="modal-body">
-                                    <div class="form-group mb-2">
-                                        <label for="collection-input">Collection name</label>
-                                        <input type="text" name="collection_name" id="collection-input">
-                                        <input type="hidden" name="input_type" value="create_collection_input">
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-primary mb-2" type="submit">Create collection</button>
+                                <div class="form-check form-switch mb-2">
+                                    <label class="form-check-label" for="is-collection-public">Make this a public collection</label>
+                                    <input class="form-check-input" type="checkbox" role="switch" name="is_collection_public" id="is-collection-public">
                                 </div>
                             </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-primary" id="create-collection-button"     disabled>Create</button>
+                            </div>
                         </form>
+                    </div>
                     </div>
                 </div>
             {% else %}
@@ -43,4 +45,19 @@
             Well you got collections but like, it's in wip...
         {% endif %}
     </div>
+
+
+    <script>
+        let createCollectionButton = $("#create-collection-button");
+        let collectionNameInput = $("#collection-name");
+        
+        collectionNameInput.on("input", function(e) {
+            let chosenName = collectionNameInput.val();
+            if (chosenName.length > 0) {
+                createCollectionButton.removeAttr("disabled");
+            } else {
+                createCollectionButton.attr("disabled", "disabled");
+            }
+        });
+    </script>
 {% endblock %}
