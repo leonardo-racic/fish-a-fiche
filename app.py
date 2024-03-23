@@ -11,6 +11,7 @@ from modules.terminal_log import run_logging
 from modules.handle_upload import handle_upload
 
 
+run_logging()
 app: Flask = Flask(__name__)
 server_account_manager: ServerAccountManager = ServerAccountManager()
 cheat_sheet_manager: CheatSheetManager = CheatSheetManager()
@@ -18,6 +19,7 @@ cheat_sheet_manager: CheatSheetManager = CheatSheetManager()
 
 @app.route("/")
 def main() -> Response:
+    app.logger.info("Starting")
     account_info: dict = server_account_manager.get_user_account_info()
     logged_in: bool = server_account_manager.is_user_logged_in()
     if logged_in:
@@ -91,9 +93,3 @@ def modify_cheat_sheet(token: str) -> Response:
 @app.route("/collections/<string:hashed_token>", methods=["GET", "POST"])
 def collections(hashed_token: str) -> Response:
     return handle_collections(server_account_manager, hashed_token)
-
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
-    run_logging()
