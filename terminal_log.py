@@ -1,7 +1,10 @@
 import logging
+from flask import Flask
 
 
-log_file = "debug.log"
+log_file: str = "debug.log"
+app: Flask = Flask(__name__)
+logger: logging.Logger = app.logger
 
 
 def run_logging() -> None:
@@ -15,33 +18,29 @@ def run_logging() -> None:
 
 
 def debug(msg: str, *args) -> None:
-    logging.debug(msg, *args)
+    logger.debug(msg, *args)
 
 
 def inform(msg: str, *args) -> None:
-    logging.info(msg, *args)
+    logger.info(msg, *args)
 
 
 def warn(msg: str, *args) -> None:
-    logging.warning(msg, *args)
+    logger.warning(msg, *args)
 
 
 def log_error(msg: str, *args) -> None:
-    logging.error(msg, *args)
+    logger.error(msg, *args)
 
 
 def log_exception(msg: str, *args) -> None:
-    logging.exception(msg, *args)
+    logger.exception(msg, *args)
 
 
 def log_critical(msg: str, *args) -> None:
-    logging.critical(msg, *args)
+    logger.critical(msg, *args)
 
 
 def clear_log_file() -> None:
     with open(log_file, "w"):
         pass
-
-
-if __name__ == "__main__":
-    run_logging()

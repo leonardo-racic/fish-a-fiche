@@ -1,13 +1,9 @@
 from flask import Response, redirect, request
-from singletons import render_html
+from singletons import render_html, get_form_data
 from .server_account_manager import ServerAccountManager, get_hash
 from .account_module import Account
 from .cheat_sheet_manager import CheatSheetManager
 from .cheat_sheet_module import CheatSheet
-
-
-def get_form_data() -> dict:
-    return dict(request.form)
 
 
 def get_comments(cheat_sheet_info: dict, sam: ServerAccountManager) -> list:

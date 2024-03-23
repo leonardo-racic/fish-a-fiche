@@ -1,5 +1,9 @@
-from flask import render_template, Response
+from flask import render_template, Response, request
 from modules.server_account_manager import ServerAccountManager
+
+
+def get_form_data() -> dict:
+    return dict(request.form)
 
 
 def render_html(template_name: str, sam: ServerAccountManager, **kwargs) -> Response:

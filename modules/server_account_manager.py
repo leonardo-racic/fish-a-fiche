@@ -4,7 +4,7 @@ from .account_module import Account
 from .cheat_sheet_module import CheatSheet, json_to_cheat_sheet
 from json import loads as load_json, dumps as to_json
 from flask import request
-from .terminal_log import inform
+from terminal_log import inform
 import hashlib
 
 

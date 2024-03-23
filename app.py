@@ -7,7 +7,7 @@ from modules.handle_account_management import (
     handle_modify_profile, handle_profile, handle_collections,
 )
 from modules.handle_cheat_sheet import handle_cheat_sheet, handle_create_cheat_sheet, handle_modify_cheat_sheet
-from modules.terminal_log import run_logging
+from terminal_log import run_logging
 from modules.handle_upload import handle_upload
 
 
@@ -19,7 +19,6 @@ cheat_sheet_manager: CheatSheetManager = CheatSheetManager()
 
 @app.route("/")
 def main() -> Response:
-    app.logger.info("Starting")
     account_info: dict = server_account_manager.get_user_account_info()
     logged_in: bool = server_account_manager.is_user_logged_in()
     if logged_in:

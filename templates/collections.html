@@ -21,6 +21,7 @@
                         </div>
                         <form action="/collections/{{hashed_token}}" method="post">
                             <div class="modal-body">
+                                <input type="hidden" name="input_type" value="create_collection_input">
                                 <div class="form-group mb-2">
                                     <label class="form-label" for="collection-name">Collection's name</label>
                                     <input class="form-control" type="text" name="collection_name" id="collection-name">

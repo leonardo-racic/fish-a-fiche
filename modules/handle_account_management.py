@@ -1,7 +1,8 @@
 from flask import Response, make_response, redirect, url_for, request
-from singletons import render_html
+from singletons import render_html, get_form_data
 from .account_module import Account
 from .server_account_manager import ServerAccountManager
+from terminal_log import inform
 
 
 # Login
@@ -166,5 +167,7 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
             is_user=is_user,
         )
     elif request.method == "POST":
-        return "post handle_collections"
+        form_data: dict = get_form_data()
+        if form_data.get("input_type") == "create_collection_input":
+            inform("Creating new collection")
     return "WIP, come back later! ^^"
