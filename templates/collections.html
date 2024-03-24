@@ -9,6 +9,12 @@
         <h1 class="display-1">
             <a href="/profile/{{hashed_token}}" class="link">{{username}}</a>'s collections
         </h1>
+        {% if collection_name_already_exists %}
+            <div class="alert alert-info mb-2" style="max-width: 18rem;">
+                Collection name already exists
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endif %}
         {% if is_user %}
             <button type="button" class="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#create-collection">
                 Create new collection
@@ -65,6 +71,7 @@
                 {% endfor %}
             </div>
         {% endif %}
+        
     </div>
 
 

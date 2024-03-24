@@ -312,6 +312,17 @@ class ServerAccountManager:
         return json_data["accounts"][token]["collections"]
     
 
+    def get_user_account_collections(self) -> list:
+        return self.get_collections(self.get_user_account_token())
+
+
+    def has_user_collection(self, collection_name: str) -> bool:
+        collections: list = self.get_user_account_collections()
+        for c in collections:
+            if c["name"] == collection_name:
+                return True
+        return False    
+
 
 
 if __name__ == "__main__":

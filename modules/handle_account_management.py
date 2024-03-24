@@ -157,9 +157,9 @@ def handle_profile(server_account_manager: ServerAccountManager, hashed_token: s
 # Collections
 def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response:
     target_account: Account = sam.get_account_from_hashed_token(hashed_token)
+    collections: list = sam.get_collections(target_account.get_id())
+    is_user: bool = hashed_token == sam.get_user_account_hashed_token()
     if request.method == "GET":
-        collections: list = sam.get_collections(target_account.get_id())
-        is_user: bool = hashed_token == sam.get_user_account_hashed_token()
         return render_html(
             "collections.html",
             sam,
@@ -172,9 +172,19 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
         input_type: str = form_data.get("input_type")
         if input_type == "create_collection_input":
             collection_name: str = form_data["collection_name"]
-            is_public: bool = bool(form_data.get("is_collection_public", "False"))        
-            sam.add_new_collection_to_account(collection_name, target_account.get_id(), is_public)
-            return redirect(f"/collections/{hashed_token}")
+            is_public: bool = bool(form_data.get("is_collection_public", "False"))
+            if sam.has_user_collection(collection_name):
+                return render_html(
+                    "collections.html",
+                    sam,
+                    username=target_account.get_username(),
+                    collections=collections,
+                    is_user=is_user,
+                    collection_name_already_exists=True,
+                )
+            else:
+                sam.add_new_collection_to_account(collection_name, target_account.get_id(), is_public)
+                return redirect(f"/collections/{hashed_token}")
         elif input_type == "delete_collection_input":
             collection_name: str = form_data["collection_name"]
             sam.delete_collection(collection_name, target_account.get_id())
