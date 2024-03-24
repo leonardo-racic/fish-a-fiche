@@ -165,6 +165,7 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
             sam,
             username=target_account.get_username(),
             collections=collections,
+            author_hashed_token=hashed_token,
             is_user=is_user,
         )
     elif request.method == "POST":
@@ -172,13 +173,14 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
         input_type: str = form_data.get("input_type")
         if input_type == "create_collection_input":
             collection_name: str = form_data["collection_name"]
-            is_public: bool = bool(form_data.get("is_collection_public", "False"))
+            is_public: bool = bool(form_data.get("is_collection_public"))
             if sam.has_user_collection(collection_name):
                 return render_html(
                     "collections.html",
                     sam,
                     username=target_account.get_username(),
                     collections=collections,
+                    author_hashed_token=hashed_token,
                     is_user=is_user,
                     collection_name_already_exists=True,
                 )

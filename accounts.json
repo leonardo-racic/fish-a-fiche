@@ -26,6 +26,11 @@
                     "is_public": true,
                     "cheat_sheet": [],
                     "name": "a"
+                },
+                {
+                    "is_public": false,
+                    "cheat_sheet": [],
+                    "name": "b"
                 }
             ]
         },

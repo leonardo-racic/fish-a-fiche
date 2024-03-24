@@ -6,9 +6,15 @@
 
 {% block body %}
     <div class="container">
-        <h1 class="display-1">
-            <a href="/profile/{{hashed_token}}" class="link">{{username}}</a>'s collections
-        </h1>
+        {% if is_user %}
+            <h1 class="display-1">
+                Your collections
+            </h1>
+        {% else %}
+            <h1 class="display-1">
+                <a href="/profile/{{author_hashed_token}}" class="link">{{username}}</a>'s collections
+            </h1>
+        {% endif %}
         {% if collection_name_already_exists %}
             <div class="alert alert-info mb-2" style="max-width: 18rem;">
                 Collection name already exists
@@ -56,18 +62,20 @@
         {% else %}
             <div class="row row-cols-{{max_c_per_row}}">
                 {% for c in collections %}
-                    <div class="card col text-center my-2 mx-1" style="max-width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">{{c.name}}</h5>
-                            <p class="card-text text-muted">{{c.cheat_sheet|length}} cheat sheet</p>
-                            <a href=/collections/{{hashed_token}}/{{c.name}} class="btn btn-primary mb-2">Display</a>
-                            <form action="/collections/{{hashed_token}}" method="post">
-                                <input type="hidden" name="input_type" value="delete_collection_input">
-                                <input type="hidden" name="collection_name" value="{{c.name}}">
-                                <button type="submit" class="btn btn-secondary">Delete</button>
-                            </form>
+                    {% if is_user or c.is_public %}
+                        <div class="card col text-center my-2 mx-1" style="max-width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{c.name}}</h5>
+                                <p class="card-text text-muted">{{c.cheat_sheet|length}} cheat sheet</p>
+                                <a href=/collections/{{hashed_token}}/{{c.name}} class="btn btn-primary mb-2">Display</a>
+                                <form action="/collections/{{hashed_token}}" method="post">
+                                    <input type="hidden" name="input_type" value="delete_collection_input">
+                                    <input type="hidden" name="collection_name" value="{{c.name}}">
+                                    <button type="submit" class="btn btn-secondary">Delete</button>
+                                </form>
+                            </div>
                         </div>
-                    </div>
+                    {% endif %}
                 {% endfor %}
             </div>
         {% endif %}
