@@ -246,7 +246,7 @@ class ServerAccountManager:
         return None
     
 
-    def get_account_info_from_hashed_token(self, hashed_token: str) -> Account:
+    def get_account_info_from_hashed_token(self, hashed_token: str) -> dict:
         account: Account = self.get_account_from_hashed_token(hashed_token)
         if account is None:
             return None
@@ -257,6 +257,59 @@ class ServerAccountManager:
         user_token: str = self.get_user_account_token()
         user_hashed_token: str = get_hash(user_token)
         return user_hashed_token
+    
+
+    def add_new_collection_to_account(self, collection: str, account_id: str, is_public: bool) -> None:
+        with open("accounts.json") as f:
+            json_data: dict = load_json(f.read())
+        current_account_info: dict = json_data["accounts"][account_id]
+        if collection not in current_account_info["collections"]:
+            current_account_info["collections"].append({
+                "is_public": is_public,
+                "cheat_sheet": [],
+                "name": collection,
+            })
+        with open("accounts.json", "w") as f:
+            f.write(to_json(json_data, indent=4))
+        self.update()
+    
+
+    def add_new_collection_to_account_from_hashed_token(self, collection: str, hashed_account_id: str, is_public: bool) -> None:
+        target_account: Account = self.get_account_from_hashed_token(hashed_account_id)
+        self.add_new_collection_to_account(collection, target_account.get_id(), is_public)
+    
+
+    def add_cheat_sheet_to_collection(self, collection: str, account_id: str, cheat_sheet_token: str) -> None:
+        with open("accounts.json") as f:
+            json_data: dict = load_json(f.read())
+        current_account_info: dict = json_data["accounts"][account_id]
+        target_collection: list = current_account_info["collections"][collection]
+        if cheat_sheet_token not in target_collection:
+            target_collection.append(cheat_sheet_token)
+        with open("accounts.json", "w") as f:
+            f.write(to_json(json_data, indent=4))
+        self.update()
+    
+
+    def delete_collection(self, collection_name: str, account_id: str) -> None:
+        with open("accounts.json") as f:
+            json_data: dict = load_json(f.read())
+        current_account_info: dict = json_data["accounts"][account_id]
+        collections: list = current_account_info["collections"]
+        updated_collections: list = []
+        for c in collections:
+            if c["name"] != collection_name:
+                updated_collections.append(c)
+        current_account_info["collections"] = updated_collections
+        with open("accounts.json", "w") as f:
+            f.write(to_json(json_data, indent=4))
+        self.update()
+
+
+    def get_collections(self, token: str) -> list:
+        with open("accounts.json") as f:
+            json_data: dict = load_json(f.read())
+        return json_data["accounts"][token]["collections"]
     
 
 

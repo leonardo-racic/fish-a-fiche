@@ -1,2 +1,12 @@
-[03/23/24 Mar:03:1711209060] - WARNING   (werkzeug)    * Debugger is active!
-[03/23/24 Mar:03:1711209060] - INFO   (werkzeug)    * Debugger PIN: 923-794-044
+[03/24/24 Mar:03:1711283884] - WARNING   (werkzeug)    * Debugger is active!
+[03/24/24 Mar:03:1711283884] - INFO   (werkzeug)    * Debugger PIN: 101-005-840
+[03/24/24 Mar:03:1711283941] - INFO   (werkzeug)   127.0.0.1 - - [24/Mar/2024 13:39:01] "[32mPOST /collections/879294d245051906e0e8455470ee786bc4b09da005abecad048769cd31814aa3 HTTP/1.1[0m" 302 -
+[03/24/24 Mar:03:1711283941] - INFO   (werkzeug)   127.0.0.1 - - [24/Mar/2024 13:39:01] "GET /collections/879294d245051906e0e8455470ee786bc4b09da005abecad048769cd31814aa3 HTTP/1.1" 200 -
+[03/24/24 Mar:03:1711283943] - INFO   (werkzeug)   127.0.0.1 - - [24/Mar/2024 13:39:03] "[32mPOST /collections/879294d245051906e0e8455470ee786bc4b09da005abecad048769cd31814aa3 HTTP/1.1[0m" 302 -
+[03/24/24 Mar:03:1711283943] - INFO   (werkzeug)   127.0.0.1 - - [24/Mar/2024 13:39:03] "GET /collections/879294d245051906e0e8455470ee786bc4b09da005abecad048769cd31814aa3 HTTP/1.1" 200 -
+[03/24/24 Mar:03:1711283946] - INFO   (werkzeug)   127.0.0.1 - - [24/Mar/2024 13:39:06] "[32mPOST /collections/879294d245051906e0e8455470ee786bc4b09da005abecad048769cd31814aa3 HTTP/1.1[0m" 302 -
+[03/24/24 Mar:03:1711283946] - INFO   (werkzeug)   127.0.0.1 - - [24/Mar/2024 13:39:06] "GET /collections/879294d245051906e0e8455470ee786bc4b09da005abecad048769cd31814aa3 HTTP/1.1" 200 -
+[03/24/24 Mar:03:1711283948] - INFO   (werkzeug)   127.0.0.1 - - [24/Mar/2024 13:39:08] "[32mPOST /collections/879294d245051906e0e8455470ee786bc4b09da005abecad048769cd31814aa3 HTTP/1.1[0m" 302 -
+[03/24/24 Mar:03:1711283948] - INFO   (werkzeug)   127.0.0.1 - - [24/Mar/2024 13:39:08] "GET /collections/879294d245051906e0e8455470ee786bc4b09da005abecad048769cd31814aa3 HTTP/1.1" 200 -
+[03/24/24 Mar:03:1711283951] - INFO   (werkzeug)   127.0.0.1 - - [24/Mar/2024 13:39:11] "[32mPOST /collections/879294d245051906e0e8455470ee786bc4b09da005abecad048769cd31814aa3 HTTP/1.1[0m" 302 -
+[03/24/24 Mar:03:1711283951] - INFO   (werkzeug)   127.0.0.1 - - [24/Mar/2024 13:39:11] "GET /collections/879294d245051906e0e8455470ee786bc4b09da005abecad048769cd31814aa3 HTTP/1.1" 200 -

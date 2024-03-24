@@ -1,60 +1,107 @@
 {% extends "base.html" %}
 
 
+{% set max_c_per_row = 4 %}
+
+
 {% block body %}
     <div class="container">
         <h1 class="display-1">
             <a href="/profile/{{hashed_token}}" class="link">{{username}}</a>'s collections
         </h1>
+        {% if is_user %}
+            <button type="button" class="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#create-collection">
+                Create new collection
+            </button>
+            <div class="modal fade" id="create-collection" tabindex="-1" aria-labelledby="create-collection-label" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="create-collection-label">Create a new collection</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="/collections/{{hashed_token}}" method="post">
+                        <div class="modal-body">
+                            <input type="hidden" name="input_type" value="create_collection_input">
+                            <div class="form-group mb-2">
+                                <label class="form-label" for="collection-name">Collection's name (no spaces!)</label>
+                                <input class="form-control" type="text" name="collection_name" id="collection-name" autocomplete="off">
+                            </div>
+                            <div class="form-check form-switch mb-2">
+                                <label class="form-check-label" for="is-collection-public">Make this a public collection</label>
+                                <input class="form-check-input" value="True" type="checkbox" role="switch" name="is_collection_public" id="is-collection-public">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary" id="create-collection-button" disabled>Create</button>
+                        </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+        {% endif %}
         {% if collections == [] %}
             {% if is_user %}
                 <h6 class="display-6">Create a collection then go save all your cheatsheet, it'll show up!</h6>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#create-collection">
-                    Launch demo modal
-                </button>
-                <div class="modal fade" id="create-collection" tabindex="-1" aria-labelledby="create-collection-label" aria-hidden="true">
-                    <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="create-collection-label">Create a new collection</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <form action="/collections/{{hashed_token}}" method="post">
-                            <div class="modal-body">
-                                <input type="hidden" name="input_type" value="create_collection_input">
-                                <div class="form-group mb-2">
-                                    <label class="form-label" for="collection-name">Collection's name</label>
-                                    <input class="form-control" type="text" name="collection_name" id="collection-name">
-                                </div>
-                                <div class="form-check form-switch mb-2">
-                                    <label class="form-check-label" for="is-collection-public">Make this a public collection</label>
-                                    <input class="form-check-input" type="checkbox" role="switch" name="is_collection_public" id="is-collection-public">
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                <button type="submit" class="btn btn-primary" id="create-collection-button"     disabled>Create</button>
-                            </div>
-                        </form>
-                    </div>
-                    </div>
-                </div>
             {% else %}
                 <h6 class="display-6">Umm, they have no collections... awkward...</h6>
             {% endif %}
         {% else %}
-            Well you got collections but like, it's in wip...
+            <div class="row row-cols-{{max_c_per_row}}">
+                {% for c in collections %}
+                    <div class="card col text-center my-2 mx-1" style="max-width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{c.name}}</h5>
+                            <p class="card-text text-muted">{{c.cheat_sheet|length}} cheat sheet</p>
+                            <a href=/collections/{{hashed_token}}/{{c.name}} class="btn btn-primary mb-2">Display</a>
+                            <form action="/collections/{{hashed_token}}" method="post">
+                                <input type="hidden" name="input_type" value="delete_collection_input">
+                                <input type="hidden" name="collection_name" value="{{c.name}}">
+                                <button type="submit" class="btn btn-secondary">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
         {% endif %}
     </div>
 
 
     <script>
+        const minNameLength = 0;
+        const maxNameLength = 32;
+        const forbiddenChars = " ";
+
+
         let createCollectionButton = $("#create-collection-button");
         let collectionNameInput = $("#collection-name");
+
+
+        function containsForbiddenChars(chosenName) {
+            for (let i = 0; i < forbiddenChars.length; i++) {
+                if (chosenName.includes(forbiddenChars[i])) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+        function isChosenNameValid(chosenName) {
+            if (chosenName.length <= minNameLength) {
+                return false;
+            } else if (chosenName.length > maxNameLength) {
+                return false;
+            } else if (containsForbiddenChars(chosenName)) {
+                return false;
+            }
+            return true;
+        }
         
         collectionNameInput.on("input", function(e) {
             let chosenName = collectionNameInput.val();
-            if (chosenName.length > 0) {
+            if (isChosenNameValid(chosenName)) {
                 createCollectionButton.removeAttr("disabled");
             } else {
                 createCollectionButton.attr("disabled", "disabled");

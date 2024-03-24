@@ -77,7 +77,7 @@ class Account:
         return self.id
     
 
-    def get_collections(self) -> dict:
+    def get_collections(self) -> list:
         return self.collections
     
 

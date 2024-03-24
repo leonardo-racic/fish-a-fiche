@@ -92,3 +92,8 @@ def modify_cheat_sheet(token: str) -> Response:
 @app.route("/collections/<string:hashed_token>", methods=["GET", "POST"])
 def collections(hashed_token: str) -> Response:
     return handle_collections(server_account_manager, hashed_token)
+
+
+@app.route("/collections/<string:hashed_token>/<string:collection_name>", methods=["GET", "POST"])
+def collection_display(hashed_token: str, collection_name: str) -> Response:
+    return f"okay, we'll get to the {collection_name} collection from account({hashed_token})..."

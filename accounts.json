@@ -21,7 +21,33 @@
                     "comments": []
                 }
             ],
-            "collections": {}
+            "collections": [
+                {
+                    "is_public": true,
+                    "cheat_sheet": [],
+                    "name": "az"
+                },
+                {
+                    "is_public": true,
+                    "cheat_sheet": [],
+                    "name": "sdf"
+                },
+                {
+                    "is_public": true,
+                    "cheat_sheet": [],
+                    "name": "qsc"
+                },
+                {
+                    "is_public": true,
+                    "cheat_sheet": [],
+                    "name": "sdvsdv"
+                },
+                {
+                    "is_public": true,
+                    "cheat_sheet": [],
+                    "name": "sdvsdv"
+                }
+            ]
         },
         "f5ed0df0-f98d-4230-820b-20d7dcfff078": {
             "username": "second",
@@ -70,7 +96,7 @@
                     "comments": []
                 }
             ],
-            "collections": {}
+            "collections": []
         }
     }
 }
