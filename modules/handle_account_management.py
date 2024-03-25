@@ -192,3 +192,27 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
             sam.delete_collection(collection_name, target_account.get_id())
             return redirect(f"/collections/{hashed_token}")
     return "WIP, come back later! ^^"
+
+
+def handle_collection(sam: ServerAccountManager, hashed_token: str, collection_name: str) -> Response:
+    is_user: bool = hashed_token == sam.get_user_account_hashed_token()
+    author: Account = sam.get_account_from_hashed_token(hashed_token)
+
+
+    if request.method == "POST":
+        form_data: dict = get_form_data()
+        input_type: str = form_data.get("input_type")
+        if input_type == "rename_collection_input":
+            pass
+        elif input_type == "publish_collection_input":
+            print("toggling visibility")
+            sam.toggle_collection_visibility(author.get_id(), collection_name)
+    
+
+    return render_html(
+        "collection.html",
+        sam,
+        collection_name=collection_name,
+        is_user=is_user,
+        is_public=sam.is_collection_public(author.get_id(), collection_name),
+    )

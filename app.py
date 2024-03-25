@@ -5,6 +5,7 @@ from modules.cheat_sheet_manager import CheatSheetManager
 from modules.handle_account_management import (
     handle_login, handle_sign_up, handle_sign_out,
     handle_modify_profile, handle_profile, handle_collections,
+    handle_collection
 )
 from modules.handle_cheat_sheet import handle_cheat_sheet, handle_create_cheat_sheet, handle_modify_cheat_sheet
 from terminal_log import run_logging
@@ -95,5 +96,5 @@ def collections(hashed_token: str) -> Response:
 
 
 @app.route("/collections/<string:hashed_token>/<string:collection_name>", methods=["GET", "POST"])
-def collection_display(hashed_token: str, collection_name: str) -> Response:
-    return f"okay, we'll get to the {collection_name} collection from account({hashed_token})..."
+def collection(hashed_token: str, collection_name: str) -> Response:
+    return handle_collection(server_account_manager, hashed_token, collection_name)

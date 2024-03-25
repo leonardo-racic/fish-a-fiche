@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+    <div class="container">
+        <h1 class="display-1">{{collection_name}}</h6>
+        {% if is_user %}
+            <form action="/collections/{{hashed_token}}/{{collection_name}}" method="post">
+                <input type="hidden" name="input_type" value="publish_collection_input">
+                <button type="submit" class="btn btn-primary mb-2">
+                    {{"Publish" if not is_public else "Hide"}}
+                </button>
+            </form>
+            <form action="/collections/{{hashed_token}}/{{collection_name}}" method="post">
+                <input type="hidden" name="input_type" value="rename_collection_input">
+                <button type="submit" class="btn btn-primary mb-2">
+                    Rename
+                </button>
+            </form>
+        {% else %}
+            {% if is_public %}
+                Here come the cheat sheet...
+            {% else %}
+                It isn't public, what are you even looking for?
+            {% endif %}
+        {% endif %}
+    </div>
+{% endblock %}

@@ -321,8 +321,30 @@ class ServerAccountManager:
         for c in collections:
             if c["name"] == collection_name:
                 return True
-        return False    
+        return False
+    
 
+    def is_collection_public(self, account_id: str, collection_name: str) -> bool:
+        with open("accounts.json") as f:
+            json_data: dict = load_json(f.read())
+        target_account_json: dict = json_data["accounts"][account_id]
+        for c in target_account_json["collections"]:
+            if c["name"] == collection_name:
+                return c["is_public"]
+        return None
+
+
+    def toggle_collection_visibility(self, account_id, collection_name: str) -> None:
+        with open("accounts.json") as f:
+            json_data: dict = load_json(f.read())
+        target_account_json: dict = json_data["accounts"][account_id]
+        for c in target_account_json["collections"]:
+            if c["name"] == collection_name:
+                c["is_public"] = not c["is_public"]
+                break
+        with open("accounts.json", "w") as f:
+            f.write(to_json(json_data, indent=4))
+        self.update()
 
 
 if __name__ == "__main__":
