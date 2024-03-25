@@ -11,12 +11,32 @@
                     {{"Publish" if not is_public else "Hide"}}
                 </button>
             </form>
-            <form action="/collections/{{hashed_token}}/{{collection_name}}" method="post">
-                <input type="hidden" name="input_type" value="rename_collection_input">
-                <button type="submit" class="btn btn-primary mb-2">
-                    Rename
-                </button>
-            </form>
+            <button type="button" class="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#rename-collection">
+                Rename
+            </button>
+            <div class="modal fade" id="rename-collection" tabindex="-1" aria-labelledby="rename-collection-label" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="rename-collection-label">Rename the collection</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form action="/collections/{{hashed_token}}/{{collection_name}}" method="post">
+                            <div class="modal-body">
+                                <input type="hidden" name="input_type" value="rename_collection_input">
+                                <div class="form-group mb-2">
+                                    <label class="form-label" for="collection-name">Collection's new name (no spaces!)</label>
+                                    <input class="form-control" type="text" name="collection_name" id="collection-name" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-primary" id="rename-collection-button" disabled>Rename</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         {% else %}
             {% if is_public %}
                 Here come the cheat sheet...
@@ -25,4 +45,44 @@
             {% endif %}
         {% endif %}
     </div>
+    <script>
+        const minNameLength = 0;
+        const maxNameLength = 32;
+        const forbiddenChars = " ";
+
+
+        let renameCollectionButton = $("#rename-collection-button");
+        let collectionNameInput = $("#collection-name");
+
+
+        function containsForbiddenChars(chosenName) {
+            for (let i = 0; i < forbiddenChars.length; i++) {
+                if (chosenName.includes(forbiddenChars[i])) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+        function isChosenNameValid(chosenName) {
+            if (chosenName.length <= minNameLength) {
+                return false;
+            } else if (chosenName.length > maxNameLength) {
+                return false;
+            } else if (containsForbiddenChars(chosenName)) {
+                return false;
+            }
+            return true;
+        }
+        
+        collectionNameInput.on("input", function(e) {
+            let chosenName = collectionNameInput.val();
+            if (isChosenNameValid(chosenName)) {
+                renameCollectionButton.removeAttr("disabled");
+            } else {
+                renameCollectionButton.attr("disabled", "disabled");
+            }
+        });
+    </script>
 {% endblock %}

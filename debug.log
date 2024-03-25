@@ -1,5 +1,2 @@
-[03/25/24 Mar:03:1711395582] - WARNING   (werkzeug)    * Debugger is active!
-[03/25/24 Mar:03:1711395582] - INFO   (werkzeug)    * Debugger PIN: 138-633-596
-[03/25/24 Mar:03:1711395584] - INFO   (werkzeug)   127.0.0.1 - - [25/Mar/2024 20:39:44] "GET /collections/879294d245051906e0e8455470ee786bc4b09da005abecad048769cd31814aa3/a HTTP/1.1" 200 -
-[03/25/24 Mar:03:1711395585] - INFO   (werkzeug)   127.0.0.1 - - [25/Mar/2024 20:39:45] "POST /collections/879294d245051906e0e8455470ee786bc4b09da005abecad048769cd31814aa3/a HTTP/1.1" 200 -
-[03/25/24 Mar:03:1711395592] - INFO   (werkzeug)   127.0.0.1 - - [25/Mar/2024 20:39:52] "POST /collections/879294d245051906e0e8455470ee786bc4b09da005abecad048769cd31814aa3/a HTTP/1.1" 200 -
+[03/25/24 Mar:03:1711396508] - WARNING   (werkzeug)    * Debugger is active!
+[03/25/24 Mar:03:1711396508] - INFO   (werkzeug)    * Debugger PIN: 138-633-596

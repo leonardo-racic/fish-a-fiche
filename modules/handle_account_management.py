@@ -203,9 +203,16 @@ def handle_collection(sam: ServerAccountManager, hashed_token: str, collection_n
         form_data: dict = get_form_data()
         input_type: str = form_data.get("input_type")
         if input_type == "rename_collection_input":
-            pass
+            new_collection_name: str = form_data.get("collection_name")
+            sam.rename_collection(author.get_id(), collection_name, new_collection_name)
+            return render_html(
+                "collection.html",
+                sam,
+                collection_name=new_collection_name,
+                is_user=is_user,
+                is_public=sam.is_collection_public(author.get_id(), collection_name),
+            )
         elif input_type == "publish_collection_input":
-            print("toggling visibility")
             sam.toggle_collection_visibility(author.get_id(), collection_name)
     
 
