@@ -29,7 +29,8 @@ def handle_cheat_sheet(
         
         is_user_author: bool = server_account_manager.get_user_account_token() == cheat_sheet_info["author_token"]
         comments: list = get_comments(cheat_sheet_info, server_account_manager)
-        author_hashed_token: str = get_hash(author_token)        
+        author_hashed_token: str = get_hash(author_token)
+        user_collections: list = server_account_manager.get_user_account_collections() 
 
         return render_html(
             "cheat_sheet.html",
@@ -45,6 +46,7 @@ def handle_cheat_sheet(
             likes=cheat_sheet_info["likes"],
             dislikes=cheat_sheet_info["dislikes"],
             comments=comments,
+            user_collections=user_collections,
         )
     
 

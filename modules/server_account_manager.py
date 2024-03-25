@@ -358,6 +358,20 @@ class ServerAccountManager:
         with open("accounts.json", "w") as f:
             f.write(to_json(json_data, indent=4))
         self.update()
+    
+
+    def save_to_collection(self, collection_name: str, cheat_sheet_token: str) -> None:
+        with open("accounts.json") as f:
+            json_data: dict = load_json(f.read())
+        current_account_info: dict = json_data["accounts"][self.get_user_account_token()]
+        collections: list = current_account_info["collections"]
+        for c in collections:
+            if c["name"] == collection_name and cheat_sheet_token not in c["cheat_sheet"]:
+                c["cheat_sheet"].append(cheat_sheet_token)
+                break
+        with open("accounts.json", "w") as f:
+            f.write(to_json(json_data, indent=4))
+        self.update()
 
 
 if __name__ == "__main__":

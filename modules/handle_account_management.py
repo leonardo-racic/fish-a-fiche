@@ -2,7 +2,6 @@ from flask import Response, make_response, redirect, url_for, request
 from singletons import render_html, get_form_data
 from .account_module import Account
 from .server_account_manager import ServerAccountManager
-from terminal_log import inform
 
 
 # Login
@@ -191,6 +190,11 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
             collection_name: str = form_data["collection_name"]
             sam.delete_collection(collection_name, target_account.get_id())
             return redirect(f"/collections/{hashed_token}")
+        elif input_type == "save_collection_input":
+            collection_name: str = form_data["collection_name"]
+            cheat_sheet_token: str = form_data["cheat_sheet_token"]
+            sam.save_to_collection(collection_name, cheat_sheet_token)
+            return redirect(f"/cheat-sheet/{cheat_sheet_token}")
     return "WIP, come back later! ^^"
 
 
@@ -214,7 +218,7 @@ def handle_collection(sam: ServerAccountManager, hashed_token: str, collection_n
             )
         elif input_type == "publish_collection_input":
             sam.toggle_collection_visibility(author.get_id(), collection_name)
-    
+
 
     return render_html(
         "collection.html",

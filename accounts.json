@@ -24,7 +24,9 @@
             "collections": [
                 {
                     "is_public": true,
-                    "cheat_sheet": [],
+                    "cheat_sheet": [
+                        "1e16af73-d1cb-477a-bb99-8c8f9686f367"
+                    ],
                     "name": "amazing-name"
                 },
                 {
