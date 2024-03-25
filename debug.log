@@ -1,2 +1,8 @@
 [03/25/24 Mar:03:1711396508] - WARNING   (werkzeug)    * Debugger is active!
 [03/25/24 Mar:03:1711396508] - INFO   (werkzeug)    * Debugger PIN: 138-633-596
+[03/25/24 Mar:03:1711396611] - INFO   (werkzeug)   127.0.0.1 - - [25/Mar/2024 20:56:51] "GET /collections/879294d245051906e0e8455470ee786bc4b09da005abecad048769cd31814aa3/amazing-name HTTP/1.1" 200 -
+[03/25/24 Mar:03:1711396911] - INFO   (werkzeug)   127.0.0.1 - - [25/Mar/2024 21:01:51] "GET /collections/879294d245051906e0e8455470ee786bc4b09da005abecad048769cd31814aa3/amazing-name HTTP/1.1" 200 -
+[03/25/24 Mar:03:1711396912] - INFO   (werkzeug)   127.0.0.1 - - [25/Mar/2024 21:01:52] "GET / HTTP/1.1" 200 -
+[03/25/24 Mar:03:1711396914] - INFO   (werkzeug)   127.0.0.1 - - [25/Mar/2024 21:01:54] "GET /collections/879294d245051906e0e8455470ee786bc4b09da005abecad048769cd31814aa3 HTTP/1.1" 200 -
+[03/25/24 Mar:03:1711396915] - INFO   (werkzeug)   127.0.0.1 - - [25/Mar/2024 21:01:55] "GET /profile/879294d245051906e0e8455470ee786bc4b09da005abecad048769cd31814aa3 HTTP/1.1" 200 -
+[03/25/24 Mar:03:1711396917] - INFO   (werkzeug)   127.0.0.1 - - [25/Mar/2024 21:01:57] "GET /cheat-sheet/1e16af73-d1cb-477a-bb99-8c8f9686f367 HTTP/1.1" 200 -
