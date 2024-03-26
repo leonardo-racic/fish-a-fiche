@@ -67,8 +67,8 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{c.name}}</h5>
                                 <p class="card-text text-muted">{{c.cheat_sheet|length}} cheat sheet</p>
-                                <a href=/collections/{{hashed_token}}/{{c.name}} class="btn btn-primary mb-2">Display</a>
-                                <form action="/collections/{{hashed_token}}" method="post">
+                                <a href=/collections/{{author_hashed_token}}/{{c.name}} class="btn btn-primary mb-2">Display</a>
+                                <form action="/collections/{{author_hashed_token}}" method="post">
                                     <input type="hidden" name="input_type" value="delete_collection_input">
                                     <input type="hidden" name="collection_name" value="{{c.name}}">
                                     <button type="submit" class="btn btn-secondary">Delete</button>

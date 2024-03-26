@@ -206,10 +206,8 @@ def handle_collection(
     collection_name: str
 ) -> Response:
     
-
-    is_user: bool = hashed_token == sam.get_user_account_hashed_token()
     author: Account = sam.get_account_from_hashed_token(hashed_token)
-
+    is_user: bool = author.get_id() == sam.get_user_account_token()
 
     if request.method == "POST":
         form_data: dict = get_form_data()
@@ -226,18 +224,22 @@ def handle_collection(
             )
         elif input_type == "publish_collection_input":
             sam.toggle_collection_visibility(author.get_id(), collection_name)
+    
 
-    cheat_sheet_tokens: list = sam.get_cheat_sheet_token_from_collection(author.get_id(), collection_name)
-    cheat_sheet_info = []
-    if cheat_sheet_tokens is not None:
-        for token in cheat_sheet_tokens:
-            target_cheat_sheet_info: dict = csm.get_cheat_sheet_info(token)
-            cheat_sheet_info.append(target_cheat_sheet_info)
-    return render_html(
-        "collection.html",
-        sam,
-        collection_name=collection_name,
-        cheat_sheet=cheat_sheet_info,
-        is_user=is_user,
-        is_public=sam.is_collection_public(author.get_id(), collection_name),
-    )
+    elif request.method == "GET":
+        cheat_sheet_tokens: list = sam.get_cheat_sheet_token_from_collection(author.get_id(), collection_name)
+        cheat_sheet_info = []
+        if cheat_sheet_tokens is not None:
+            for token in cheat_sheet_tokens:
+                target_cheat_sheet_info: dict = csm.get_cheat_sheet_info(token)
+                cheat_sheet_info.append(target_cheat_sheet_info)
+        
+        print(is_user, author.get_id(), sam.get_user_account_token())
+        return render_html(
+            "collection.html",
+            sam,
+            collection_name=collection_name,
+            cheat_sheet=cheat_sheet_info,
+            is_user=is_user,
+            is_public=sam.is_collection_public(author.get_id(), collection_name),
+        )

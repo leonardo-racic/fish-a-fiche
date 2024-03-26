@@ -200,7 +200,12 @@
             "dislikes": 0,
             "original_lang": "EN",
             "keywords": [],
-            "comments": []
+            "comments": [
+                {
+                    "token": "42cf123d94525c2ee4d4c614912cb671ad022ae9a93a48708e6b14a51143cb05",
+                    "content": "this works just fine!"
+                }
+            ]
         }
     }
 }

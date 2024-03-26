@@ -36,14 +36,14 @@
             ],
             "collections": [
                 {
-                    "is_public": true,
+                    "is_public": false,
                     "cheat_sheet": [
                         "1e16af73-d1cb-477a-bb99-8c8f9686f367"
                     ],
                     "name": "amazing-name"
                 },
                 {
-                    "is_public": false,
+                    "is_public": true,
                     "cheat_sheet": [
                         "aea31da0-1f84-4163-b0b3-79c0827cf712"
                     ],
