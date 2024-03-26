@@ -46,5 +46,6 @@
         {% if is_user %}
             <a class="btn btn-primary" href="/modify-profile" role="button">Edit Profile</a>
         {% endif %}
+        <a href="/collections/{{current_hashed_token}}" class="btn btn-primary">Collections</a>
     </div>
 {% endblock %}

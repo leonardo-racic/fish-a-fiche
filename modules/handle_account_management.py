@@ -145,6 +145,7 @@ def handle_profile(server_account_manager: ServerAccountManager, hashed_token: s
             "user_profile.html",
             server_account_manager,
             username=account_info["username"],
+            current_hashed_token=hashed_token,
             description=account_info["description"],
             profile_picture=account_info["profile_picture"],
             is_user=bool(account_info["id"] == user_account_info["id"]),
