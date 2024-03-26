@@ -108,4 +108,10 @@ class CheatSheetManager:
             f.write(dumps(cheat_sheet_data, indent=4))
         self.update()
 
-        
+    
+    def delete_cheat_sheet(self, token: str) -> None:
+        with open("cheat_sheet.json") as f:
+            cheat_sheet_data: dict = load_json(f.read())
+        for c in cheat_sheet_data["cheat_sheet"]:
+            if c["token"]["token"] == token:
+                pass
