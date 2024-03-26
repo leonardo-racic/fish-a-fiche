@@ -2,6 +2,7 @@ from flask import Response, make_response, redirect, url_for, request
 from singletons import render_html, get_form_data
 from .account_module import Account
 from .server_account_manager import ServerAccountManager
+from .cheat_sheet_manager import CheatSheetManager
 
 
 # Login
@@ -198,7 +199,14 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
     return "WIP, come back later! ^^"
 
 
-def handle_collection(sam: ServerAccountManager, hashed_token: str, collection_name: str) -> Response:
+def handle_collection(
+    sam: ServerAccountManager,
+    csm: CheatSheetManager,
+    hashed_token: str,
+    collection_name: str
+) -> Response:
+    
+
     is_user: bool = hashed_token == sam.get_user_account_hashed_token()
     author: Account = sam.get_account_from_hashed_token(hashed_token)
 
@@ -219,11 +227,17 @@ def handle_collection(sam: ServerAccountManager, hashed_token: str, collection_n
         elif input_type == "publish_collection_input":
             sam.toggle_collection_visibility(author.get_id(), collection_name)
 
-
+    cheat_sheet_tokens: list = sam.get_cheat_sheet_token_from_collection(author.get_id(), collection_name)
+    cheat_sheet_info = []
+    if cheat_sheet_tokens is not None:
+        for token in cheat_sheet_tokens:
+            target_cheat_sheet_info: dict = csm.get_cheat_sheet_info(token)
+            cheat_sheet_info.append(target_cheat_sheet_info)
     return render_html(
         "collection.html",
         sam,
         collection_name=collection_name,
+        cheat_sheet=cheat_sheet_info,
         is_user=is_user,
         is_public=sam.is_collection_public(author.get_id(), collection_name),
     )

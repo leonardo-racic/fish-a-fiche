@@ -372,6 +372,17 @@ class ServerAccountManager:
         with open("accounts.json", "w") as f:
             f.write(to_json(json_data, indent=4))
         self.update()
+    
+
+    def get_cheat_sheet_token_from_collection(self, account_id: str, collection_name: str) -> list:
+        with open("accounts.json") as f:
+            json_data: dict = load_json(f.read())
+        target_account_json: dict = json_data["accounts"][account_id]
+        for c in target_account_json["collections"]:
+            if c["name"] == collection_name:
+                return c["cheat_sheet"]
+        return None
+
 
 
 if __name__ == "__main__":

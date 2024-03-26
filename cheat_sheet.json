@@ -188,6 +188,19 @@
                     "content": "it finally works???"
                 }
             ]
+        },
+        "aea31da0-1f84-4163-b0b3-79c0827cf712": {
+            "token": "aea31da0-1f84-4163-b0b3-79c0827cf712",
+            "title": "Multiplication",
+            "author_token": "3a2ff6ed-bdbc-4afc-b8b8-61fe40a46a74",
+            "content": "There are many ways to write it:\r\n$4\\cdot 4$\\\r\n$4 * 4$\\\r\netc",
+            "context": ".",
+            "date": "26/03/2024 - 08:41",
+            "likes": 0,
+            "dislikes": 0,
+            "original_lang": "EN",
+            "keywords": [],
+            "comments": []
         }
     }
 }

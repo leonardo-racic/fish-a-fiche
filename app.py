@@ -12,7 +12,6 @@ from terminal_log import run_logging
 from modules.handle_upload import handle_upload
 
 
-run_logging()
 app: Flask = Flask(__name__)
 server_account_manager: ServerAccountManager = ServerAccountManager()
 cheat_sheet_manager: CheatSheetManager = CheatSheetManager()
@@ -97,4 +96,8 @@ def collections(hashed_token: str) -> Response:
 
 @app.route("/collections/<string:hashed_token>/<string:collection_name>", methods=["GET", "POST"])
 def collection(hashed_token: str, collection_name: str) -> Response:
-    return handle_collection(server_account_manager, hashed_token, collection_name)
+    return handle_collection(server_account_manager, cheat_sheet_manager , hashed_token, collection_name)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)

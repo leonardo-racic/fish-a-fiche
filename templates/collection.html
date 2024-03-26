@@ -37,12 +37,18 @@
                     </div>
                 </div>
             </div>
-        {% else %}
-            {% if is_public %}
-                Here come the cheat sheet...
-            {% else %}
-                It isn't public, what are you even looking for?
-            {% endif %}
+        {% endif %}
+        {% if is_user or is_public %}
+            <div class="row row-cols-{{max_c_per_row}}">
+                {% for c in cheat_sheet %}
+                    <div class="card col text-center my-2 mx-1" style="max-width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{c.title}}</h5>
+                            <a href=/cheat-sheet/{{c.token}} class="btn btn-primary mb-2">Display</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
         {% endif %}
     </div>
     <script>
