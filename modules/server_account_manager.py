@@ -382,6 +382,26 @@ class ServerAccountManager:
             if c["name"] == collection_name:
                 return c["cheat_sheet"]
         return None
+    
+
+    def remove_cheat_sheet_from_collection(self, account_id: str, collection_name: str, cheat_sheet_token: str) -> None:
+        with open("accounts.json") as f:
+            json_data: dict = load_json(f.read())
+        target_account_json: dict = json_data["accounts"][account_id]
+        for c in target_account_json["collections"]:
+            has_removed: bool = False
+            if c["name"] == collection_name:
+                for cs in c["cheat_sheet"]:
+                    if cs == cheat_sheet_token:
+                        c["cheat_sheet"].remove(cheat_sheet_token)
+                        has_removed = True
+                        break
+            if has_removed:
+                break
+        with open("accounts.json", "w") as f:
+            f.write(to_json(json_data, indent=4))
+        self.update()
+        
 
 
 

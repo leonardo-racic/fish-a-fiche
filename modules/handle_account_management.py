@@ -160,6 +160,8 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
     target_account: Account = sam.get_account_from_hashed_token(hashed_token)
     collections: list = sam.get_collections(target_account.get_id())
     is_user: bool = hashed_token == sam.get_user_account_hashed_token()
+
+
     if request.method == "GET":
         return render_html(
             "collections.html",
@@ -169,6 +171,8 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
             author_hashed_token=hashed_token,
             is_user=is_user,
         )
+    
+
     elif request.method == "POST":
         form_data: dict = get_form_data()
         input_type: str = form_data.get("input_type")
@@ -188,15 +192,21 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
             else:
                 sam.add_new_collection_to_account(collection_name, target_account.get_id(), is_public)
                 return redirect(f"/collections/{hashed_token}")
+            
+
         elif input_type == "delete_collection_input":
             collection_name: str = form_data["collection_name"]
             sam.delete_collection(collection_name, target_account.get_id())
             return redirect(f"/collections/{hashed_token}")
+        
+
         elif input_type == "save_collection_input":
             collection_name: str = form_data["collection_name"]
             cheat_sheet_token: str = form_data["cheat_sheet_token"]
             sam.save_to_collection(collection_name, cheat_sheet_token)
             return redirect(f"/cheat-sheet/{cheat_sheet_token}")
+        
+
     return "WIP, come back later! ^^"
 
 
@@ -209,6 +219,12 @@ def handle_collection(
     
     author: Account = sam.get_account_from_hashed_token(hashed_token)
     is_user: bool = author.get_id() == sam.get_user_account_token()
+    cheat_sheet_tokens: list = sam.get_cheat_sheet_token_from_collection(author.get_id(), collection_name)
+    cheat_sheet_info = []
+    if cheat_sheet_tokens is not None:
+        for token in cheat_sheet_tokens:
+            target_cheat_sheet_info: dict = csm.get_cheat_sheet_info(token)
+            cheat_sheet_info.append(target_cheat_sheet_info)
 
     if request.method == "POST":
         form_data: dict = get_form_data()
@@ -216,26 +232,23 @@ def handle_collection(
         if input_type == "rename_collection_input":
             new_collection_name: str = form_data.get("collection_name")
             sam.rename_collection(author.get_id(), collection_name, new_collection_name)
-            return render_html(
-                "collection.html",
-                sam,
-                collection_name=new_collection_name,
-                is_user=is_user,
-                is_public=sam.is_collection_public(author.get_id(), collection_name),
-            )
+            return redirect(f"/collections/{hashed_token}/{new_collection_name}")
+        
+        
         elif input_type == "publish_collection_input":
             sam.toggle_collection_visibility(author.get_id(), collection_name)
+            return redirect(f"/collections/{hashed_token}/{collection_name}")
+
+
+        elif input_type == "remove_cheat_sheet_input":
+            cheat_sheet_token: str = form_data["cheat_sheet_token"]
+            user_token: str = sam.get_user_account_token()
+            sam.remove_cheat_sheet_from_collection(user_token, collection_name, cheat_sheet_token)
+            return redirect(f"/collections/{hashed_token}/{collection_name}")
+
     
 
     elif request.method == "GET":
-        cheat_sheet_tokens: list = sam.get_cheat_sheet_token_from_collection(author.get_id(), collection_name)
-        cheat_sheet_info = []
-        if cheat_sheet_tokens is not None:
-            for token in cheat_sheet_tokens:
-                target_cheat_sheet_info: dict = csm.get_cheat_sheet_info(token)
-                cheat_sheet_info.append(target_cheat_sheet_info)
-        
-        print(is_user, author.get_id(), sam.get_user_account_token())
         return render_html(
             "collection.html",
             sam,

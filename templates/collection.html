@@ -45,6 +45,15 @@
                         <div class="card-body">
                             <h5 class="card-title">{{c.title}}</h5>
                             <a href=/cheat-sheet/{{c.token}} class="btn btn-primary mb-2">Display</a>
+                            {% if is_user %}
+                                <form action="/collections/{{hashed_token}}/{{collection_name}}" method="post">
+                                    <div class="form-group mb-2">
+                                        <input type="hidden" name="input_type" value="remove_cheat_sheet_input">
+                                        <input type="hidden" name="cheat_sheet_token" value={{c.token}}>
+                                        <button type="submit" class="btn btn-secondary">Remove</button>
+                                    </div>
+                                </form>
+                            {% endif %}
                         </div>
                     </div>
                 {% endfor %}
