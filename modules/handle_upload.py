@@ -35,7 +35,7 @@ import os.path
 from .cheat_sheet_module import CheatSheet
 from .server_account_manager import ServerAccountManager
 from .cheat_sheet_manager import CheatSheetManager
-
+import terminal_log
 
 
 UPLOAD_FOLDER = 'sheets'
@@ -77,14 +77,16 @@ def handle_upload(server_account_manager: ServerAccountManager):
         if file.filename == '':
             flash('No selected file')
             return redirect(request.url)
+        terminal_log.inform('verifying filename')
         if file and allowed_file(file.filename):
-
+            
             filename = secure_filename(request.form.get("title"))
+            terminal_log.inform('filename secured')
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
-            print("handle upload starting")
+            terminal_log.inform('creating cheat-sheet')
             new_cs = create_cheat_sheet(server_account_manager)
-            print("handle_upload ok")
+            terminal_log.inform('cheat_sheet created')
             new_cs.store_to_index()
             csm.add_cheat_sheet(new_cs)
             return 'upload succesfull'

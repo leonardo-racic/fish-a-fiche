@@ -12,8 +12,8 @@ def run_logging() -> None:
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s - %(levelname)s   (%(name)s)   %(message)s",
-        datefmt="[%m/%d/%y %h:%m:%s]",
-        filename=log_file,
+        #datefmt="[%m/%d/%y %h:%m:%s]",
+        filename='log_file.log',
     )
 
 
