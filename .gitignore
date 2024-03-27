@@ -1,0 +1,9 @@
+*.venv/
+__pycache__
+accounts.json
+debug.log
+/index
+*.json
+accounts.json
+cheat_sheet.json
+debug.log
