@@ -23,7 +23,6 @@ cheat_sheet_manager: CheatSheetManager = CheatSheetManager()
 def main() -> Response:
     account_info: dict = server_account_manager.get_user_account_info()
     logged_in: bool = server_account_manager.is_user_logged_in()
-    flash('test')
     if logged_in:
         return render_html(
             "home_page.html",
@@ -103,4 +102,4 @@ def collection(hashed_token: str, collection_name: str) -> Response:
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0',debug=True)

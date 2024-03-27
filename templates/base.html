@@ -70,6 +70,8 @@
                 </ul>
             </header>
         </div>
+        <div class="container">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4"></header>
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 <ul class=flashes>
@@ -79,6 +81,8 @@
                 </ul>
             {% endif %}
         {% endwith %}
+        </header>
+        </div>
     {% endblock %}
     
     
