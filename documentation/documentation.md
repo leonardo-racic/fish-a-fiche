@@ -41,3 +41,27 @@ A folder, acting as a database, stocking all the different sheet created by user
 - The main python file that is the first to be executed when flask is run: [app.py](/app.py), that is important, since it is the one routing the URLs to the multiple files handling different situations
 - A file containing all account's information : [accounts.json](/accounts.json)
 - A file containing all the existing cheat sheet: [cheat_sheet.json](/cheat_sheet.json)
+
+### .gitignore
+
+### Read.me
+
+### _config.yml
+
+### accounts.json
+
+### app.py
+
+### cheat_sheet.json
+
+### debug.log
+
+### index.html
+
+### main.sh
+
+### requirement.txt
+
+### singletons.py
+
+### terminal_log.py
