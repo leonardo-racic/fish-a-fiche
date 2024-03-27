@@ -86,16 +86,16 @@ def handle_upload(server_account_manager: ServerAccountManager):
         if file and allowed_file(file.filename):
             
             filename = secure_filename(request.form.get("title"))
-            terminal_log.inform('filename secured')
+            terminal_log.inform(f'filename secured FILENAME:{filename}')
             terminal_log.inform('saving file')
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             terminal_log.inform('file saved')
 
             terminal_log.inform('creating cheat-sheet')
             new_cs = create_cheat_sheet(server_account_manager)
-            terminal_log.inform('cheat_sheet created')
+            terminal_log.inform(f'cheat_sheet created cs_token: {new_cs.token} author_token: {new_cs.author_token}')
 
-            terminal_log('storing to index')
+            terminal_log.inform('storing to index')
             new_cs.store_to_index()
             csm.add_cheat_sheet(new_cs)
             terminal_log.inform('stored to index')
