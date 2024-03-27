@@ -20,6 +20,8 @@ A folder containing all the [documentation](/documentation) files to centralize 
 
 ### folder "index"
 
+A folder containing all the important MAIN files regrouped in a [INDEX](/index), still nid some imporvement, but the devs are working on it.
+
 ### folder "modules"
 
 A folder containing all the important [modules](/modules)
