@@ -207,6 +207,14 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
             return redirect(f"/cheat-sheet/{cheat_sheet_token}")
         
 
+        elif input_type == "remove_cheat_sheet_input":
+            collection_name: str = form_data["collection_name"]
+            cheat_sheet_token: str = form_data["cheat_sheet_token"]
+            user_token: str = sam.get_user_account_token()
+            sam.remove_cheat_sheet_from_collection(user_token, collection_name, cheat_sheet_token)
+            return redirect(f"/cheat-sheet/{cheat_sheet_token}")
+        
+
     return "WIP, come back later! ^^"
 
 

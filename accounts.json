@@ -96,7 +96,23 @@
                     "comments": []
                 }
             ],
-            "collections": []
+            "collections": [
+                {
+                    "is_public": true,
+                    "cheat_sheet": [],
+                    "name": "first"
+                },
+                {
+                    "is_public": false,
+                    "cheat_sheet": [],
+                    "name": "other"
+                },
+                {
+                    "is_public": false,
+                    "cheat_sheet": [],
+                    "name": "amazing"
+                }
+            ]
         },
         "b4263b44-0be2-43a2-93f5-71c934eaa471": {
             "username": "test",

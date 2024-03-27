@@ -31,6 +31,14 @@ def handle_cheat_sheet(
         comments: list = get_comments(cheat_sheet_info, server_account_manager)
         author_hashed_token: str = get_hash(author_token)
         user_collections: list = server_account_manager.get_user_account_collections() 
+        available_user_collections: list = []
+        unavailable_user_collections: list = []
+        for c in user_collections:
+            if token in c["cheat_sheet"]:
+                unavailable_user_collections.append(c)
+            else:
+                available_user_collections.append(c)
+
 
         return render_html(
             "cheat_sheet.html",
@@ -46,7 +54,8 @@ def handle_cheat_sheet(
             likes=cheat_sheet_info["likes"],
             dislikes=cheat_sheet_info["dislikes"],
             comments=comments,
-            user_collections=user_collections,
+            available_user_collections=available_user_collections,
+            unavailable_user_collections=unavailable_user_collections,
         )
     
 
