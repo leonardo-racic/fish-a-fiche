@@ -67,28 +67,39 @@ def handle_upload(server_account_manager: ServerAccountManager):
              upload was succesfull otherwise.
     """
     if request.method == 'POST':
+
         # check if the post request has the file part
         if 'file' not in request.files:
-            flash('No file part')
+            terminal_log.warn('no files uploaded')
             return redirect(request.url)
+        
+        terminal_log.inform('requesting file')
         file = request.files['file']
+
         # If the user does not select a file, the browser submits an
         # empty file without a filename.
         if file.filename == '':
-            flash('No selected file')
+            terminal_log.warn('no filename')
             return redirect(request.url)
+        
         terminal_log.inform('verifying filename')
         if file and allowed_file(file.filename):
             
             filename = secure_filename(request.form.get("title"))
             terminal_log.inform('filename secured')
+            terminal_log.inform('saving file')
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            terminal_log.inform('file saved')
 
             terminal_log.inform('creating cheat-sheet')
             new_cs = create_cheat_sheet(server_account_manager)
             terminal_log.inform('cheat_sheet created')
+
+            terminal_log('storing to index')
             new_cs.store_to_index()
             csm.add_cheat_sheet(new_cs)
+            terminal_log.inform('stored to index')
+            terminal_log.inform('upload succesfulle, redirecting')
             return 'upload succesfull'
         
     

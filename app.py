@@ -11,7 +11,7 @@ from modules.handle_cheat_sheet import handle_cheat_sheet, handle_create_cheat_s
 from terminal_log import run_logging
 from modules.handle_upload import handle_upload
 
-#run_logging()
+run_logging()
 
 app: Flask = Flask(__name__)
 server_account_manager: ServerAccountManager = ServerAccountManager()
