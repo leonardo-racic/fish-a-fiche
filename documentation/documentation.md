@@ -32,6 +32,8 @@ A folder containing all the important [modules](/modules)
 
 ### folder "sheets"
 
+A folder, acting as a database, stocking all the different sheet created by users. Actually there is mostly test sheet but you can take a blink on it in [sheets](/sheets)
+
 ### folder "templates"
 
 - A folder containing all the static files that the server handles, called [templates](/templates) (that's how JinJa calls them)
