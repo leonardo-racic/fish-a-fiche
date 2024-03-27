@@ -1,0 +1,13 @@
+2024-03-27 10:59:31,092 - WARNING   (werkzeug)    * Debugger is active!
+2024-03-27 10:59:31,109 - INFO   (werkzeug)    * Debugger PIN: 126-667-525
+2024-03-27 10:59:36,638 - INFO   (terminal_log)   requesting file
+2024-03-27 10:59:36,638 - INFO   (terminal_log)   verifying filename
+2024-03-27 10:59:36,638 - INFO   (terminal_log)   filename secured FILENAME:test
+2024-03-27 10:59:36,638 - INFO   (terminal_log)   saving file
+2024-03-27 10:59:36,638 - INFO   (terminal_log)   file saved
+2024-03-27 10:59:36,638 - INFO   (terminal_log)   creating cheat-sheet
+2024-03-27 10:59:36,654 - INFO   (terminal_log)   cheat_sheet created cs_token: 41a03d98-adf4-46f5-999d-a709e6d16a5f author_token: b4263b44-0be2-43a2-93f5-71c934eaa471
+2024-03-27 10:59:36,654 - INFO   (terminal_log)   storing to index
+2024-03-27 10:59:36,816 - INFO   (terminal_log)   stored to index
+2024-03-27 10:59:36,816 - INFO   (terminal_log)   upload succesfulle, redirecting
+2024-03-27 10:59:36,816 - INFO   (werkzeug)   127.0.0.1 - - [27/Mar/2024 10:59:36] "POST /upload HTTP/1.1" 200 -

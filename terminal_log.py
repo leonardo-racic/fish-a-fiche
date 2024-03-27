@@ -12,7 +12,6 @@ def run_logging() -> None:
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s - %(levelname)s   (%(name)s)   %(message)s",
-        datefmt="[%m/%d/%y %h:%m:%s]",
         filename=log_file,
     )
 
@@ -29,15 +28,15 @@ def warn(msg: str, *args) -> None:
     logger.warning(msg, *args)
 
 
-def log_error(msg: str, *args) -> None:
+def error(msg: str, *args) -> None:
     logger.error(msg, *args)
 
 
-def log_exception(msg: str, *args) -> None:
+def exception(msg: str, *args) -> None:
     logger.exception(msg, *args)
 
 
-def log_critical(msg: str, *args) -> None:
+def critical(msg: str, *args) -> None:
     logger.critical(msg, *args)
 
 
