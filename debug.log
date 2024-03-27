@@ -1,58 +1,6 @@
-2024-03-27 11:05:49,391 - WARNING   (werkzeug)    * Debugger is active!
-2024-03-27 11:05:49,407 - INFO   (werkzeug)    * Debugger PIN: 126-667-525
-2024-03-27 11:06:09,229 - INFO   (werkzeug)   127.0.0.1 - - [27/Mar/2024 11:06:09] "GET /upload HTTP/1.1" 200 -
-2024-03-27 11:06:20,446 - INFO   (terminal_log)   requesting file
-2024-03-27 11:06:20,446 - INFO   (terminal_log)   verifying filename
-2024-03-27 11:06:20,446 - INFO   (terminal_log)   filename secured FILENAME:giyqgfiqyfgeivi
-2024-03-27 11:06:20,446 - INFO   (terminal_log)   saving file
-2024-03-27 11:06:20,454 - INFO   (terminal_log)   file saved
-2024-03-27 11:06:20,454 - INFO   (terminal_log)   creating cheat-sheet
-2024-03-27 11:06:20,462 - INFO   (terminal_log)   cheat_sheet created cs_token: d015ac77-d91e-4297-b828-ec0fa838db55 author_token: b4263b44-0be2-43a2-93f5-71c934eaa471
-2024-03-27 11:06:20,462 - INFO   (terminal_log)   storing to index
-2024-03-27 11:06:20,780 - INFO   (terminal_log)   stored to index
-2024-03-27 11:06:20,780 - INFO   (terminal_log)   upload succesfulle, redirecting
-2024-03-27 11:06:20,805 - INFO   (werkzeug)   127.0.0.1 - - [27/Mar/2024 11:06:20] "POST /upload HTTP/1.1" 200 -
-2024-03-27 11:08:30,323 - INFO   (terminal_log)   requesting file
-2024-03-27 11:08:30,323 - INFO   (terminal_log)   verifying filename
-2024-03-27 11:08:30,323 - INFO   (terminal_log)   filename secured FILENAME:giyqgfiqyfgeivi
-2024-03-27 11:08:30,323 - INFO   (terminal_log)   saving file
-2024-03-27 11:08:30,323 - INFO   (terminal_log)   file saved
-2024-03-27 11:08:30,323 - INFO   (terminal_log)   creating cheat-sheet
-2024-03-27 11:08:30,323 - INFO   (terminal_log)   cheat_sheet created cs_token: d015ac77-d91e-4297-b828-ec0fa838db55 author_token: b4263b44-0be2-43a2-93f5-71c934eaa471
-2024-03-27 11:08:30,323 - INFO   (terminal_log)   storing to index
-2024-03-27 11:08:30,444 - INFO   (terminal_log)   stored to index
-2024-03-27 11:08:30,444 - INFO   (terminal_log)   upload succesfulle, redirecting
-2024-03-27 11:08:30,475 - INFO   (werkzeug)   127.0.0.1 - - [27/Mar/2024 11:08:30] "POST /upload HTTP/1.1" 200 -
-2024-03-27 11:08:35,808 - INFO   (terminal_log)   requesting file
-2024-03-27 11:08:35,808 - INFO   (terminal_log)   verifying filename
-2024-03-27 11:08:35,819 - INFO   (terminal_log)   filename secured FILENAME:giyqgfiqyfgeivi
-2024-03-27 11:08:35,819 - INFO   (terminal_log)   saving file
-2024-03-27 11:08:35,819 - INFO   (terminal_log)   file saved
-2024-03-27 11:08:35,819 - INFO   (terminal_log)   creating cheat-sheet
-2024-03-27 11:08:35,819 - INFO   (terminal_log)   cheat_sheet created cs_token: d015ac77-d91e-4297-b828-ec0fa838db55 author_token: b4263b44-0be2-43a2-93f5-71c934eaa471
-2024-03-27 11:08:35,819 - INFO   (terminal_log)   storing to index
-2024-03-27 11:08:35,935 - INFO   (terminal_log)   stored to index
-2024-03-27 11:08:35,935 - INFO   (terminal_log)   upload succesfulle, redirecting
-2024-03-27 11:08:35,951 - INFO   (werkzeug)   127.0.0.1 - - [27/Mar/2024 11:08:35] "POST /upload HTTP/1.1" 200 -
-2024-03-27 11:09:54,317 - INFO   (terminal_log)   requesting file
-2024-03-27 11:09:54,317 - INFO   (terminal_log)   verifying filename
-2024-03-27 11:09:54,333 - INFO   (terminal_log)   filename secured FILENAME:giyqgfiqyfgeivi
-2024-03-27 11:09:54,333 - INFO   (terminal_log)   saving file
-2024-03-27 11:09:54,333 - INFO   (terminal_log)   file saved
-2024-03-27 11:09:54,333 - INFO   (terminal_log)   creating cheat-sheet
-2024-03-27 11:09:54,333 - INFO   (terminal_log)   cheat_sheet created cs_token: d015ac77-d91e-4297-b828-ec0fa838db55 author_token: b4263b44-0be2-43a2-93f5-71c934eaa471
-2024-03-27 11:09:54,333 - INFO   (terminal_log)   storing to index
-2024-03-27 11:09:54,449 - INFO   (terminal_log)   stored to index
-2024-03-27 11:09:54,449 - INFO   (terminal_log)   upload succesfulle, redirecting
-2024-03-27 11:09:54,464 - INFO   (werkzeug)   127.0.0.1 - - [27/Mar/2024 11:09:54] "POST /upload HTTP/1.1" 200 -
-2024-03-27 11:10:13,120 - INFO   (terminal_log)   requesting file
-2024-03-27 11:10:13,120 - INFO   (terminal_log)   verifying filename
-2024-03-27 11:10:13,130 - INFO   (terminal_log)   filename secured FILENAME:giyqgfiqyfgeivi
-2024-03-27 11:10:13,130 - INFO   (terminal_log)   saving file
-2024-03-27 11:10:13,130 - INFO   (terminal_log)   file saved
-2024-03-27 11:10:13,130 - INFO   (terminal_log)   creating cheat-sheet
-2024-03-27 11:10:13,130 - INFO   (terminal_log)   cheat_sheet created cs_token: d015ac77-d91e-4297-b828-ec0fa838db55 author_token: b4263b44-0be2-43a2-93f5-71c934eaa471
-2024-03-27 11:10:13,130 - INFO   (terminal_log)   storing to index
-2024-03-27 11:10:13,240 - INFO   (terminal_log)   stored to index
-2024-03-27 11:10:13,240 - INFO   (terminal_log)   upload succesfulle, redirecting
-2024-03-27 11:10:13,260 - INFO   (werkzeug)   127.0.0.1 - - [27/Mar/2024 11:10:13] "POST /upload HTTP/1.1" 200 -
+2024-03-27 19:33:47,060 - INFO   (werkzeug)   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.68.82:5000
+2024-03-27 19:33:47,060 - INFO   (werkzeug)   [33mPress CTRL+C to quit[0m
+2024-03-27 19:33:49,697 - INFO   (werkzeug)   127.0.0.1 - - [27/Mar/2024 19:33:49] "GET / HTTP/1.1" 200 -

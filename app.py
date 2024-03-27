@@ -1,4 +1,4 @@
-from flask import Flask, Response, request
+from flask import Flask, Response, request, flash
 from singletons import render_html
 from modules.server_account_manager import ServerAccountManager, get_hash
 from modules.cheat_sheet_manager import CheatSheetManager
@@ -14,6 +14,7 @@ from modules.handle_upload import handle_upload
 run_logging()
 
 app: Flask = Flask(__name__)
+app.secret_key = "Sachin"
 server_account_manager: ServerAccountManager = ServerAccountManager()
 cheat_sheet_manager: CheatSheetManager = CheatSheetManager()
 
@@ -22,6 +23,7 @@ cheat_sheet_manager: CheatSheetManager = CheatSheetManager()
 def main() -> Response:
     account_info: dict = server_account_manager.get_user_account_info()
     logged_in: bool = server_account_manager.is_user_logged_in()
+    flash('test')
     if logged_in:
         return render_html(
             "home_page.html",
@@ -101,4 +103,4 @@ def collection(hashed_token: str, collection_name: str) -> Response:
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0')
