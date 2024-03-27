@@ -39,7 +39,7 @@ import terminal_log
 
 
 UPLOAD_FOLDER = 'sheets'
-ALLOWED_EXTENSIONS = {'md','MD'}
+ALLOWED_EXTENSIONS = {'md','MD','txt'}
 
 app: Flask = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -66,6 +66,7 @@ def handle_upload(server_account_manager: ServerAccountManager):
     :return: redirect to the same page if upload unsuccesfull, or a page indicating that the
              upload was succesfull otherwise.
     """
+    logged_in: bool = server_account_manager.is_user_logged_in()
     if request.method == 'POST':
 
         # check if the post request has the file part
@@ -99,12 +100,13 @@ def handle_upload(server_account_manager: ServerAccountManager):
             new_cs.store_to_index()
             csm.add_cheat_sheet(new_cs)
             terminal_log.inform('stored to index')
-            terminal_log.inform('upload succesfulle, redirecting')
-            return render_template('upload_succesfull.html')
-        
-    
-    logged_in: bool = server_account_manager.is_user_logged_in()
-    print(logged_in)
+            terminal_log.inform('upload succesfull, redirecting')
+            flash('upload succesfull','success')
+            return render_template('upload.html',
+                                   logged_in=logged_in,
+                                   hashed_token=server_account_manager.get_user_account_hashed_token(),
+                                   )
+
     return render_template(
         'upload.html',
         logged_in=logged_in,
