@@ -20,7 +20,7 @@ A folder containing all the [documentation](/documentation) files to centralize 
 
 ### folder "index"
 
-A folder containing all the important MAIN files regrouped in a [INDEX](/index), still nid some imporvement, but the devs are working on it.
+A folder acting as a data base : [INDEX](/index), still need some imporvement, but the devs are working on it.
 
 ### folder "modules"
 
@@ -44,11 +44,15 @@ A folder, acting as a database, stocking all the different sheet created by user
 
 ### .gitignore
 
+A file containing some file names for the github website management tool, so that the bot doesn't take them into account when someone pushes something, because these files change very often.
+
 ### Read.me
 
 A file used for the presentation of project on our github page.
 
 ### _config.yml
+
+A file containing some information for the github website management tool, so that the bot knows what to modify to customize our site.
 
 ### accounts.json
 
@@ -56,17 +60,23 @@ A file contaning the way we stocked all informations about a user, his personal 
 
 ### app.py
 
+This file is the MAIN file, the file connecting all the others, essential for the good working of our website.
+
 ### cheat_sheet.json
 
 An example of cheat_sheet that you can create
 
 ### debug.log
 
+A file containing the logs of the website.
+
 ### index.html
 
-there is currently nothing in, but will be used for github.
+There is currently nothing in, but will be used for github.
 
 ### main.sh
+
+This file is just a dev tool, don't care about it.
 
 ### requirement.txt
 
