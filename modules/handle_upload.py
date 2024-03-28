@@ -39,7 +39,7 @@ import terminal_log
 
 
 UPLOAD_FOLDER = 'sheets'
-ALLOWED_EXTENSIONS = {'md','MD'}
+ALLOWED_EXTENSIONS = {'md','MD','txt'}
 
 app: Flask = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -66,34 +66,47 @@ def handle_upload(server_account_manager: ServerAccountManager):
     :return: redirect to the same page if upload unsuccesfull, or a page indicating that the
              upload was succesfull otherwise.
     """
+    logged_in: bool = server_account_manager.is_user_logged_in()
     if request.method == 'POST':
+
         # check if the post request has the file part
         if 'file' not in request.files:
-            flash('No file part')
+            terminal_log.warn('no files uploaded')
             return redirect(request.url)
+        
+        terminal_log.inform('requesting file')
         file = request.files['file']
+
         # If the user does not select a file, the browser submits an
         # empty file without a filename.
         if file.filename == '':
-            flash('No selected file')
+            terminal_log.warn('no filename')
             return redirect(request.url)
+        
         terminal_log.inform('verifying filename')
         if file and allowed_file(file.filename):
             
             filename = secure_filename(request.form.get("title"))
-            terminal_log.inform('filename secured')
+            terminal_log.inform(f'filename secured FILENAME:{filename}')
+            terminal_log.inform('saving file')
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            terminal_log.inform('file saved')
 
             terminal_log.inform('creating cheat-sheet')
             new_cs = create_cheat_sheet(server_account_manager)
-            terminal_log.inform('cheat_sheet created')
+            terminal_log.inform(f'cheat_sheet created cs_token: {new_cs.token} author_token: {new_cs.author_token}')
+
+            terminal_log.inform('storing to index')
             new_cs.store_to_index()
             csm.add_cheat_sheet(new_cs)
-            return 'upload succesfull'
-        
-    
-    logged_in: bool = server_account_manager.is_user_logged_in()
-    print(logged_in)
+            terminal_log.inform('stored to index')
+            terminal_log.inform('upload succesfull, redirecting')
+            flash('upload succesfull','success')
+            return render_template('upload.html',
+                                   logged_in=logged_in,
+                                   hashed_token=server_account_manager.get_user_account_hashed_token(),
+                                   )
+
     return render_template(
         'upload.html',
         logged_in=logged_in,

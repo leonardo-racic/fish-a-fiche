@@ -37,7 +37,8 @@ schema = Schema(
 if not os.path.exists("index"):
     os.mkdir("index")
     ix = create_in("index", schema)
-
+else:
+    ix = create_in("index", schema)
 
 # Example of how to search the index using a term query
 # with ix.searcher() as searcher:

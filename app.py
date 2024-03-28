@@ -1,4 +1,4 @@
-from flask import Flask, Response, request
+from flask import Flask, Response, request, flash
 from singletons import render_html
 from modules.server_account_manager import ServerAccountManager, get_hash
 from modules.cheat_sheet_manager import CheatSheetManager
@@ -11,9 +11,10 @@ from modules.handle_cheat_sheet import handle_cheat_sheet, handle_create_cheat_s
 from terminal_log import run_logging
 from modules.handle_upload import handle_upload
 
-#run_logging()
+run_logging()
 
 app: Flask = Flask(__name__)
+app.secret_key = "Sachin"
 server_account_manager: ServerAccountManager = ServerAccountManager()
 cheat_sheet_manager: CheatSheetManager = CheatSheetManager()
 
@@ -101,4 +102,4 @@ def collection(hashed_token: str, collection_name: str) -> Response:
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0',debug=True)
