@@ -46,22 +46,37 @@ A folder, acting as a database, stocking all the different sheet created by user
 
 ### Read.me
 
+A file used for the presentation of project on our github page.
+
 ### _config.yml
 
 ### accounts.json
+
+A file contaning the way we stocked all informations about a user, his personal data and his different cheat_sheet created.
 
 ### app.py
 
 ### cheat_sheet.json
 
+An example of cheat_sheet that you can create
+
 ### debug.log
 
 ### index.html
+
+there is currently nothing in, but will be used for github.
 
 ### main.sh
 
 ### requirement.txt
 
+A file listing all the external modules that need to be imported for the proper functioning of the site.
+
 ### singletons.py
 
+A file containing multitasking functions which avoid having to put them back each time in other files
+
 ### terminal_log.py
+
+A file which allows a user encountering a problem with the site to record their errors before sending them to the site's moderation team. Team which will therefore be able to analyze its problem based on the data recorded by the user
+
