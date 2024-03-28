@@ -28,7 +28,7 @@ class Account:
         description: str = "...",
         id: str = "",
         cheat_sheet: List[CheatSheet] = [],
-        collections: dict = {},
+        collections: list = [],
     ) -> None:
         self.id: str = str(get_uuid()) if id == "" else id
         self.username: str = username
