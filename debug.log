@@ -1,2 +1,3 @@
-2024-03-28 11:34:28,559 - WARNING   (werkzeug)    * Debugger is active!
-2024-03-28 11:34:28,575 - INFO   (werkzeug)    * Debugger PIN: 142-332-117
+2024-03-28 11:43:53,907 - WARNING   (werkzeug)    * Debugger is active!
+2024-03-28 11:43:53,922 - INFO   (werkzeug)    * Debugger PIN: 126-667-525
+2024-03-28 11:44:03,307 - INFO   (werkzeug)   127.0.0.1 - - [28/Mar/2024 11:44:03] "GET / HTTP/1.1" 200 -
