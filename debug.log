@@ -1,3 +1,2 @@
-2024-03-28 12:00:09,285 - WARNING   (werkzeug)    * Debugger is active!
-2024-03-28 12:00:09,301 - INFO   (werkzeug)    * Debugger PIN: 126-667-525
-2024-03-28 12:00:12,805 - INFO   (werkzeug)   127.0.0.1 - - [28/Mar/2024 12:00:12] "POST /login HTTP/1.1" 200 -
+2024-03-28 12:09:42,440 - WARNING   (werkzeug)    * Debugger is active!
+2024-03-28 12:09:42,459 - INFO   (werkzeug)    * Debugger PIN: 126-667-525

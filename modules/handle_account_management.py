@@ -78,20 +78,21 @@ def handle_sign_up(server_account_manager: ServerAccountManager) -> Response:
 def handle_post_sign_up(server_account_manager: ServerAccountManager, input_username: str, input_password: str) -> Response:
     if server_account_manager.is_sign_up_input_valid(input_username, input_password):
         if server_account_manager.has_account_username(input_username):
+            flash('username already used','warning')
             return render_html(
                 "sign_up.html",
                 server_account_manager,
-                username_already_exists=True,
             )
         else:
+            flash('account created','success')
             new_account: Account = server_account_manager.create_account(input_username, input_password)
             response: Response = make_response(redirect(url_for("main")))
             response.set_cookie("account-token", new_account.get_id())
             return response
+    flash('input invalid','warning')
     return render_html(
         "sign_up.html",
         server_account_manager,
-        input_not_valid=True,
     )
 
 
@@ -99,6 +100,7 @@ def handle_post_sign_up(server_account_manager: ServerAccountManager, input_user
 
 # Sign-out
 def handle_sign_out() -> Response:
+    flash('signed out','info')
     response: Response = make_response(redirect(url_for("main")))
     response.delete_cookie("account-token")
     return response
@@ -129,7 +131,10 @@ def handle_post_modify_profile(server_account_manager: ServerAccountManager) -> 
     description_input: str = request.form.get("description_input", "")
     username_input: str = request.form.get("username_input", "")
     if server_account_manager.has_account(server_account_manager.get_user_account()):
-        server_account_manager.modify_profile(new_image_input, description_input, username_input)    
+        server_account_manager.modify_profile(new_image_input, description_input, username_input)
+        flash('account modified','success')
+    else:
+        flash('account does not exist', 'warning') 
     return redirect(f"/profile/{server_account_manager.get_user_account_hashed_token()}")
 
 
@@ -152,10 +157,8 @@ def handle_profile(server_account_manager: ServerAccountManager, hashed_token: s
             cheat_sheet=server_account_manager.get_account_cheat_sheet_info(account_info["id"])
         ))
         return response
-    return "That account does not exist"
-
-
-# Collections
+    flash('account does not exist','warning')
+    redirect('/')
 def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response:
     target_account: Account = sam.get_account_from_hashed_token(hashed_token)
     collections: list = sam.get_collections(target_account.get_id())
@@ -180,6 +183,7 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
             collection_name: str = form_data["collection_name"]
             is_public: bool = bool(form_data.get("is_collection_public"))
             if sam.has_user_collection(collection_name):
+                flash('collection already exists','warning')
                 return render_html(
                     "collections.html",
                     sam,
@@ -187,7 +191,6 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
                     collections=collections,
                     author_hashed_token=hashed_token,
                     is_user=is_user,
-                    collection_name_already_exists=True,
                 )
             else:
                 sam.add_new_collection_to_account(collection_name, target_account.get_id(), is_public)
