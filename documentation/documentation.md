@@ -1,6 +1,6 @@
 # Fish a fiche !
 
-**FR** :Bonjour à tous ! Bienvenu dans la documentation de notre projet de NSI, visant à créer un site internet permettant de créer des fiches de révisions et les poster en ligne.
+**FR** : Bonjour à tous ! Bienvenu dans la documentation de notre projet de NSI, visant à créer un site internet permettant de créer des fiches de révisions et les poster en ligne.
 
 **EN** : Hello everyone ! Welcome to the documention of our NSI project, an web-site allowing you to create revision sheet and post them online ! Wonderful isn't it ?
 
