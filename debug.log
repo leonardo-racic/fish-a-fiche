@@ -1,2 +1,12 @@
-2024-03-28 11:34:28,559 - WARNING   (werkzeug)    * Debugger is active!
-2024-03-28 11:34:28,575 - INFO   (werkzeug)    * Debugger PIN: 142-332-117
+2024-03-28 11:38:40,718 - WARNING   (werkzeug)    * Debugger is active!
+2024-03-28 11:38:40,746 - INFO   (werkzeug)    * Debugger PIN: 142-332-117
+2024-03-28 11:43:31,380 - INFO   (werkzeug)   127.0.0.1 - - [28/Mar/2024 11:43:31] "GET /collections/16011d0b7f6fca106060a0cca0c798c1a641556d5250e7a1cf1152f94e894ecf/new HTTP/1.1" 200 -
+2024-03-28 11:43:51,484 - INFO   (werkzeug)   127.0.0.1 - - [28/Mar/2024 11:43:51] "GET /collections/16011d0b7f6fca106060a0cca0c798c1a641556d5250e7a1cf1152f94e894ecf/new HTTP/1.1" 200 -
+2024-03-28 11:44:05,481 - INFO   (werkzeug)   127.0.0.1 - - [28/Mar/2024 11:44:05] "GET /collections/16011d0b7f6fca106060a0cca0c798c1a641556d5250e7a1cf1152f94e894ecf/new HTTP/1.1" 200 -
+2024-03-28 11:44:11,408 - INFO   (werkzeug)   127.0.0.1 - - [28/Mar/2024 11:44:11] "GET /collections/16011d0b7f6fca106060a0cca0c798c1a641556d5250e7a1cf1152f94e894ecf HTTP/1.1" 200 -
+2024-03-28 11:44:14,753 - INFO   (werkzeug)   127.0.0.1 - - [28/Mar/2024 11:44:14] "GET /profile/16011d0b7f6fca106060a0cca0c798c1a641556d5250e7a1cf1152f94e894ecf HTTP/1.1" 200 -
+2024-03-28 11:44:18,619 - INFO   (werkzeug)   127.0.0.1 - - [28/Mar/2024 11:44:18] "GET /cheat-sheet/8e3f9d80-5fe6-43cd-aba2-c8c26da125b8 HTTP/1.1" 200 -
+2024-03-28 11:44:25,312 - INFO   (werkzeug)   127.0.0.1 - - [28/Mar/2024 11:44:25] "[32mPOST /collections/16011d0b7f6fca106060a0cca0c798c1a641556d5250e7a1cf1152f94e894ecf HTTP/1.1[0m" 302 -
+2024-03-28 11:44:25,322 - INFO   (werkzeug)   127.0.0.1 - - [28/Mar/2024 11:44:25] "GET /cheat-sheet/8e3f9d80-5fe6-43cd-aba2-c8c26da125b8 HTTP/1.1" 200 -
+2024-03-28 11:44:31,821 - INFO   (werkzeug)   127.0.0.1 - - [28/Mar/2024 11:44:31] "[32mPOST /collections/16011d0b7f6fca106060a0cca0c798c1a641556d5250e7a1cf1152f94e894ecf HTTP/1.1[0m" 302 -
+2024-03-28 11:44:31,832 - INFO   (werkzeug)   127.0.0.1 - - [28/Mar/2024 11:44:31] "GET /cheat-sheet/8e3f9d80-5fe6-43cd-aba2-c8c26da125b8 HTTP/1.1" 200 -

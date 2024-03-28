@@ -7,6 +7,13 @@
 {% block body %}
     <div class="container">
         <h1 class="display-1">{{collection_name}}</h6>
+        {% if cheat_sheet == [] %}
+            {% if is_user %}
+                <h6 class="display-6 mb-2">You have no cheat sheet saved in this collection. You should check out the Cheat Sheet Market.</h6>
+            {% else %}
+                <h6 class="display-6 mb-2">There are no cheat sheet for you to see</h6>
+            {% endif %}
+        {% endif %}
         {% if is_user %}
             <form action="/collections/{{hashed_token}}/{{collection_name}}" method="post">
                 <input type="hidden" name="input_type" value="publish_collection_input">

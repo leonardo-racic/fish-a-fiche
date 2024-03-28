@@ -21,7 +21,13 @@
                     "comments": []
                 }
             ],
-            "collections": {}
+            "collections": [
+                {
+                    "is_public": false,
+                    "cheat_sheet": [],
+                    "name": "new"
+                }
+            ]
         }
     }
 }
