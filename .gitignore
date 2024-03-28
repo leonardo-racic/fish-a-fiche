@@ -9,3 +9,5 @@ cheat_sheet.json
 debug.log
 /sheets
 *.pyc
+
+*.pyc
