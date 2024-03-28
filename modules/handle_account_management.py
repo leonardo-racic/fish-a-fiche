@@ -1,4 +1,4 @@
-from flask import Response, make_response, redirect, url_for, request
+from flask import Response, make_response, redirect, url_for, request, flash
 from singletons import render_html, get_form_data
 from .account_module import Account
 from .server_account_manager import ServerAccountManager
@@ -30,22 +30,22 @@ def handle_post_login(server_account_manager: ServerAccountManager) -> Response:
     
     
     if not is_input_valid:
+        flash('input invalid','warning')
         return render_html(
             "login.html",
             server_account_manager,
-            input_not_valid=True,
         )
     elif not username_exists:
+        flash('username does not exist', 'warning')
         return render_html(
             "login.html",
             server_account_manager,
-            username_does_not_exist=True,
         )
     elif not password_correct:
+        flash('incorrect password', 'warning')
         return render_html(
             "login.html",
             server_account_manager,
-            incorrect_password=True,
         )
     
 

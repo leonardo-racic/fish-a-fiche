@@ -14,23 +14,7 @@
                 <label class="form-label" for="password-input">Password</label>
                 <input name="password" type="password" id="password-input" class="form-control"/>
             </div>
-
-
-            {% if input_not_valid %}
-                <p class="text-warning">
-                    Your input (username and/or password) is <strong>invalid</strong>.
-                </p>
-            {% elif username_does_not_exist %}
-                <p class="text-warning">
-                    The username you have input <strong>does not match</strong> with any account stocked in the database.
-                </p> 
-            {% elif incorrect_password %}
-                <p class="text-warning">
-                    The password you have input is <strong>incorrect</strong>.
-                </p>
-            {% endif %}
-
-
+            
             <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
         </form>
     </div>
