@@ -60,7 +60,7 @@ A file contaning the way we stocked all informations about a user, his personal 
 
 ### app.py
 
-This file is the MAIN file, the file connecting all the others, essential for the good working of our website.
+This file is the MAIN file, the file connecting all the others, essential for the good working of our website. He is importing all the other files, the necessary modules and the main functions.
 
 ### cheat_sheet.json
 
