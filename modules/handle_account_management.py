@@ -3,7 +3,7 @@ from singletons import render_html, get_form_data
 from .account_module import Account
 from .server_account_manager import ServerAccountManager
 from .cheat_sheet_manager import CheatSheetManager
-
+from terminal_log import inform, warning
 
 # Login
 def handle_login(server_account_manager: ServerAccountManager) -> Response:
@@ -31,27 +31,30 @@ def handle_post_login(server_account_manager: ServerAccountManager) -> Response:
     
     if not is_input_valid:
         flash('input invalid','warning')
+        inform(f'{request.remote_addr} entered invalid inputs : {input_username}, {input_password}')
         return render_html(
             "login.html",
             server_account_manager,
         )
     elif not username_exists:
         flash('username does not exist', 'warning')
+        inform(f'{request.remote_addr} has tried to log in as {input_username} with {input_password} but it does not exist')
         return render_html(
             "login.html",
             server_account_manager,
         )
     elif not password_correct:
         flash('incorrect password', 'warning')
+        inform(f'{request.remote_addr} has tried to log in as {input_username} but input the wrong password {input_password}')
         return render_html(
             "login.html",
             server_account_manager,
         )
     
-
     target_account: Account = server_account_manager.get_account_by_username(input_username)
     response: Response = make_response(redirect(url_for("main")))
     response.set_cookie("account-token", target_account.get_id())
+    inform(f'{request.remote_addr} has logged in as {input_username}')
     return response
 
 
