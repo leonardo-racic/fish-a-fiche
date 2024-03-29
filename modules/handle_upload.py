@@ -100,7 +100,7 @@ def handle_upload(server_account_manager: ServerAccountManager):
             new_cs.store_to_index()
             csm.add_cheat_sheet(new_cs)
             terminal_log.inform('stored to index')
-            terminal_log.inform('upload succesfull, redirecting')
+            terminal_log.inform(f'{request.remote_addr}:{server_account_manager.get_user_account_token()} upload succesfull, redirecting')
             flash('upload succesfull','success')
             return render_template('upload.html',
                                    logged_in=logged_in,
