@@ -1,40 +1,11 @@
 {
     "accounts": {
-        "f2917614-98c4-404c-a071-3aa7f9e9d009": {
+        "5c3fa307-c555-4e75-ad50-9b4be2432bc4": {
             "username": "premier",
             "password": "7692c3ad3540bb803c020b3aee66cd8887123234ea0c6e7143c0add73ff431ed",
             "description": "",
             "profile_picture": "",
-            "id": "f2917614-98c4-404c-a071-3aa7f9e9d009",
-            "cheat_sheet": [
-                {
-                    "token": "8e3f9d80-5fe6-43cd-aba2-c8c26da125b8",
-                    "title": "Mecanic energy",
-                    "author_token": "f2917614-98c4-404c-a071-3aa7f9e9d009",
-                    "content": "$E_m=E_c+E_{pp}$\\\r\n$\\Delta E_m=\\Delta E_c+\\Delta E_{pp} = \\sum\\overrightarrow{F}_{unconservative}$",
-                    "context": "physics",
-                    "date": "28/03/2024 - 11:25",
-                    "likes": 0,
-                    "dislikes": 0,
-                    "original_lang": "EN",
-                    "keywords": [],
-                    "comments": []
-                }
-            ],
-            "collections": [
-                {
-                    "is_public": false,
-                    "cheat_sheet": [],
-                    "name": "new"
-                }
-            ]
-        },
-        "7f285c11-b456-462b-bc8e-040be50bedb4": {
-            "username": "second",
-            "password": "7692c3ad3540bb803c020b3aee66cd8887123234ea0c6e7143c0add73ff431ed",
-            "description": "",
-            "profile_picture": "",
-            "id": "7f285c11-b456-462b-bc8e-040be50bedb4",
+            "id": "5c3fa307-c555-4e75-ad50-9b4be2432bc4",
             "cheat_sheet": [],
             "collections": []
         }

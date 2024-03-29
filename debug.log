@@ -1,23 +1,2 @@
-2024-03-29 11:58:27,331 - WARNING   (werkzeug)    * Debugger is active!
-2024-03-29 11:58:27,356 - INFO   (werkzeug)    * Debugger PIN: 142-332-117
-2024-03-29 11:58:36,225 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:58:36] "GET /cheat-sheet/8e3f9d80-5fe6-43cd-aba2-c8c26da125b8 HTTP/1.1" 200 -
-2024-03-29 11:58:38,372 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:58:38] "[32mPOST /cheat-sheet/8e3f9d80-5fe6-43cd-aba2-c8c26da125b8 HTTP/1.1[0m" 302 -
-2024-03-29 11:58:38,389 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:58:38] "GET /cheat-sheet/8e3f9d80-5fe6-43cd-aba2-c8c26da125b8 HTTP/1.1" 200 -
-2024-03-29 11:58:46,330 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:58:46] "[32mPOST /cheat-sheet/8e3f9d80-5fe6-43cd-aba2-c8c26da125b8 HTTP/1.1[0m" 302 -
-2024-03-29 11:58:46,346 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:58:46] "GET /cheat-sheet/8e3f9d80-5fe6-43cd-aba2-c8c26da125b8 HTTP/1.1" 200 -
-2024-03-29 11:58:49,082 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:58:49] "[32mPOST /cheat-sheet/8e3f9d80-5fe6-43cd-aba2-c8c26da125b8 HTTP/1.1[0m" 302 -
-2024-03-29 11:58:49,112 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:58:49] "GET /cheat-sheet/8e3f9d80-5fe6-43cd-aba2-c8c26da125b8 HTTP/1.1" 200 -
-2024-03-29 12:43:33,542 - INFO   (werkzeug)    * Detected change in 'C:\\Users\\duclos2\\Documents\\GitHub\\leonardo-racic.github.io\\modules\\handle_account_management.py', reloading
-2024-03-29 12:43:33,648 - INFO   (werkzeug)    * Restarting with stat
-2024-03-29 12:43:50,104 - INFO   (werkzeug)    * Restarting with stat
-2024-03-29 12:43:54,606 - INFO   (werkzeug)    * Restarting with stat
-2024-03-29 12:44:32,128 - INFO   (werkzeug)    * Restarting with stat
-2024-03-29 12:44:56,618 - INFO   (werkzeug)    * Restarting with stat
-2024-03-29 12:46:46,339 - INFO   (werkzeug)    * Restarting with stat
-2024-03-29 12:48:31,620 - INFO   (werkzeug)    * Restarting with stat
-2024-03-29 12:49:34,530 - INFO   (werkzeug)    * Restarting with stat
-2024-03-29 12:49:41,592 - INFO   (werkzeug)    * Restarting with stat
-2024-03-29 12:49:47,539 - INFO   (werkzeug)    * Restarting with stat
-2024-03-29 12:50:07,260 - INFO   (werkzeug)    * Restarting with stat
-2024-03-29 12:50:14,246 - INFO   (werkzeug)    * Restarting with stat
-2024-03-29 12:50:24,905 - INFO   (werkzeug)    * Restarting with stat
+2024-03-29 12:36:45,359 - WARNING   (werkzeug)    * Debugger is active!
+2024-03-29 12:36:45,376 - INFO   (werkzeug)    * Debugger PIN: 142-332-117

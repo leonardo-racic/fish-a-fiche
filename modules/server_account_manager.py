@@ -403,6 +403,17 @@ class ServerAccountManager:
         self.update()
         
 
+    def delete_cheat_sheet(self, account_id: str, cheat_sheet_token: str) -> None:
+        with open("accounts.json") as f:
+            json_data: dict = load_json(f.read())
+        target_account_json: dict = json_data["accounts"][account_id]
+        cheat_sheet: list = target_account_json["cheat_sheet"]
+        for c in cheat_sheet:
+            if c["token"] == cheat_sheet_token:
+                cheat_sheet.remove(c)
+                break
+        with open("accounts.json", "w") as f:
+            f.write(to_json(json_data, indent=4))
 
 
 if __name__ == "__main__":
