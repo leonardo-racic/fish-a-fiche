@@ -1,23 +1,2 @@
-2024-03-29 11:49:05,248 - WARNING   (werkzeug)    * Debugger is active!
-2024-03-29 11:49:05,266 - INFO   (werkzeug)    * Debugger PIN: 126-667-525
-2024-03-29 11:49:06,901 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:49:06] "[32mPOST /collections/961efe19f5611524302b958358d7facd41af9fb0ea1381c2a64bb4445bf3c722/daoughfpizef HTTP/1.1[0m" 302 -
-2024-03-29 11:49:06,946 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:49:06] "GET /collections/961efe19f5611524302b958358d7facd41af9fb0ea1381c2a64bb4445bf3c722/daoughfpizef HTTP/1.1" 200 -
-2024-03-29 11:49:07,813 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:49:07] "[32mPOST /collections/961efe19f5611524302b958358d7facd41af9fb0ea1381c2a64bb4445bf3c722/daoughfpizef HTTP/1.1[0m" 302 -
-2024-03-29 11:49:07,824 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:49:07] "GET /collections/961efe19f5611524302b958358d7facd41af9fb0ea1381c2a64bb4445bf3c722/daoughfpizef HTTP/1.1" 200 -
-2024-03-29 11:49:08,748 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:49:08] "[32mPOST /collections/961efe19f5611524302b958358d7facd41af9fb0ea1381c2a64bb4445bf3c722/daoughfpizef HTTP/1.1[0m" 302 -
-2024-03-29 11:49:08,759 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:49:08] "GET /collections/961efe19f5611524302b958358d7facd41af9fb0ea1381c2a64bb4445bf3c722/daoughfpizef HTTP/1.1" 200 -
-2024-03-29 11:49:10,724 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:49:10] "[32mPOST /collections/961efe19f5611524302b958358d7facd41af9fb0ea1381c2a64bb4445bf3c722/daoughfpizef HTTP/1.1[0m" 302 -
-2024-03-29 11:49:10,744 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:49:10] "GET /collections/961efe19f5611524302b958358d7facd41af9fb0ea1381c2a64bb4445bf3c722/daoughfpizef HTTP/1.1" 200 -
-2024-03-29 11:49:14,765 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:49:14] "[32mPOST /collections/961efe19f5611524302b958358d7facd41af9fb0ea1381c2a64bb4445bf3c722/daoughfpizef HTTP/1.1[0m" 302 -
-2024-03-29 11:49:14,775 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:49:14] "GET /collections/961efe19f5611524302b958358d7facd41af9fb0ea1381c2a64bb4445bf3c722/daoughfpizef HTTP/1.1" 200 -
-2024-03-29 11:49:16,712 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:49:16] "GET /profile/961efe19f5611524302b958358d7facd41af9fb0ea1381c2a64bb4445bf3c722 HTTP/1.1" 200 -
-2024-03-29 11:49:19,215 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:49:19] "GET /create-cheat-sheet HTTP/1.1" 200 -
-2024-03-29 11:49:39,839 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:49:39] "[32mPOST /create-cheat-sheet HTTP/1.1[0m" 302 -
-2024-03-29 11:49:39,873 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:49:39] "GET /cheat-sheet/237c2891-ed35-4f67-b2b8-9f07520191e8 HTTP/1.1" 200 -
-2024-03-29 11:49:51,694 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:49:51] "GET /modify-cheat-sheet/237c2891-ed35-4f67-b2b8-9f07520191e8 HTTP/1.1" 200 -
-2024-03-29 11:50:00,296 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:50:00] "[32mPOST /modify-cheat-sheet/237c2891-ed35-4f67-b2b8-9f07520191e8 HTTP/1.1[0m" 302 -
-2024-03-29 11:50:00,310 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:50:00] "GET /cheat-sheet/237c2891-ed35-4f67-b2b8-9f07520191e8 HTTP/1.1" 200 -
-2024-03-29 11:50:10,801 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:50:10] "[32mPOST /collections/961efe19f5611524302b958358d7facd41af9fb0ea1381c2a64bb4445bf3c722 HTTP/1.1[0m" 302 -
-2024-03-29 11:50:10,812 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:50:10] "GET /cheat-sheet/237c2891-ed35-4f67-b2b8-9f07520191e8 HTTP/1.1" 200 -
-2024-03-29 11:50:16,659 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:50:16] "[32mPOST /collections/961efe19f5611524302b958358d7facd41af9fb0ea1381c2a64bb4445bf3c722 HTTP/1.1[0m" 302 -
-2024-03-29 11:50:16,671 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 11:50:16] "GET /cheat-sheet/237c2891-ed35-4f67-b2b8-9f07520191e8 HTTP/1.1" 200 -
+2024-03-29 11:59:05,700 - WARNING   (werkzeug)    * Debugger is active!
+2024-03-29 11:59:05,730 - INFO   (werkzeug)    * Debugger PIN: 126-667-525
