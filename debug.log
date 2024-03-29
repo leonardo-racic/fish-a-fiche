@@ -1,2 +1,332 @@
-2024-03-29 13:10:20,060 - WARNING   (werkzeug)    * Debugger is active!
-2024-03-29 13:10:20,089 - INFO   (werkzeug)    * Debugger PIN: 142-332-117
+2024-03-29 19:08:00,340 - WARNING   (werkzeug)    * Debugger is active!
+2024-03-29 19:08:00,405 - INFO   (werkzeug)    * Debugger PIN: 505-423-409
+2024-03-29 19:08:05,000 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:08:05] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2024-03-29 19:08:05,028 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:08:05] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2024-03-29 19:08:05,033 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:08:05] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-29 19:08:05,066 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:08:05] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-29 19:08:05,091 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:08:05] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-29 19:08:13,745 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:08:13] "GET / HTTP/1.1" 200 -
+2024-03-29 19:08:13,978 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:08:13] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-03-29 19:08:15,372 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:08:15] "GET /login HTTP/1.1" 200 -
+2024-03-29 19:08:19,694 - INFO   (terminal_log)   127.0.0.1 has logged in as premier
+2024-03-29 19:08:19,695 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:08:19] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-03-29 19:08:19,712 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:08:19] "GET / HTTP/1.1" 200 -
+2024-03-29 19:08:22,147 - INFO   (terminal_log)   127.0.0.1:5c3fa307-c555-4e75-ad50-9b4be2432bc4 has delogged
+2024-03-29 19:08:22,149 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:08:22] "[32mGET /sign-out HTTP/1.1[0m" 302 -
+2024-03-29 19:08:22,159 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:08:22] "GET / HTTP/1.1" 200 -
+2024-03-29 19:08:22,730 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:08:22] "GET /login HTTP/1.1" 200 -
+2024-03-29 19:08:23,811 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 19:08:23,812 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:08:23] "POST /login HTTP/1.1" 200 -
+2024-03-29 19:08:25,787 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 19:08:25,788 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:08:25] "POST /login HTTP/1.1" 200 -
+2024-03-29 19:10:15,956 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:10:15] "GET /login HTTP/1.1" 200 -
+2024-03-29 19:10:17,920 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 19:10:17,922 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:10:17] "POST /login HTTP/1.1" 200 -
+2024-03-29 19:12:28,904 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:12:28] "GET /login HTTP/1.1" 200 -
+2024-03-29 19:12:38,552 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 19:12:38,554 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:12:38] "POST /login HTTP/1.1" 200 -
+2024-03-29 19:13:40,365 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:13:40] "GET /login HTTP/1.1" 200 -
+2024-03-29 19:13:42,070 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 19:13:42,070 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:13:42] "POST /login HTTP/1.1" 200 -
+2024-03-29 19:14:25,852 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:14:25] "GET /login HTTP/1.1" 200 -
+2024-03-29 19:14:27,031 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 19:14:27,033 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:14:27] "POST /login HTTP/1.1" 200 -
+2024-03-29 19:14:37,970 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:14:37] "GET /login HTTP/1.1" 200 -
+2024-03-29 19:14:39,056 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 19:14:39,059 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:14:39] "POST /login HTTP/1.1" 200 -
+2024-03-29 19:15:28,898 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:15:28] "GET /login HTTP/1.1" 200 -
+2024-03-29 19:15:29,954 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 19:15:29,956 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:15:29] "POST /login HTTP/1.1" 200 -
+2024-03-29 19:17:03,232 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:17:03] "GET /login HTTP/1.1" 200 -
+2024-03-29 19:17:04,537 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 19:17:04,538 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:17:04] "POST /login HTTP/1.1" 200 -
+2024-03-29 19:19:31,067 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:19:31] "GET /login HTTP/1.1" 200 -
+2024-03-29 19:19:32,206 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 19:19:32,208 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:19:32] "POST /login HTTP/1.1" 200 -
+2024-03-29 19:59:50,971 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:59:50] "GET /login HTTP/1.1" 200 -
+2024-03-29 19:59:52,445 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 19:59:52,447 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 19:59:52] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:02:26,992 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:02:26] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:02:28,150 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:02:28,151 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:02:28] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:02:45,143 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:02:45] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:02:47,052 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:02:47,054 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:02:47] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:03:01,110 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:03:01] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:03:02,153 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:03:02,154 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:03:02] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:03:45,468 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:03:45] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:03:46,379 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:03:46,381 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:03:46] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:12:30,155 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:12:30] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:12:31,370 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:12:31,372 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:12:31] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:13:02,329 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:13:02] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:13:03,680 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:13:03] "GET / HTTP/1.1" 200 -
+2024-03-29 20:13:04,361 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:13:04] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:13:05,321 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:13:05,323 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:13:05] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:14:22,908 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:14:22] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:14:24,220 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:14:24,222 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:14:24] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:16:00,509 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:16:00] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:16:12,134 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:16:12,136 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:16:12] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:16:49,540 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:16:49] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:16:50,502 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:16:50,504 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:16:50] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:19:28,917 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:19:28,919 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:19:28] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:20:06,231 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:20:06] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:20:56,827 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:20:56] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:20:58,091 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:20:58,092 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:20:58] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:29:03,474 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:29:03] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:29:04,789 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:29:04,791 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:29:04] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:29:18,269 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:29:18] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:29:19,322 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:29:19,322 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:29:19] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:29:31,950 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:29:31] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:29:32,719 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:29:32,719 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:29:32] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:30:27,915 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:30:27] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:30:29,050 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:30:29,052 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:30:29] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:30:39,173 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:30:39] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:30:40,252 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:30:40,254 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:30:40] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:30:50,615 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:30:50] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:30:51,525 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:30:51,526 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:30:51] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:31:15,631 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:31:15] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:31:16,626 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:31:16,627 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:31:16] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:31:51,942 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:31:51] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:31:52,869 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:31:52,870 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:31:52] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:35:13,156 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:35:13] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:35:14,224 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:35:14,228 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:35:14] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:36:12,700 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:36:12] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:36:13,697 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:36:13,699 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:36:13] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:36:19,608 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:36:19] "GET / HTTP/1.1" 200 -
+2024-03-29 20:36:20,732 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:36:20] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:36:21,572 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:36:21,574 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:36:21] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:37:55,593 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:37:55] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:37:56,596 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:37:56,598 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:37:56] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:38:45,106 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:38:45] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:38:46,021 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:38:46,023 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:38:46] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:38:55,079 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:38:55] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:38:55,787 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:38:55,790 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:38:55] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:39:26,857 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:39:26] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:39:27,647 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:39:27,649 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:39:27] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:40:38,411 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:40:38] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:40:39,318 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:40:39,320 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:40:39] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:40:40,376 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:40:40,376 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:40:40] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:40:40,773 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:40:40,776 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:40:40] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:40:41,021 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:40:41,024 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:40:41] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:41:54,648 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:41:54] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:41:56,591 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:41:56,593 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:41:56] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:43:27,868 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:43:27] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:43:28,603 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:43:28,605 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:43:28] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:45:08,225 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:45:08] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:45:10,034 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:45:10,036 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:45:10] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:45:35,783 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:45:35] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:45:36,658 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:45:36,660 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:45:36] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:45:53,000 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:45:53] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:45:53,777 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:45:53,779 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:45:53] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:46:27,776 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:46:27] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:46:29,518 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:46:29,520 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:46:29] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:49:10,032 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:49:10] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:49:11,100 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:49:11,102 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:49:11] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:49:21,992 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:49:21] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:49:22,684 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:49:22,686 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:49:22] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:49:28,907 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:49:28] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:49:29,686 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:49:29,688 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:49:29] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:49:41,858 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:49:41] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:49:43,022 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:49:43,022 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:49:43] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:49:59,922 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:49:59] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:50:00,939 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:50:00,941 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:50:00] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:51:17,952 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:51:17] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:51:19,516 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:51:19,517 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:51:19] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:51:30,807 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:51:30] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:51:31,719 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:51:31,722 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:51:31] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:52:00,936 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:52:00] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:52:01,937 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:52:01,940 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:52:01] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:52:13,397 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:52:13] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:52:14,254 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:52:14,256 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:52:14] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:53:58,423 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:53:58] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:53:59,880 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:53:59,882 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:53:59] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:55:11,809 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:55:11] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:55:12,640 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:55:12,642 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:55:12] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:58:39,273 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:58:39] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:58:40,739 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:58:40,739 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:58:40] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:59:44,141 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:59:44] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:59:45,104 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:59:45,106 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:59:45] "POST /login HTTP/1.1" 200 -
+2024-03-29 20:59:57,234 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:59:57] "GET /login HTTP/1.1" 200 -
+2024-03-29 20:59:58,086 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 20:59:58,088 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 20:59:58] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:00:25,395 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:00:25] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:00:26,730 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:00:26,731 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:00:26] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:00:44,446 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:00:44] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:00:45,162 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:00:45,164 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:00:45] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:01:25,073 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:01:25] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:01:25,737 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:01:25,738 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:01:25] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:02:00,512 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:02:00] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:02:01,313 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:02:01,314 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:02:01] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:03:09,495 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:03:09] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:03:10,122 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:03:10,124 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:03:10] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:03:43,782 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:03:43] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:03:44,549 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:03:44,551 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:03:44] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:03:52,719 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:03:52] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:03:53,576 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:03:53,578 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:03:53] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:05:27,514 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:05:27] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:05:28,182 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:05:28,183 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:05:28] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:05:45,196 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:05:45] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:05:46,265 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:05:46,267 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:05:46] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:06:40,728 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:06:40] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:06:41,503 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:06:41,505 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:06:41] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:07:17,618 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:07:17] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:07:18,359 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:07:18,360 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:07:18] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:07:42,682 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:07:42] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:07:43,360 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:07:43,362 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:07:43] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:09:00,665 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:09:00] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:09:01,839 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:09:01,840 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:09:01] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:09:25,157 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:09:25] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:09:25,964 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:09:25,967 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:09:25] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:12:34,215 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:12:34] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:12:34,909 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:12:34,911 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:12:34] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:12:52,331 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:12:52] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:12:53,115 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:12:53,117 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:12:53] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:14:57,934 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:14:57] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:14:59,028 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:14:59,030 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:14:59] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:15:56,024 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:15:56] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:15:56,725 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:15:56,727 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:15:56] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:17:15,244 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:17:15] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:17:15,881 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:17:15,883 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:17:15] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:17:34,930 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:17:34] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:17:35,593 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:17:35,596 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:17:35] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:17:50,682 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:17:50] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:17:51,191 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:17:51,193 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:17:51] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:19:01,261 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:19:01] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:19:02,295 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:19:02,296 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:19:02] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:19:59,789 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:19:59] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:20:00,570 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:20:00,572 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:20:00] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:20:30,550 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:20:30] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:20:31,114 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:20:31,116 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:20:31] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:20:44,271 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:20:44] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:20:44,933 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:20:44,935 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:20:44] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:21:41,214 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:21:41] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:21:42,127 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:21:42,128 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:21:42] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:23:20,328 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:23:20] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:23:20,978 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:23:20,980 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:23:20] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:23:29,891 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:23:29] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:23:30,457 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:23:30,458 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:23:30] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:23:36,719 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:23:36] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:23:37,387 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:23:37,389 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:23:37] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:23:53,879 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:23:53] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:23:54,541 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:23:54,542 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:23:54] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:24:14,467 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:24:14] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:24:15,195 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:24:15,198 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:24:15] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:27:05,881 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:27:05] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:27:07,158 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:27:07,160 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:27:07] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:27:26,181 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:27:26,202 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:27:26] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:27:28,032 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:27:28] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:27:29,239 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:27:29,242 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:27:29] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:28:11,790 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:28:11] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:28:12,990 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:28:12,992 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:28:12] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:28:20,175 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:28:20] "GET /sign-up HTTP/1.1" 200 -
+2024-03-29 21:28:20,887 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:28:20] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:28:21,986 - WARNING   (terminal_log)   127.0.0.1 entered invalid inputs : , 
+2024-03-29 21:28:21,987 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:28:21] "POST /login HTTP/1.1" 200 -
+2024-03-29 21:28:23,892 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:28:23] "GET /sign-up HTTP/1.1" 200 -
+2024-03-29 21:28:24,656 - WARNING   (terminal_log)   127.0.0.1 gave invalid input , 
+2024-03-29 21:28:24,657 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:28:24] "POST /sign-up HTTP/1.1" 200 -
+2024-03-29 21:28:26,893 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:28:26] "GET / HTTP/1.1" 200 -
+2024-03-29 21:28:27,850 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:28:27] "GET /login HTTP/1.1" 200 -
+2024-03-29 21:28:32,033 - INFO   (terminal_log)   127.0.0.1 has logged in as premier
+2024-03-29 21:28:32,034 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:28:32] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-03-29 21:28:32,046 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:28:32] "GET / HTTP/1.1" 200 -
+2024-03-29 21:29:03,886 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:29:03] "GET /profile/4b40ad574c10ac12424c17c114e5a22b508721f4aeaff3e50c53bd7541043cee HTTP/1.1" 200 -
+2024-03-29 21:29:04,849 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:29:04] "GET /create-cheat-sheet HTTP/1.1" 200 -
+2024-03-29 21:29:08,795 - INFO   (terminal_log)   creating cheat_sheet
+2024-03-29 21:29:08,798 - INFO   (terminal_log)   cheat-sheet created
+2024-03-29 21:29:08,800 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:29:08] "[32mPOST /create-cheat-sheet HTTP/1.1[0m" 302 -
+2024-03-29 21:29:08,840 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:29:08] "GET /cheat-sheet/f8a7b4bc-ea78-400e-906d-6a57892f3f24 HTTP/1.1" 200 -
+2024-03-29 21:29:18,889 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:29:18] "GET / HTTP/1.1" 200 -
+2024-03-29 21:29:20,858 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:29:20] "GET /profile/4b40ad574c10ac12424c17c114e5a22b508721f4aeaff3e50c53bd7541043cee HTTP/1.1" 200 -
+2024-03-29 21:29:22,007 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:29:22] "GET /cheat-sheet/f8a7b4bc-ea78-400e-906d-6a57892f3f24 HTTP/1.1" 200 -
+2024-03-29 21:29:28,371 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:29:28] "[32mPOST /cheat-sheet/f8a7b4bc-ea78-400e-906d-6a57892f3f24 HTTP/1.1[0m" 302 -
+2024-03-29 21:29:28,380 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:29:28] "GET /cheat-sheet/f8a7b4bc-ea78-400e-906d-6a57892f3f24 HTTP/1.1" 200 -
+2024-03-29 21:29:40,448 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:29:40] "[32mPOST /cheat-sheet/f8a7b4bc-ea78-400e-906d-6a57892f3f24 HTTP/1.1[0m" 302 -
+2024-03-29 21:29:40,452 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:29:40] "GET /cheat-sheet/f8a7b4bc-ea78-400e-906d-6a57892f3f24 HTTP/1.1" 200 -
+2024-03-29 21:29:48,850 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:29:48] "GET /modify-cheat-sheet/f8a7b4bc-ea78-400e-906d-6a57892f3f24 HTTP/1.1" 200 -
+2024-03-29 21:29:52,471 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:29:52] "[32mPOST /modify-cheat-sheet/f8a7b4bc-ea78-400e-906d-6a57892f3f24 HTTP/1.1[0m" 302 -
+2024-03-29 21:29:52,476 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:29:52] "GET /cheat-sheet/f8a7b4bc-ea78-400e-906d-6a57892f3f24 HTTP/1.1" 200 -
+2024-03-29 21:30:09,871 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:30:09] "[32mPOST /cheat-sheet/f8a7b4bc-ea78-400e-906d-6a57892f3f24 HTTP/1.1[0m" 302 -
+2024-03-29 21:30:09,875 - INFO   (werkzeug)   127.0.0.1 - - [29/Mar/2024 21:30:09] "GET /cheat-sheet/f8a7b4bc-ea78-400e-906d-6a57892f3f24 HTTP/1.1" 200 -

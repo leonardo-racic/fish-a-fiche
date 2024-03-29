@@ -70,7 +70,7 @@
                 </ul>
             </header>
         </div>
-        <div id="flash-container" class="container">
+        <!-- <div id="flash-container" class="container">
             <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4"></header>
                 {% for message in get_flashed_messages(with_categories=True) %}
                 <div id="flash" class="alert alert-{{ message[0] }}">    
@@ -78,11 +78,29 @@
                 </div>
                 {% endfor %}
             </header>
+        </div> -->
+    {% endblock %}
+    
+
+    {% block toasts %}
+        <div class="toast-container top-0 end-0 p-3">
+            {% for message in get_flashed_messages(with_categories=True) %}
+                <div class="toast text-bg-{{message[0]}}" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body test-body-emphasis">
+                            {{message[1]}}
+                        </div>
+                        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     {% endblock %}
     
-    
+
+        
     {% block body %}
+
     {% endblock %}
 
 
@@ -111,21 +129,42 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     
     
+    
     <script>
-        function fade() {
-            const fadeInterval = 50;
-            const fadeDifference = 0.15;
-            let flash = $("#flash");
-            setInterval(function() {
-                let opacity = window.getComputedStyle(flash[0], null).getPropertyValue("opacity");
-                if (opacity > 0) {
-                    opacity -= fadeDifference;
-                    flash[0].style.opacity = opacity;
-                } else {
-                    clearInterval();
-                    $("#flash-container").remove();
+        const FADING_FREQUENCY = 25.0;
+        const FADING_DIFF = 0.25;
+        const MIN_OPACITY = 0.0;
+        const MAX_OPACITY = 1.0;
+
+
+        function fadeOut(element) {
+            let effect = setInterval(function() {
+                if (!element.style.opacity) {
+                    element.style.opacity = MAX_OPACITY.toString();
                 }
-            }, fadeInterval);
+
+
+                let opacity = Number(element.style.opacity);
+                if (opacity > MIN_OPACITY) {
+                    opacity -= FADING_DIFF;
+                    element.style.opacity = opacity.toString();
+                } else {
+                    clearInterval(effect);
+                }
+            }, FADING_FREQUENCY);
+        }
+
+
+        let toasts = $(".toast");
+        toasts.show();
+        
+
+        for (let t of toasts) {
+            let currentToast = $(t)
+            let closeButton = currentToast.find(".btn-close");
+            closeButton.on("click", function() {
+                fadeOut(t);
+            });
         }
     </script>
 </body>
