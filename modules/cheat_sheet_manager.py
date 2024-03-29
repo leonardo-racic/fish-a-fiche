@@ -115,3 +115,18 @@ class CheatSheetManager:
         for c in cheat_sheet_data["cheat_sheet"]:
             if c["token"]["token"] == token:
                 pass
+    
+
+    def remove_comment(self, cheat_sheet_token: str, comment_content: str) -> None:
+        with open("cheat_sheet.json") as f:
+            cheat_sheet_data: dict = load_json(f.read())
+
+        cheat_sheet: dict = cheat_sheet_data["cheat_sheet"][cheat_sheet_token]
+        for comment in cheat_sheet["comments"]:
+            if comment["content"] == comment_content:
+                comments: list = cheat_sheet["comments"]
+                comments.remove(comment)
+                break
+
+        with open("cheat_sheet.json", "w") as f:
+            f.write(dumps(cheat_sheet_data, indent=4))
