@@ -1,1 +1,1 @@
-# Documentation of the [account_module](account_module.py) file
+# Documentation of the [account_module](modules/account_module.py) file
