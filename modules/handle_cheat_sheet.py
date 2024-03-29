@@ -4,7 +4,7 @@ from .server_account_manager import ServerAccountManager, get_hash
 from .account_module import Account
 from .cheat_sheet_manager import CheatSheetManager
 from .cheat_sheet_module import CheatSheet
-
+from terminal_log import inform
 
 def get_comments(cheat_sheet_info: dict, sam: ServerAccountManager) -> list:
     comments = cheat_sheet_info["comments"]
@@ -82,9 +82,11 @@ def handle_create_cheat_sheet(
 ) -> Response:
     cheat_sheet_data: dict = get_form_data()
     if server_account_manager.is_user_logged_in():
+        inform('creating cheat_sheet')
         cheat_sheet_data["author_token"] = server_account_manager.get_user_account_token()
         cheat_sheet: CheatSheet = cheat_sheet_manager.create_new_cheat_sheet(cheat_sheet_data)
         server_account_manager.add_cheat_sheet_to_user(cheat_sheet)
+        inform('cheat-sheet created')
         flash('cheat-sheet created','success')
         return redirect(f"/cheat-sheet/{cheat_sheet.token}")
     else:

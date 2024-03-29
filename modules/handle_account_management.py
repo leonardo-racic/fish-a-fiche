@@ -257,7 +257,7 @@ def handle_collection(
         
         elif input_type == "publish_collection_input":
             sam.toggle_collection_visibility(author.get_id(), collection_name)
-            flash('collection published','success')
+            flash('visibility modified','success')
             return redirect(f"/collections/{hashed_token}/{collection_name}")
 
 
