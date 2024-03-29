@@ -144,13 +144,23 @@
             <ul class="list-group mb-2">
                 {% for comment in comments %}
                     <li class="list-group-item">
-                        <strong>
-                            <a href="/profile/{{comment.token}}" class="link">
-                                {{comment.username}}
-                            </a>
-                            <br>
-                        </strong>
-                        {{comment.content}}
+                        <div class="row">
+                            {% if hashed_token == comment.token %}
+                                <div class="col-md-auto text-left justify-content-center">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                    </button>
+                                </div>
+                            {% endif %}
+                            <div class="col-md-auto text-right">
+                                <strong>
+                                    <a href="/profile/{{comment.token}}" class="link">
+                                        {{comment.username}}
+                                    </a>
+                                    <br>
+                                </strong>
+                                {{comment.content}}
+                            </div>
+                        </div>
                     </li>
                 {% endfor %}
             </ul>

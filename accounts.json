@@ -28,6 +28,15 @@
                     "name": "new"
                 }
             ]
+        },
+        "7f285c11-b456-462b-bc8e-040be50bedb4": {
+            "username": "second",
+            "password": "7692c3ad3540bb803c020b3aee66cd8887123234ea0c6e7143c0add73ff431ed",
+            "description": "",
+            "profile_picture": "",
+            "id": "7f285c11-b456-462b-bc8e-040be50bedb4",
+            "cheat_sheet": [],
+            "collections": []
         }
     }
 }
