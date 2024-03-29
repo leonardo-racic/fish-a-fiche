@@ -69,6 +69,14 @@ def handle_cheat_sheet(
             }
             cheat_sheet_manager.add_comment_to_cheat_sheet(token, new_comment)
         
+
+        elif form_data["input_type"] == "delete_cheat_sheet_input":
+            user_hashed_token: str = server_account_manager.get_user_account_hashed_token()
+            user_token: str = server_account_manager.get_user_account_token()
+            cheat_sheet_manager.delete_cheat_sheet(token)
+            server_account_manager.delete_cheat_sheet(user_token, token)
+            return redirect(f"/profile/{user_hashed_token}")
+        
         
         elif form_data["input_type"] == "delete_comment_input":
             comment_content: str = form_data["comment_content"]
