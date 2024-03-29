@@ -147,8 +147,12 @@
                         <div class="row">
                             {% if hashed_token == comment.token %}
                                 <div class="col-md-auto text-left justify-content-center">
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                                    </button>
+                                    <form action="/cheat-sheet/{{cheat_sheet_token}}" method="post">
+                                        <input type="hidden" name="input_type" value="delete_comment_input">
+                                        <input type="hidden" name="comment_content" value="{{comment.content}}">
+                                        <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                        </button>
+                                    </form>
                                 </div>
                             {% endif %}
                             <div class="col-md-auto text-right">

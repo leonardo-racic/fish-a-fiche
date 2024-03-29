@@ -68,6 +68,11 @@ def handle_cheat_sheet(
                 "content": form_data["comment"]
             }
             cheat_sheet_manager.add_comment_to_cheat_sheet(token, new_comment)
+        
+        
+        elif form_data["input_type"] == "delete_comment_input":
+            comment_content: str = form_data["comment_content"]
+            cheat_sheet_manager.remove_comment(token, comment_content)
         return redirect(f"/cheat-sheet/{token}")
 
 
