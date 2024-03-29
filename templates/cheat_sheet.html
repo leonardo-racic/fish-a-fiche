@@ -128,21 +128,32 @@
                 <button class="btn btn-primary mb-2" type="submit">Comment</button>
             </form>
         {% endif %}
-        <div class="card mb-4">
-            <div class="card-header ml-2">Comments</div>
-            {% if comments == [] %}
-                <small class="text-muted">No comments yet...</small>
-            {% else %}
+        <h6 class="display-6">Comments</h6>
+        {% if comments == [] %}
+            <small class="text-muted">No comments yet...</small>
+        {% else %}
+            <!-- {% for comment in comments %}
+                <span>
+                    <a href="/profile/{{comment.token}}" class="link">
+                        {{comment.username}}
+                    </a>
+                    <br>
+                    {{comment.content}}
+                </span>
+            {% endfor %} -->
+            <ul class="list-group mb-2">
                 {% for comment in comments %}
-                    <span>
-                        <a href="/profile/{{comment.token}}" class="link">
-                            {{comment.username}}
-                        </a>
-                        <br>
+                    <li class="list-group-item">
+                        <strong>
+                            <a href="/profile/{{comment.token}}" class="link">
+                                {{comment.username}}
+                            </a>
+                            <br>
+                        </strong>
                         {{comment.content}}
-                    </span>
+                    </li>
                 {% endfor %}
-            {% endif %}
-        </div>
+            </ul>
+        {% endif %}
     </div>
 {% endblock %}
