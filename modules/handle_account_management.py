@@ -70,9 +70,11 @@ def handle_sign_up(server_account_manager: ServerAccountManager) -> Response:
         )
     else:
         error = f"I haven't coded the {request.method} method yet."
+        flash('this method does not exist','warning')
+        redirect('/sign-up')
         
 
-    return error 
+    #return error 
 
 
 def handle_post_sign_up(server_account_manager: ServerAccountManager, input_username: str, input_password: str) -> Response:
@@ -123,7 +125,10 @@ def handle_modify_profile(server_account_manager: ServerAccountManager) -> Respo
             cheat_sheet=current_account_info["cheat_sheet"],
         )
     else:
-        return f"I haven't coded the {request.method} method yet."
+        flash('this method does not exist','warning')
+        redirect('/')
+        #return f"I haven't coded the {request.method} method yet."
+    
 
 
 def handle_post_modify_profile(server_account_manager: ServerAccountManager) -> Response:
@@ -198,12 +203,14 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
             
 
         elif input_type == "delete_collection_input":
+            flash('collection deleted','success')
             collection_name: str = form_data["collection_name"]
             sam.delete_collection(collection_name, target_account.get_id())
             return redirect(f"/collections/{hashed_token}")
         
 
         elif input_type == "save_collection_input":
+            flash('collection saved','success')
             collection_name: str = form_data["collection_name"]
             cheat_sheet_token: str = form_data["cheat_sheet_token"]
             sam.save_to_collection(collection_name, cheat_sheet_token)
@@ -211,6 +218,7 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
         
 
         elif input_type == "remove_cheat_sheet_input":
+            flash('cheat-sheet removed','success')
             collection_name: str = form_data["collection_name"]
             cheat_sheet_token: str = form_data["cheat_sheet_token"]
             user_token: str = sam.get_user_account_token()
@@ -243,11 +251,13 @@ def handle_collection(
         if input_type == "rename_collection_input":
             new_collection_name: str = form_data.get("collection_name")
             sam.rename_collection(author.get_id(), collection_name, new_collection_name)
+            flash('collection renamed','success')
             return redirect(f"/collections/{hashed_token}/{new_collection_name}")
         
         
         elif input_type == "publish_collection_input":
             sam.toggle_collection_visibility(author.get_id(), collection_name)
+            flash('collection published','success')
             return redirect(f"/collections/{hashed_token}/{collection_name}")
 
 
@@ -255,6 +265,7 @@ def handle_collection(
             cheat_sheet_token: str = form_data["cheat_sheet_token"]
             user_token: str = sam.get_user_account_token()
             sam.remove_cheat_sheet_from_collection(user_token, collection_name, cheat_sheet_token)
+            flash('cheat-sheet removed','success')
             return redirect(f"/collections/{hashed_token}/{collection_name}")
 
     
