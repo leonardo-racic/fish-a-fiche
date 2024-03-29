@@ -110,8 +110,8 @@ def handle_post_sign_up(server_account_manager: ServerAccountManager, input_user
 def handle_sign_out() -> Response:
     flash('signed out','info')
     response: Response = make_response(redirect(url_for("main")))
+    inform(f'{request.remote_addr}:{request.cookies.get('account-token')} has delogged')
     response.delete_cookie("account-token")
-    inform(f'{request.remote_addr} has delogged')
     return response
 
 
@@ -145,10 +145,10 @@ def handle_post_modify_profile(server_account_manager: ServerAccountManager) -> 
     username_input: str = request.form.get("username_input", "")
     if server_account_manager.has_account(server_account_manager.get_user_account()):
         server_account_manager.modify_profile(new_image_input, description_input, username_input)
-        inform(f'{request.remote_addr} modified {username_input}, with {new_image_input}, {description_input}')
+        inform(f'{request.remote_addr}:{request.cookies.get('account-token')} modified {username_input}, with {new_image_input}, {description_input}')
         flash('account modified','success')
     else:
-        warn(f'{request.remote_addr} tried to modify non existant account')
+        warn(f'{request.remote_addr}:{server_account_manager.get_user_account()} tried to modify non existant account')
         flash('account does not exist', 'warning') 
     return redirect(f"/profile/{server_account_manager.get_user_account_hashed_token()}")
 
@@ -198,7 +198,7 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
             collection_name: str = form_data["collection_name"]
             is_public: bool = bool(form_data.get("is_collection_public"))
             if sam.has_user_collection(collection_name):
-                warn(f'{request.remote_addr} tried to create already existing collection')
+                warn(f'{request.remote_addr}:{request.cookies.get('account-token')} tried to create already existing collection')
                 flash('collection already exists','warning')
                 return render_html(
                     "collections.html",
@@ -210,7 +210,7 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
                 )
             else:
                 sam.add_new_collection_to_account(collection_name, target_account.get_id(), is_public)
-                inform(f'{request.remote_addr} created collection : {collection_name}, {target_account.id}, {is_public}')
+                inform(f'{request.remote_addr}:{request.cookies.get('account-token')} created collection : {collection_name}, {target_account.id}, {is_public}')
                 return redirect(f"/collections/{hashed_token}")
             
 
@@ -219,7 +219,7 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
             flash('collection deleted','success')
             collection_name: str = form_data["collection_name"]
             sam.delete_collection(collection_name, target_account.get_id())
-            inform(f'{request.remote_addr} deleted collection {collection_name}')
+            inform(f'{request.remote_addr}:{request.cookies.get('account-token')} deleted collection {collection_name}')
             return redirect(f"/collections/{hashed_token}")
         
 
@@ -228,7 +228,7 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
             collection_name: str = form_data["collection_name"]
             cheat_sheet_token: str = form_data["cheat_sheet_token"]
             sam.save_to_collection(collection_name, cheat_sheet_token)
-            inform(f'{request.remote_addr} saved collection {collection_name}')
+            inform(f'{request.remote_addr}:{request.cookies.get('account-token')} saved collection {collection_name}')
             return redirect(f"/cheat-sheet/{cheat_sheet_token}")
         
 
@@ -238,7 +238,7 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
             cheat_sheet_token: str = form_data["cheat_sheet_token"]
             user_token: str = sam.get_user_account_token()
             sam.remove_cheat_sheet_from_collection(user_token, collection_name, cheat_sheet_token)
-            inform(f'{request.remote_addr} removed cheat-sheet: {cheat_sheet_token} from collection: {collection_name}')
+            inform(f'{request.remote_addr}:{request.cookies.get('account-token')} removed cheat-sheet: {cheat_sheet_token} from collection: {collection_name}')
             return redirect(f"/cheat-sheet/{cheat_sheet_token}")
         
 
@@ -267,7 +267,7 @@ def handle_collection(
         if input_type == "rename_collection_input":
             new_collection_name: str = form_data.get("collection_name")
             sam.rename_collection(author.get_id(), collection_name, new_collection_name)
-            inform(f'{request.remote_addr}:{author.get_id} renamed collection {collection_name}, to {new_collection_name}')
+            inform(f'{request.remote_addr}:{request.cookies.get('account-token')} renamed collection {collection_name}, to {new_collection_name}')
             flash('collection renamed','success')
             return redirect(f"/collections/{hashed_token}/{new_collection_name}")
         
@@ -275,7 +275,7 @@ def handle_collection(
         elif input_type == "publish_collection_input":
             sam.toggle_collection_visibility(author.get_id(), collection_name)
             flash('visibility modified','success')
-            inform(f'{request.remote_addr}:{author.get_id} modified the visibility of {collection_name}')
+            inform(f'{request.remote_addr}:{request.cookies.get('account-token')} modified the visibility of {collection_name}')
             return redirect(f"/collections/{hashed_token}/{collection_name}")
 
 
@@ -284,7 +284,7 @@ def handle_collection(
             user_token: str = sam.get_user_account_token()
             sam.remove_cheat_sheet_from_collection(user_token, collection_name, cheat_sheet_token)
             flash('cheat-sheet removed','success')
-            inform(f'{request.remote_addr}:{author.get_id} removed cheat-sheet:{cheat_sheet_token} from collection {collection_name}')
+            inform(f'{request.remote_addr}:{request.cookies.get('account-token')} removed cheat-sheet:{cheat_sheet_token} from collection {collection_name}')
             return redirect(f"/collections/{hashed_token}/{collection_name}")
 
     
