@@ -3,7 +3,7 @@ from singletons import render_html, get_form_data
 from .account_module import Account
 from .server_account_manager import ServerAccountManager
 from .cheat_sheet_manager import CheatSheetManager
-from terminal_log import inform, warning
+from terminal_log import inform, warn
 
 # Login
 def handle_login(server_account_manager: ServerAccountManager) -> Response:
@@ -16,9 +16,10 @@ def handle_login(server_account_manager: ServerAccountManager) -> Response:
             server_account_manager,
         )
     else:
-        error = f"I haven't coded login {request.method} code yet"
-
-    return error
+        #error = f"I haven't coded login {request.method} code yet"
+        warn(f'{request.remote_addr} used invalid method')
+        flash('invalid methos','warning')
+    redirect('/login')
 
 
 def handle_post_login(server_account_manager: ServerAccountManager) -> Response:
@@ -31,21 +32,21 @@ def handle_post_login(server_account_manager: ServerAccountManager) -> Response:
     
     if not is_input_valid:
         flash('input invalid','warning')
-        inform(f'{request.remote_addr} entered invalid inputs : {input_username}, {input_password}')
+        warn(f'{request.remote_addr} entered invalid inputs : {input_username}, {input_password}')
         return render_html(
             "login.html",
             server_account_manager,
         )
     elif not username_exists:
         flash('username does not exist', 'warning')
-        inform(f'{request.remote_addr} has tried to log in as {input_username} with {input_password} but it does not exist')
+        warn(f'{request.remote_addr} has tried to log in as {input_username} with {input_password} but it does not exist')
         return render_html(
             "login.html",
             server_account_manager,
         )
     elif not password_correct:
         flash('incorrect password', 'warning')
-        inform(f'{request.remote_addr} has tried to log in as {input_username} but input the wrong password {input_password}')
+        warn(f'{request.remote_addr} has tried to log in as {input_username} but input the wrong password {input_password}')
         return render_html(
             "login.html",
             server_account_manager,
@@ -73,6 +74,7 @@ def handle_sign_up(server_account_manager: ServerAccountManager) -> Response:
         )
     else:
         error = f"I haven't coded the {request.method} method yet."
+        warn(f'{request.remote_addr} used invalid method')
         flash('this method does not exist','warning')
         redirect('/sign-up')
         
@@ -94,6 +96,7 @@ def handle_post_sign_up(server_account_manager: ServerAccountManager, input_user
             response: Response = make_response(redirect(url_for("main")))
             response.set_cookie("account-token", new_account.get_id())
             return response
+    warn(f'{request.remote_addr} gave invalid input {input_username}, {input_password}')
     flash('input invalid','warning')
     return render_html(
         "sign_up.html",
@@ -108,6 +111,7 @@ def handle_sign_out() -> Response:
     flash('signed out','info')
     response: Response = make_response(redirect(url_for("main")))
     response.delete_cookie("account-token")
+    inform(f'{request.remote_addr} has delogged')
     return response
 
 
@@ -129,6 +133,7 @@ def handle_modify_profile(server_account_manager: ServerAccountManager) -> Respo
         )
     else:
         flash('this method does not exist','warning')
+        warn(f'{request.remote_addr} used invalid method')
         redirect('/')
         #return f"I haven't coded the {request.method} method yet."
     
@@ -140,8 +145,10 @@ def handle_post_modify_profile(server_account_manager: ServerAccountManager) -> 
     username_input: str = request.form.get("username_input", "")
     if server_account_manager.has_account(server_account_manager.get_user_account()):
         server_account_manager.modify_profile(new_image_input, description_input, username_input)
+        inform(f'{request.remote_addr} modified {username_input}, with {new_image_input}, {description_input}')
         flash('account modified','success')
     else:
+        warn(f'{request.remote_addr} tried to modify non existant account')
         flash('account does not exist', 'warning') 
     return redirect(f"/profile/{server_account_manager.get_user_account_hashed_token()}")
 
@@ -191,6 +198,7 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
             collection_name: str = form_data["collection_name"]
             is_public: bool = bool(form_data.get("is_collection_public"))
             if sam.has_user_collection(collection_name):
+                warn(f'{request.remote_addr} tried to create already existing collection')
                 flash('collection already exists','warning')
                 return render_html(
                     "collections.html",
@@ -202,13 +210,16 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
                 )
             else:
                 sam.add_new_collection_to_account(collection_name, target_account.get_id(), is_public)
+                inform(f'{request.remote_addr} created collection : {collection_name}, {target_account.id}, {is_public}')
                 return redirect(f"/collections/{hashed_token}")
             
 
         elif input_type == "delete_collection_input":
+            
             flash('collection deleted','success')
             collection_name: str = form_data["collection_name"]
             sam.delete_collection(collection_name, target_account.get_id())
+            inform(f'{request.remote_addr} deleted collection {collection_name}')
             return redirect(f"/collections/{hashed_token}")
         
 
@@ -217,6 +228,7 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
             collection_name: str = form_data["collection_name"]
             cheat_sheet_token: str = form_data["cheat_sheet_token"]
             sam.save_to_collection(collection_name, cheat_sheet_token)
+            inform(f'{request.remote_addr} saved collection {collection_name}')
             return redirect(f"/cheat-sheet/{cheat_sheet_token}")
         
 
@@ -226,6 +238,7 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
             cheat_sheet_token: str = form_data["cheat_sheet_token"]
             user_token: str = sam.get_user_account_token()
             sam.remove_cheat_sheet_from_collection(user_token, collection_name, cheat_sheet_token)
+            inform(f'{request.remote_addr} removed cheat-sheet: {cheat_sheet_token} from collection: {collection_name}')
             return redirect(f"/cheat-sheet/{cheat_sheet_token}")
         
 
@@ -254,6 +267,7 @@ def handle_collection(
         if input_type == "rename_collection_input":
             new_collection_name: str = form_data.get("collection_name")
             sam.rename_collection(author.get_id(), collection_name, new_collection_name)
+            inform(f'{request.remote_addr}:{author.get_id} renamed collection {collection_name}, to {new_collection_name}')
             flash('collection renamed','success')
             return redirect(f"/collections/{hashed_token}/{new_collection_name}")
         
@@ -261,6 +275,7 @@ def handle_collection(
         elif input_type == "publish_collection_input":
             sam.toggle_collection_visibility(author.get_id(), collection_name)
             flash('visibility modified','success')
+            inform(f'{request.remote_addr}:{author.get_id} modified the visibility of {collection_name}')
             return redirect(f"/collections/{hashed_token}/{collection_name}")
 
 
@@ -269,6 +284,7 @@ def handle_collection(
             user_token: str = sam.get_user_account_token()
             sam.remove_cheat_sheet_from_collection(user_token, collection_name, cheat_sheet_token)
             flash('cheat-sheet removed','success')
+            inform(f'{request.remote_addr}:{author.get_id} removed cheat-sheet:{cheat_sheet_token} from collection {collection_name}')
             return redirect(f"/collections/{hashed_token}/{collection_name}")
 
     
