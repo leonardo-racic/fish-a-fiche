@@ -1,4 +1,4 @@
-from flask import Response, redirect, request
+from flask import Response, redirect, request, flash
 from singletons import render_html, get_form_data
 from .server_account_manager import ServerAccountManager, get_hash
 from .account_module import Account
@@ -25,7 +25,8 @@ def handle_cheat_sheet(
         author_token: str = cheat_sheet_info["author_token"]
         author_username: str = server_account_manager.get_current_username_from_token(author_token)
         if cheat_sheet_info == {} or author_username == "":
-            return Response("Well uhhhhh", status=404)
+            flash('error 404','warning')
+            #return Response("Well uhhhhh", status=404)
         
         is_user_author: bool = server_account_manager.get_user_account_token() == cheat_sheet_info["author_token"]
         comments: list = get_comments(cheat_sheet_info, server_account_manager)
@@ -79,8 +80,10 @@ def handle_create_cheat_sheet(
         cheat_sheet_data["author_token"] = server_account_manager.get_user_account_token()
         cheat_sheet: CheatSheet = cheat_sheet_manager.create_new_cheat_sheet(cheat_sheet_data)
         server_account_manager.add_cheat_sheet_to_user(cheat_sheet)
+        flash('cheat-sheet created','success')
         return redirect(f"/cheat-sheet/{cheat_sheet.token}")
     else:
+        flash('not logged in','warning')
         return render_html(
             "create_cheat_sheet.html",
             server_account_manager,
@@ -95,6 +98,7 @@ def handle_modify_cheat_sheet(
     if request.method == "POST":
         new_cheat_sheet_info: dict = get_form_data()
         cheat_sheet_manager.modify_cheat_sheet(token, new_cheat_sheet_info)
+        flash('cheat-sheet modified','success')
         return redirect(f"/cheat-sheet/{token}")
     elif request.method == "GET":
         cheat_sheet: CheatSheet = cheat_sheet_manager.get_cheat_sheet(token)
@@ -106,5 +110,5 @@ def handle_modify_cheat_sheet(
             server_account_manager,
             old_cheat_sheet=cheat_sheet_info,
         )
-
-    return "not done yet"
+    flash('method not suported','warning')
+    #return "not done yet"
