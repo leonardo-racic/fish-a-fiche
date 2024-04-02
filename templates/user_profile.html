@@ -56,9 +56,20 @@
                 </div>
             </div>
         </div>
-        {% if is_user %}
-            <a class="btn btn-primary" href="/modify-profile" role="button">Edit Profile</a>
-        {% endif %}
-        <a href="/collections/{{current_hashed_token}}" class="btn btn-primary">Collections</a>
+        <div class="d-flex align-items-left">
+            {% if is_user %}
+                <a class="btn btn-primary me-2" href="/modify-profile" role="button">Edit Profile</a>
+            {% endif %}
+                <a href="/collections/{{current_hashed_token}}" class="btn btn-primary me-2">Collections</a>
+            {% if is_user %}
+                <form action="/profile/{{hashed_token}}" method="post">
+                    <input type="hidden" name="input_type" value="delete_account_input">
+                    <input type="hidden" name="account_id" value="{{hashed_token}}">
+                    <button type="submit" class="btn btn-danger">
+                        Delete account
+                    </button>
+                </form>
+            {% endif %}
+        </div>
     </div>
 {% endblock %}

@@ -70,15 +70,6 @@
                 </ul>
             </header>
         </div>
-        <!-- <div id="flash-container" class="container">
-            <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4"></header>
-                {% for message in get_flashed_messages(with_categories=True) %}
-                <div id="flash" class="alert alert-{{ message[0] }}">    
-                    {{ message[1] }}
-                </div>
-                {% endfor %}
-            </header>
-        </div> -->
     {% endblock %}
     
 
@@ -142,8 +133,6 @@
                 if (!element.style.opacity) {
                     element.style.opacity = MAX_OPACITY.toString();
                 }
-
-
                 let opacity = Number(element.style.opacity);
                 if (opacity > MIN_OPACITY) {
                     opacity -= FADING_DIFF;

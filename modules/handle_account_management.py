@@ -18,7 +18,7 @@ def handle_login(server_account_manager: ServerAccountManager) -> Response:
     else:
         #error = f"I haven't coded login {request.method} code yet"
         warn(f'{request.remote_addr} used invalid method')
-        flash('invalid methos','warning')
+        flash('Invalid method', 'warning')
     return redirect('/login')
 
 
@@ -31,21 +31,21 @@ def handle_post_login(server_account_manager: ServerAccountManager) -> Response:
     
     
     if not is_input_valid:
-        flash('input invalid','warning')
+        flash('Invalid input', 'warning')
         warn(f'{request.remote_addr} entered invalid inputs : {input_username}, {input_password}')
         return render_html(
             "login.html",
             server_account_manager,
         )
     elif not username_exists:
-        flash('username does not exist', 'warning')
+        flash('Username does not exist', 'warning')
         warn(f'{request.remote_addr} has tried to log in as {input_username} with {input_password} but it does not exist')
         return render_html(
             "login.html",
             server_account_manager,
         )
     elif not password_correct:
-        flash('incorrect password', 'warning')
+        flash('Incorrect password', 'warning')
         warn(f'{request.remote_addr} has tried to log in as {input_username} but input the wrong password {input_password}')
         return render_html(
             "login.html",
@@ -73,26 +73,26 @@ def handle_sign_up(server_account_manager: ServerAccountManager) -> Response:
         )
     else:
         warn(f'{request.remote_addr} used invalid method')
-        flash('this method does not exist','warning')
+        flash('This method does not exist', 'warning')
         return redirect('/sign-up')
 
 
 def handle_post_sign_up(server_account_manager: ServerAccountManager, input_username: str, input_password: str) -> Response:
     if server_account_manager.is_sign_up_input_valid(input_username, input_password):
         if server_account_manager.has_account_username(input_username):
-            flash('username already used','warning')
+            flash('Username is already used', 'warning')
             return render_html(
                 "sign_up.html",
                 server_account_manager,
             )
         else:
-            flash('account created','success')
+            flash('Account has been created', 'success')
             new_account: Account = server_account_manager.create_account(input_username, input_password)
             response: Response = make_response(redirect(url_for("main")))
             response.set_cookie("account-token", new_account.get_id())
             return response
     warn(f'{request.remote_addr} gave invalid input {input_username}, {input_password}')
-    flash('input invalid','warning')
+    flash('Invalid input', 'warning')
     return render_html(
         "sign_up.html",
         server_account_manager,
@@ -101,7 +101,7 @@ def handle_post_sign_up(server_account_manager: ServerAccountManager, input_user
 
 # Sign-out
 def handle_sign_out() -> Response:
-    flash('signed out','info')
+    flash('Successfully signed out', 'info')
     response: Response = make_response(redirect(url_for("main")))
     inform(f"{request.remote_addr}:{request.cookies.get('account-token')} has delogged")
     response.delete_cookie("account-token")
@@ -123,7 +123,7 @@ def handle_modify_profile(server_account_manager: ServerAccountManager) -> Respo
             cheat_sheet=current_account_info["cheat_sheet"],
         )
     else:
-        flash('this method does not exist','warning')
+        flash('This method does not exist', 'warning')
         warn(f'{request.remote_addr} used invalid method')
         return redirect('/')    
 
@@ -135,10 +135,10 @@ def handle_post_modify_profile(server_account_manager: ServerAccountManager) -> 
     if server_account_manager.has_account(server_account_manager.get_user_account()):
         server_account_manager.modify_profile(new_image_input, description_input, username_input)
         inform(f"{request.remote_addr}:{request.cookies.get('account-token')} modified {username_input}, with {new_image_input}, {description_input}")
-        flash('account modified','success')
+        flash('Account has been successfully modified', 'success')
     else:
         warn(f'{request.remote_addr}:{server_account_manager.get_user_account()} tried to modify non existant account')
-        flash('account does not exist', 'warning') 
+        flash('Account does not exist', 'warning') 
         abort(404)
     return redirect(f"/profile/{server_account_manager.get_user_account_hashed_token()}")
 
@@ -147,28 +147,46 @@ def handle_post_modify_profile(server_account_manager: ServerAccountManager) -> 
 
 # Display profile
 def handle_profile(server_account_manager: ServerAccountManager, hashed_token: str) -> Response:
-    account_info: dict = server_account_manager.get_account_info_from_hashed_token(hashed_token)
-    does_account_exist: bool = account_info is not None
-    if does_account_exist:
-        user_account_info: dict = server_account_manager.get_user_account_info()
-        response: Response = make_response(render_html(
-            "user_profile.html",
-            server_account_manager,
-            username=account_info["username"],
-            current_hashed_token=hashed_token,
-            description=account_info["description"],
-            profile_picture=account_info["profile_picture"],
-            is_user=bool(account_info["id"] == user_account_info["id"]),
-            cheat_sheet=server_account_manager.get_account_cheat_sheet_info(account_info["id"])
-        ))
-        return response
-    flash('account does not exist','warning')
-    abort(404)
+    if request.method == "GET":
+        account_info: dict = server_account_manager.get_account_info_from_hashed_token(hashed_token)
+        does_account_exist: bool = account_info is not None
+        if does_account_exist:
+            user_account_info: dict = server_account_manager.get_user_account_info()
+            response: Response = make_response(render_html(
+                "user_profile.html",
+                server_account_manager,
+                username=account_info["username"],
+                current_hashed_token=hashed_token,
+                description=account_info["description"],
+                profile_picture=account_info["profile_picture"],
+                is_user=bool(account_info["id"] == user_account_info["id"]),
+                cheat_sheet=server_account_manager.get_account_cheat_sheet_info(account_info["id"])
+            ))
+            return response
+        flash('Account does not exist', 'warning')
+        abort(404)
+
+    
+    elif request.method == "POST":
+        form_data: dict = get_form_data()
+        input_type: str = form_data["input_type"]
+        if input_type == "delete_account_input":
+            account: Account = server_account_manager.get_account_from_hashed_token(hashed_token)
+            if account is None:
+                flash("Account does not exist", "warning")
+                abort(404)
+            server_account_manager.delete_account(account)
+            return redirect("/profile")
 
 
+
+# Collections
 def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response:
     target_account: Account = sam.get_account_from_hashed_token(hashed_token)
     collections: list = sam.get_collections(target_account.get_id())
+    if collections is None:
+        flash("Unexisting collections", "warning")
+        abort(404)
     is_user: bool = hashed_token == sam.get_user_account_hashed_token()
 
 
@@ -191,7 +209,7 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
             is_public: bool = bool(form_data.get("is_collection_public"))
             if sam.has_user_collection(collection_name):
                 warn(f'{request.remote_addr}:{request.cookies.get("account-token")} tried to create already existing collection')
-                flash('collection already exists','warning')
+                flash('cCection already exists', 'warning')
                 return render_html(
                     "collections.html",
                     sam,
@@ -207,7 +225,7 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
             
 
         elif input_type == "delete_collection_input":
-            flash('collection deleted','success')
+            flash('Collection has been deleted', 'success')
             collection_name: str = form_data["collection_name"]
             sam.delete_collection(collection_name, target_account.get_id())
             inform(f'{request.remote_addr}:{request.cookies.get("account-token")} deleted collection {collection_name}')
@@ -215,7 +233,7 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
         
 
         elif input_type == "save_collection_input":
-            flash('collection saved','success')
+            flash('Collection has been saved', 'success')
             collection_name: str = form_data["collection_name"]
             cheat_sheet_token: str = form_data["cheat_sheet_token"]
             sam.save_to_collection(collection_name, cheat_sheet_token)
@@ -265,7 +283,7 @@ def handle_collection(
         
         elif input_type == "publish_collection_input":
             sam.toggle_collection_visibility(author.get_id(), collection_name)
-            flash('visibility modified','success')
+            flash('Visibility modified','success')
             inform(f'{request.remote_addr}:{request.cookies.get("account-token")} modified the visibility of {collection_name}')
             return redirect(f"/collections/{hashed_token}/{collection_name}")
 
@@ -274,7 +292,7 @@ def handle_collection(
             cheat_sheet_token: str = form_data["cheat_sheet_token"]
             user_token: str = sam.get_user_account_token()
             sam.remove_cheat_sheet_from_collection(user_token, collection_name, cheat_sheet_token)
-            flash('cheat-sheet removed','success')
+            flash('Cheat-sheet has been removed', 'success')
             inform(f'{request.remote_addr}:{request.cookies.get("account-token")} removed cheat-sheet:{cheat_sheet_token} from collection {collection_name}')
             return redirect(f"/collections/{hashed_token}/{collection_name}")
         
