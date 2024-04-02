@@ -1,5 +1,2 @@
-2024-04-01 20:49:05,472 - WARNING   (werkzeug)    * Debugger is active!
-2024-04-01 20:49:05,472 - INFO   (werkzeug)    * Debugger PIN: 124-860-341
-2024-04-01 20:49:32,687 - INFO   (werkzeug)   127.0.0.1 - - [01/Apr/2024 20:49:32] "GET / HTTP/1.1" 200 -
-2024-04-01 20:49:33,251 - INFO   (werkzeug)   127.0.0.1 - - [01/Apr/2024 20:49:33] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2024-04-01 20:53:50,371 - INFO   (werkzeug)   127.0.0.1 - - [01/Apr/2024 20:53:50] "GET / HTTP/1.1" 200 -
+2024-04-02 06:45:34,591 - WARNING   (werkzeug)    * Debugger is active!
+2024-04-02 06:45:34,592 - INFO   (werkzeug)    * Debugger PIN: 166-495-313

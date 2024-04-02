@@ -1,6 +1,6 @@
-from flask import Flask, Response, request, flash
+from flask import Flask, Response, request
 from singletons import render_html
-from modules.server_account_manager import ServerAccountManager, get_hash
+from modules.server_account_manager import ServerAccountManager
 from modules.cheat_sheet_manager import CheatSheetManager
 from modules.handle_account_management import (
     handle_login, handle_sign_up, handle_sign_out,
@@ -8,10 +8,14 @@ from modules.handle_account_management import (
     handle_collection
 )
 from modules.handle_cheat_sheet import handle_cheat_sheet, handle_create_cheat_sheet, handle_modify_cheat_sheet
-from terminal_log import run_logging
 from modules.handle_upload import handle_upload
+from modules.handle_errors import handle_404
+from terminal_log import run_logging
+from werkzeug.exceptions import NotFound as Error404
+
 
 run_logging()
+
 
 app: Flask = Flask(__name__)
 app.secret_key = "Sachin"
@@ -99,6 +103,11 @@ def collections(hashed_token: str) -> Response:
 @app.route("/collections/<string:hashed_token>/<string:collection_name>", methods=["GET", "POST"])
 def collection(hashed_token: str, collection_name: str) -> Response:
     return handle_collection(server_account_manager, cheat_sheet_manager, hashed_token, collection_name)
+
+
+@app.errorhandler(404)
+def error404(error: Error404) -> Response:
+    return handle_404(server_account_manager, error), 404
 
 
 if __name__ == "__main__":

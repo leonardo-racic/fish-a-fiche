@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+    <div class="container">
+        <h1 class="display-1">Error 404</h1>
+        <h2 class="display-2 text-secondary-emphasis">The page you are looking for doesn't exist.</h2>
+        <h3 class="display-3 text-secondary">
+            The profile, the cheat sheet or the collections you have tried to access... does not exist in the server's side.
+        </h3>
+        <p>
+            The error code given to us is:
+            <span class="text-secondary-emphasis">
+                {{error_description}}
+            </span>
+        </p>
+    </div>
+{% endblock %}
