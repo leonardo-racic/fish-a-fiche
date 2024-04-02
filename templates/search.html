@@ -20,6 +20,8 @@
                 <div class="d-flex flex-column align-items-center text-center">
                     {% if cheat_sheet == [] %}
                         <small class="text-muted mb-2">No results</small>
+                    {% elif cheat_sheet == None %}
+                        <small class="text-muted mb-2">you need exact name for this to work will be improved</small>
                     {% else %}
                         <div class="row row-col-{{max_c_per_row}}">
                             {% for c in cheat_sheet %}
