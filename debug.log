@@ -1,20 +1,28 @@
-2024-04-02 08:47:02,827 - WARNING   (werkzeug)    * Debugger is active!
-2024-04-02 08:47:02,849 - INFO   (werkzeug)    * Debugger PIN: 282-553-468
-2024-04-02 08:47:05,928 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 08:47:05] "GET / HTTP/1.1" 200 -
-2024-04-02 08:47:08,360 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 08:47:08] "GET /sign-up HTTP/1.1" 200 -
-2024-04-02 08:47:11,188 - INFO   (terminal_log)   Account(74babf8e-e010-4361-b809-751841e66256) is being created
-2024-04-02 08:47:11,238 - INFO   (terminal_log)   Account with id 74babf8e-e010-4361-b809-751841e66256 created successfully.
-2024-04-02 08:47:11,238 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 08:47:11] "[32mPOST /sign-up HTTP/1.1[0m" 302 -
-2024-04-02 08:47:11,246 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 08:47:11] "GET / HTTP/1.1" 200 -
-2024-04-02 08:47:14,124 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 08:47:14] "GET /profile/52615f3a93dfedf7dfd6a64c6876ade8ed4f34b8f46a1de145d067ecda938c04 HTTP/1.1" 200 -
-2024-04-02 08:47:38,522 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 08:47:38] "[32mPOST /profile/52615f3a93dfedf7dfd6a64c6876ade8ed4f34b8f46a1de145d067ecda938c04 HTTP/1.1[0m" 302 -
-2024-04-02 08:47:38,538 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 08:47:38] "[33mGET /profile HTTP/1.1[0m" 404 -
-2024-04-02 08:47:50,870 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 08:47:50] "GET /sign-up HTTP/1.1" 200 -
-2024-04-02 08:47:53,313 - INFO   (terminal_log)   Account(862a3df5-837e-4e1b-8454-e89534ed01e0) is being created
-2024-04-02 08:47:53,362 - INFO   (terminal_log)   Account with id 862a3df5-837e-4e1b-8454-e89534ed01e0 created successfully.
-2024-04-02 08:47:53,362 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 08:47:53] "[32mPOST /sign-up HTTP/1.1[0m" 302 -
-2024-04-02 08:47:53,370 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 08:47:53] "GET / HTTP/1.1" 200 -
-2024-04-02 08:47:55,625 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 08:47:55] "GET /profile/bb9931e4758b589e77a313f9d5cfb2828cf7c268cf77df9d719ba6afa8d169a3 HTTP/1.1" 200 -
-2024-04-02 08:47:57,665 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 08:47:57] "[32mPOST /profile/bb9931e4758b589e77a313f9d5cfb2828cf7c268cf77df9d719ba6afa8d169a3 HTTP/1.1[0m" 302 -
-2024-04-02 08:47:57,670 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 08:47:57] "[33mGET /profile HTTP/1.1[0m" 404 -
-2024-04-02 08:48:02,443 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 08:48:02] "GET / HTTP/1.1" 200 -
+2024-04-02 09:20:35,979 - WARNING   (werkzeug)    * Debugger is active!
+2024-04-02 09:20:35,998 - INFO   (werkzeug)    * Debugger PIN: 282-553-468
+2024-04-02 09:22:35,980 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 09:22:35] "GET /profile/2ec6c3626da4e8e8e2b564c7a0a85abaac1e79da52c920bc153085fcd3159cb5 HTTP/1.1" 200 -
+2024-04-02 09:22:36,187 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 09:22:36] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-04-02 09:22:37,150 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 09:22:37] "GET / HTTP/1.1" 200 -
+2024-04-02 09:22:37,891 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 09:22:37] "GET /profile/2ec6c3626da4e8e8e2b564c7a0a85abaac1e79da52c920bc153085fcd3159cb5 HTTP/1.1" 200 -
+2024-04-02 09:22:39,098 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 09:22:39] "GET /create-cheat-sheet HTTP/1.1" 200 -
+2024-04-02 09:22:41,481 - INFO   (terminal_log)   creating cheat_sheet
+2024-04-02 09:22:43,971 - INFO   (terminal_log)   cheat-sheet created
+2024-04-02 09:22:43,973 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 09:22:43] "[32mPOST /create-cheat-sheet HTTP/1.1[0m" 302 -
+2024-04-02 09:22:44,192 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 09:22:44] "GET /cheat-sheet/d219e56b-977a-4f4e-9eeb-972b87054c16 HTTP/1.1" 200 -
+2024-04-02 09:23:05,787 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 09:23:05] "GET /profile/2ec6c3626da4e8e8e2b564c7a0a85abaac1e79da52c920bc153085fcd3159cb5 HTTP/1.1" 200 -
+2024-04-02 09:23:29,388 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 09:23:29] "GET /create-cheat-sheet HTTP/1.1" 200 -
+2024-04-02 09:23:32,445 - INFO   (terminal_log)   creating cheat_sheet
+2024-04-02 09:23:32,540 - INFO   (terminal_log)   cheat-sheet created
+2024-04-02 09:23:32,540 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 09:23:32] "[32mPOST /create-cheat-sheet HTTP/1.1[0m" 302 -
+2024-04-02 09:23:32,548 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 09:23:32] "GET /cheat-sheet/d219e56b-977a-4f4e-9eeb-972b87054c16 HTTP/1.1" 200 -
+2024-04-02 09:23:34,016 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 09:23:34] "GET /profile/2ec6c3626da4e8e8e2b564c7a0a85abaac1e79da52c920bc153085fcd3159cb5 HTTP/1.1" 200 -
+2024-04-02 09:23:35,633 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 09:23:35] "GET /cheat-sheet/d219e56b-977a-4f4e-9eeb-972b87054c16 HTTP/1.1" 200 -
+2024-04-02 09:23:37,023 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 09:23:37] "GET /profile/2ec6c3626da4e8e8e2b564c7a0a85abaac1e79da52c920bc153085fcd3159cb5 HTTP/1.1" 200 -
+2024-04-02 09:23:38,049 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 09:23:38] "GET /cheat-sheet/d219e56b-977a-4f4e-9eeb-972b87054c16 HTTP/1.1" 200 -
+2024-04-02 09:23:38,956 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 09:23:38] "GET /profile/2ec6c3626da4e8e8e2b564c7a0a85abaac1e79da52c920bc153085fcd3159cb5 HTTP/1.1" 200 -
+2024-04-02 09:23:39,831 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 09:23:39] "GET /cheat-sheet/d219e56b-977a-4f4e-9eeb-972b87054c16 HTTP/1.1" 200 -
+2024-04-02 09:23:41,079 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 09:23:41] "GET /profile/2ec6c3626da4e8e8e2b564c7a0a85abaac1e79da52c920bc153085fcd3159cb5 HTTP/1.1" 200 -
+2024-04-02 09:23:42,085 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 09:23:42] "GET /cheat-sheet/d219e56b-977a-4f4e-9eeb-972b87054c16 HTTP/1.1" 200 -
+2024-04-02 09:23:43,385 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 09:23:43] "GET /profile/2ec6c3626da4e8e8e2b564c7a0a85abaac1e79da52c920bc153085fcd3159cb5 HTTP/1.1" 200 -
+2024-04-02 09:23:44,186 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 09:23:44] "GET /cheat-sheet/d219e56b-977a-4f4e-9eeb-972b87054c16 HTTP/1.1" 200 -
+2024-04-02 09:23:45,089 - INFO   (werkzeug)   127.0.0.1 - - [02/Apr/2024 09:23:45] "GET /profile/2ec6c3626da4e8e8e2b564c7a0a85abaac1e79da52c920bc153085fcd3159cb5 HTTP/1.1" 200 -

@@ -312,7 +312,7 @@ class ServerAccountManager:
     def get_collections(self, token: str) -> list:
         with open("accounts.json") as f:
             json_data: dict = load_json(f.read())
-        return json_data["accounts"][token]["collections"]
+        return json_data["accounts"][token].get("collections")
     
 
     def get_user_account_collections(self) -> list:
