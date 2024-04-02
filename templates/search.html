@@ -8,12 +8,41 @@
 
             <!-- nom de la fiche de révision-->
             <div class="form-group">
-                <label for="title-input">Cheat sheet's title</label>
+                <label for="title-input">Name</label>
                 <input class="form-control" type="text" id="title-input" name="title" autocomplete="off">
             </div>
 
             
-            <button class="btn btn-primary" value=Upload type="submit">Upload cheat sheet</button>
+            <button class="btn btn-primary" value=Upload type="submit">Search</button>
         </form>
+        <div class="card mb-2">
+            <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                    {% if cheat_sheet == [] %}
+                        <small class="text-muted mb-2">No results</small>
+                    {% else %}
+                        <div class="row row-col-{{max_c_per_row}}">
+                            {% for c in cheat_sheet %}
+                                <div class="card col text-center my-2 mx-1" style="max-width: 18rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{c.title}}</h5>
+                                        <p class="card-text">{{c.context}}</p>
+                                        <a href=/cheat-sheet/{{c.token}} class="btn btn-primary mb-2">Display</a>
+                                        {% if is_user %}
+                                            <form action="/cheat-sheet/{{c.token}}" method="post">
+                                                <input type="hidden" name="input_type" value="delete_cheat_sheet_input">
+                                                <input type="hidden" name="cheat_sheet_token" value="{{c.token}}">
+                                                <button type="submit" class="btn btn-secondary">
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
     </div>
 {% endblock %}

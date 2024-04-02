@@ -3,7 +3,7 @@ from singletons import render_html, get_form_data
 from .account_module import Account
 from .server_account_manager import ServerAccountManager
 from .cheat_sheet_manager import CheatSheetManager
-from terminal_log import inform, warn
+from terminal_log import inform, warn, debug
 
 
 # Login
@@ -152,6 +152,7 @@ def handle_profile(server_account_manager: ServerAccountManager, hashed_token: s
         does_account_exist: bool = account_info is not None
         if does_account_exist:
             user_account_info: dict = server_account_manager.get_user_account_info()
+            debug(server_account_manager.get_account_cheat_sheet_info(account_info["id"]))
             response: Response = make_response(render_html(
                 "user_profile.html",
                 server_account_manager,
