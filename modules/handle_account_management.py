@@ -209,7 +209,7 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
             is_public: bool = bool(form_data.get("is_collection_public"))
             if sam.has_user_collection(collection_name):
                 warn(f'{request.remote_addr}:{request.cookies.get("account-token")} tried to create already existing collection')
-                flash('collection already exists','warning')
+                flash('cCection already exists', 'warning')
                 return render_html(
                     "collections.html",
                     sam,
@@ -225,7 +225,7 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
             
 
         elif input_type == "delete_collection_input":
-            flash('collection deleted','success')
+            flash('Collection has been deleted', 'success')
             collection_name: str = form_data["collection_name"]
             sam.delete_collection(collection_name, target_account.get_id())
             inform(f'{request.remote_addr}:{request.cookies.get("account-token")} deleted collection {collection_name}')
@@ -233,7 +233,7 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
         
 
         elif input_type == "save_collection_input":
-            flash('collection saved','success')
+            flash('Collection has been saved', 'success')
             collection_name: str = form_data["collection_name"]
             cheat_sheet_token: str = form_data["cheat_sheet_token"]
             sam.save_to_collection(collection_name, cheat_sheet_token)
@@ -283,7 +283,7 @@ def handle_collection(
         
         elif input_type == "publish_collection_input":
             sam.toggle_collection_visibility(author.get_id(), collection_name)
-            flash('visibility modified','success')
+            flash('Visibility modified','success')
             inform(f'{request.remote_addr}:{request.cookies.get("account-token")} modified the visibility of {collection_name}')
             return redirect(f"/collections/{hashed_token}/{collection_name}")
 
@@ -292,7 +292,7 @@ def handle_collection(
             cheat_sheet_token: str = form_data["cheat_sheet_token"]
             user_token: str = sam.get_user_account_token()
             sam.remove_cheat_sheet_from_collection(user_token, collection_name, cheat_sheet_token)
-            flash('cheat-sheet removed','success')
+            flash('Cheat-sheet has been removed', 'success')
             inform(f'{request.remote_addr}:{request.cookies.get("account-token")} removed cheat-sheet:{cheat_sheet_token} from collection {collection_name}')
             return redirect(f"/collections/{hashed_token}/{collection_name}")
         
