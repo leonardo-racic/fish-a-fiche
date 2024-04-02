@@ -7,6 +7,7 @@ from modules.handle_account_management import (
     handle_modify_profile, handle_profile, handle_collections,
     handle_collection
 )
+#from modules.handle_search import handle_search
 from modules.handle_cheat_sheet import handle_cheat_sheet, handle_create_cheat_sheet, handle_modify_cheat_sheet
 from modules.handle_upload import handle_upload
 from modules.handle_errors import handle_404
@@ -104,6 +105,9 @@ def collections(hashed_token: str) -> Response:
 def collection(hashed_token: str, collection_name: str) -> Response:
     return handle_collection(server_account_manager, cheat_sheet_manager, hashed_token, collection_name)
 
+@app.route("/search/<string:name>", methods=["GET"])
+def search(name :str) -> Response:
+    return handle_search(server_account_manager,cheat_sheet_manager, name)
 
 @app.errorhandler(404)
 def error404(error: Error404) -> Response:

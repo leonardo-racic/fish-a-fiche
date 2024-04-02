@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+    <div class="container">
+        <form method="post">
+                
+
+            <!-- nom de la fiche de révision-->
+            <div class="form-group">
+                <label for="title-input">Cheat sheet's title</label>
+                <input class="form-control" type="text" id="title-input" name="title" autocomplete="off">
+            </div>
+
+            
+            <button class="btn btn-primary" value=Upload type="submit">Upload cheat sheet</button>
+        </form>
+    </div>
+{% endblock %}
