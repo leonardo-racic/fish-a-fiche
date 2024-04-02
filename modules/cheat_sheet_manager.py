@@ -1,6 +1,5 @@
 from json import loads as load_json, dumps
-from .cheat_sheet_module import CheatSheet
-from .server_account_manager import ServerAccountManager
+from .cheat_sheet_module import CheatSheet, get_uuid
 
 
 def check(csi: dict, cs: CheatSheet, info: str) -> None:
@@ -85,6 +84,7 @@ class CheatSheetManager:
             cheat_sheet_info["content"],
             cheat_sheet_info["context"],
         )
+        new_cheat_sheet.token = str(get_uuid())
         self.add_cheat_sheet(new_cheat_sheet)
         return new_cheat_sheet
     
