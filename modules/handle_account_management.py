@@ -147,28 +147,42 @@ def handle_post_modify_profile(server_account_manager: ServerAccountManager) -> 
 
 # Display profile
 def handle_profile(server_account_manager: ServerAccountManager, hashed_token: str) -> Response:
-    account_info: dict = server_account_manager.get_account_info_from_hashed_token(hashed_token)
-    does_account_exist: bool = account_info is not None
-    if does_account_exist:
-        user_account_info: dict = server_account_manager.get_user_account_info()
-        response: Response = make_response(render_html(
-            "user_profile.html",
-            server_account_manager,
-            username=account_info["username"],
-            current_hashed_token=hashed_token,
-            description=account_info["description"],
-            profile_picture=account_info["profile_picture"],
-            is_user=bool(account_info["id"] == user_account_info["id"]),
-            cheat_sheet=server_account_manager.get_account_cheat_sheet_info(account_info["id"])
-        ))
-        return response
-    flash('account does not exist','warning')
-    abort(404)
+    if request.method == "GET":
+        account_info: dict = server_account_manager.get_account_info_from_hashed_token(hashed_token)
+        does_account_exist: bool = account_info is not None
+        if does_account_exist:
+            user_account_info: dict = server_account_manager.get_user_account_info()
+            response: Response = make_response(render_html(
+                "user_profile.html",
+                server_account_manager,
+                username=account_info["username"],
+                current_hashed_token=hashed_token,
+                description=account_info["description"],
+                profile_picture=account_info["profile_picture"],
+                is_user=bool(account_info["id"] == user_account_info["id"]),
+                cheat_sheet=server_account_manager.get_account_cheat_sheet_info(account_info["id"])
+            ))
+            return response
+        flash('account does not exist','warning')
+        abort(404)
+    elif request.method == "POST":
+        form_data: dict = get_form_data()
+        input_type: str = form_data["input_type"]
+        if input_type == "delete_account_input":
+            account: Account = server_account_manager.get_account_from_hashed_token(hashed_token)
+            if account is None:
+                abort(404)
+            server_account_manager.delete_account(account)
+            return redirect("/profile")
 
 
+
+# Collections
 def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response:
     target_account: Account = sam.get_account_from_hashed_token(hashed_token)
     collections: list = sam.get_collections(target_account.get_id())
+    if not collections:
+        abort(404)
     is_user: bool = hashed_token == sam.get_user_account_hashed_token()
 
 

@@ -38,7 +38,7 @@ def read_accounts_json() -> dict:
     with open("accounts.json") as f:
         accounts_json: dict = load_json(f.read())["accounts"]
         accounts_dict: dict = {}
-        for token, account_info in accounts_json.items():
+        for token, account_info in list(accounts_json.items()):
             new_account: Account = json_to_account(account_info)
             for cheat_sheet_json in account_info["cheat_sheet"]:
                 cheat_sheet: CheatSheet = json_to_cheat_sheet(cheat_sheet_json)
@@ -96,10 +96,13 @@ class ServerAccountManager:
     
 
     def delete_account(self, account: Account) -> None:
-        self.get_accounts_dict().pop(account.get_id())
         with open("accounts.json", "r") as f:
-            json_data: dict = load_json(f.read())["accounts"]
-        json_data.pop(account.get_id())
+            json_data: dict = load_json(f.read())
+        account_id: str
+        for account_id in list(json_data["accounts"].keys()):
+            if account_id == account.get_id():
+                json_data["accounts"].pop(account_id)
+                break
         with open("accounts.json", "w") as f:
             f.write(to_json(json_data, indent=4))
         self.update()

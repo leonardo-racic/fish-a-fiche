@@ -50,7 +50,7 @@ def sign_up() -> Response:
     return handle_sign_up(server_account_manager)
 
 
-@app.route("/profile/<string:hashed_token>", methods=["GET"])
+@app.route("/profile/<string:hashed_token>", methods=["GET", "POST"])
 def profile(hashed_token: str) -> Response:
     resp: Response = handle_profile(server_account_manager, hashed_token)
     return resp
