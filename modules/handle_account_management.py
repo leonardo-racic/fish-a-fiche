@@ -154,7 +154,7 @@ def handle_profile(server_account_manager: ServerAccountManager, hashed_token: s
             user_account_info: dict = server_account_manager.get_user_account_info()
             #test if user logged in
             if user_account_info == {}:
-                is_user = True
+                is_user = False
             else:
                 is_user = bool(account_info["id"] == user_account_info["id"])
             response: Response = make_response(render_html(

@@ -27,18 +27,18 @@ def handle_cheat_sheet(
         if cheat_sheet_info == {} or author_username == "":
             flash('error 404','warning')
             #return Response("Well uhhhhh", status=404)
-        
         is_user_author: bool = server_account_manager.get_user_account_token() == cheat_sheet_info["author_token"]
         comments: list = get_comments(cheat_sheet_info, server_account_manager)
         author_hashed_token: str = get_hash(author_token)
-        user_collections: list = server_account_manager.get_user_account_collections() 
         available_user_collections: list = []
         unavailable_user_collections: list = []
-        for c in user_collections:
-            if token in c["cheat_sheet"]:
-                unavailable_user_collections.append(c)
-            else:
-                available_user_collections.append(c)
+        if server_account_manager.is_user_logged_in():
+            user_collections: list = server_account_manager.get_user_account_collections()
+            for c in user_collections:
+                if token in c["cheat_sheet"]:
+                    unavailable_user_collections.append(c)
+                else:
+                    available_user_collections.append(c)
 
 
         return render_html(
