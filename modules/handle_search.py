@@ -19,6 +19,10 @@ def filter_title(name):
     #return a dictionnary verion of the filterd version of our items in data (but they are in a list). we use lambda as a filter because we could not figure out how to use a normal fuction so here cgoes a confusing syntax that say if title = name say True else say no.
     return list(dict(filter(lambda x:name in x[1]["title"], list(data.items()))).values())
 
+
+def sort_results(cs, by):
+    results = sorted(cs,reverse=True, key=lambda d: d[by])
+    return results
 def handle_search(sam,csm, name):
     if request.method == 'POST':
         terminal_log.debug(f'redirecting to /search/{request.form.get("title")}')
@@ -28,7 +32,7 @@ def handle_search(sam,csm, name):
         return render_template('search.html',
                                 logged_in=sam.is_user_logged_in(),
                                 hashed_token=sam.get_user_account_hashed_token(),
-                                cheat_sheet=filter_title(name),
+                                cheat_sheet=sort_results(filter_title(name),'likes'),
                                 )
 
 def handle_search_empty(sam,csm):
