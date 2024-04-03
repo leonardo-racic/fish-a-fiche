@@ -36,9 +36,9 @@ from .cheat_sheet_module import CheatSheet
 from .server_account_manager import ServerAccountManager
 from .cheat_sheet_manager import CheatSheetManager
 import terminal_log
+from environment_variable import upload_path
 
-
-UPLOAD_FOLDER = 'sheets'
+UPLOAD_FOLDER = upload_path
 ALLOWED_EXTENSIONS = {'md','MD','txt'}
 
 app: Flask = Flask(__name__)

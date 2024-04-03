@@ -1,7 +1,6 @@
 *.venv/
 *.pyc
 *.json
-/sheets
 /index
 __pycache__
 accounts.json
@@ -10,4 +9,3 @@ accounts.json
 cheat_sheet.json
 debug.log
 *.kdev4
-environment_variable.py
