@@ -177,7 +177,6 @@ class ServerAccountManager:
         user_account: Account = self.get_user_account()
         if user_account is None:
             return {}
-        debug(user_account.get_info())
         return user_account.get_info()
 
 

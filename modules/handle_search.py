@@ -25,7 +25,6 @@ def sort_results(cs, by):
     return results
 def handle_search(sam,csm, name):
     if request.method == 'POST':
-        terminal_log.debug(f'redirecting to /search/{request.form.get("title")}')
         return redirect(f'/search/{request.form.get("title")}')
     else:
 
@@ -38,7 +37,6 @@ def handle_search(sam,csm, name):
 def handle_search_empty(sam,csm):
     #same thing but simple cause you havent shearched anything yet
     if request.method == 'POST':
-        terminal_log.debug(f'redirecting to /search/{request.form.get("title")}')
         return redirect(f'/search/{request.form.get("title")}')
     else:
         return render_template('search.html',

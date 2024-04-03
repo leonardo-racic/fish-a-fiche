@@ -2,7 +2,7 @@ import logging
 from flask import Flask
 from environment_variable import log_path
 
-log_file: str = log_path
+
 app: Flask = Flask(__name__)
 logger: logging.Logger = app.logger
 
@@ -12,8 +12,10 @@ def run_logging() -> None:
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s - %(levelname)s   (%(name)s)   %(message)s",
-        filename=log_file,
+        filename=log_path,
     )
+    file_handler = logging.FileHandler(log_path)
+    app.logger.addHandler(file_handler)
 
 
 def debug(msg: str, *args) -> None:
@@ -41,5 +43,5 @@ def critical(msg: str, *args) -> None:
 
 
 def clear_log_file() -> None:
-    with open(log_file, "w"):
+    with open(log_path, "w"):
         pass
