@@ -14,7 +14,7 @@ def run_logging() -> None:
         format="%(asctime)s - %(levelname)s   (%(name)s)   %(message)s",
     )
     file_handler = logging.FileHandler(log_path)
-    app.logger.addHandler(file_handler)
+    logger.addHandler(file_handler)
 
 
 def debug(msg: str, *args) -> None:
