@@ -1,5 +1,11 @@
 # fish-a-fiche
 
+# WE ARE ONLINE !!!!!
+https://greandelephant.pythonanywhere.com/
+
+# AFTER A LOT OF WORK ON THE STUPID THING WE ARE ONLINE PLEASE CHECK IT OUT.
+might be full of exploits thought.
+
 An online website where you can find small cheat-sheets for any subject, theme, or domain you are interested in such as languages' grammar/vocabulary/syntax..., math/physics/chemistry's formula, eco-socio-geopolitical definitions, theorems, proofs, computer science notions!
 This project is realised thanks to GALTIER Maxime, DUCLOS Marc-Antoine, and RAČIĆ Leonardo.
 
