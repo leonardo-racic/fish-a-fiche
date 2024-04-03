@@ -7,7 +7,7 @@ run-flask () {
     echo Flask is going to run in port: $currentport
 
     {
-        flask --debug run --port $currentport
+        python -m flask --debug run --port $currentport
     } || {
         echo main.sh has failed.
         while true; do

@@ -5,3 +5,9 @@
 2024-04-03 17:01:59,490 - INFO   (werkzeug)   127.0.0.1 - - [03/Apr/2024 17:01:59] "GET / HTTP/1.1" 200 -
 2024-04-03 17:02:02,072 - DEBUG   (terminal_log)   [{'token': '5ceb54e5-589b-4a93-a43e-cb37052d807c', 'title': 'test', 'author_token': '9ee5f62c-c6e8-40f8-b885-ccdce52d0a30', 'content': 'pojspgihpài', 'context': 'dhqsgorqueh$^', 'date': '02/04/2024 - 09:42', 'likes': 0, 'dislikes': 0, 'original_lang': 'EN', 'keywords': [], 'comments': []}, {'token': 'd3485bdf-cf05-4635-825a-017c853bbee9', 'title': 'hello', 'author_token': '9ee5f62c-c6e8-40f8-b885-ccdce52d0a30', 'content': 'hurqehde', 'context': 'qsrgdrqegdrfqg', 'date': '02/04/2024 - 09:42', 'likes': 0, 'dislikes': 0, 'original_lang': 'EN', 'keywords': [], 'comments': []}, {'token': 'fcc308df-5a0b-4837-87a4-cebcc179d0a4', 'title': 'test', 'author_token': '9ee5f62c-c6e8-40f8-b885-ccdce52d0a30', 'content': 'hpzhegpuihùo', 'context': 'uigsziugf^^z', 'date': '02/04/2024 - 09:47', 'likes': 0, 'dislikes': 0, 'original_lang': 'EN', 'keywords': [], 'comments': []}]
 2024-04-03 17:02:02,082 - INFO   (werkzeug)   127.0.0.1 - - [03/Apr/2024 17:02:02] "GET /profile/a5155b61a799a261bc601dacd877f9348b886a3d33fee80bb23ad9ac36e7a7a1 HTTP/1.1" 200 -
+2024-04-03 17:04:20,889 - INFO   (terminal_log)   127.0.0.1:None has delogged
+2024-04-03 17:04:20,890 - INFO   (werkzeug)   127.0.0.1 - - [03/Apr/2024 17:04:20] "[32mGET /sign-out HTTP/1.1[0m" 302 -
+2024-04-03 17:04:20,918 - INFO   (werkzeug)   127.0.0.1 - - [03/Apr/2024 17:04:20] "GET / HTTP/1.1" 200 -
+2024-04-03 17:04:23,841 - INFO   (terminal_log)   127.0.0.1:None has delogged
+2024-04-03 17:04:23,842 - INFO   (werkzeug)   127.0.0.1 - - [03/Apr/2024 17:04:23] "[32mGET /sign-out HTTP/1.1[0m" 302 -
+2024-04-03 17:04:23,855 - INFO   (werkzeug)   127.0.0.1 - - [03/Apr/2024 17:04:23] "GET / HTTP/1.1" 200 -
