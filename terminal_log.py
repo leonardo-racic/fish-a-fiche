@@ -1,6 +1,6 @@
 import logging
 from flask import Flask
-from environment_variable import log_path
+
 
 
 app: Flask = Flask(__name__)
@@ -41,5 +41,5 @@ def critical(msg: str, *args) -> None:
 
 
 def clear_log_file() -> None:
-    with open(log_path, "w"):
+    with open('debug.log', "w"):
         pass
