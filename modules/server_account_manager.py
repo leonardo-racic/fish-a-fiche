@@ -4,7 +4,7 @@ from .account_module import Account
 from .cheat_sheet_module import CheatSheet, json_to_cheat_sheet
 from json import loads as load_json, dumps as to_json
 from flask import request
-from terminal_log import inform
+from terminal_log import inform, debug
 import hashlib
 
 
@@ -177,7 +177,7 @@ class ServerAccountManager:
         user_account: Account = self.get_user_account()
         if user_account is None:
             return {}
-        inform(user_account.get_info())
+        debug(user_account.get_info())
         return user_account.get_info()
 
 
