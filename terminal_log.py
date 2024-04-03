@@ -1,8 +1,8 @@
 import logging
 from flask import Flask
+from environment_variable import log_path
 
-
-log_file: str = "debug.log"
+log_file: str = log_path
 app: Flask = Flask(__name__)
 logger: logging.Logger = app.logger
 

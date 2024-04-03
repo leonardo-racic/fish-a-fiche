@@ -1,6 +1,6 @@
 from json import loads as load_json, dumps
 from .cheat_sheet_module import CheatSheet, get_uuid
-
+from environment_variable import cs_path, account_path
 
 def check(csi: dict, cs: CheatSheet, info: str) -> None:
     if csi.get(info):
@@ -29,7 +29,7 @@ def json_to_cheat_sheet(cheat_sheet_info: dict) -> CheatSheet:
 
 
 def read_cheat_sheet_json() -> dict:
-    with open("cheat_sheet.json") as f:
+    with open(cs_path) as f:
         cheat_sheet_dict: dict = {}
         try:
             cheat_sheet_json: dict = load_json(f.read())["cheat_sheet"]
@@ -37,7 +37,7 @@ def read_cheat_sheet_json() -> dict:
                 new_cheat_sheet: CheatSheet = json_to_cheat_sheet(cheat_sheet_info)
                 cheat_sheet_dict[token] = new_cheat_sheet
         except Exception as e:
-            with open("cheat_sheet.json", "w") as f:
+            with open(cs_path, "w") as f:
                 f.write(dumps({"cheat_sheet":{}}, indent=4))
         finally:
             return cheat_sheet_dict
@@ -49,7 +49,7 @@ class CheatSheetManager:
     
 
     def get_cheat_sheet(self, token: str) -> CheatSheet:
-        with open("cheat_sheet.json", "r") as f:
+        with open(cs_path, "r") as f:
             cheat_sheet_json: dict = load_json(f.read())["cheat_sheet"]
         cheat_sheet_info: dict = cheat_sheet_json.get(token)
         if cheat_sheet_info is None:
@@ -69,10 +69,10 @@ class CheatSheetManager:
     
 
     def add_cheat_sheet(self, new_cheat_sheet: CheatSheet) -> None:
-        with open("cheat_sheet.json") as f:
+        with open(cs_path) as f:
             cheat_sheet_data: dict = load_json(f.read())
         cheat_sheet_data["cheat_sheet"][new_cheat_sheet.token] = new_cheat_sheet.get_info()
-        with open("cheat_sheet.json", "w") as f:
+        with open(cs_path, "w") as f:
             f.write(dumps(cheat_sheet_data, indent=4))
         self.update()
 
@@ -90,36 +90,36 @@ class CheatSheetManager:
     
 
     def add_comment_to_cheat_sheet(self, token: str, comment: dict) -> None:
-        with open("cheat_sheet.json") as f:
+        with open(cs_path) as f:
             cheat_sheet_data: dict = load_json(f.read())
         cheat_sheet_data["cheat_sheet"][token]["comments"].append(comment)
-        with open("cheat_sheet.json", "w") as f:
+        with open(cs_path, "w") as f:
             f.write(dumps(cheat_sheet_data, indent=4))
         self.update()
 
     
     def modify_cheat_sheet(self, token: str, new_cheat_sheet_info: dict) -> None:
-        with open("cheat_sheet.json") as f:
+        with open(cs_path) as f:
             cheat_sheet_data: dict = load_json(f.read())
         cheat_sheet_data["cheat_sheet"][token]["title"] = new_cheat_sheet_info["title"]
         cheat_sheet_data["cheat_sheet"][token]["content"] = new_cheat_sheet_info["content"]
         cheat_sheet_data["cheat_sheet"][token]["context"] = new_cheat_sheet_info["context"]
-        with open("cheat_sheet.json", "w") as f:
+        with open(cs_path, "w") as f:
             f.write(dumps(cheat_sheet_data, indent=4))
         self.update()
 
     
     def delete_cheat_sheet(self, token: str) -> None:
-        with open("cheat_sheet.json") as f:
+        with open(cs_path) as f:
             cheat_sheet_data: dict = load_json(f.read())
         if token in cheat_sheet_data["cheat_sheet"]:
             del cheat_sheet_data["cheat_sheet"][token]
-            with open("cheat_sheet.json", "w") as f:
+            with open(cs_path, "w") as f:
                 f.write(dumps(cheat_sheet_data, indent=4))
 
 
     def remove_comment(self, cheat_sheet_token: str, comment_content: str) -> None:
-        with open("cheat_sheet.json") as f:
+        with open(cs_path) as f:
             cheat_sheet_data: dict = load_json(f.read())
 
         cheat_sheet: dict = cheat_sheet_data["cheat_sheet"][cheat_sheet_token]
@@ -129,5 +129,5 @@ class CheatSheetManager:
                 comments.remove(comment)
                 break
 
-        with open("cheat_sheet.json", "w") as f:
+        with open(cs_path, "w") as f:
             f.write(dumps(cheat_sheet_data, indent=4))

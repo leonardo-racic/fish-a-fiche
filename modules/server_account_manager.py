@@ -6,7 +6,7 @@ from json import loads as load_json, dumps as to_json
 from flask import request
 from terminal_log import inform, debug
 import hashlib
-
+from environment_variable import account_path, cs_path
 
 def get_hash(this_text: str) -> str:
     return hashlib.sha256(this_text.encode()).hexdigest()
@@ -35,7 +35,7 @@ def json_to_account(account_json: dict) -> Account:
 
 
 def read_accounts_json() -> dict:
-    with open("accounts.json") as f:
+    with open(account_path) as f:
         accounts_json: dict = load_json(f.read())["accounts"]
         accounts_dict: dict = {}
         for token, account_info in list(accounts_json.items()):
@@ -72,10 +72,10 @@ class ServerAccountManager:
         new_account: Account = Account(input_username, get_hash(input_password), profile_picture, description)
         new_account.cheat_sheet = []
         inform(f"{new_account} is being created")
-        with open("accounts.json", "r") as f:
+        with open(account_path, "r") as f:
             json_data: dict = load_json(f.read())
         json_data["accounts"][new_account.get_id()] = new_account.get_info()
-        with open("accounts.json", "w") as f:
+        with open(account_path, "w") as f:
             f.write(to_json(json_data, indent=4))
         self.update()
         inform(f"Account with id {new_account.get_id()} created successfully.")
@@ -96,14 +96,14 @@ class ServerAccountManager:
     
 
     def delete_account(self, account: Account) -> None:
-        with open("accounts.json", "r") as f:
+        with open(account_path, "r") as f:
             json_data: dict = load_json(f.read())
         account_id: str
         for account_id in list(json_data["accounts"].keys()):
             if account_id == account.get_id():
                 json_data["accounts"].pop(account_id)
                 break
-        with open("accounts.json", "w") as f:
+        with open(account_path, "w") as f:
             f.write(to_json(json_data, indent=4))
         self.update()
 
@@ -186,7 +186,7 @@ class ServerAccountManager:
 
 
     def get_user_account(self) -> Account:
-        with open("accounts.json") as f:
+        with open(account_path) as f:
             accounts_json: dict = load_json(f.read())["accounts"]
         account_token: str = self.get_user_account_token()
         target_account_info: Account = accounts_json.get(account_token)
@@ -214,7 +214,7 @@ class ServerAccountManager:
     def modify_profile(self, new_image_input: str, description_input: str, username_input: str) -> None:
         account_info: dict = self.get_user_account_info()
         if account_info != {}:
-            with open("accounts.json") as f:
+            with open(account_path) as f:
                 data: dict = load_json(f.read())["accounts"]
             for current_account_info in data.values():
                 if current_account_info["username"] == account_info["username"]:
@@ -222,23 +222,23 @@ class ServerAccountManager:
                     current_account_info["description"] = description_input
                     current_account_info["username"] = username_input
                     break
-            with open("accounts.json", "w") as f:
+            with open(account_path, "w") as f:
                 f.write(to_json({"accounts": data}, indent=4))
             self.update()
     
 
     def add_cheat_sheet_to_user(self, cheat_sheet: CheatSheet) -> None:
         cheat_sheet_info: dict = cheat_sheet.get_info()
-        with open("accounts.json", "r") as f:
+        with open(account_path, "r") as f:
             json_data: dict = load_json(f.read())
         json_data["accounts"][cheat_sheet.author_token]["cheat_sheet"].append(cheat_sheet_info)
-        with open("accounts.json", "w") as f:
+        with open(account_path, "w") as f:
             f.write(to_json(json_data, indent=4))
         self.update()
 
 
     def get_account_cheat_sheet_info(self, token: str) -> list:
-        with open("accounts.json") as f:
+        with open(account_path) as f:
             accounts_dict: dict = load_json(f.read())["accounts"]
         return accounts_dict[token]["cheat_sheet"]
     
@@ -264,7 +264,7 @@ class ServerAccountManager:
     
 
     def add_new_collection_to_account(self, collection: str, account_id: str, is_public: bool) -> None:
-        with open("accounts.json") as f:
+        with open(account_path) as f:
             json_data: dict = load_json(f.read())
         current_account_info: dict = json_data["accounts"][account_id]
         if collection not in current_account_info["collections"]:
@@ -273,7 +273,7 @@ class ServerAccountManager:
                 "cheat_sheet": [],
                 "name": collection,
             })
-        with open("accounts.json", "w") as f:
+        with open(account_path, "w") as f:
             f.write(to_json(json_data, indent=4))
         self.update()
     
@@ -284,19 +284,19 @@ class ServerAccountManager:
     
 
     def add_cheat_sheet_to_collection(self, collection: str, account_id: str, cheat_sheet_token: str) -> None:
-        with open("accounts.json") as f:
+        with open(account_path) as f:
             json_data: dict = load_json(f.read())
         current_account_info: dict = json_data["accounts"][account_id]
         target_collection: list = current_account_info["collections"][collection]
         if cheat_sheet_token not in target_collection:
             target_collection.append(cheat_sheet_token)
-        with open("accounts.json", "w") as f:
+        with open(account_path, "w") as f:
             f.write(to_json(json_data, indent=4))
         self.update()
     
 
     def delete_collection(self, collection_name: str, account_id: str) -> None:
-        with open("accounts.json") as f:
+        with open(account_path) as f:
             json_data: dict = load_json(f.read())
         current_account_info: dict = json_data["accounts"][account_id]
         collections: list = current_account_info["collections"]
@@ -305,13 +305,13 @@ class ServerAccountManager:
             if c["name"] != collection_name:
                 updated_collections.append(c)
         current_account_info["collections"] = updated_collections
-        with open("accounts.json", "w") as f:
+        with open(account_path, "w") as f:
             f.write(to_json(json_data, indent=4))
         self.update()
 
 
     def get_collections(self, token: str) -> list:
-        with open("accounts.json") as f:
+        with open(account_path) as f:
             json_data: dict = load_json(f.read())
         return json_data["accounts"][token].get("collections")
     
@@ -329,7 +329,7 @@ class ServerAccountManager:
     
 
     def is_collection_public(self, account_id: str, collection_name: str) -> bool:
-        with open("accounts.json") as f:
+        with open(account_path) as f:
             json_data: dict = load_json(f.read())
         target_account_json: dict = json_data["accounts"][account_id]
         for c in target_account_json["collections"]:
@@ -339,33 +339,33 @@ class ServerAccountManager:
 
 
     def toggle_collection_visibility(self, account_id, collection_name: str) -> None:
-        with open("accounts.json") as f:
+        with open(account_path) as f:
             json_data: dict = load_json(f.read())
         target_account_json: dict = json_data["accounts"][account_id]
         for c in target_account_json["collections"]:
             if c["name"] == collection_name:
                 c["is_public"] = not c["is_public"]
                 break
-        with open("accounts.json", "w") as f:
+        with open(account_path, "w") as f:
             f.write(to_json(json_data, indent=4))
         self.update()
     
 
     def rename_collection(self, account_id: str, old_collection_name: str, new_collection_name: str) -> None:
-        with open("accounts.json") as f:
+        with open(account_path) as f:
             json_data: dict = load_json(f.read())
         target_account_json: dict = json_data["accounts"][account_id]
         for c in target_account_json["collections"]:
             if c["name"] == old_collection_name:
                 c["name"] = new_collection_name
                 break
-        with open("accounts.json", "w") as f:
+        with open(account_path, "w") as f:
             f.write(to_json(json_data, indent=4))
         self.update()
     
 
     def save_to_collection(self, collection_name: str, cheat_sheet_token: str) -> None:
-        with open("accounts.json") as f:
+        with open(account_path) as f:
             json_data: dict = load_json(f.read())
         current_account_info: dict = json_data["accounts"][self.get_user_account_token()]
         collections: list = current_account_info["collections"]
@@ -373,13 +373,13 @@ class ServerAccountManager:
             if c["name"] == collection_name and cheat_sheet_token not in c["cheat_sheet"]:
                 c["cheat_sheet"].append(cheat_sheet_token)
                 break
-        with open("accounts.json", "w") as f:
+        with open(account_path, "w") as f:
             f.write(to_json(json_data, indent=4))
         self.update()
     
 
     def get_cheat_sheet_token_from_collection(self, account_id: str, collection_name: str) -> list:
-        with open("accounts.json") as f:
+        with open(account_path) as f:
             json_data: dict = load_json(f.read())
         target_account_json: dict = json_data["accounts"][account_id]
         for c in target_account_json["collections"]:
@@ -389,7 +389,7 @@ class ServerAccountManager:
     
 
     def remove_cheat_sheet_from_collection(self, account_id: str, collection_name: str, cheat_sheet_token: str) -> None:
-        with open("accounts.json") as f:
+        with open(account_path) as f:
             json_data: dict = load_json(f.read())
         target_account_json: dict = json_data["accounts"][account_id]
         for c in target_account_json["collections"]:
@@ -402,13 +402,13 @@ class ServerAccountManager:
                         break
             if has_removed:
                 break
-        with open("accounts.json", "w") as f:
+        with open(account_path, "w") as f:
             f.write(to_json(json_data, indent=4))
         self.update()
         
 
     def delete_cheat_sheet(self, account_id: str, cheat_sheet_token: str) -> None:
-        with open("accounts.json") as f:
+        with open(account_path) as f:
             json_data: dict = load_json(f.read())
         target_account_json: dict = json_data["accounts"][account_id]
         cheat_sheet: list = target_account_json["cheat_sheet"]
@@ -416,7 +416,7 @@ class ServerAccountManager:
             if c["token"] == cheat_sheet_token:
                 cheat_sheet.remove(c)
                 break
-        with open("accounts.json", "w") as f:
+        with open(account_path, "w") as f:
             f.write(to_json(json_data, indent=4))
 
 

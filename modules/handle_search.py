@@ -7,13 +7,13 @@ from .cheat_sheet_module import CheatSheet
 from .server_account_manager import ServerAccountManager
 from .cheat_sheet_manager import CheatSheetManager
 import terminal_log
-
+from environment_variable import cs_path
 
 
 def filter_title(name):
     #this shit is super confusing (at least to me) so let me explain to you:
     #open cheat_sheet.json
-    with open('cheat_sheet.json') as jsondata:
+    with open(cs_path) as jsondata:
         #say that our dictionary data is what is inside of cheat_sheet basically but loaded whatever that means
         data: dict = json.loads(jsondata.read())["cheat_sheet"]
     #return a dictionnary verion of the filterd version of our items in data (but they are in a list). we use lambda as a filter because we could not figure out how to use a normal fuction so here cgoes a confusing syntax that say if title = name say True else say no.
