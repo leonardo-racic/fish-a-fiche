@@ -176,7 +176,14 @@ class ServerAccountManager:
         self.update()
         user_account: Account = self.get_user_account()
         if user_account is None:
-            return {}
+            return {'username': '',
+                    'password': '',
+                    'description': '',
+                    'profile_picture': '',
+                    'id': '',
+                    'cheat_sheet': [],
+                    'collections': []}
+        inform(user_account.get_info())
         return user_account.get_info()
 
 
