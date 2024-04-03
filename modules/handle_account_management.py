@@ -188,7 +188,11 @@ def handle_profile(server_account_manager: ServerAccountManager, hashed_token: s
 # Collections
 def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response:
     target_account: Account = sam.get_account_from_hashed_token(hashed_token)
-    collections: list = sam.get_collections(target_account.get_id())
+    debug(target_account)
+    if target_account == None:
+        collections = None
+    else:
+        collections: list = sam.get_collections(target_account.get_id())
     if collections is None:
         flash("Unexisting collections", "warning")
         abort(404)
