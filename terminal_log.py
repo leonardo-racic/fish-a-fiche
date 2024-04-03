@@ -12,9 +12,8 @@ def run_logging() -> None:
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s - %(levelname)s   (%(name)s)   %(message)s",
+        filename=log_path
     )
-    file_handler = logging.FileHandler(log_path)
-    logger.addHandler(file_handler)
 
 
 def debug(msg: str, *args) -> None:
