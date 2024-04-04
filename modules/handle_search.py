@@ -17,7 +17,7 @@ def filter_title(name):
         #say that our dictionary data is what is inside of cheat_sheet basically but loaded whatever that means
         data: dict = json.loads(jsondata.read())["cheat_sheet"]
     #return a dictionnary verion of the filterd version of our items in data (but they are in a list). we use lambda as a filter because we could not figure out how to use a normal fuction so here cgoes a confusing syntax that say if title = name say True else say no.
-    return list(dict(filter(lambda x:name in x[1]["title"], list(data.items()))).values())
+    return list(dict(filter(lambda x:name.casefold() in x[1]["title"].casefold(), list(data.items()))).values())
 
 
 def sort_results(cs, by):

@@ -111,9 +111,4 @@ def cheat_sheet_to_json(cs: CheatSheet) -> dict:
 
 if __name__ == "__main__":
     cs: CheatSheet = CheatSheet("Volumic mass", "Ado's token", "p=m/V", "for science stuff")
-    cs.create_file()
-        
-
-
-            
-        
+    cs.create_file()        
