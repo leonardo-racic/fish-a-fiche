@@ -42,5 +42,5 @@ def handle_search_empty(sam,csm):
         return render_template('search.html',
                                logged_in=sam.is_user_logged_in(),
                                hashed_token=sam.get_user_account_hashed_token(),
-                               cheat_sheet=None,
+                               cheat_sheet=sort_results(filter_title(''),'likes'),
                                )
