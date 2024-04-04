@@ -2,8 +2,6 @@ from uuid import uuid4 as get_uuid
 from json import dumps as dict_to_json
 from datetime import datetime
 from typing import List
-from whoosh.index import create_in
-import whoosh.index as index
 
 
 def get_current_date() -> str:
@@ -58,26 +56,6 @@ class CheatSheet:
             "keywords": self.keywords,
             "comments": self.comments
         }
-
-
-    def store_to_index(self):
-        ix = index.open_dir("index")
-        writer = ix.writer()
-        writer.add_document(title=self.title,
-                            author_token=self.author_token,
-                            date = datetime.now(),
-                            lang = self.original_lang,
-                            keyword = " ".join(self.keywords),
-                            description = self.context,
-                            likes = self.likes,
-                            dislikes=self.dislikes,
-                            comments = self.comments,
-                            comments_counter = len(self.comments),
-                            path = str(self.author_token+"/"+self.title),
-                        )
-
-        writer.commit()
-
         
 
     def update_document():

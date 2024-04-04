@@ -1,7 +1,6 @@
 *.venv/
 *.pyc
 *.json
-/index
 __pycache__
 accounts.json
 debug.log
