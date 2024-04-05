@@ -1,10 +1,17 @@
-from flask import Response, redirect, flash, abort, request
+from flask import Response, redirect, flash, request
 from singletons import render_html, get_form_data
 from .server_account_manager import ServerAccountManager, get_hash
 from .account_module import Account
 from .cheat_sheet_manager import CheatSheetManager
 from .cheat_sheet_module import CheatSheet
 from terminal_log import inform
+from datetime import datetime
+
+
+def get_current_date() -> str:
+    now: datetime = datetime.now()
+    date_str: str = now.strftime("%d/%m/%Y - %H:%M")
+    return date_str
 
 
 def get_comments(cheat_sheet_info: dict, sam: ServerAccountManager) -> list:
@@ -68,7 +75,8 @@ def handle_cheat_sheet(
         if form_data["input_type"] == "comment_input":
             new_comment: dict = {
                 "token": server_account_manager.get_user_account_hashed_token(),
-                "content": form_data["comment"]
+                "content": form_data["comment"],
+                "date": get_current_date(),
             }
             cheat_sheet_manager.add_comment_to_cheat_sheet(token, new_comment)
         

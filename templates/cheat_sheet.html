@@ -125,7 +125,7 @@
         {% if logged_in %}
             <form method="post" action="/cheat-sheet/{{cheat_sheet_token}}" class="mb-4">
                 <div class="form-group">
-                    <label for="comment-input">Content</label>
+                    <label for="comment-input">Comment content</label>
                     <textarea class="form-control mb-2" id="comment-input" name="comment"></textarea>
                 </div>
                 <input type="hidden" value="comment_input" name="input_type"/>
@@ -151,13 +151,17 @@
                                 </div>
                             {% endif %}
                             <div class="col-md-auto text-right">
-                                <strong>
-                                    <a href="/profile/{{comment.token}}" class="link">
-                                        {{comment.username}}
-                                    </a>
-                                    <br>
-                                </strong>
-                                {{comment.content}}
+                                <div class="d-flex flex-row align-content-center">
+                                    <strong>
+                                        <a href="/profile/{{comment.token}}" class="link me-2">
+                                            {{comment.username}}
+                                        </a>
+                                    </strong>
+                                    <span class="text-secondary">{{comment.date}}</span>
+                                </div>
+                                <div class="text-wrap text-break">
+                                    {{comment.content}}
+                                </div>
                             </div>
                         </div>
                     </li>
