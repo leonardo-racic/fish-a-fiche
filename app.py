@@ -108,12 +108,12 @@ def collection(hashed_token: str, collection_name: str) -> Response:
 
 @app.route("/search/<string:name>", methods=["GET","POST"])
 def search(name :str) -> Response:
-    return handle_search(server_account_manager,cheat_sheet_manager, name)
+    return handle_search(server_account_manager, name)
 
 
 @app.route("/search/", methods=["GET",'POST'])
 def search_empty() -> Response:
-    return handle_search_empty(server_account_manager,cheat_sheet_manager)
+    return handle_search_empty(server_account_manager)
 
 
 @app.errorhandler(404)
