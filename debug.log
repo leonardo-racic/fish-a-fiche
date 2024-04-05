@@ -1,2 +1,7 @@
-2024-04-05 12:41:52,238 - WARNING   (werkzeug)    * Debugger is active!
-2024-04-05 12:41:52,267 - INFO   (werkzeug)    * Debugger PIN: 142-332-117
+2024-04-05 13:02:23,829 - WARNING   (werkzeug)    * Debugger is active!
+2024-04-05 13:02:23,845 - INFO   (werkzeug)    * Debugger PIN: 142-332-117
+2024-04-05 13:02:27,123 - INFO   (werkzeug)   127.0.0.1 - - [05/Apr/2024 13:02:27] "GET /profile/8d0419e2b99cec27b16fa1ab7dd57bd3ba8ac4338ea3c6d92a654ce84770b568 HTTP/1.1" 200 -
+2024-04-05 13:02:28,873 - INFO   (werkzeug)   127.0.0.1 - - [05/Apr/2024 13:02:28] "[35m[1mGET /cheat-sheet/61fec26b-a444-4a51-af70-c6e1a5cc831e HTTP/1.1[0m" 500 -
+2024-04-05 13:02:29,256 - INFO   (werkzeug)   127.0.0.1 - - [05/Apr/2024 13:02:29] "[36mGET /cheat-sheet/61fec26b-a444-4a51-af70-c6e1a5cc831e?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-04-05 13:02:29,264 - INFO   (werkzeug)   127.0.0.1 - - [05/Apr/2024 13:02:29] "[36mGET /cheat-sheet/61fec26b-a444-4a51-af70-c6e1a5cc831e?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-04-05 13:02:29,288 - INFO   (werkzeug)   127.0.0.1 - - [05/Apr/2024 13:02:29] "[36mGET /cheat-sheet/61fec26b-a444-4a51-af70-c6e1a5cc831e?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -

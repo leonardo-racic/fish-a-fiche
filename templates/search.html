@@ -50,7 +50,27 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="users" role="tabpanel" aria-labelledby="users-tab">
-                This is still a wip
+                <!-- WIP -->
+                <div class="d-flex flex-column align-items-center text-center">
+                    {% if profiles == [] %}
+                        <small class="text-muted mb-2">No results</small>
+                    {% else %}
+                        <div class="row row-col-{{max_c_per_row}}">
+                            {% for profile in profiles %}
+                                <div class="card col text-center my-2 mx-1" style="max-width: 18rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            {{profile.username}}
+                                        </h5>
+                                        <a class="link-primary" href="/profile/{{profile.id}}">
+                                            View profile
+                                        </a>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
