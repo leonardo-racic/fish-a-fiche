@@ -3,25 +3,24 @@
 
 {% block body %}
     <div class="container">
-        <form action="/create-cheat-sheet", method="post">
+        <form action="/create-cheat-sheet" id="input-form" method="post">
             <div class="form-group">
                 <label for="title-input">Cheat sheet's title</label>
                 <input class="form-control" type="text" id="title-input" name="title" autocomplete="off">
             </div>
             
-
-                <div class="form-group">
-                    <label for="content-input">Content of the new cheat sheet <strong>written in markdown</strong></label>
-                    <textarea class="form-control" id="content-input" name="content" autocomplete="off"></textarea>
-                </div>
+            <div class="form-group">
+                <label for="content-input">Content of the new cheat sheet <strong>written in markdown</strong></label>
+                <textarea class="form-control" id="content-input" name="content" autocomplete="off"></textarea>
+            </div>
 
             <div class="form-group mb-4">
-                <label for="comment-input">Cheat sheet's context</label>
+                <label for="context-input">Cheat sheet's context</label>
                 <textarea class="form-control" id="context-input" name="context" autocomplete="off"></textarea>
             </div>
             
             
-            <button class="btn btn-primary" type="submit">Upload cheat sheet</button>
+            <button class="btn btn-primary" id="create-button" type="submit" disabled>Upload cheat sheet</button>
             
             {% if not logged_in %}
                 <div class="alert alert-warning">
@@ -30,4 +29,42 @@
             {% endif %}
         </form>
     </div>
+    <script>
+        const MIN_LENGTH = 0;
+    
+
+        let titleInput = $("#title-input");
+        let contentInput = $("#content-input");
+        let contextInput = $("#context-input");
+        let createButton = $("#create-button");
+        let form = $("#input-form");
+
+
+        function isInputValid(input) {
+            return (input.length > MIN_LENGTH);
+        }
+
+
+        function isFormInputValid() {
+            let isTitleValid = isInputValid(titleInput.val());
+            let isContentValid = isInputValid(contentInput.val());
+            let isContextValid = isInputValid(contextInput.val());
+            let condition = isTitleValid && isContentValid && isContextValid;
+            return condition;
+        }
+
+
+        function updateButton() {
+            if (isFormInputValid()) {
+                createButton.removeAttr("disabled");
+            } else {
+                createButton.attr("disabled", "disabled");
+            }
+        }
+
+
+        titleInput.on("input", updateButton);
+        contentInput.on("input", updateButton);
+        contextInput.on("input", updateButton); 
+    </script>
 {% endblock %}
