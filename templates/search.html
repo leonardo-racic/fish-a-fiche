@@ -3,20 +3,23 @@
 
 {% block body %}
     <div class="container">
-        <form method="post">
-                
-
-            <!-- nom de la fiche de révision-->
+        <form method="post">                
             <div class="form-group">
                 <label for="title-input">Name</label>
                 <input class="form-control mb-2" type="text" id="title-input" name="title" autocomplete="off">
             </div>
-
-            
             <button class="btn btn-primary mb-4" id="search-button" value=Upload type="submit" disabled>Search</button>
         </form>
-        <div class="card mb-2">
-            <div class="card-body">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="cheat-sheet-tab" data-bs-toggle="tab" data-bs-target="#cheat-sheet" type="button" role="tab" aria-controls="home" aria-selected="true">Cheat-sheet</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="users-tab" data-bs-toggle="tab" data-bs-target="#users" type="button" role="tab" aria-controls="profile" aria-selected="false">Users</button>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="cheat-sheet" role="tabpanel" aria-labelledby="cheat-sheet-tab">
                 <div class="d-flex flex-column align-items-center text-center">
                     {% if cheat_sheet == [] %}
                         <small class="text-muted mb-2">No results</small>
@@ -45,6 +48,9 @@
                         </div>
                     {% endif %}
                 </div>
+            </div>
+            <div class="tab-pane fade" id="users" role="tabpanel" aria-labelledby="users-tab">
+                This is still a wip
             </div>
         </div>
     </div>
