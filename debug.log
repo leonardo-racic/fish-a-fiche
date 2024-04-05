@@ -1,2 +1,14 @@
-2024-04-05 12:30:36,026 - WARNING   (werkzeug)    * Debugger is active!
-2024-04-05 12:30:36,048 - INFO   (werkzeug)    * Debugger PIN: 142-332-117
+2024-04-05 12:34:25,974 - WARNING   (werkzeug)    * Debugger is active!
+2024-04-05 12:34:25,990 - INFO   (werkzeug)    * Debugger PIN: 142-332-117
+2024-04-05 12:34:31,110 - INFO   (werkzeug)   127.0.0.1 - - [05/Apr/2024 12:34:31] "GET / HTTP/1.1" 200 -
+2024-04-05 12:34:31,560 - INFO   (werkzeug)   127.0.0.1 - - [05/Apr/2024 12:34:31] "[32mGET /search HTTP/1.1[0m" 308 -
+2024-04-05 12:34:31,584 - INFO   (werkzeug)   127.0.0.1 - - [05/Apr/2024 12:34:31] "GET /search/ HTTP/1.1" 200 -
+2024-04-05 12:34:36,570 - INFO   (werkzeug)   127.0.0.1 - - [05/Apr/2024 12:34:36] "[32mPOST /search/ HTTP/1.1[0m" 302 -
+2024-04-05 12:34:36,570 - INFO   (werkzeug)   127.0.0.1 - - [05/Apr/2024 12:34:36] "GET /search/kj HTTP/1.1" 200 -
+2024-04-05 12:34:38,491 - INFO   (werkzeug)   127.0.0.1 - - [05/Apr/2024 12:34:38] "[32mPOST /search/kj HTTP/1.1[0m" 302 -
+2024-04-05 12:34:38,506 - INFO   (werkzeug)   127.0.0.1 - - [05/Apr/2024 12:34:38] "GET /search/ HTTP/1.1" 200 -
+2024-04-05 12:34:49,077 - INFO   (werkzeug)   127.0.0.1 - - [05/Apr/2024 12:34:49] "[32mPOST /search/ HTTP/1.1[0m" 302 -
+2024-04-05 12:34:49,077 - INFO   (werkzeug)   127.0.0.1 - - [05/Apr/2024 12:34:49] "GET /search/ HTTP/1.1" 200 -
+2024-04-05 12:34:50,712 - INFO   (werkzeug)   127.0.0.1 - - [05/Apr/2024 12:34:50] "[32mPOST /search/ HTTP/1.1[0m" 302 -
+2024-04-05 12:34:50,728 - INFO   (werkzeug)   127.0.0.1 - - [05/Apr/2024 12:34:50] "GET /search/fhd HTTP/1.1" 200 -
+2024-04-05 12:35:43,249 - INFO   (werkzeug)   127.0.0.1 - - [05/Apr/2024 12:35:43] "GET /login HTTP/1.1" 200 -

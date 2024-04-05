@@ -19,8 +19,12 @@ def filter_title(name: str) -> list:
 
     with open(cs_path) as jsondata:
         data: dict = json.loads(jsondata.read())["cheat_sheet"]
-    result: list = list(filter(filter_func, list(data.values())))
-    return result
+    data_values: list = list(data.values())
+    if name != "":
+        result: list = list(filter(filter_func, data_values))
+        return result
+    else:
+        return data_values
 
 
 def sort_results(cs, by):
@@ -35,8 +39,6 @@ def handle_search(sam: ServerAccountManager, csm: CheatSheetManager, name: str) 
         return render_html(
             'search.html',
             sam,
-            logged_in=sam.is_user_logged_in(),
-            hashed_token=sam.get_user_account_hashed_token(),
             cheat_sheet=sort_results(filter_title(name),'likes'),
         )
 
@@ -49,7 +51,5 @@ def handle_search_empty(sam: ServerAccountManager, csm: CheatSheetManager) -> Re
         return render_html(
             'search.html',
             sam,
-            logged_in=sam.is_user_logged_in(),
-            hashed_token=sam.get_user_account_hashed_token(),
             cheat_sheet=sort_results(filter_title(''),'likes'),
         )

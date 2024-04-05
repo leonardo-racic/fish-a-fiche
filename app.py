@@ -105,13 +105,16 @@ def collections(hashed_token: str) -> Response:
 def collection(hashed_token: str, collection_name: str) -> Response:
     return handle_collection(server_account_manager, cheat_sheet_manager, hashed_token, collection_name)
 
+
 @app.route("/search/<string:name>", methods=["GET","POST"])
 def search(name :str) -> Response:
     return handle_search(server_account_manager,cheat_sheet_manager, name)
 
-@app.route("/search", methods=["GET",'POST'])
+
+@app.route("/search/", methods=["GET",'POST'])
 def search_empty() -> Response:
     return handle_search_empty(server_account_manager,cheat_sheet_manager)
+
 
 @app.errorhandler(404)
 def error404(error: Error404) -> Response:
