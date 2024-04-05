@@ -30,7 +30,9 @@
                     <h4>{{"My public cheat-sheets" if is_user else "Their public cheat-sheets"}}</h4>
                     {% if cheat_sheet == [] %}
                         <small class="text-muted mb-2">No personally made cheat sheet yet...</small>
-                        <a href="/create-cheat-sheet" class="btn btn-primary">Create new cheat sheet</a>
+                        {% if is_user %}
+                            <a href="/create-cheat-sheet" class="btn btn-primary">Create new cheat sheet</a>
+                        {% endif %}
                     {% else %}
                         <div class="row row-col-{{max_c_per_row}}">
                             {% for c in cheat_sheet %}
