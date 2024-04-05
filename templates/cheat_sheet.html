@@ -12,7 +12,7 @@
                     </a>
                 </h6>
             </div>
-            <zero-md no-shadow>
+            <zero-md no-shadow style="white-space:pre-wrap;">
                 <script type="text/markdown">{{content}}</script>
             </zero-md>
         </div>
@@ -63,14 +63,15 @@
                                     Remove from collection
                                 </button>
                             {% endif %}
-                            {% if available_user_collections != [] and unavailable_user_collections != [] %}
-                                <!-- Then the user will have the possibility to create a collection from a cheat sheet and be redirected here! -->
-                            {% endif %}
+                            <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#create-collection">
+                                Create collection
+                            </button>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
+        
         <div class="modal fade" id="save-collection" tabindex="-1" aria-labelledby="save-collection-label" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -125,6 +126,36 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="create-collection" tabindex="-1" aria-labelledby="create-collection-label" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="create-collection-label">Create a new collection</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="/collections/{{hashed_token}}" method="post">
+                        <div class="modal-body">
+                            <input type="hidden" name="input_type" value="create_collection_input">
+                            <input type="hidden" name="source" value="/cheat-sheet/{{cheat_sheet_token}}">
+                            <div class="form-group mb-2">
+                                <label class="form-label" for="collection-name">Collection's name (no spaces!)</label>
+                                <input class="form-control" type="text" name="collection_name" id="collection-name" autocomplete="off">
+                            </div>
+                            <div class="form-check form-switch mb-2">
+                                <label class="form-check-label" for="is-collection-public">Make this a public collection</label>
+                                <input class="form-check-input" value="True" type="checkbox" role="switch" name="is_collection_public" id="is-collection-public">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary" id="create-collection-button" disabled>Create</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comment section -->
         {% if logged_in %}
             <form method="post" action="/cheat-sheet/{{cheat_sheet_token}}" class="mb-4">
                 <div class="form-group">
@@ -201,5 +232,46 @@
 
 
         commentInput.on("input", updateButton);
+    </script>
+    <script>
+        const minNameLength = 0;
+        const maxNameLength = 32;
+        const forbiddenChars = " ";
+
+
+        let createCollectionButton = $("#create-collection-button");
+        let collectionNameInput = $("#collection-name");
+
+
+        function containsForbiddenChars(chosenName) {
+            for (let i = 0; i < forbiddenChars.length; i++) {
+                if (chosenName.includes(forbiddenChars[i])) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+        function isChosenNameValid(chosenName) {
+            if (chosenName.length <= minNameLength) {
+                return false;
+            } else if (chosenName.length > maxNameLength) {
+                return false;
+            } else if (containsForbiddenChars(chosenName)) {
+                return false;
+            }
+            return true;
+        }
+        
+        
+        collectionNameInput.on("input", function(e) {
+            let chosenName = collectionNameInput.val();
+            if (isChosenNameValid(chosenName)) {
+                createCollectionButton.removeAttr("disabled");
+            } else {
+                createCollectionButton.attr("disabled", "disabled");
+            }
+        });
     </script>
 {% endblock %}

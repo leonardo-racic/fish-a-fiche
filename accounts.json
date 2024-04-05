@@ -37,6 +37,40 @@
                     "name": "new"
                 }
             ]
+        },
+        "4919d5f2-8bd7-40b2-985b-d1e35a4cf95c": {
+            "username": "hello",
+            "password": "486ea46224d1bb4fb680f34f7c9ad96a8f24ec88be73ea8e5a6c65260e9cb8a7",
+            "description": "",
+            "profile_picture": "",
+            "id": "4919d5f2-8bd7-40b2-985b-d1e35a4cf95c",
+            "cheat_sheet": [
+                {
+                    "token": "084e522f-ea31-4e3e-a445-4deed30a357f",
+                    "title": "Arithmetic sequences",
+                    "author_token": "4919d5f2-8bd7-40b2-985b-d1e35a4cf95c",
+                    "content": "$u_n=u_0+nr$\\\r\n$\r\n\\begin{cases}\r\nu_0\\\\\r\nu_{n+1}=u_n+r\r\n\\end{cases}\r\n$",
+                    "context": "sequences",
+                    "date": "05/04/2024 - 17:53",
+                    "likes": 0,
+                    "dislikes": 0,
+                    "original_lang": "EN",
+                    "keywords": [],
+                    "comments": []
+                }
+            ],
+            "collections": [
+                {
+                    "is_public": true,
+                    "cheat_sheet": [],
+                    "name": "ne"
+                },
+                {
+                    "is_public": false,
+                    "cheat_sheet": [],
+                    "name": "ap"
+                }
+            ]
         }
     }
 }
