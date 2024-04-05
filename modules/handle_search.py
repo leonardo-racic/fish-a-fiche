@@ -16,7 +16,7 @@ def filter_title(name: str) -> list:
         data: dict = json.loads(jsondata.read())["cheat_sheet"]
     data_values: list = list(data.values())
 
-    
+
     if name != "":
         result: list = list(filter(filter_func, data_values))
         return result
@@ -36,6 +36,7 @@ def handle_search(sam: ServerAccountManager, name: str) -> Response:
         return render_html(
             'search.html',
             sam,
+            search_title=name,
             cheat_sheet=sort_results(filter_title(name),'likes'),
         )
 
@@ -48,4 +49,5 @@ def handle_search_empty(sam: ServerAccountManager) -> Response:
             'search.html',
             sam,
             cheat_sheet=sort_results(filter_title(''),'likes'),
+            search_title="",
         )
