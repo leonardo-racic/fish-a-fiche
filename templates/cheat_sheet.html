@@ -129,22 +129,13 @@
                     <textarea class="form-control mb-2" id="comment-input" name="comment"></textarea>
                 </div>
                 <input type="hidden" value="comment_input" name="input_type"/>
-                <button class="btn btn-primary mb-2" type="submit">Comment</button>
+                <button id="comment-button" class="btn btn-primary mb-2" type="submit" disabled>Comment</button>
             </form>
         {% endif %}
         <h6 class="display-6">Comments</h6>
         {% if comments == [] %}
             <small class="text-muted">No comments yet...</small>
         {% else %}
-            <!-- {% for comment in comments %}
-                <span>
-                    <a href="/profile/{{comment.token}}" class="link">
-                        {{comment.username}}
-                    </a>
-                    <br>
-                    {{comment.content}}
-                </span>
-            {% endfor %} -->
             <ul class="list-group mb-2">
                 {% for comment in comments %}
                     <li class="list-group-item">
@@ -174,4 +165,34 @@
             </ul>
         {% endif %}
     </div>
+    <script>
+        const MIN_LENGTH = 0;
+
+
+        let commentButton = $("#comment-button");
+        let commentInput = $("#comment-input");
+
+
+        function isInputValid(inputVal) {
+            return inputVal.length > MIN_LENGTH;
+        }
+
+
+        function isCommentInputValid() {
+            let isCommentValid = isInputValid(commentInput.val());
+            return isCommentValid;
+        }
+
+
+        function updateButton() {
+            if (isCommentInputValid()) {
+                commentButton.removeAttr("disabled");
+            } else {
+                commentButton.attr("disabled", "disabled");
+            }
+        }
+
+
+        commentInput.on("input", updateButton);
+    </script>
 {% endblock %}

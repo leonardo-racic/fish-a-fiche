@@ -64,7 +64,21 @@
             "description": "",
             "profile_picture": "",
             "id": "879928b1-1ff7-4806-a806-87ef9e0df1f8",
-            "cheat_sheet": [],
+            "cheat_sheet": [
+                {
+                    "token": "61fec26b-a444-4a51-af70-c6e1a5cc831e",
+                    "title": "a",
+                    "author_token": "879928b1-1ff7-4806-a806-87ef9e0df1f8",
+                    "content": "s",
+                    "context": "f",
+                    "date": "05/04/2024 - 10:12",
+                    "likes": 0,
+                    "dislikes": 0,
+                    "original_lang": "EN",
+                    "keywords": [],
+                    "comments": []
+                }
+            ],
             "collections": []
         }
     }

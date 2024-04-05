@@ -21,3 +21,8 @@
 2024-04-05 10:28:08,637 - INFO   (werkzeug)   127.0.0.1 - - [05/Apr/2024 10:28:08] "GET /create-cheat-sheet HTTP/1.1" 200 -
 2024-04-05 10:28:20,672 - INFO   (werkzeug)   127.0.0.1 - - [05/Apr/2024 10:28:20] "GET /create-cheat-sheet HTTP/1.1" 200 -
 2024-04-05 10:28:51,253 - INFO   (werkzeug)   127.0.0.1 - - [05/Apr/2024 10:28:51] "GET /create-cheat-sheet HTTP/1.1" 200 -
+2024-04-05 10:32:39,197 - INFO   (werkzeug)   127.0.0.1 - - [05/Apr/2024 10:32:39] "GET / HTTP/1.1" 200 -
+2024-04-05 10:32:39,736 - INFO   (werkzeug)   127.0.0.1 - - [05/Apr/2024 10:32:39] "GET /profile/8d0419e2b99cec27b16fa1ab7dd57bd3ba8ac4338ea3c6d92a654ce84770b568 HTTP/1.1" 200 -
+2024-04-05 10:32:43,019 - INFO   (werkzeug)   127.0.0.1 - - [05/Apr/2024 10:32:43] "GET /create-cheat-sheet HTTP/1.1" 200 -
+2024-04-05 10:32:45,195 - INFO   (werkzeug)   127.0.0.1 - - [05/Apr/2024 10:32:45] "[32mPOST /create-cheat-sheet HTTP/1.1[0m" 302 -
+2024-04-05 10:32:45,254 - INFO   (werkzeug)   127.0.0.1 - - [05/Apr/2024 10:32:45] "GET /cheat-sheet/61fec26b-a444-4a51-af70-c6e1a5cc831e HTTP/1.1" 200 -
