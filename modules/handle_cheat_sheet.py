@@ -1,10 +1,11 @@
-from flask import Response, redirect, request, flash
+from flask import Response, redirect, flash, abort, request
 from singletons import render_html, get_form_data
 from .server_account_manager import ServerAccountManager, get_hash
 from .account_module import Account
 from .cheat_sheet_manager import CheatSheetManager
 from .cheat_sheet_module import CheatSheet
 from terminal_log import inform
+
 
 def get_comments(cheat_sheet_info: dict, sam: ServerAccountManager) -> list:
     comments = cheat_sheet_info["comments"]
@@ -24,12 +25,8 @@ def handle_cheat_sheet(
         cheat_sheet_info: dict = cheat_sheet_manager.get_cheat_sheet_info(token)
         author_token: str = cheat_sheet_info["author_token"]
         author_username: str = server_account_manager.get_current_username_from_token(author_token)
-        if cheat_sheet_info == {} or author_username == "":
-            flash('error 404','warning')
-            #return Response("Well uhhhhh", status=404)
-        is_user_author: bool = server_account_manager.get_user_account_token() == cheat_sheet_info["author_token"]
+        is_author_dead: bool = cheat_sheet_info == {} or author_username == ""
         comments: list = get_comments(cheat_sheet_info, server_account_manager)
-        author_hashed_token: str = get_hash(author_token)
         available_user_collections: list = []
         unavailable_user_collections: list = []
         if server_account_manager.is_user_logged_in():
@@ -39,12 +36,18 @@ def handle_cheat_sheet(
                     unavailable_user_collections.append(c)
                 else:
                     available_user_collections.append(c)
+        author_hashed_token: str = get_hash(author_token)
+        if not is_author_dead:
+            is_user_author: bool = server_account_manager.get_user_account_token() == cheat_sheet_info["author_token"]
+        else:
+            is_user_author: bool = False
 
 
         return render_html(
             "cheat_sheet.html",
             server_account_manager,
             title=cheat_sheet_info["title"],
+            is_author_dead=is_author_dead,
             cheat_sheet_token=token,
             author_username=author_username,
             author_hashed_token=author_hashed_token,
@@ -126,4 +129,3 @@ def handle_modify_cheat_sheet(
             old_cheat_sheet=cheat_sheet_info,
         )
     flash('method not suported','warning')
-    #return "not done yet"

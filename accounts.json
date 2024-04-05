@@ -57,35 +57,6 @@
             "id": "2cf5df09-9679-492a-9acb-28fa7abd1f7f",
             "cheat_sheet": [],
             "collections": []
-        },
-        "b55b4373-0462-4056-8977-4c14c6f7ebb0": {
-            "username": "igor",
-            "password": "4694f764f8f00143f4f9c6871bebcc9d3ef1f401348821f1d17666ea90d65a97",
-            "description": "This is igor",
-            "profile_picture": "",
-            "id": "b55b4373-0462-4056-8977-4c14c6f7ebb0",
-            "cheat_sheet": [
-                {
-                    "token": "58475378-e0d4-4aa6-8d25-c3a4996a48a1",
-                    "title": "Volumic mass",
-                    "author_token": "b55b4373-0462-4056-8977-4c14c6f7ebb0",
-                    "content": "$\\rho=\\dfrac{m}{V}$",
-                    "context": "for physics/chemistry",
-                    "date": "05/04/2024 - 08:52",
-                    "likes": 0,
-                    "dislikes": 0,
-                    "original_lang": "EN",
-                    "keywords": [],
-                    "comments": []
-                }
-            ],
-            "collections": [
-                {
-                    "is_public": false,
-                    "cheat_sheet": [],
-                    "name": "chemistry"
-                }
-            ]
         }
     }
 }

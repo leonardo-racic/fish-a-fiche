@@ -6,7 +6,11 @@
         <div class="mb-4">
             <div class="mb-4">
                 <h1 class="display-1">{{title}}</h1>
-                <h6 class="display-6">By <a href="/profile/{{author_hashed_token}}" class="link">{{author_username}}</a></h6>
+                <h6 class="display-6">
+                    By <a href="/profile/{{author_hashed_token}}" class="link">
+                        {{author_username if not is_author_dead else "DELETED_ACCOUNT;"}}
+                    </a>
+                </h6>
             </div>
             <zero-md no-shadow>
                 <script type="text/markdown">{{content}}</script>
