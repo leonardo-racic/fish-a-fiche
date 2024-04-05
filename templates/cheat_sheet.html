@@ -63,6 +63,9 @@
                                     Remove from collection
                                 </button>
                             {% endif %}
+                            {% if available_user_collections != [] and unavailable_user_collections != [] %}
+                                <!-- Then the user will have the possibility to create a collection from a cheat sheet and be redirected here! -->
+                            {% endif %}
                         </li>
                     </ul>
                 </div>
