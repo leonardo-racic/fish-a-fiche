@@ -54,32 +54,4 @@
             </div>
         </div>
     </div>
-    <script>
-        const minNameLength = 0;
-
-
-        let searchButton = $("#search-button");
-        let titleInput = $("#title-input");
-
-
-        function isSearchTitleValid(chosenName) {
-            if (chosenName.length <= minNameLength) {
-                return false;
-            }
-            return true;
-        }
-
-
-        function updateButton() {
-            let title = titleInput.val();
-            if (isSearchTitleValid(title)) {
-                searchButton.removeAttr("disabled");
-            } else {
-                searchButton.attr("disabled", "disabled");
-            }
-        }
-        
-        
-        titleInput.on("input", updateButton);
-    </script>
 {% endblock %}
