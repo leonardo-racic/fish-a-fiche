@@ -9,11 +9,11 @@
             <!-- nom de la fiche de révision-->
             <div class="form-group">
                 <label for="title-input">Name</label>
-                <input class="form-control" type="text" id="title-input" name="title" autocomplete="off">
+                <input class="form-control mb-2" type="text" id="title-input" name="title" autocomplete="off">
             </div>
 
             
-            <button class="btn btn-primary" value=Upload type="submit">Search</button>
+            <button class="btn btn-primary mb-4" id="search-button" value=Upload type="submit" disabled>Search</button>
         </form>
         <div class="card mb-2">
             <div class="card-body">
@@ -46,5 +46,34 @@
                     {% endif %}
                 </div>
             </div>
+        </div>
     </div>
+    <script>
+        const minNameLength = 0;
+
+
+        let searchButton = $("#search-button");
+        let titleInput = $("#title-input");
+
+
+        function isSearchTitleValid(chosenName) {
+            if (chosenName.length <= minNameLength) {
+                return false;
+            }
+            return true;
+        }
+
+
+        function updateButton() {
+            let title = titleInput.val();
+            if (isSearchTitleValid(title)) {
+                searchButton.removeAttr("disabled");
+            } else {
+                searchButton.attr("disabled", "disabled");
+            }
+        }
+        
+        
+        titleInput.on("input", updateButton);
+    </script>
 {% endblock %}
