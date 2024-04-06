@@ -17,7 +17,7 @@ def get_profiles() -> list:
 def filter_title(name: str) -> list:
     def filter_func(current_dict: dict) -> bool:
         current_title: str = current_dict["title"]
-        condition: bool = name.casefold() in current_title
+        condition: bool = name.casefold() in current_title.casefold()
         return condition
     
 
@@ -47,7 +47,9 @@ def filter_profiles(username: str) -> list:
 
 
 def sort_results(cs: list, by: str) -> list:
-    results: list = sorted(cs, reverse=True, key=lambda d: d[by])
+    def sort_func(current_cs: dict) -> int:
+        return len(current_cs[by])
+    results: list = sorted(cs, reverse=True, key=sort_func)
     return results
 
 

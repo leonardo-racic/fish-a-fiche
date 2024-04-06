@@ -20,7 +20,7 @@ class CheatSheet:
         date: str = get_current_date(),
         original_lang: str = "EN",
         comments: list = [],
-        likes: int = 0,
+        likes: list = [],
         dislikes: int = 0,
         keywords: List[str] = [],
         token: str = str(get_uuid())
@@ -34,7 +34,7 @@ class CheatSheet:
         self.context: str = context
         self.comments: list = comments
         self.keywords: list[str] = keywords
-        self.likes: int = likes
+        self.likes: list = likes
         self.dislikes: int = dislikes
     
 

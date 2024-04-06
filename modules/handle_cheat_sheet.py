@@ -1,4 +1,4 @@
-from flask import Response, redirect, flash, request
+from flask import Response, make_response, redirect, flash, request
 from singletons import render_html, get_form_data
 from .server_account_manager import ServerAccountManager, get_hash
 from .account_module import Account
@@ -6,6 +6,7 @@ from .cheat_sheet_manager import CheatSheetManager
 from .cheat_sheet_module import CheatSheet
 from terminal_log import inform
 from datetime import datetime
+import json
 
 
 def get_current_date() -> str:
@@ -26,16 +27,21 @@ def get_comments(cheat_sheet_info: dict, sam: ServerAccountManager) -> list:
 def handle_cheat_sheet(
     cheat_sheet_manager: CheatSheetManager,
     server_account_manager: ServerAccountManager,
-    token: str
+    token: str,
 ) -> Response:
     if request.method == "GET":
         cheat_sheet_info: dict = cheat_sheet_manager.get_cheat_sheet_info(token)
+        
         author_token: str = cheat_sheet_info["author_token"]
         author_username: str = server_account_manager.get_current_username_from_token(author_token)
         is_author_dead: bool = cheat_sheet_info == {} or author_username == ""
+        
         comments: list = get_comments(cheat_sheet_info, server_account_manager)
+        
         available_user_collections: list = []
         unavailable_user_collections: list = []
+
+
         if server_account_manager.is_user_logged_in():
             user_collections: list = server_account_manager.get_user_account_collections()
             for c in user_collections:
@@ -50,6 +56,10 @@ def handle_cheat_sheet(
             is_user_author: bool = False
 
 
+        user_token: str = server_account_manager.get_user_account_token()
+        user_liked: bool = user_token in cheat_sheet_info["likes"]
+
+
         return render_html(
             "cheat_sheet.html",
             server_account_manager,
@@ -58,11 +68,12 @@ def handle_cheat_sheet(
             cheat_sheet_token=token,
             author_username=author_username,
             author_hashed_token=author_hashed_token,
+            user_liked=user_liked,
             is_user_author=is_user_author,
             context=cheat_sheet_info["context"],
             content=cheat_sheet_info["content"],
             date=cheat_sheet_info["date"],
-            likes=cheat_sheet_info["likes"],
+            likes=len(cheat_sheet_info["likes"]),
             dislikes=cheat_sheet_info["dislikes"],
             comments=comments,
             available_user_collections=available_user_collections,
@@ -92,6 +103,18 @@ def handle_cheat_sheet(
         elif form_data["input_type"] == "delete_comment_input":
             comment_content: str = form_data["comment_content"]
             cheat_sheet_manager.remove_comment(token, comment_content)
+        
+
+        elif form_data["input_type"] == "like_input":
+            cheat_sheet_info: dict = cheat_sheet_manager.get_cheat_sheet_info(token)
+            user_token: str = server_account_manager.get_user_account_token()
+            liked: bool = user_token in cheat_sheet_info["likes"]
+            if liked:
+                cheat_sheet_manager.remove_like(token, user_token)
+            else:
+                cheat_sheet_manager.add_like(token, user_token)
+
+
         return redirect(f"/cheat-sheet/{token}")
 
 

@@ -1,20 +1,33 @@
 {
     "accounts": {
-        "e348979a-162f-4b76-953f-a0e46844c2b4": {
+        "10ea0271-3bda-44d4-b53b-b1c88df835a5": {
             "username": "premier",
-            "password": "04f8996da763b7a969b1028ee3007569eaf3a635486ddab211d512c85b9df8fb",
+            "password": "7692c3ad3540bb803c020b3aee66cd8887123234ea0c6e7143c0add73ff431ed",
             "description": "",
             "profile_picture": "",
-            "id": "e348979a-162f-4b76-953f-a0e46844c2b4",
+            "id": "10ea0271-3bda-44d4-b53b-b1c88df835a5",
             "cheat_sheet": [
                 {
-                    "token": "3856cf23-773d-41ea-b80e-7e2c14e12500",
-                    "title": "ez",
-                    "author_token": "e348979a-162f-4b76-953f-a0e46844c2b4",
-                    "content": "s",
-                    "context": "f",
-                    "date": "05/04/2024 - 13:02",
-                    "likes": 0,
+                    "token": "94eb04c4-b69b-4dbb-b2b9-d1399e4b8044",
+                    "title": "Molar concentration",
+                    "author_token": "10ea0271-3bda-44d4-b53b-b1c88df835a5",
+                    "content": "$c=\\dfrac{n}{V}$",
+                    "context": "physics",
+                    "date": "06/04/2024 - 13:07",
+                    "likes": [],
+                    "dislikes": 0,
+                    "original_lang": "EN",
+                    "keywords": [],
+                    "comments": []
+                },
+                {
+                    "token": "ce0e5104-c456-4445-9196-fcbd5ca09e76",
+                    "title": "Intensity",
+                    "author_token": "10ea0271-3bda-44d4-b53b-b1c88df835a5",
+                    "content": "$I=\\dfrac{P}{S}",
+                    "context": "physics",
+                    "date": "06/04/2024 - 14:00",
+                    "likes": [],
                     "dislikes": 0,
                     "original_lang": "EN",
                     "keywords": [],
@@ -22,55 +35,6 @@
                 }
             ],
             "collections": []
-        },
-        "0c60524a-4e50-4cdd-9ca4-c837e620f43e": {
-            "username": "second",
-            "password": "04f8996da763b7a969b1028ee3007569eaf3a635486ddab211d512c85b9df8fb",
-            "description": "",
-            "profile_picture": "",
-            "id": "0c60524a-4e50-4cdd-9ca4-c837e620f43e",
-            "cheat_sheet": [],
-            "collections": [
-                {
-                    "is_public": true,
-                    "cheat_sheet": [],
-                    "name": "new"
-                }
-            ]
-        },
-        "4919d5f2-8bd7-40b2-985b-d1e35a4cf95c": {
-            "username": "hello",
-            "password": "486ea46224d1bb4fb680f34f7c9ad96a8f24ec88be73ea8e5a6c65260e9cb8a7",
-            "description": "",
-            "profile_picture": "",
-            "id": "4919d5f2-8bd7-40b2-985b-d1e35a4cf95c",
-            "cheat_sheet": [
-                {
-                    "token": "084e522f-ea31-4e3e-a445-4deed30a357f",
-                    "title": "Arithmetic sequences",
-                    "author_token": "4919d5f2-8bd7-40b2-985b-d1e35a4cf95c",
-                    "content": "$u_n=u_0+nr$\\\r\n$\r\n\\begin{cases}\r\nu_0\\\\\r\nu_{n+1}=u_n+r\r\n\\end{cases}\r\n$",
-                    "context": "sequences",
-                    "date": "05/04/2024 - 17:53",
-                    "likes": 0,
-                    "dislikes": 0,
-                    "original_lang": "EN",
-                    "keywords": [],
-                    "comments": []
-                }
-            ],
-            "collections": [
-                {
-                    "is_public": true,
-                    "cheat_sheet": [],
-                    "name": "ne"
-                },
-                {
-                    "is_public": false,
-                    "cheat_sheet": [],
-                    "name": "ap"
-                }
-            ]
         }
     }
 }

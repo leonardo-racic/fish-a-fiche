@@ -1,37 +1,30 @@
 {
     "cheat_sheet": {
-        "3856cf23-773d-41ea-b80e-7e2c14e12500": {
-            "token": "3856cf23-773d-41ea-b80e-7e2c14e12500",
-            "title": "ez",
-            "author_token": "e348979a-162f-4b76-953f-a0e46844c2b4",
-            "content": "s",
-            "context": "f",
-            "date": "05/04/2024 - 13:02",
-            "likes": 0,
+        "94eb04c4-b69b-4dbb-b2b9-d1399e4b8044": {
+            "token": "94eb04c4-b69b-4dbb-b2b9-d1399e4b8044",
+            "title": "Molar concentration",
+            "author_token": "10ea0271-3bda-44d4-b53b-b1c88df835a5",
+            "content": "$c=\\dfrac{n}{V}$",
+            "context": "physics",
+            "date": "06/04/2024 - 13:07",
+            "likes": [
+                "10ea0271-3bda-44d4-b53b-b1c88df835a5"
+            ],
             "dislikes": 0,
             "original_lang": "EN",
             "keywords": [],
-            "comments": [
-                {
-                    "token": "7309d8881a3c080099f1f88c6828a2e791b30174aa6097bcec0f3f276761000c",
-                    "content": "yyyy",
-                    "date": "05/04/2024 - 13:06"
-                },
-                {
-                    "token": "849c4a69b97629e86d593910efc439a33e2ac12a1272cb965b5dcba0a6df537a",
-                    "content": "j;hg\r\n\r\n\r\n\r\nklmjhumkkuj",
-                    "date": "05/04/2024 - 20:18"
-                }
-            ]
+            "comments": []
         },
-        "084e522f-ea31-4e3e-a445-4deed30a357f": {
-            "token": "084e522f-ea31-4e3e-a445-4deed30a357f",
-            "title": "Arithmetic sequences",
-            "author_token": "4919d5f2-8bd7-40b2-985b-d1e35a4cf95c",
-            "content": "$\r\nu_n=u_0+nr\r\n$\r\n$\r\n\\begin{cases}\r\nu_{start}\\\\\\  \r\nu_{n+1}=u_n+r\r\n\\end{cases}\r\n$",
-            "context": "sequences",
-            "date": "05/04/2024 - 17:53",
-            "likes": 0,
+        "ce0e5104-c456-4445-9196-fcbd5ca09e76": {
+            "token": "ce0e5104-c456-4445-9196-fcbd5ca09e76",
+            "title": "Intensity",
+            "author_token": "10ea0271-3bda-44d4-b53b-b1c88df835a5",
+            "content": "$I=\\dfrac{P}{S}$",
+            "context": "physics",
+            "date": "06/04/2024 - 14:00",
+            "likes": [
+                "10ea0271-3bda-44d4-b53b-b1c88df835a5"
+            ],
             "dislikes": 0,
             "original_lang": "EN",
             "keywords": [],
