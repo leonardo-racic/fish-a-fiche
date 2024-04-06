@@ -14,7 +14,7 @@ def get_profiles() -> list:
     return data_values
 
 
-def filter_title(name: str) -> list:
+def filter_title(name: str = "") -> list:
     def filter_func(current_dict: dict) -> bool:
         current_title: str = current_dict["title"]
         condition: bool = name.casefold() in current_title.casefold()
@@ -32,7 +32,7 @@ def filter_title(name: str) -> list:
     return data_values
 
 
-def filter_profiles(username: str) -> list:
+def filter_profiles(username: str = "") -> list:
     def filter_func(current_dict: dict) -> bool:
         current_username: str = current_dict["username"]
         condition: bool = username.casefold() in current_username
@@ -53,6 +53,16 @@ def sort_results(cs: list, by: str) -> list:
     return results
 
 
+def sort_results_by_likes(cs: list) -> list:
+    def sort_func(current_cs: dict) -> int:
+        dislikes: int = len(current_cs["dislikes"])
+        likes: int = len(current_cs["likes"])
+        difference: int = likes - dislikes
+        return difference
+    results: list = sorted(cs, key=sort_func, reverse=True)
+    return results
+
+
 def handle_search(sam: ServerAccountManager, name: str) -> Response:
     if request.method == 'POST':
         return redirect(f'/search/{request.form.get("title")}')
@@ -63,7 +73,7 @@ def handle_search(sam: ServerAccountManager, name: str) -> Response:
             sam,
             search_title=name,
             profiles=profiles,
-            cheat_sheet=sort_results(filter_title(name),'likes'),
+            cheat_sheet=sort_results_by_likes(filter_title(name)),
         )
 
 
@@ -74,7 +84,7 @@ def handle_search_empty(sam: ServerAccountManager) -> Response:
         return render_html(
             'search.html',
             sam,
-            cheat_sheet=sort_results(filter_title(''), 'likes'),
+            cheat_sheet=sort_results_by_likes(filter_title()),
             profiles=get_profiles(),
             search_title="",
         )

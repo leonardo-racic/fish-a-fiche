@@ -21,7 +21,7 @@ class CheatSheet:
         original_lang: str = "EN",
         comments: list = [],
         likes: list = [],
-        dislikes: int = 0,
+        dislikes: list = [],
         keywords: List[str] = [],
         token: str = str(get_uuid())
     ) -> None:
@@ -35,7 +35,7 @@ class CheatSheet:
         self.comments: list = comments
         self.keywords: list[str] = keywords
         self.likes: list = likes
-        self.dislikes: int = dislikes
+        self.dislikes: list = dislikes
     
 
     def __repr__(self) -> str:

@@ -149,7 +149,31 @@ class CheatSheetManager:
             cheat_sheet_data: dict = load_json(f.read())
 
         cheat_sheet: dict = cheat_sheet_data["cheat_sheet"][cheat_sheet_token]
-        cheat_sheet["likes"].remove(user_token)
+        if user_token in cheat_sheet["likes"]:
+            cheat_sheet["likes"].remove(user_token)
+
+        with open(cs_path, "w") as f:
+            f.write(dumps(cheat_sheet_data, indent=4))
+    
+
+    def add_dislike(self, cheat_sheet_token: str, user_token: str) -> None:
+        with open(cs_path) as f:
+            cheat_sheet_data: dict = load_json(f.read())
+
+        cheat_sheet: dict = cheat_sheet_data["cheat_sheet"][cheat_sheet_token]
+        cheat_sheet["dislikes"].append(user_token)
+
+        with open(cs_path, "w") as f:
+            f.write(dumps(cheat_sheet_data, indent=4))
+    
+
+    def remove_dislike(self, cheat_sheet_token: str, user_token: str) -> None:
+        with open(cs_path) as f:
+            cheat_sheet_data: dict = load_json(f.read())
+
+        cheat_sheet: dict = cheat_sheet_data["cheat_sheet"][cheat_sheet_token]
+        if user_token in cheat_sheet["dislikes"]:
+            cheat_sheet["dislikes"].remove(user_token)
 
         with open(cs_path, "w") as f:
             f.write(dumps(cheat_sheet_data, indent=4))

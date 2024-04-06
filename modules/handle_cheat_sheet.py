@@ -1,4 +1,4 @@
-from flask import Response, make_response, redirect, flash, request
+from flask import Response, abort, redirect, flash, request
 from singletons import render_html, get_form_data
 from .server_account_manager import ServerAccountManager, get_hash
 from .account_module import Account
@@ -6,7 +6,6 @@ from .cheat_sheet_manager import CheatSheetManager
 from .cheat_sheet_module import CheatSheet
 from terminal_log import inform
 from datetime import datetime
-import json
 
 
 def get_current_date() -> str:
@@ -31,7 +30,9 @@ def handle_cheat_sheet(
 ) -> Response:
     if request.method == "GET":
         cheat_sheet_info: dict = cheat_sheet_manager.get_cheat_sheet_info(token)
-        
+        if cheat_sheet_info == {}:
+            abort(404)
+            flash("Cheat sheet info is not found", "danger")
         author_token: str = cheat_sheet_info["author_token"]
         author_username: str = server_account_manager.get_current_username_from_token(author_token)
         is_author_dead: bool = cheat_sheet_info == {} or author_username == ""
@@ -58,6 +59,7 @@ def handle_cheat_sheet(
 
         user_token: str = server_account_manager.get_user_account_token()
         user_liked: bool = user_token in cheat_sheet_info["likes"]
+        user_disliked: bool = user_token in cheat_sheet_info["dislikes"]
 
 
         return render_html(
@@ -74,7 +76,8 @@ def handle_cheat_sheet(
             content=cheat_sheet_info["content"],
             date=cheat_sheet_info["date"],
             likes=len(cheat_sheet_info["likes"]),
-            dislikes=cheat_sheet_info["dislikes"],
+            dislikes=len(cheat_sheet_info["dislikes"]),
+            user_disliked=user_disliked,
             comments=comments,
             available_user_collections=available_user_collections,
             unavailable_user_collections=unavailable_user_collections,
@@ -109,10 +112,24 @@ def handle_cheat_sheet(
             cheat_sheet_info: dict = cheat_sheet_manager.get_cheat_sheet_info(token)
             user_token: str = server_account_manager.get_user_account_token()
             liked: bool = user_token in cheat_sheet_info["likes"]
+            
             if liked:
                 cheat_sheet_manager.remove_like(token, user_token)
             else:
                 cheat_sheet_manager.add_like(token, user_token)
+                cheat_sheet_manager.remove_dislike(token, user_token)
+        
+
+        elif form_data["input_type"] == "dislike_input":
+            cheat_sheet_info: dict = cheat_sheet_manager.get_cheat_sheet_info(token)
+            user_token: str = server_account_manager.get_user_account_token()
+            disliked: bool = user_token in cheat_sheet_info["dislikes"]
+            
+            if disliked:
+                cheat_sheet_manager.remove_dislike(token, user_token)
+            else:
+                cheat_sheet_manager.add_dislike(token, user_token)
+                cheat_sheet_manager.remove_like(token, user_token)
 
 
         return redirect(f"/cheat-sheet/{token}")

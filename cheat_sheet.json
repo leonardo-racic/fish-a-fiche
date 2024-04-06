@@ -1,31 +1,50 @@
 {
     "cheat_sheet": {
-        "94eb04c4-b69b-4dbb-b2b9-d1399e4b8044": {
-            "token": "94eb04c4-b69b-4dbb-b2b9-d1399e4b8044",
-            "title": "Molar concentration",
-            "author_token": "10ea0271-3bda-44d4-b53b-b1c88df835a5",
-            "content": "$c=\\dfrac{n}{V}$",
-            "context": "physics",
-            "date": "06/04/2024 - 13:07",
+        "c356ec9b-689c-40a2-8690-c284f10dd459": {
+            "token": "c356ec9b-689c-40a2-8690-c284f10dd459",
+            "title": "Linear functions",
+            "author_token": "4ec7b5d9-d3fa-4b76-962e-578a5de7475e",
+            "content": "$f(x)=ax$",
+            "context": "maths",
+            "date": "06/04/2024 - 17:04",
             "likes": [
-                "10ea0271-3bda-44d4-b53b-b1c88df835a5"
+                "4ec7b5d9-d3fa-4b76-962e-578a5de7475e"
             ],
-            "dislikes": 0,
+            "dislikes": [],
             "original_lang": "EN",
             "keywords": [],
             "comments": []
         },
-        "ce0e5104-c456-4445-9196-fcbd5ca09e76": {
-            "token": "ce0e5104-c456-4445-9196-fcbd5ca09e76",
-            "title": "Intensity",
-            "author_token": "10ea0271-3bda-44d4-b53b-b1c88df835a5",
-            "content": "$I=\\dfrac{P}{S}$",
-            "context": "physics",
-            "date": "06/04/2024 - 14:00",
+        "c8bdd48a-54c0-4eb1-ad32-4bcb659ecafe": {
+            "token": "c8bdd48a-54c0-4eb1-ad32-4bcb659ecafe",
+            "title": "Constant functions",
+            "author_token": "4ec7b5d9-d3fa-4b76-962e-578a5de7475e",
+            "content": "$f(x)=b$",
+            "context": "maths",
+            "date": "06/04/2024 - 17:04",
             "likes": [
-                "10ea0271-3bda-44d4-b53b-b1c88df835a5"
+                "bf5187fe-0f8c-44bf-bb41-a4d5574e251c"
             ],
-            "dislikes": 0,
+            "dislikes": [
+                "4ec7b5d9-d3fa-4b76-962e-578a5de7475e"
+            ],
+            "original_lang": "EN",
+            "keywords": [],
+            "comments": []
+        },
+        "0fe68203-4a75-4e13-acd7-c95eab212ade": {
+            "token": "0fe68203-4a75-4e13-acd7-c95eab212ade",
+            "title": "Affine functions",
+            "author_token": "4ec7b5d9-d3fa-4b76-962e-578a5de7475e",
+            "content": "$f(x)=ax+b$",
+            "context": "maths",
+            "date": "06/04/2024 - 17:04",
+            "likes": [
+                "4ec7b5d9-d3fa-4b76-962e-578a5de7475e"
+            ],
+            "dislikes": [
+                "bf5187fe-0f8c-44bf-bb41-a4d5574e251c"
+            ],
             "original_lang": "EN",
             "keywords": [],
             "comments": []
