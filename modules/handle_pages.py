@@ -33,3 +33,8 @@ def handle_home_page(sam: ServerAccountManager) -> Response:
 def handle_about(sam: ServerAccountManager) -> Response:
     if request.method == "GET":
         return render_html("about.html", sam)
+
+
+def handle_faqs(sam: ServerAccountManager) -> Response:
+    if request.method == "GET":
+        return render_html("faqs.html", sam)

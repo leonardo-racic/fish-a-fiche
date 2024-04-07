@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+    <div class="container">
+        <h2 class="display-2">
+            Frequently asked questions
+        </h2>
+        <h3 class="display-3">
+            Newlines are not rendered correctly in cheat sheet, why?
+        </h3>
+        <p>
+            That is because the cheat sheet does not render its content raw. Before any newline, you have to add a backslash
+            character for it to work (due to the way the module zero-md renders newlines).
+            <br>
+            In case you want to do newlines in your $\LaTeX$ formula, you need to put three backslashes instead of two.
+            <br>
+            <pre>
+                \begin{cases}
+                    y=2x-4\\\
+                    7y-9x+9=0
+                \end{cases}
+            </pre>
+            This will render in a cheat sheet as $\begin{cases}y=2x-4\\7y-9x+9=0\end{cases}$
+
+        </p>
+    </div>
+{% endblock %}

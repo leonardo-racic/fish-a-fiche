@@ -72,6 +72,19 @@
                     "date": "07/04/2024 - 10:40"
                 }
             ]
+        },
+        "89904202-59c9-4aa3-8e24-fbabd14e2219": {
+            "token": "89904202-59c9-4aa3-8e24-fbabd14e2219",
+            "title": "easy",
+            "author_token": "bf5187fe-0f8c-44bf-bb41-a4d5574e251c",
+            "content": "$\\begin{cases}y=2x-4\\\\\\7y-9x+9=0\\end{cases}$",
+            "context": "s",
+            "date": "07/04/2024 - 10:50",
+            "likes": [],
+            "dislikes": [],
+            "original_lang": "EN",
+            "keywords": [],
+            "comments": []
         }
     }
 }

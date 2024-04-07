@@ -1,12 +1,11 @@
 from flask import Flask, Response
-from singletons import render_html
 
 
 from modules.server_account_manager import ServerAccountManager
 from modules.cheat_sheet_manager import CheatSheetManager
 
 
-from modules.handle_pages import handle_features, handle_home_page, handle_about
+from modules.handle_pages import handle_features, handle_home_page, handle_about, handle_faqs
 from modules.handle_account_management import handle_login, handle_sign_up, handle_sign_out, handle_modify_profile, handle_profile
 from modules.handle_search import handle_search , handle_search_empty
 from modules.handle_cheat_sheet import handle_cheat_sheet, handle_create_cheat_sheet, handle_modify_cheat_sheet
@@ -114,6 +113,11 @@ def features() -> Response:
 @app.route("/about")
 def about() -> Response:
     return handle_about(server_account_manager)
+
+
+@app.route("/faqs")
+def faqs() -> Response:
+    return handle_faqs(server_account_manager)
 
 
 if __name__ == "__main__":
