@@ -139,21 +139,31 @@ def handle_create_cheat_sheet(
     cheat_sheet_manager: CheatSheetManager,
     server_account_manager: ServerAccountManager,
 ) -> Response:
-    cheat_sheet_data: dict = get_form_data()
-    if server_account_manager.is_user_logged_in():
-        inform('creating cheat_sheet')
-        cheat_sheet_data["author_token"] = server_account_manager.get_user_account_token()
-        cheat_sheet: CheatSheet = cheat_sheet_manager.create_new_cheat_sheet(cheat_sheet_data)
-        server_account_manager.add_cheat_sheet_to_user(cheat_sheet)
-        inform('cheat-sheet created')
-        flash('cheat-sheet created','success')
-        return redirect(f"/cheat-sheet/{cheat_sheet.token}")
-    else:
-        flash('not logged in','warning')
+    user_logged_in: bool = server_account_manager.is_user_logged_in()
+    if request.method == "GET":
+        if not user_logged_in:
+            flash("You have to log in first!", "warning")
+            return redirect("/sign-up")
         return render_html(
-            "create_cheat_sheet.html",
+            "create_cheat_sheet.html", 
             server_account_manager,
         )
+    elif request.method == "POST":
+        cheat_sheet_data: dict = get_form_data()
+        if user_logged_in:
+            inform('creating cheat_sheet')
+            cheat_sheet_data["author_token"] = server_account_manager.get_user_account_token()
+            cheat_sheet: CheatSheet = cheat_sheet_manager.create_new_cheat_sheet(cheat_sheet_data)
+            server_account_manager.add_cheat_sheet_to_user(cheat_sheet)
+            inform('cheat-sheet created')
+            flash('cheat-sheet created','success')
+            return redirect(f"/cheat-sheet/{cheat_sheet.token}")
+        else:
+            flash('not logged in','warning')
+            return render_html(
+                "create_cheat_sheet.html",
+                server_account_manager,
+            )
 
 
 def handle_modify_cheat_sheet(

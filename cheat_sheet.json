@@ -48,6 +48,19 @@
             "original_lang": "EN",
             "keywords": [],
             "comments": []
+        },
+        "fe942eec-373f-4675-932a-6e3df0c729c2": {
+            "token": "fe942eec-373f-4675-932a-6e3df0c729c2",
+            "title": "Forces'",
+            "author_token": "bf5187fe-0f8c-44bf-bb41-a4d5574e251c",
+            "content": "*General formula*:\\\r\n$W_{AB}(\\overrightarrow{F})=\\overrightarrow{F}\\cdot\\overrightarrow{AB}$",
+            "context": "Mecanic physics",
+            "date": "07/04/2024 - 09:23",
+            "likes": [],
+            "dislikes": [],
+            "original_lang": "EN",
+            "keywords": [],
+            "comments": []
         }
     }
 }

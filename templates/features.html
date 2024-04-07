@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+
+{% block styles %}
+    <style>
+        .feature-icon {
+            width: 4rem;
+            height: 4rem;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <div class="container">
+        <h1 class="display-1 pb-2">Features</h1>
+        <h2 class="pb-2 border-bottom">Current possibilities</h2>
+        <div class="row py-4 row-cols-1 row-cols-lg-3">
+            <div class="feature col">
+                <div class="feature-icon rounded fs-2 d-inline-flex align-items-center justify-content-center mb-3 text-bg-primary bg-gradient">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1.5em" fill="currentColor" class="bi bi-journal-richtext" viewBox="0 0 16 16">
+                        <path d="M7.5 3.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m-.861 1.542 1.33.886 1.854-1.855a.25.25 0 0 1 .289-.047L11 4.75V7a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 7v-.5s1.54-1.274 1.639-1.208M5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5"/>
+                        <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"/>
+                        <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"/>
+                    </svg>
+                </div>
+                <h3 class="fs-2 text-body-emphasis">Cheat sheet viewing</h3>
+                <p>
+                    Cheat sheets are a great way to learn or to test your knowledge.
+                    That's why we have a whole market based on them.
+                    <br>
+                    Don't worry: you can view them without even being logged in!
+                </p>
+                <a href="/search">Here is our search engine</a>
+            </div>
+            <div class="feature-col">
+                <div class="feature-icon rounded fs-2 d-inline-flex align-items-center justify-content-center mb-3 text-bg-primary bg-gradient">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
+                    </svg>
+                </div>
+                <h3 class="fs-2 text-body-emphasis">Cheat sheet creating</h3>
+                <p>
+                    You can create your own cheat sheet using our website.
+                    All cheat sheet are publicly available, so creating one yourself
+                    means you are ready to contribute to the website, helping out the users too!
+                    Markdown and LaTeX are supported!
+                    <br>
+                    The only requirement is to get an account.
+                </p>
+                <a href="/create-cheat-sheet">Available in one simple click!</a>
+            </div>
+            <div class="feature-col">
+                <div class="feature-icon rounded fs-2 d-inline-flex align-items-center justify-content-center mb-3 text-bg-primary bg-gradient">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-chat-square-quote" viewBox="0 0 16 16">
+                        <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                        <path d="M7.066 4.76A1.665 1.665 0 0 0 4 5.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 1 0 .6.58c1.486-1.54 1.293-3.214.682-4.112zm4 0A1.665 1.665 0 0 0 8 5.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 1 0 .6.58c1.486-1.54 1.293-3.214.682-4.112z"/>
+                    </svg>
+                </div>
+                <h3 class="fs-2 text-body-emphasis">Cheat sheet critic</h3>
+                <p>
+                    All cheat sheet have a comment section. Let's privilege constructive criticism in order
+                    for the author to edit what is incorrect.
+                    <br>
+                    This requires to get an account too.
+                </p>
+                <a href="/search">Contribute to our website thanks to your knowledge</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
