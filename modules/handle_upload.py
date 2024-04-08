@@ -124,10 +124,10 @@ def create_cheat_sheet(server_account_manager: ServerAccountManager):
     author_token = server_account_manager.get_user_account_token()
     content = read_md(UPLOAD_FOLDER+"/"+str(secure_filename(request.form.get("title"))))
     description = request.form.get("description")
-    keywords = request.form.get("keywords")
-    keywords = keywords.split()
-    new_cs = CheatSheet(title, author_token, content, description,)
-    new_cs.keywords = keywords
+    #keywords = request.form.get("keywords")
+    #keywords = keywords.split()
+    new_cs = CheatSheet(title, author_token, content, description)
+    #new_cs.keywords = keywords
 
     return new_cs
 

@@ -19,7 +19,6 @@ def json_to_cheat_sheet(cheat_sheet_info: dict) -> CheatSheet:
     check(cheat_sheet_info, new_cheat_sheet, "date")
     check(cheat_sheet_info, new_cheat_sheet, "likes")
     check(cheat_sheet_info, new_cheat_sheet, "dislikes")
-    check(cheat_sheet_info, new_cheat_sheet, "keywords")
     check(cheat_sheet_info, new_cheat_sheet, "comments")
     check(cheat_sheet_info, new_cheat_sheet, "token")
     check(cheat_sheet_info, new_cheat_sheet, "original_lang")

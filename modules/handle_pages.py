@@ -38,3 +38,8 @@ def handle_about(sam: ServerAccountManager) -> Response:
 def handle_faqs(sam: ServerAccountManager) -> Response:
     if request.method == "GET":
         return render_html("faqs.html", sam)
+
+
+def handle_cheat_sheet_market(sam: ServerAccountManager) -> Response:
+    if request.method == "GET":
+        return render_html("cheat_sheet_market.html", sam)

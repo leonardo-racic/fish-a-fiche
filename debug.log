@@ -1,14 +1,29 @@
-2024-04-08 10:47:33,579 - WARNING   (werkzeug)    * Debugger is active!
-2024-04-08 10:47:33,642 - INFO   (werkzeug)    * Debugger PIN: 101-558-284
-2024-04-08 10:47:36,170 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 10:47:36] "GET / HTTP/1.1" 200 -
-2024-04-08 10:47:36,421 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 10:47:36] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2024-04-08 10:47:38,808 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 10:47:38] "GET /faqs HTTP/1.1" 200 -
-2024-04-08 10:48:00,962 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 10:48:00] "GET /faqs HTTP/1.1" 200 -
-2024-04-08 10:48:08,322 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 10:48:08] "GET /faqs HTTP/1.1" 200 -
-2024-04-08 10:48:21,794 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 10:48:21] "GET /faqs HTTP/1.1" 200 -
-2024-04-08 10:48:55,790 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 10:48:55] "GET /faqs HTTP/1.1" 200 -
-2024-04-08 10:49:07,116 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 10:49:07] "GET /faqs HTTP/1.1" 200 -
-2024-04-08 10:49:58,305 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 10:49:58] "GET /faqs HTTP/1.1" 200 -
-2024-04-08 10:50:18,362 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 10:50:18] "GET /faqs HTTP/1.1" 200 -
-2024-04-08 10:50:40,040 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 10:50:40] "GET /faqs HTTP/1.1" 200 -
-2024-04-08 10:50:49,006 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 10:50:49] "GET /faqs HTTP/1.1" 200 -
+2024-04-08 11:01:45,367 - WARNING   (werkzeug)    * Debugger is active!
+2024-04-08 11:01:45,367 - INFO   (werkzeug)    * Debugger PIN: 101-558-284
+2024-04-08 11:02:22,026 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 11:02:22] "GET /sign-up HTTP/1.1" 200 -
+2024-04-08 11:02:24,453 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 11:02:24] "[32mPOST /sign-up HTTP/1.1[0m" 302 -
+2024-04-08 11:02:24,461 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 11:02:24] "GET / HTTP/1.1" 200 -
+2024-04-08 11:02:26,666 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 11:02:26] "GET /profile/b089d68aacab0dee3fc5ff41bbc12f3691c1af7eec6d7abcdde5d609f5cf1eb3 HTTP/1.1" 200 -
+2024-04-08 11:02:27,693 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 11:02:27] "GET /create-cheat-sheet HTTP/1.1" 200 -
+2024-04-08 11:02:32,640 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 11:02:32] "[32mPOST /create-cheat-sheet HTTP/1.1[0m" 302 -
+2024-04-08 11:02:32,694 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 11:02:32] "GET /cheat-sheet/d501a265-07a7-404a-875f-9397a9a32558 HTTP/1.1" 200 -
+2024-04-08 11:07:27,749 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 11:07:27] "GET /profile/b089d68aacab0dee3fc5ff41bbc12f3691c1af7eec6d7abcdde5d609f5cf1eb3 HTTP/1.1" 200 -
+2024-04-08 11:07:30,405 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 11:07:30] "GET /cheat-sheet/d501a265-07a7-404a-875f-9397a9a32558 HTTP/1.1" 200 -
+2024-04-08 11:07:32,801 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 11:07:32] "GET /profile/b089d68aacab0dee3fc5ff41bbc12f3691c1af7eec6d7abcdde5d609f5cf1eb3 HTTP/1.1" 200 -
+2024-04-08 11:07:35,929 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 11:07:35] "[32mPOST /cheat-sheet/d501a265-07a7-404a-875f-9397a9a32558 HTTP/1.1[0m" 302 -
+2024-04-08 11:07:35,941 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 11:07:35] "GET /cheat-sheet/d501a265-07a7-404a-875f-9397a9a32558 HTTP/1.1" 200 -
+2024-04-08 11:07:37,580 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 11:07:37] "GET /search/ HTTP/1.1" 200 -
+2024-04-08 11:07:42,884 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 11:07:42] "GET /profile/b089d68aacab0dee3fc5ff41bbc12f3691c1af7eec6d7abcdde5d609f5cf1eb3 HTTP/1.1" 200 -
+2024-04-08 11:14:56,580 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 11:14:56] "GET / HTTP/1.1" 200 -
+2024-04-08 11:14:58,054 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 11:14:58] "[32mGET /sign-out HTTP/1.1[0m" 302 -
+2024-04-08 11:14:58,067 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 11:14:58] "GET / HTTP/1.1" 200 -
+2024-04-08 11:14:59,288 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 11:14:59] "GET /sign-up HTTP/1.1" 200 -
+2024-04-08 11:15:51,751 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 11:15:51] "GET /sign-up HTTP/1.1" 200 -
+2024-04-08 11:16:15,436 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 11:16:15] "GET /sign-up HTTP/1.1" 200 -
+2024-04-08 11:16:48,149 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 11:16:48] "GET /sign-up HTTP/1.1" 200 -
+2024-04-08 11:17:23,850 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 11:17:23] "GET /sign-up HTTP/1.1" 200 -
+2024-04-08 11:17:43,301 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 11:17:43] "GET /sign-up HTTP/1.1" 200 -
+2024-04-08 11:18:11,076 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 11:18:11] "GET /sign-up HTTP/1.1" 200 -
+2024-04-08 11:18:24,073 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 11:18:24] "GET /sign-up HTTP/1.1" 200 -
+2024-04-08 11:18:56,075 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 11:18:56] "GET /sign-up HTTP/1.1" 200 -
+2024-04-08 11:19:30,252 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 11:19:30] "GET /sign-up HTTP/1.1" 200 -

@@ -13,7 +13,6 @@ def cheat_sheet_to_json(cs: CheatSheet) -> dict:
         "dislikes": cs.dislikes,
         "content": cs.content,
         "context": cs.context,
-        "keywords": cs.keywords,
         "date": cs.date,
         "original_lang": cs.original_lang,
     }

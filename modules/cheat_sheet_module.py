@@ -22,7 +22,6 @@ class CheatSheet:
         comments: list = [],
         likes: list = [],
         dislikes: list = [],
-        keywords: List[str] = [],
         token: str = str(get_uuid())
     ) -> None:
         self.token: str = token
@@ -33,7 +32,6 @@ class CheatSheet:
         self.original_lang: str = original_lang
         self.context: str = context
         self.comments: list = comments
-        self.keywords: list[str] = keywords
         self.likes: list = likes
         self.dislikes: list = dislikes
     
@@ -53,7 +51,6 @@ class CheatSheet:
             "likes": self.likes,
             "dislikes": self.dislikes,
             "original_lang": self.original_lang,
-            "keywords": self.keywords,
             "comments": self.comments
         }
         
@@ -88,7 +85,6 @@ def json_to_cheat_sheet(json_dict: dict) -> CheatSheet:
         json_dict["comments"],
         json_dict["likes"],
         json_dict["dislikes"],
-        json_dict["keywords"],
         json_dict["token"],
     )
     return new_cs
@@ -104,7 +100,6 @@ def cheat_sheet_to_json(cs: CheatSheet) -> dict:
         "dislikes": cs.dislikes,
         "content": cs.content,
         "context": cs.context,
-        "keywords": cs.keywords,
         "date": cs.date,
         "original_lang": cs.original_lang,
     }

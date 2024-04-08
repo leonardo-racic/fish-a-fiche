@@ -1,89 +1,17 @@
 {
     "cheat_sheet": {
-        "c356ec9b-689c-40a2-8690-c284f10dd459": {
-            "token": "c356ec9b-689c-40a2-8690-c284f10dd459",
-            "title": "Linear functions",
-            "author_token": "4ec7b5d9-d3fa-4b76-962e-578a5de7475e",
-            "content": "$f(x)=ax$",
-            "context": "maths",
-            "date": "06/04/2024 - 17:04",
-            "likes": [
-                "4ec7b5d9-d3fa-4b76-962e-578a5de7475e"
-            ],
-            "dislikes": [],
-            "original_lang": "EN",
-            "keywords": [],
-            "comments": []
-        },
-        "c8bdd48a-54c0-4eb1-ad32-4bcb659ecafe": {
-            "token": "c8bdd48a-54c0-4eb1-ad32-4bcb659ecafe",
-            "title": "Constant functions",
-            "author_token": "4ec7b5d9-d3fa-4b76-962e-578a5de7475e",
-            "content": "$f(x)=b$",
-            "context": "maths",
-            "date": "06/04/2024 - 17:04",
-            "likes": [
-                "bf5187fe-0f8c-44bf-bb41-a4d5574e251c"
-            ],
-            "dislikes": [
-                "4ec7b5d9-d3fa-4b76-962e-578a5de7475e"
-            ],
-            "original_lang": "EN",
-            "keywords": [],
-            "comments": []
-        },
-        "0fe68203-4a75-4e13-acd7-c95eab212ade": {
-            "token": "0fe68203-4a75-4e13-acd7-c95eab212ade",
-            "title": "Affine functions",
-            "author_token": "4ec7b5d9-d3fa-4b76-962e-578a5de7475e",
-            "content": "$f(x)=ax+b$",
-            "context": "maths",
-            "date": "06/04/2024 - 17:04",
-            "likes": [
-                "4ec7b5d9-d3fa-4b76-962e-578a5de7475e"
-            ],
-            "dislikes": [
-                "bf5187fe-0f8c-44bf-bb41-a4d5574e251c"
-            ],
-            "original_lang": "EN",
-            "keywords": [],
-            "comments": []
-        },
-        "fe942eec-373f-4675-932a-6e3df0c729c2": {
-            "token": "fe942eec-373f-4675-932a-6e3df0c729c2",
-            "title": "Forces'",
-            "author_token": "bf5187fe-0f8c-44bf-bb41-a4d5574e251c",
-            "content": "*General formula*:\\\r\n$W_{AB}(\\overrightarrow{F})=\\overrightarrow{F}\\cdot\\overrightarrow{AB}$",
-            "context": "Mecanic physics",
-            "date": "07/04/2024 - 09:23",
+        "d501a265-07a7-404a-875f-9397a9a32558": {
+            "token": "d501a265-07a7-404a-875f-9397a9a32558",
+            "title": "a",
+            "author_token": "9328c137-08d8-4550-853c-75f318d770e9",
+            "content": "z",
+            "context": "hello world",
+            "date": "08/04/2024 - 11:01",
             "likes": [],
-            "dislikes": [],
+            "dislikes": [
+                "9328c137-08d8-4550-853c-75f318d770e9"
+            ],
             "original_lang": "EN",
-            "keywords": [],
-            "comments": [
-                {
-                    "token": "1555fdb128d22eb878ed8ada95292af34573dc52e5092ae0f344acb4f87aba71",
-                    "content": "hello world!",
-                    "date": "07/04/2024 - 10:35"
-                },
-                {
-                    "token": "1555fdb128d22eb878ed8ada95292af34573dc52e5092ae0f344acb4f87aba71",
-                    "content": "hello new world!",
-                    "date": "07/04/2024 - 10:40"
-                }
-            ]
-        },
-        "89904202-59c9-4aa3-8e24-fbabd14e2219": {
-            "token": "89904202-59c9-4aa3-8e24-fbabd14e2219",
-            "title": "easy",
-            "author_token": "bf5187fe-0f8c-44bf-bb41-a4d5574e251c",
-            "content": "$\\begin{cases}y=2x-4\\\\\\7y-9x+9=0\\end{cases}$",
-            "context": "s",
-            "date": "07/04/2024 - 10:50",
-            "likes": [],
-            "dislikes": [],
-            "original_lang": "EN",
-            "keywords": [],
             "comments": []
         }
     }

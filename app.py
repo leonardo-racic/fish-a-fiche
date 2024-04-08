@@ -1,3 +1,4 @@
+# Imports
 from flask import Flask, Response
 
 
@@ -5,7 +6,7 @@ from modules.server_account_manager import ServerAccountManager
 from modules.cheat_sheet_manager import CheatSheetManager
 
 
-from modules.handle_pages import handle_features, handle_home_page, handle_about, handle_faqs
+from modules.handle_pages import handle_features, handle_home_page, handle_about, handle_faqs, handle_cheat_sheet_market
 from modules.handle_account_management import handle_login, handle_sign_up, handle_sign_out, handle_modify_profile, handle_profile
 from modules.handle_search import handle_search , handle_search_empty
 from modules.handle_cheat_sheet import handle_cheat_sheet, handle_create_cheat_sheet, handle_modify_cheat_sheet
@@ -19,7 +20,7 @@ from werkzeug.exceptions import NotFound as Error404
 
 
 
-
+# Set-up
 run_logging()
 
 
@@ -29,6 +30,7 @@ server_account_manager: ServerAccountManager = ServerAccountManager()
 cheat_sheet_manager: CheatSheetManager = CheatSheetManager()
 
 
+# Routing
 @app.route("/")
 def main() -> Response:
     return handle_home_page(server_account_manager)
@@ -100,11 +102,6 @@ def search_empty() -> Response:
     return handle_search_empty(server_account_manager)
 
 
-@app.errorhandler(404)
-def error404(error: Error404) -> Response:
-    return handle_404(server_account_manager, error), 404
-
-
 @app.route("/features", methods=["GET"])
 def features() -> Response:
     return handle_features(server_account_manager)
@@ -120,5 +117,17 @@ def faqs() -> Response:
     return handle_faqs(server_account_manager)
 
 
+@app.route("/cheat-sheet-market")
+def cheat_sheet_market() -> Response:
+    return handle_cheat_sheet_market(server_account_manager)
+
+
+# Error handling
+@app.errorhandler(404)
+def error404(error: Error404) -> Response:
+    return handle_404(server_account_manager, error), 404
+
+
+# Module execution
 if __name__ == "__main__":
     app.run(host='0.0.0.0',debug=True)
