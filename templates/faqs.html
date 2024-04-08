@@ -3,15 +3,15 @@
 
 {% block body %}
     <div class="container">
-        <h2 class="display-2">
+        <h2 class="display-2 pb-4 fw-bold">
             Frequently asked questions
         </h2>
         <h3 class="display-3">
-            Newlines are not rendered correctly in cheat sheet, why?
+            Why are the newlines are rendered correctly in cheat sheet, and what can I do?
         </h3>
         <p>
-            That is because the cheat sheet does not render its content raw. Before any newline, you have to add a backslash
-            character for it to work (due to the way the module zero-md renders newlines).
+            This is because the cheat sheet does not render its content raw. Before any newline, you have to add a backslash
+            character for it to work (due to the way the module zero-md and MathJax render newlines).
             <br>
             In case you want to do newlines in your $\LaTeX$ formula, you need to put three backslashes instead of two.
             <br>
@@ -22,7 +22,39 @@
                 \end{cases}
             </pre>
             This will render in a cheat sheet as $\begin{cases}y=2x-4\\7y-9x+9=0\end{cases}$
+        </p>
 
+
+        <h3 class="display-3">
+            What am I supposed to do for my cheat sheet to get into the displayed categories in the Cheat Sheet Market (CSM)?
+        </h3>
+        <p>
+            Easy, you just need to have the correct keywords in your cheat sheet's context!
+            <br>
+            However, they must all be separated by a space;
+            <br>
+            keywords on this website are conventionally written in kebab-case: words are in lowercase and separated using hyphens (-).
+            If you do not respect these conventions, you will get less visibility.
+            <br>
+            Here are the different keywords that are (or are going to be) implemented in the CSM.
+        </p>
+        <pre>
+            maths (arithmetic, algebra, geometry...)
+            physics
+            chemistry
+            geography
+            foreign-languages (english, spanish, german, french...)
+            history (france, england, japan, india...)
+            geopolitics
+            sociology
+            economy
+            art / art-history...
+            cuisine / gastronomy / recipe...
+            technology / it...
+        </pre>
+        <p>
+            Do not forget, that you will have to choose wisely your keywords as you will have a limited amount of characters in your cheat sheet's context!
+            The better keywords you pick, the quicker you will be found.
         </p>
     </div>
 {% endblock %}

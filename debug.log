@@ -1,22 +1,14 @@
-2024-04-07 10:50:21,308 - WARNING   (werkzeug)    * Debugger is active!
-2024-04-07 10:50:21,308 - INFO   (werkzeug)    * Debugger PIN: 354-084-504
-2024-04-07 10:50:22,609 - INFO   (werkzeug)   127.0.0.1 - - [07/Apr/2024 10:50:22] "GET / HTTP/1.1" 200 -
-2024-04-07 10:50:24,288 - INFO   (werkzeug)   127.0.0.1 - - [07/Apr/2024 10:50:24] "GET /faqs HTTP/1.1" 200 -
-2024-04-07 10:51:21,477 - INFO   (werkzeug)   127.0.0.1 - - [07/Apr/2024 10:51:21] "GET /faqs HTTP/1.1" 200 -
-2024-04-07 10:51:27,494 - INFO   (werkzeug)   127.0.0.1 - - [07/Apr/2024 10:51:27] "GET /faqs HTTP/1.1" 200 -
-2024-04-07 10:52:33,352 - INFO   (werkzeug)   127.0.0.1 - - [07/Apr/2024 10:52:33] "GET /faqs HTTP/1.1" 200 -
-2024-04-07 10:52:41,477 - INFO   (werkzeug)   127.0.0.1 - - [07/Apr/2024 10:52:41] "GET /faqs HTTP/1.1" 200 -
-2024-04-07 10:54:17,306 - INFO   (werkzeug)   127.0.0.1 - - [07/Apr/2024 10:54:17] "GET /faqs HTTP/1.1" 200 -
-2024-04-07 10:54:38,642 - INFO   (werkzeug)   127.0.0.1 - - [07/Apr/2024 10:54:38] "GET /faqs HTTP/1.1" 200 -
-2024-04-07 10:54:52,809 - INFO   (werkzeug)   127.0.0.1 - - [07/Apr/2024 10:54:52] "GET /faqs HTTP/1.1" 200 -
-2024-04-07 10:55:16,701 - INFO   (werkzeug)   127.0.0.1 - - [07/Apr/2024 10:55:16] "GET /faqs HTTP/1.1" 200 -
-2024-04-07 10:56:03,500 - INFO   (werkzeug)   127.0.0.1 - - [07/Apr/2024 10:56:03] "GET /faqs HTTP/1.1" 200 -
-2024-04-07 10:56:14,666 - INFO   (werkzeug)   127.0.0.1 - - [07/Apr/2024 10:56:14] "GET /faqs HTTP/1.1" 200 -
-2024-04-07 10:56:37,200 - INFO   (werkzeug)   127.0.0.1 - - [07/Apr/2024 10:56:37] "GET /faqs HTTP/1.1" 200 -
-2024-04-07 10:56:43,213 - INFO   (werkzeug)   127.0.0.1 - - [07/Apr/2024 10:56:43] "GET /create-cheat-sheet HTTP/1.1" 200 -
-2024-04-07 10:56:49,381 - INFO   (werkzeug)   127.0.0.1 - - [07/Apr/2024 10:56:49] "[32mPOST /create-cheat-sheet HTTP/1.1[0m" 302 -
-2024-04-07 10:56:49,405 - INFO   (werkzeug)   127.0.0.1 - - [07/Apr/2024 10:56:49] "GET /cheat-sheet/89904202-59c9-4aa3-8e24-fbabd14e2219 HTTP/1.1" 200 -
-2024-04-07 10:56:52,303 - INFO   (werkzeug)   127.0.0.1 - - [07/Apr/2024 10:56:52] "GET /modify-cheat-sheet/89904202-59c9-4aa3-8e24-fbabd14e2219 HTTP/1.1" 200 -
-2024-04-07 10:56:55,607 - INFO   (werkzeug)   127.0.0.1 - - [07/Apr/2024 10:56:55] "[32mPOST /modify-cheat-sheet/89904202-59c9-4aa3-8e24-fbabd14e2219 HTTP/1.1[0m" 302 -
-2024-04-07 10:56:55,620 - INFO   (werkzeug)   127.0.0.1 - - [07/Apr/2024 10:56:55] "GET /cheat-sheet/89904202-59c9-4aa3-8e24-fbabd14e2219 HTTP/1.1" 200 -
-2024-04-07 10:56:57,885 - INFO   (werkzeug)   127.0.0.1 - - [07/Apr/2024 10:56:57] "GET / HTTP/1.1" 200 -
+2024-04-08 10:47:33,579 - WARNING   (werkzeug)    * Debugger is active!
+2024-04-08 10:47:33,642 - INFO   (werkzeug)    * Debugger PIN: 101-558-284
+2024-04-08 10:47:36,170 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 10:47:36] "GET / HTTP/1.1" 200 -
+2024-04-08 10:47:36,421 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 10:47:36] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-04-08 10:47:38,808 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 10:47:38] "GET /faqs HTTP/1.1" 200 -
+2024-04-08 10:48:00,962 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 10:48:00] "GET /faqs HTTP/1.1" 200 -
+2024-04-08 10:48:08,322 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 10:48:08] "GET /faqs HTTP/1.1" 200 -
+2024-04-08 10:48:21,794 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 10:48:21] "GET /faqs HTTP/1.1" 200 -
+2024-04-08 10:48:55,790 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 10:48:55] "GET /faqs HTTP/1.1" 200 -
+2024-04-08 10:49:07,116 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 10:49:07] "GET /faqs HTTP/1.1" 200 -
+2024-04-08 10:49:58,305 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 10:49:58] "GET /faqs HTTP/1.1" 200 -
+2024-04-08 10:50:18,362 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 10:50:18] "GET /faqs HTTP/1.1" 200 -
+2024-04-08 10:50:40,040 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 10:50:40] "GET /faqs HTTP/1.1" 200 -
+2024-04-08 10:50:49,006 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 10:50:49] "GET /faqs HTTP/1.1" 200 -
