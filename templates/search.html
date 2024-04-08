@@ -8,6 +8,11 @@
                 <label for="title-input">Name</label>
                 <input class="form-control mb-2" type="text" id="title-input" name="title" autocomplete="off" value="{{search_title}}">
             </div>
+            <select name="search_by" aria-label="Choose search criteria" class="form-select">
+                <option selected value={{search_by}}>Select search criteria</option>
+                <option value="title">Title</option>
+                <option value="context">Context</option>
+            </select>
             <button class="btn btn-primary mb-4" id="search-button" value=Upload type="submit">Search</button>
         </form>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -50,7 +55,6 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="users" role="tabpanel" aria-labelledby="users-tab">
-                <!-- WIP -->
                 <div class="d-flex flex-column align-items-center text-center">
                     {% if profiles == [] %}
                         <small class="text-muted mb-2">No results</small>

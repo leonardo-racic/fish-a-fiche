@@ -21,6 +21,84 @@
                 }
             ],
             "collections": []
+        },
+        "f620ec95-4d67-4e80-b62d-c4ecd60b7aad": {
+            "username": "hello",
+            "password": "486ea46224d1bb4fb680f34f7c9ad96a8f24ec88be73ea8e5a6c65260e9cb8a7",
+            "description": "...",
+            "profile_picture": "",
+            "id": "f620ec95-4d67-4e80-b62d-c4ecd60b7aad",
+            "cheat_sheet": [
+                {
+                    "token": "997fe4e1-ce16-42f1-acce-4ca792afad81",
+                    "title": "Linear functions",
+                    "author_token": "f620ec95-4d67-4e80-b62d-c4ecd60b7aad",
+                    "content": "$f(x)=ax$",
+                    "context": "maths functions linear-functions",
+                    "date": "08/04/2024 - 14:18",
+                    "likes": [],
+                    "dislikes": [],
+                    "original_lang": "EN",
+                    "comments": []
+                },
+                {
+                    "token": "77bd88cb-aedc-4eef-9e1f-e4277a7b1da9",
+                    "title": "Affine functions",
+                    "author_token": "f620ec95-4d67-4e80-b62d-c4ecd60b7aad",
+                    "content": "$f(x)=ax+b$",
+                    "context": "maths functions affine-functions",
+                    "date": "08/04/2024 - 14:18",
+                    "likes": [],
+                    "dislikes": [],
+                    "original_lang": "EN",
+                    "comments": []
+                },
+                {
+                    "token": "99fa009a-0756-4b82-b473-8832dbb89cdd",
+                    "title": "Addition",
+                    "author_token": "f620ec95-4d67-4e80-b62d-c4ecd60b7aad",
+                    "content": "$1+1=2$",
+                    "context": "maths operations addition",
+                    "date": "08/04/2024 - 14:18",
+                    "likes": [],
+                    "dislikes": [],
+                    "original_lang": "EN",
+                    "comments": []
+                },
+                {
+                    "token": "2b511b34-ddde-4266-9da4-8e200ba4b5f6",
+                    "title": "Realism",
+                    "author_token": "f620ec95-4d67-4e80-b62d-c4ecd60b7aad",
+                    "content": "as close to reality as possible",
+                    "context": "art art-history",
+                    "date": "08/04/2024 - 14:37",
+                    "likes": [],
+                    "dislikes": [],
+                    "original_lang": "EN",
+                    "comments": []
+                },
+                {
+                    "token": "6bb34c68-8555-4575-a03c-1bb0f53944f3",
+                    "title": "D\u00e9rivation",
+                    "author_token": "f620ec95-4d67-4e80-b62d-c4ecd60b7aad",
+                    "content": "La d\u00e9riv\u00e9e de $f(x)=\\sqrt{x}$ est $f'(x)=\\dfrac{1}{2\\sqrt{x}}$",
+                    "context": "maths derivation functions",
+                    "date": "08/04/2024 - 14:37",
+                    "likes": [],
+                    "dislikes": [],
+                    "original_lang": "EN",
+                    "comments": []
+                }
+            ],
+            "collections": [
+                {
+                    "is_public": false,
+                    "cheat_sheet": [
+                        "6bb34c68-8555-4575-a03c-1bb0f53944f3"
+                    ],
+                    "name": "formules-d\u00e9rivation"
+                }
+            ]
         }
     }
 }
