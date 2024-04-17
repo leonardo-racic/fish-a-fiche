@@ -2,8 +2,9 @@ from flask import Response, make_response, redirect, url_for, flash, abort, requ
 from singletons import render_html, get_form_data
 from .account_module import Account
 from .server_account_manager import ServerAccountManager
-from .cheat_sheet_manager import CheatSheetManager
-from terminal_log import inform, warn, debug
+from environment_variable import reports_path
+from terminal_log import inform, warn
+import json
 
 
 # Login
@@ -181,3 +182,18 @@ def handle_profile(server_account_manager: ServerAccountManager, hashed_token: s
                 abort(404)
             server_account_manager.delete_account(account)
             return redirect("/profile")
+        
+
+        elif input_type == "report_input":
+            with open(reports_path) as f:
+                reports_dict: dict = json.loads(f.read())
+            reports: dict = reports_dict["reports"]
+            account: Account = server_account_manager.get_account_from_hashed_token(hashed_token)
+            if account.get_id() not in reports["accounts"]:
+                reports["accounts"].append(account.get_id())
+                with open(reports_path, "w") as f:
+                    f.write(json.dumps(reports_dict, indent=4))
+                flash("Sucessfully reported!", "success")
+            else:
+                flash("It has already been reported", "warning")
+            return redirect(f"/profile/{hashed_token}")

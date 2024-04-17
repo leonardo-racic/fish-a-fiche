@@ -4,8 +4,10 @@ from .server_account_manager import ServerAccountManager, get_hash
 from .account_module import Account
 from .cheat_sheet_manager import CheatSheetManager
 from .cheat_sheet_module import CheatSheet
+from environment_variable import reports_path
 from terminal_log import inform
 from datetime import datetime
+import json
 
 
 def get_current_date() -> str:
@@ -86,7 +88,8 @@ def handle_cheat_sheet(
 
     elif request.method == "POST":
         form_data: dict = get_form_data()
-        if form_data["input_type"] == "comment_input":
+        input_type: str = form_data["input_type"]
+        if input_type == "comment_input":
             new_comment: dict = {
                 "token": server_account_manager.get_user_account_hashed_token(),
                 "content": form_data["comment"],
@@ -95,7 +98,7 @@ def handle_cheat_sheet(
             cheat_sheet_manager.add_comment_to_cheat_sheet(token, new_comment)
         
 
-        elif form_data["input_type"] == "delete_cheat_sheet_input":
+        elif input_type == "delete_cheat_sheet_input":
             user_hashed_token: str = server_account_manager.get_user_account_hashed_token()
             user_token: str = server_account_manager.get_user_account_token()
             cheat_sheet_manager.delete_cheat_sheet(token)
@@ -103,12 +106,12 @@ def handle_cheat_sheet(
             return redirect(f"/profile/{user_hashed_token}")
         
         
-        elif form_data["input_type"] == "delete_comment_input":
+        elif input_type == "delete_comment_input":
             comment_content: str = form_data["comment_content"]
             cheat_sheet_manager.remove_comment(token, comment_content)
         
 
-        elif form_data["input_type"] == "like_input":
+        elif input_type == "like_input":
             cheat_sheet_info: dict = cheat_sheet_manager.get_cheat_sheet_info(token)
             user_token: str = server_account_manager.get_user_account_token()
             liked: bool = user_token in cheat_sheet_info["likes"]
@@ -120,7 +123,7 @@ def handle_cheat_sheet(
                 cheat_sheet_manager.remove_dislike(token, user_token)
         
 
-        elif form_data["input_type"] == "dislike_input":
+        elif input_type == "dislike_input":
             cheat_sheet_info: dict = cheat_sheet_manager.get_cheat_sheet_info(token)
             user_token: str = server_account_manager.get_user_account_token()
             disliked: bool = user_token in cheat_sheet_info["dislikes"]
@@ -130,7 +133,19 @@ def handle_cheat_sheet(
             else:
                 cheat_sheet_manager.add_dislike(token, user_token)
                 cheat_sheet_manager.remove_like(token, user_token)
+        
 
+        elif input_type == "report_input":
+            with open(reports_path) as f:
+                reports_dict: dict = json.loads(f.read())
+            reports: dict = reports_dict["reports"]
+            if token not in reports["cheat_sheet"]:
+                reports["cheat_sheet"].append(token)
+                with open(reports_path, "w") as f:
+                    f.write(json.dumps(reports_dict, indent=4))
+                flash("Sucessfully reported!", "success")
+            else:
+                flash("It has already been reported", "warning")
 
         return redirect(f"/cheat-sheet/{token}")
 
