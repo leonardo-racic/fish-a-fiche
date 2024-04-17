@@ -39,11 +39,26 @@
         }
 
 
+        function isContextValid(input) {
+            if (input.length > MIN_LENGTH) {
+                for (let c of input) {
+                    if (c.match(/[a-z]/i) || c === "-" || c === " ") {
+                        continue;
+                    } else {
+                        return false
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+
+
         function isFormInputValid() {
-            let isTitleValid = isInputValid(titleInput.val());
-            let isContentValid = isInputValid(contentInput.val());
-            let isContextValid = isInputValid(contextInput.val());
-            let condition = isTitleValid && isContentValid && isContextValid;
+            let titleValid = isInputValid(titleInput.val());
+            let contentValid = isInputValid(contentInput.val());
+            let contextValid = isContextValid(contextInput.val());
+            let condition = titleValid && contentValid && contextValid
             return condition;
         }
 

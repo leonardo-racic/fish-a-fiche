@@ -1,2 +1,4 @@
 2024-04-17 17:27:49,959 - WARNING   (werkzeug)    * Debugger is active!
 2024-04-17 17:27:49,959 - INFO   (werkzeug)    * Debugger PIN: 136-580-221
+2024-04-17 17:56:34,579 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 17:56:34] "GET /create-cheat-sheet HTTP/1.1" 200 -
+2024-04-17 17:57:04,492 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 17:57:04] "GET /create-cheat-sheet HTTP/1.1" 200 -
