@@ -159,6 +159,7 @@
                     element.style.opacity = opacity.toString();
                 } else {
                     clearInterval(effect);
+                    element.parentNode.removeChild(element);
                 }
             }, FADING_FREQUENCY);
         }

@@ -1,6 +1,39 @@
 from flask import Response, request
 from singletons import render_html
 from .server_account_manager import ServerAccountManager
+from .sorting import sort_results_by_likes
+from .filtering import filter_context
+import json
+
+
+def remove_duplicates(array: list) -> list:
+    cleaned: list = []
+    for i in array:
+        if i not in cleaned:
+            cleaned.append(i)
+    return cleaned
+
+
+def print_dict(d: dict) -> None:
+    print("*" * 50)
+    print(json.dumps(d, indent=4))
+
+
+
+categories: list = [
+    "maths",
+    "physics",
+    "chemistry",
+    "geography",
+    "foreign-languages",
+    "history",
+    "geopolitics",
+    "sociology",
+    "economy",
+    "art/art-history",
+    "recipe/cuisine/gastronomy",
+    "technology/it",
+]
 
 
 def handle_features(sam: ServerAccountManager) -> Response:
@@ -42,4 +75,14 @@ def handle_faqs(sam: ServerAccountManager) -> Response:
 
 def handle_cheat_sheet_market(sam: ServerAccountManager) -> Response:
     if request.method == "GET":
-        return render_html("cheat_sheet_market.html", sam)
+        data: dict = {}
+        for category in categories:
+            keywords: list = category.split("/")
+            data[category] = []
+            for keyword in keywords:
+                cs: list = filter_context(keyword)
+                data[category] += cs
+            data[category] = remove_duplicates(data[category])
+            data[category] = sort_results_by_likes(data[category])
+        data_values: list = list(data.values())
+        return render_html("cheat_sheet_market.html", sam, data=data_values)

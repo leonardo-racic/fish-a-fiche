@@ -1,80 +1,38 @@
 {
     "cheat_sheet": {
-        "d501a265-07a7-404a-875f-9397a9a32558": {
-            "token": "d501a265-07a7-404a-875f-9397a9a32558",
-            "title": "a",
-            "author_token": "9328c137-08d8-4550-853c-75f318d770e9",
-            "content": "z",
-            "context": "hello world",
-            "date": "08/04/2024 - 11:01",
+        "04e05849-ea28-458a-8b78-ac971c5d1d06": {
+            "token": "04e05849-ea28-458a-8b78-ac971c5d1d06",
+            "title": "Linux",
+            "author_token": "95cdb20e-c62f-4dd6-803d-8c148a0f909d",
+            "content": "**cd**: changes current directory, takes one argument\\\r\n**ls**: lists everything in current directory, can take multiple arguments to check permissions ",
+            "context": "technology it linux",
+            "date": "17/04/2024 - 14:15",
+            "likes": [],
+            "dislikes": [],
+            "original_lang": "EN",
+            "comments": []
+        },
+        "e074d7ca-adb7-44c2-83c8-ec9366f8d986": {
+            "token": "e074d7ca-adb7-44c2-83c8-ec9366f8d986",
+            "title": "Data",
+            "author_token": "95cdb20e-c62f-4dd6-803d-8c148a0f909d",
+            "content": "list => list of elements (sometimes called slice or table)\\\r\narray => slices/list that have a restricted amount of elements determined in the variable assignment\\\r\ndictionary/hash => key-value data structure\\\r\ntuple => immutable list",
+            "context": "technology python",
+            "date": "17/04/2024 - 14:22",
             "likes": [],
             "dislikes": [
-                "9328c137-08d8-4550-853c-75f318d770e9"
+                "95cdb20e-c62f-4dd6-803d-8c148a0f909d"
             ],
             "original_lang": "EN",
             "comments": []
         },
-        "997fe4e1-ce16-42f1-acce-4ca792afad81": {
-            "token": "997fe4e1-ce16-42f1-acce-4ca792afad81",
-            "title": "Linear functions",
-            "author_token": "f620ec95-4d67-4e80-b62d-c4ecd60b7aad",
-            "content": "$f(x)=ax$",
-            "context": "maths functions linear-functions",
-            "date": "08/04/2024 - 14:18",
-            "likes": [],
-            "dislikes": [
-                "f620ec95-4d67-4e80-b62d-c4ecd60b7aad"
-            ],
-            "original_lang": "EN",
-            "comments": []
-        },
-        "77bd88cb-aedc-4eef-9e1f-e4277a7b1da9": {
-            "token": "77bd88cb-aedc-4eef-9e1f-e4277a7b1da9",
-            "title": "Affine functions",
-            "author_token": "f620ec95-4d67-4e80-b62d-c4ecd60b7aad",
-            "content": "$f(x)=ax+b$",
-            "context": "maths functions affine-functions",
-            "date": "08/04/2024 - 14:18",
-            "likes": [
-                "f620ec95-4d67-4e80-b62d-c4ecd60b7aad"
-            ],
-            "dislikes": [],
-            "original_lang": "EN",
-            "comments": []
-        },
-        "99fa009a-0756-4b82-b473-8832dbb89cdd": {
-            "token": "99fa009a-0756-4b82-b473-8832dbb89cdd",
-            "title": "Addition",
-            "author_token": "f620ec95-4d67-4e80-b62d-c4ecd60b7aad",
-            "content": "$1+1=2$",
-            "context": "maths operations addition",
-            "date": "08/04/2024 - 14:18",
-            "likes": [
-                "f620ec95-4d67-4e80-b62d-c4ecd60b7aad"
-            ],
-            "dislikes": [],
-            "original_lang": "EN",
-            "comments": []
-        },
-        "2b511b34-ddde-4266-9da4-8e200ba4b5f6": {
-            "token": "2b511b34-ddde-4266-9da4-8e200ba4b5f6",
-            "title": "Realism",
-            "author_token": "f620ec95-4d67-4e80-b62d-c4ecd60b7aad",
-            "content": "as close to reality as possible",
-            "context": "art art-history",
-            "date": "08/04/2024 - 14:37",
-            "likes": [],
-            "dislikes": [],
-            "original_lang": "EN",
-            "comments": []
-        },
-        "6bb34c68-8555-4575-a03c-1bb0f53944f3": {
-            "token": "6bb34c68-8555-4575-a03c-1bb0f53944f3",
-            "title": "D\u00e9rivation",
-            "author_token": "f620ec95-4d67-4e80-b62d-c4ecd60b7aad",
-            "content": "La d\u00e9riv\u00e9e de $f(x)=\\sqrt{x}$ est $f'(x)=\\dfrac{1}{2\\sqrt{x}}$",
-            "context": "maths derivation functions",
-            "date": "08/04/2024 - 14:37",
+        "3260a038-1183-4fc3-ad46-c4a3051595f8": {
+            "token": "3260a038-1183-4fc3-ad46-c4a3051595f8",
+            "title": "Use of derivation",
+            "author_token": "95cdb20e-c62f-4dd6-803d-8c148a0f909d",
+            "content": "$\\text{\r\nLet $f$ be a function.\r\n}$\r\n\r\n$\\text{\r\nLet $f'$ be the derived function of $f$.\r\n}$\r\n\r\n$\r\n\\forall a\\in(D_{definition}\\cap D_{derivability})\r\n$\r\n\r\n$\\text{\r\nIf $f'(a)>0$ then $f$ is ascending.\r\n}$\r\n\r\n$\\text{\r\nIf $f'(a)<0$ then $f$ is descending.\r\n}$\r\n\r\n$\\text{\r\nIf $f'(a)=0$ then $f$ is an extremum only if the variations between the two intervals separated by $a$ have a different variation!\r\n}$",
+            "context": "maths functions derivation",
+            "date": "17/04/2024 - 15:02",
             "likes": [],
             "dislikes": [],
             "original_lang": "EN",

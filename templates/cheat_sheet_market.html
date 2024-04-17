@@ -1,38 +1,58 @@
 {% extends "base.html" %}
 
 
+{% macro display_category(header_content, cs) %}
+    <h4 class="display-4">
+        {{header_content}}
+    </h4>
+    <div class="row row-col-4 mb-4">
+        {% for c in cs %}
+            <div class="card col text-center my-2 mx-1" style="max-width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{c.title}}</h5>
+                    <p class="card-text">{{c.context}}</p>
+                    <a href=/cheat-sheet/{{c.token}} class="btn btn-primary mb-2">Display</a>
+                </div>
+            </div>
+        {% else %}
+            No cheat sheet yet... Be the first one to create a cheat sheet linked to this topic!
+        {% endfor %}
+    </div>
+{% endmacro %}
+
+
 {% block body %}
     <div class="container">
-        <h2 class="display-2">
+        <h2 class="display-2 fw-bold mb-4">
             Cheat Sheet Market (CSM)
         </h2>
-        <h3 class="display-3">
-            Scholar subjects
+        <h3 class="display-3 mb-4">
+            Can't find your cheat sheet? Check it out here, or search it up in the search bar!
         </h3>
-        <h4 class="display-4">
-            Mathematics
-        </h4>
-        <div class="row">
-            <div class="col">
-                {% for c in maths_cheat_sheet %}
-                    <div class="card col text-center my-2 mx-1" style="max-width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">{{c.title}}</h5>
-                            <p class="card-text">{{c.context}}</p>
-                            <a href=/cheat-sheet/{{c.token}} class="btn btn-primary mb-2">Display</a>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-        <h4 class="display-4">
-            Physics
-        </h4>
-        <h4 class="display-4">
-            Chemistry
-        </h4>
-        <h4 class="display-4">
-            Art
-        </h4>
+        <h3 class="display-3 fw-semibold mb-4">
+            Sciences
+        </h3>
+        {{display_category("Mathematics", data[0])}}
+        {{display_category("Physics", data[1])}}
+        {{display_category("Chemistry", data[2])}}
+        {{display_category("Sociology", data[7])}}
+        {{display_category("Economy and Business", data[8])}}
+        {{display_category("Technology, IT, Computer science...", data[11])}}
+        
+
+        <h3 class="display-3 fw-semibold mb-4">
+            The current world
+        </h3>
+        {{display_category("Geography", data[3])}}
+        {{display_category("History", data[5])}}
+        {{display_category("Geopolitics", data[6])}}
+
+
+        <h3 class="display-3 fw-semibold mb-4">
+            Art and cultures
+        </h3>
+        {{display_category("Foreign languages", data[4])}}
+        {{display_category("Art", data[9])}}
+        {{display_category("Cuisine, gastronomy, and recipes!", data[10])}}
     </div>
 {% endblock %}

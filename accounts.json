@@ -99,6 +99,52 @@
                     "name": "formules-d\u00e9rivation"
                 }
             ]
+        },
+        "95cdb20e-c62f-4dd6-803d-8c148a0f909d": {
+            "username": "Leonardo",
+            "password": "090b235e9eb8f197f2dd927937222c570396d971222d9009a9189e2b6cc0a2c1",
+            "description": "",
+            "profile_picture": "",
+            "id": "95cdb20e-c62f-4dd6-803d-8c148a0f909d",
+            "cheat_sheet": [
+                {
+                    "token": "04e05849-ea28-458a-8b78-ac971c5d1d06",
+                    "title": "Linux commands you should know!",
+                    "author_token": "95cdb20e-c62f-4dd6-803d-8c148a0f909d",
+                    "content": "**cd**: changes current directory, takes one argument\r\n**ls**: lists everything in current directory, can take multiple arguments to check permissions ",
+                    "context": "technology",
+                    "date": "17/04/2024 - 14:15",
+                    "likes": [],
+                    "dislikes": [],
+                    "original_lang": "EN",
+                    "comments": []
+                },
+                {
+                    "token": "e074d7ca-adb7-44c2-83c8-ec9366f8d986",
+                    "title": "Data structures",
+                    "author_token": "95cdb20e-c62f-4dd6-803d-8c148a0f909d",
+                    "content": "list => list of elements (sometimes called slice or table)\r\narray => slices/list that have a restricted amount of elements determined in the variable assignment\r\ndictionary/hash => key-value data structure\r\ntuple => immutable list",
+                    "context": "technology python",
+                    "date": "17/04/2024 - 14:22",
+                    "likes": [],
+                    "dislikes": [],
+                    "original_lang": "EN",
+                    "comments": []
+                },
+                {
+                    "token": "3260a038-1183-4fc3-ad46-c4a3051595f8",
+                    "title": "Use of derivation",
+                    "author_token": "95cdb20e-c62f-4dd6-803d-8c148a0f909d",
+                    "content": "$\r\n\\text{Let f be a function in which we will pass a variable x.}\r\n$",
+                    "context": "maths",
+                    "date": "17/04/2024 - 15:02",
+                    "likes": [],
+                    "dislikes": [],
+                    "original_lang": "EN",
+                    "comments": []
+                }
+            ],
+            "collections": []
         }
     }
 }
