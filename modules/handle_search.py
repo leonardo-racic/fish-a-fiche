@@ -108,8 +108,10 @@ def handle_search(sam: ServerAccountManager, search: str) -> Response:
     else:
         try:
             search_data: str = search[:search.rindex("&")]
-        except Exception:
-            abort(404)
+        except ValueError:
+            return redirect(f'/search/{search}&title')
+        
+        
         search_by: str = search[search.rindex("&")+1:]
         profiles: list = filter_profiles(search_data)
         if search_by == "title":

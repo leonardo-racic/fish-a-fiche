@@ -12,12 +12,12 @@
         <title>Fish a fiche</title>
         <script>
             MathJax = {
-            tex: {
-                inlineMath: [
-                ['$', '$'],
-                ['\\(', '\\)']
-                ]
-            }
+                tex: {
+                    inlineMath: [
+                        ['$', '$'],
+                        ['\\(', '\\)']
+                    ]
+                }
             }
             addEventListener('zero-md-rendered', () => MathJax.typeset())
         </script>
@@ -39,11 +39,19 @@
     {% block header %}
         <div class="container">
             <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                    <a href="/search" class="nav-link px-2 link-dark">Cheat-Sheet Market</a>
+                <ul class="nav col-12 col-md-auto mb-2 mb-md-0">
                     <a href="/" class="nav-link px-2 link-secondary">Home</a>
-                    
-                    
+                    <a href="/cheat-sheet-market" class="nav-link px-2 link-dark">Cheat-Sheet Market</a>
+                </ul>
+                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                    <div class="col-md-auto me-2">
+                        <input class="form-control" type="text" name="search-input" id="search-input">
+                    </div>
+                    <div class="col-md-auto">
+                        <button type="button" class="btn btn-outline-primary" id="search-button">Search</button>
+                    </div>
+                </ul>
+                <ul class="nav col-12 col-md-auto mb-2 justify-content-right mb-md-0">
                     {% if not logged_in %}
                         <a href="/login">
                             <button class="btn btn-outline-primary me-2">Login</button>
@@ -51,8 +59,6 @@
                         <a href="/sign-up">
                             <button class="btn btn-outline-primary">Sign-up</button>
                         </a>
-
-
                     {% else %}
                         <a href="/sign-out">
                             <button class="btn btn-outline-primary me-2">Sign-out</button>
@@ -126,6 +132,10 @@
             </footer>
         </div>
     {% endblock %}
+
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     
@@ -174,6 +184,16 @@
             this.style.minHeight = "0";
             let newHeight  = this.scrollHeight + "px";
             this.style.minHeight = newHeight;
+        });
+    </script>
+    <script>
+        let searchInput = $("#search-input");
+        let searchButton = $("#search-button");
+
+
+        searchButton.on("click", function() {
+            let searchTerm = searchInput.val();
+            window.location.href = `/search/${searchTerm}`;
         });
     </script>
 </body>

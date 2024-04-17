@@ -1,11 +1,37 @@
-2024-04-08 16:31:55,115 - WARNING   (werkzeug)    * Debugger is active!
-2024-04-08 16:31:55,116 - INFO   (werkzeug)    * Debugger PIN: 101-558-284
-2024-04-08 16:32:02,269 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 16:32:02] "GET /search/ HTTP/1.1" 200 -
-2024-04-08 16:32:22,176 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 16:32:22] "[32mPOST /search/ HTTP/1.1[0m" 302 -
-2024-04-08 16:32:22,183 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 16:32:22] "GET /search/t&title HTTP/1.1" 200 -
-2024-04-08 16:34:50,914 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 16:34:50] "GET / HTTP/1.1" 200 -
-2024-04-08 16:34:53,653 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 16:34:53] "GET /search/ HTTP/1.1" 200 -
-2024-04-08 16:34:58,122 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 16:34:58] "[32mPOST /search/ HTTP/1.1[0m" 302 -
-2024-04-08 16:34:58,133 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 16:34:58] "GET /search/maths&context HTTP/1.1" 200 -
-2024-04-08 16:35:17,970 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 16:35:17] "[32mPOST /search/maths&context HTTP/1.1[0m" 302 -
-2024-04-08 16:35:17,975 - INFO   (werkzeug)   127.0.0.1 - - [08/Apr/2024 16:35:17] "GET /search/maths%20functions&context HTTP/1.1" 200 -
+2024-04-17 13:37:49,744 - WARNING   (werkzeug)    * Debugger is active!
+2024-04-17 13:37:49,745 - INFO   (werkzeug)    * Debugger PIN: 136-580-221
+2024-04-17 13:38:54,641 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:38:54] "GET /search/ze&title HTTP/1.1" 200 -
+2024-04-17 13:39:00,396 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:39:00] "GET / HTTP/1.1" 200 -
+2024-04-17 13:39:02,044 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:39:02] "GET /search/ HTTP/1.1" 200 -
+2024-04-17 13:39:19,866 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:39:19] "GET /search/ HTTP/1.1" 200 -
+2024-04-17 13:39:32,150 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:39:32] "[32mPOST /search/ HTTP/1.1[0m" 302 -
+2024-04-17 13:39:32,155 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:39:32] "GET /search/maths&title HTTP/1.1" 200 -
+2024-04-17 13:39:35,208 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:39:35] "[32mPOST /search/maths&title HTTP/1.1[0m" 302 -
+2024-04-17 13:39:35,220 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:39:35] "GET /search/maths&context HTTP/1.1" 200 -
+2024-04-17 13:39:41,522 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:39:41] "[32mPOST /search/maths&context HTTP/1.1[0m" 302 -
+2024-04-17 13:39:41,530 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:39:41] "GET /search/maths%20functions&context HTTP/1.1" 200 -
+2024-04-17 13:39:47,541 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:39:47] "[32mPOST /search/maths%20functions&context HTTP/1.1[0m" 302 -
+2024-04-17 13:39:47,546 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:39:47] "GET /search/maths&context HTTP/1.1" 200 -
+2024-04-17 13:40:01,365 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:40:01] "[32mPOST /search/maths&context HTTP/1.1[0m" 302 -
+2024-04-17 13:40:01,377 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:40:01] "GET /search/maths%20functions&context HTTP/1.1" 200 -
+2024-04-17 13:40:03,443 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:40:03] "[32mPOST /search/maths%20functions&context HTTP/1.1[0m" 302 -
+2024-04-17 13:40:03,447 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:40:03] "GET /search/maths%20functions&context HTTP/1.1" 200 -
+2024-04-17 13:40:16,003 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:40:16] "[32mPOST /search/maths%20functions&context HTTP/1.1[0m" 302 -
+2024-04-17 13:40:16,008 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:40:16] "GET /search/functions%20maths&context HTTP/1.1" 200 -
+2024-04-17 13:40:18,874 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:40:18] "[32mPOST /search/functions%20maths&context HTTP/1.1[0m" 302 -
+2024-04-17 13:40:18,881 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:40:18] "GET /search/functions&context HTTP/1.1" 200 -
+2024-04-17 13:41:02,237 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:41:02] "GET / HTTP/1.1" 200 -
+2024-04-17 13:41:05,005 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:41:05] "[32mGET /search/ze HTTP/1.1[0m" 302 -
+2024-04-17 13:41:05,010 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:41:05] "GET /search/ze&title HTTP/1.1" 200 -
+2024-04-17 13:41:22,741 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:41:22] "GET / HTTP/1.1" 200 -
+2024-04-17 13:41:27,167 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:41:27] "[32mGET /search/ze HTTP/1.1[0m" 302 -
+2024-04-17 13:41:27,174 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:41:27] "GET /search/ze&title HTTP/1.1" 200 -
+2024-04-17 13:41:32,886 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:41:32] "GET /search/ HTTP/1.1" 200 -
+2024-04-17 13:43:31,460 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:43:31] "GET / HTTP/1.1" 200 -
+2024-04-17 13:44:48,202 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:44:48] "GET /search/ HTTP/1.1" 200 -
+2024-04-17 13:44:49,593 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:44:49] "GET / HTTP/1.1" 200 -
+2024-04-17 13:44:59,148 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:44:59] "GET / HTTP/1.1" 200 -
+2024-04-17 13:45:00,859 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:45:00] "[33mGET /cheat-sheet-market/ HTTP/1.1[0m" 404 -
+2024-04-17 13:45:04,258 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:45:04] "GET /cheat-sheet-market HTTP/1.1" 200 -
+2024-04-17 13:45:11,422 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:45:11] "GET / HTTP/1.1" 200 -
+2024-04-17 13:45:11,858 - INFO   (werkzeug)   127.0.0.1 - - [17/Apr/2024 13:45:11] "GET /cheat-sheet-market HTTP/1.1" 200 -
