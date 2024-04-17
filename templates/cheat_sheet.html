@@ -20,11 +20,7 @@
             <div class="card-header">
                 Context
             </div>
-            <div class="card-body">
-                <zero-md>
-                    <script type="text/markdown">{{context}}</script>    
-                </zero-md>
-            </div>
+            <div class="card-body" id="context">{{context}}</div>
             <div class="card-footer text-muted">
                 {{date}}
             </div>
@@ -303,5 +299,28 @@
                 createCollectionButton.attr("disabled", "disabled");
             }
         });
+    </script>
+    <script>
+        function getKeywords(context) {
+            return context.split(" ");
+        }
+
+
+        function addKeyword(element, keyword) {
+            $("<a/>", {
+                text: keyword,
+                class: "btn btn-outline-info me-2",
+                href: `/search/${keyword}&context`,
+            }).appendTo(element);
+        }
+
+
+        let contextElement = $("#context");
+        let context = contextElement.html();
+        let keywords = getKeywords(context);
+        contextElement.html("");
+        for (let k of keywords) {
+            addKeyword(contextElement, k);
+        }
     </script>
 {% endblock %}
