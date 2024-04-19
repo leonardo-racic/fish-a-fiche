@@ -25,6 +25,7 @@
     </div>
     <script>
         const MIN_LENGTH = 0;
+        const MAX_TITLE_LENGTH = 32;
         const MAX_KEYWORDS = 10;
     
 
@@ -37,6 +38,11 @@
 
         function isInputValid(input) {
             return (input.length > MIN_LENGTH);
+        }
+
+        
+        function isTitleValid(input) {
+            return isInputValid(input) && input.length <= MAX_TITLE_LENGTH;
         }
 
 
@@ -71,7 +77,7 @@
             return true;
         }
 
-        
+
         function isContextValid(input) {
             if (!isInputValid(input)) {
                 return false;
@@ -90,7 +96,7 @@
 
 
         function isFormInputValid() {
-            let titleValid = isInputValid(titleInput.val());
+            let titleValid = isTitleValid(titleInput.val());
             let contentValid = isInputValid(contentInput.val());
             let contextValid = isContextValid(contextInput.val());
             let condition = titleValid && contentValid && contextValid

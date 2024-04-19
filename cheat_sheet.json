@@ -67,6 +67,18 @@
             "dislikes": [],
             "original_lang": "EN",
             "comments": []
+        },
+        "5e8f2a07-4058-42d3-a06e-0816551f66a5": {
+            "token": "5e8f2a07-4058-42d3-a06e-0816551f66a5",
+            "title": "Mandarin, essential verbs",
+            "author_token": "290a0e22-ecd4-4549-99e7-213658108ea1",
+            "content": "to do = \u505a \uff08zuo\uff09\r\nto eat = \u5403\uff08chi\uff09\r\nto think = \u60f3\uff08xiang\uff09\uff0c\u89c9\u5f97\uff08juede\uff09\r\nto drink = \u559d\uff08he\uff09\r\nto talk = \u8bf4\u8bdd\uff08shuahua\uff09\r\nto draw = \u753b\uff08hua\uff09\r\nto write = \u5199\uff08xie\uff09\r\nto translate = \u7ffb\u8bd1\uff08fanyi\uff09\r\nto look = \u89c1\uff08jian\uff09\r\nto watch = \u770b\uff08kan\uff09\r\nto open = \u5f00\uff08kai\uff09\r\nto close = \u5173\uff08guan\uff09",
+            "context": "foreign-languages mandarin verbs",
+            "date": "19/04/2024 - 13:36",
+            "likes": [],
+            "dislikes": [],
+            "original_lang": "EN",
+            "comments": []
         }
     }
 }
