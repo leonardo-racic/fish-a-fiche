@@ -10,7 +10,7 @@
             </div>
             
             <div class="form-group">
-                <label for="content-input">Content of the new cheat sheet <strong>written in markdown</strong></label>
+                <label for="content-input">Content of the new cheat sheet (Latex works!)</label>
                 <textarea class="form-control" id="content-input" name="content" autocomplete="off"></textarea>
             </div>
 
@@ -25,6 +25,7 @@
     </div>
     <script>
         const MIN_LENGTH = 0;
+        const MAX_KEYWORDS = 10;
     
 
         let titleInput = $("#title-input");
@@ -39,18 +40,52 @@
         }
 
 
-        function isContextValid(input) {
-            if (input.length > MIN_LENGTH) {
-                for (let c of input) {
-                    if (c.match(/[a-z]/i) || c === "-" || c === " ") {
-                        continue;
-                    } else {
-                        return false
-                    }
+        function areCharactersValid(input) {
+            for (let c of input) {
+                if (c.match(/[a-z]/i) || c === "-" || c === " ") {
+                    continue;
+                } else {
+                    return false
                 }
-                return true;
             }
-            return false;
+            return true;
+        }
+
+
+        function isKeywordNumberValid(input) {
+            let numberOfKeywords = input.split(" ").length;
+            return numberOfKeywords <= MAX_KEYWORDS;
+        }
+
+
+        function noRepeatingKeyword(input) {
+            let cache = [];
+            let keywords = input.split(" ");
+            for (let k of keywords) {
+                if (!cache.includes(k)) {
+                    cache.push(k);
+                } else {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        
+        function isContextValid(input) {
+            if (!isInputValid(input)) {
+                return false;
+            }
+            if (!areCharactersValid(input)) {
+                return false;
+            }
+            if (!isKeywordNumberValid(input)) {
+                return false;
+            }
+            if (!noRepeatingKeyword(input)) {
+                return false;
+            }
+            return true;
         }
 
 

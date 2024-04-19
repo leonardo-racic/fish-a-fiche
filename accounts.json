@@ -154,6 +154,40 @@
             "id": "2abb9e7b-9586-47fc-bd93-24d159d382f4",
             "cheat_sheet": [],
             "collections": []
+        },
+        "290a0e22-ecd4-4549-99e7-213658108ea1": {
+            "username": "se",
+            "password": "ad9a67fefa847de87753df6794a0ae466431e76ad1fb4db58fbbe836d1dde0e7",
+            "description": "",
+            "profile_picture": "",
+            "id": "290a0e22-ecd4-4549-99e7-213658108ea1",
+            "cheat_sheet": [
+                {
+                    "token": "7af54f74-30b6-472b-97d3-0f35a2756165",
+                    "title": "testtttt",
+                    "author_token": "290a0e22-ecd4-4549-99e7-213658108ea1",
+                    "content": "\\begin{cases}\r\ny=2x-4\\\\\\\r\n7y-9x+9=0\r\n\\end{cases}",
+                    "context": "maths system",
+                    "date": "19/04/2024 - 13:36",
+                    "likes": [],
+                    "dislikes": [],
+                    "original_lang": "EN",
+                    "comments": []
+                },
+                {
+                    "token": "7960f30c-d0bf-46a7-8966-23f239c0463c",
+                    "title": "a",
+                    "author_token": "290a0e22-ecd4-4549-99e7-213658108ea1",
+                    "content": "a\r\ns\r\nc",
+                    "context": "a",
+                    "date": "19/04/2024 - 13:36",
+                    "likes": [],
+                    "dislikes": [],
+                    "original_lang": "EN",
+                    "comments": []
+                }
+            ],
+            "collections": []
         }
     }
 }
