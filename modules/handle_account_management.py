@@ -188,7 +188,8 @@ def handle_profile(server_account_manager: ServerAccountManager, hashed_token: s
             with open(reports_path) as f:
                 reports_dict: dict = json.loads(f.read())
             reports: dict = reports_dict["reports"]
-            account: Account = server_account_manager.get_account_from_hashed_token(hashed_token)
+            hashed_account_id: str = form_data["hashed_account_id"]
+            account: Account = server_account_manager.get_account_from_hashed_token(hashed_account_id)
             if account.get_id() not in reports["accounts"]:
                 reports["accounts"].append(account.get_id())
                 with open(reports_path, "w") as f:
@@ -196,4 +197,4 @@ def handle_profile(server_account_manager: ServerAccountManager, hashed_token: s
                 flash("Sucessfully reported!", "success")
             else:
                 flash("It has already been reported", "warning")
-            return redirect(f"/profile/{hashed_token}")
+            return redirect(f"/profile/{hashed_account_id}")
