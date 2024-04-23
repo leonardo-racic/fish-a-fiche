@@ -19,10 +19,15 @@
                             {% else %}
                                 <img src={{profile_picture}} class="rounded-circle img-responsive" alt="profile icon">
                             {% endif %}
-                            <input type="text" name="new_image_input" placeholder="Image url" autocomplete="off"/>
                             <div class="mt-3">
-                                <input type="text" class="form-control" placeholder="Username" value={{username}} name="username_input" autocomplete="off"/>
-                                <textarea class="form-control" placeholder="Description" name="description_input">{{description}}</textarea>
+                                <label for="image_input" class="form-label">Change profile picture</label>
+                                <input type="file" class="form-control" name="new_image_input" id="image_input">
+                            </div>
+                            <div class="mt-3">
+                                <label for="username_input">Change username</label>
+                                <input type="text" id="username_input" class="form-control mb-2" placeholder="Username" value={{username}} name="username_input" autocomplete="off"/>
+                                <label for="description_input">Change description</label>
+                                <textarea id="description_input" class="form-control" placeholder="Description" name="description_input">{{description}}</textarea>
                             </div>
                         </div>
                     </div>
@@ -40,6 +45,8 @@
                                         </div>
                                     </div>
                                 </div>
+                            {% else %}
+                                <small class="text-muted mb-2">No personally made cheat sheet yet...</small>
                             {% endfor %}
                         </div>
                     </div>

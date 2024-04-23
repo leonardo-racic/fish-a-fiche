@@ -2,6 +2,7 @@ from flask import Response, make_response, redirect, url_for, flash, abort, requ
 from singletons import render_html, get_form_data
 from .account_module import Account
 from .server_account_manager import ServerAccountManager
+from .handle_upload import handle_profile_picture_upload
 from environment_variable import reports_path
 from terminal_log import inform, warn
 import json
@@ -114,6 +115,9 @@ def handle_modify_profile(server_account_manager: ServerAccountManager) -> Respo
         return handle_post_modify_profile(server_account_manager)
     elif request.method == "GET":
         current_account_info: dict = server_account_manager.get_user_account_info()
+        if current_account_info == {}:
+            flash("You are not logged in", "danger")
+            abort(404)
         return render_html(
             "modify_user_profile.html",
             server_account_manager,
@@ -129,12 +133,13 @@ def handle_modify_profile(server_account_manager: ServerAccountManager) -> Respo
 
 
 def handle_post_modify_profile(server_account_manager: ServerAccountManager) -> Response:
-    new_image_input: str = request.form.get("new_image_input", "")
+    new_image_input = request.files.get("new_image_input")
     description_input: str = request.form.get("description_input", "")
     username_input: str = request.form.get("username_input", "")
     if server_account_manager.has_account(server_account_manager.get_user_account()):
-        server_account_manager.modify_profile(new_image_input, description_input, username_input)
-        inform(f"{request.remote_addr}:{request.cookies.get('account-token')} modified {username_input}, with {new_image_input}, {description_input}")
+        image_path: str = handle_profile_picture_upload(new_image_input, server_account_manager)
+        server_account_manager.modify_profile(image_path, description_input, username_input)
+        inform(f"{request.remote_addr}:{request.cookies.get('account-token')} modified {username_input}, with {image_path}, {description_input}")
         flash('Account has been successfully modified', 'success')
     else:
         warn(f'{request.remote_addr}:{server_account_manager.get_user_account()} tried to modify non existant account')
@@ -157,13 +162,14 @@ def handle_profile(server_account_manager: ServerAccountManager, hashed_token: s
                 is_user = False
             else:
                 is_user = bool(account_info["id"] == user_account_info["id"])
+            profile_picture: str = account_info["profile_picture"]
             response: Response = make_response(render_html(
                 "user_profile.html",
                 server_account_manager,
                 username=account_info["username"],
                 current_hashed_token=hashed_token,
                 description=account_info["description"],
-                profile_picture=account_info["profile_picture"],
+                profile_picture=profile_picture,
                 is_user=is_user,
                 cheat_sheet=server_account_manager.get_account_cheat_sheet_info(account_info["id"])
             ))

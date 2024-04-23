@@ -29,8 +29,9 @@ Note: this docstring is a modified version of the Google Python Style Guide.
 """
 
 import os
-from flask import Flask, flash, request, redirect, render_template
+from flask import Flask, Response, flash, request, redirect, render_template, abort
 from werkzeug.utils import secure_filename
+from werkzeug.datastructures.file_storage import FileStorage
 import os.path
 from .cheat_sheet_module import CheatSheet
 from .server_account_manager import ServerAccountManager
@@ -38,17 +39,18 @@ from .cheat_sheet_manager import CheatSheetManager
 import terminal_log
 from environment_variable import upload_path
 
-UPLOAD_FOLDER = upload_path
-ALLOWED_EXTENSIONS = {'md','MD','txt'}
+
+UPLOAD_FOLDER: str = upload_path
+ALLOWED_EXTENSIONS: set = {'md','MD','txt', 'jpeg', 'png', 'jpg'}
 
 app: Flask = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
+csm: CheatSheetManager = CheatSheetManager()
 
-csm = CheatSheetManager()
 
-def allowed_file(filename):
+def allowed_file(filename: str) -> bool:
     """
     This function checks if a file with the given name has a valid extension.
 
@@ -58,7 +60,8 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-def handle_upload(server_account_manager: ServerAccountManager):
+
+def handle_upload(server_account_manager: ServerAccountManager) -> Response:
     """
     This function handles the upload of a new cheatsheet.
 
@@ -112,6 +115,7 @@ def handle_upload(server_account_manager: ServerAccountManager):
         hashed_token=server_account_manager.get_user_account_hashed_token(),
     )
 
+
 def create_cheat_sheet(server_account_manager: ServerAccountManager):
     """
     This function creates a new CheatSheet object from the uploaded file.
@@ -131,6 +135,7 @@ def create_cheat_sheet(server_account_manager: ServerAccountManager):
 
     return new_cs
 
+
 def read_md(file):
     """
     This function reads the contents of a markdown file.
@@ -140,3 +145,22 @@ def read_md(file):
     """
     with open(file) as md:
         return md.read()
+
+
+def get_extension(file_name: str) -> str:
+    try:
+        return file_name.split(".")[-1]
+    except Exception:
+        return ""
+
+def handle_profile_picture_upload(new_image_input: FileStorage, sam: ServerAccountManager) -> str:
+    if new_image_input.filename == "":
+        return ""
+    elif new_image_input and allowed_file(new_image_input.filename):
+        hashed_user_id: str = sam.get_user_account_hashed_token()
+        extension: str = get_extension(new_image_input.filename)
+        file_name: str = secure_filename(f"{hashed_user_id}.{extension}")
+        path: str = os.path.join(app.config["UPLOAD_FOLDER"], file_name)
+        new_image_input.save(path)
+        return path
+    return ""
