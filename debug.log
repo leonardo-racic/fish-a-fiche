@@ -1,5 +1,19 @@
-2024-04-23 09:40:19,318 - WARNING   (werkzeug)    * Debugger is active!
-2024-04-23 09:40:19,335 - INFO   (werkzeug)    * Debugger PIN: 102-052-970
-2024-04-23 09:40:19,962 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:40:19] "GET /profile/0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039 HTTP/1.1" 200 -
-2024-04-23 09:40:20,089 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:40:20] "GET /static/upload/0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039.jpg HTTP/1.1" 200 -
-2024-04-23 09:40:20,094 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:40:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-04-23 09:49:48,116 - WARNING   (werkzeug)    * Debugger is active!
+2024-04-23 09:49:48,148 - INFO   (werkzeug)    * Debugger PIN: 102-052-970
+2024-04-23 09:49:50,035 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:49:50] "GET /profile/0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039 HTTP/1.1" 200 -
+2024-04-23 09:49:50,078 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:49:50] "[33mGET /static/static\\upload\\0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039.jpg HTTP/1.1[0m" 404 -
+2024-04-23 09:49:54,211 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:49:54] "GET /profile/0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039 HTTP/1.1" 200 -
+2024-04-23 09:49:54,238 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:49:54] "[33mGET /static/static\\upload\\0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039.jpg HTTP/1.1[0m" 404 -
+2024-04-23 09:49:54,256 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:49:54] "[33mGET /static/static\\upload\\0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039.jpg HTTP/1.1[0m" 404 -
+2024-04-23 09:49:54,690 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:49:54] "GET /profile/0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039 HTTP/1.1" 200 -
+2024-04-23 09:49:54,712 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:49:54] "[33mGET /static/static\\upload\\0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039.jpg HTTP/1.1[0m" 404 -
+2024-04-23 09:50:24,019 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:50:24] "GET /profile/0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039 HTTP/1.1" 200 -
+2024-04-23 09:50:25,687 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:50:25] "GET /modify-profile HTTP/1.1" 200 -
+2024-04-23 09:50:30,192 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:50:30] "[32mPOST /modify-profile HTTP/1.1[0m" 302 -
+2024-04-23 09:50:30,200 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:50:30] "GET /profile/0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039 HTTP/1.1" 200 -
+2024-04-23 09:50:30,315 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:50:30] "GET /static/upload/0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039.jpg HTTP/1.1" 200 -
+2024-04-23 09:50:31,297 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:50:31] "GET /modify-profile HTTP/1.1" 200 -
+2024-04-23 09:50:31,346 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:50:31] "[36mGET /static/upload/0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039.jpg HTTP/1.1[0m" 304 -
+2024-04-23 09:50:32,889 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:50:32] "[32mPOST /modify-profile HTTP/1.1[0m" 302 -
+2024-04-23 09:50:32,904 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:50:32] "GET /profile/0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039 HTTP/1.1" 200 -
+2024-04-23 09:50:32,958 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:50:32] "[36mGET /static/upload/0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039.jpg HTTP/1.1[0m" 304 -
