@@ -157,12 +157,12 @@ def handle_profile(server_account_manager: ServerAccountManager, hashed_token: s
         does_account_exist: bool = account_info is not None
         if does_account_exist:
             user_account_info: dict = server_account_manager.get_user_account_info()
-            #test if user logged in
             if user_account_info == {}:
                 is_user = False
             else:
                 is_user = bool(account_info["id"] == user_account_info["id"])
-            profile_picture: str = account_info["profile_picture"]
+            profile_picture: str = account_info["profile_picture"][7:].replace("\\", "/")
+            print(profile_picture)
             response: Response = make_response(render_html(
                 "user_profile.html",
                 server_account_manager,
