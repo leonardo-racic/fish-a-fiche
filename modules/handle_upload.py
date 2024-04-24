@@ -29,15 +29,16 @@ Note: this docstring is a modified version of the Google Python Style Guide.
 """
 
 import os
-from flask import Flask, Response, flash, request, redirect, render_template, abort
+from flask import Flask, Response, flash, request, redirect
 from werkzeug.utils import secure_filename
-from werkzeug.datastructures.file_storage import FileStorage
+from werkzeug.datastructures import FileStorage
 import os.path
 from .cheat_sheet_module import CheatSheet
 from .server_account_manager import ServerAccountManager
 from .cheat_sheet_manager import CheatSheetManager
 import terminal_log
 from environment_variable import upload_path
+from singletons import render_html
 
 
 UPLOAD_FOLDER: str = upload_path
@@ -69,16 +70,14 @@ def handle_upload(server_account_manager: ServerAccountManager) -> Response:
     :return: redirect to the same page if upload unsuccesfull, or a page indicating that the
              upload was succesfull otherwise.
     """
-    logged_in: bool = server_account_manager.is_user_logged_in()
     if request.method == 'POST':
-
         # check if the post request has the file part
         if 'file' not in request.files:
             terminal_log.warn('no files uploaded')
             return redirect(request.url)
         
         terminal_log.inform('requesting file')
-        file = request.files['file']
+        file: FileStorage = request.files['file']
 
         # If the user does not select a file, the browser submits an
         # empty file without a filename.
@@ -88,8 +87,7 @@ def handle_upload(server_account_manager: ServerAccountManager) -> Response:
         
         terminal_log.inform('verifying filename')
         if file and allowed_file(file.filename):
-            
-            filename = secure_filename(request.form.get("title"))
+            filename: str = secure_filename(f"{request.form.get('title')}.txt")
             terminal_log.inform(f'filename secured FILENAME:{filename}')
             terminal_log.inform('saving file')
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
@@ -102,17 +100,14 @@ def handle_upload(server_account_manager: ServerAccountManager) -> Response:
             terminal_log.inform('storing to index')
             csm.add_cheat_sheet(new_cs)
             terminal_log.inform('stored to index')
-            terminal_log.inform(f'{request.remote_addr}:{server_account_manager.get_user_account_token()} upload succesfull, redirecting')
+            terminal_log.inform(
+                f'{request.remote_addr}:{server_account_manager.get_user_account_token()} upload succesfull, redirecting'
+            )
             flash('upload succesfull','success')
-            return render_template('upload.html',
-                                   logged_in=logged_in,
-                                   hashed_token=server_account_manager.get_user_account_hashed_token(),
-                                   )
 
-    return render_template(
+    return render_html(
         'upload.html',
-        logged_in=logged_in,
-        hashed_token=server_account_manager.get_user_account_hashed_token(),
+        server_account_manager,
     )
 
 
@@ -123,20 +118,18 @@ def create_cheat_sheet(server_account_manager: ServerAccountManager):
     :param server_account_manager: the server account manager used to authenticate the user
     :return: the new CheatSheet object
     """
-    file = request.files['file']
-    title = request.form.get("title")
-    author_token = server_account_manager.get_user_account_token()
-    content = read_md(UPLOAD_FOLDER+"/"+str(secure_filename(request.form.get("title"))))
-    description = request.form.get("description")
-    #keywords = request.form.get("keywords")
-    #keywords = keywords.split()
+    title: str = request.form.get("title")
+    author_token: str = server_account_manager.get_user_account_token()
+    content: str = read_md(
+        UPLOAD_FOLDER + "/" + secure_filename(request.form.get("title")) + ".txt"
+    )
+    description: str = request.form.get("description")
     new_cs = CheatSheet(title, author_token, content, description)
-    #new_cs.keywords = keywords
-
+    server_account_manager.add_cheat_sheet_to_user(new_cs)
     return new_cs
 
 
-def read_md(file):
+def read_md(file: str) -> str:
     """
     This function reads the contents of a markdown file.
 
@@ -152,6 +145,7 @@ def get_extension(file_name: str) -> str:
         return file_name.split(".")[-1]
     except Exception:
         return ""
+
 
 def handle_profile_picture_upload(new_image_input: FileStorage, sam: ServerAccountManager) -> str:
     if new_image_input.filename == "":

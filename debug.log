@@ -1,19 +1,7 @@
-2024-04-23 09:49:48,116 - WARNING   (werkzeug)    * Debugger is active!
-2024-04-23 09:49:48,148 - INFO   (werkzeug)    * Debugger PIN: 102-052-970
-2024-04-23 09:49:50,035 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:49:50] "GET /profile/0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039 HTTP/1.1" 200 -
-2024-04-23 09:49:50,078 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:49:50] "[33mGET /static/static\\upload\\0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039.jpg HTTP/1.1[0m" 404 -
-2024-04-23 09:49:54,211 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:49:54] "GET /profile/0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039 HTTP/1.1" 200 -
-2024-04-23 09:49:54,238 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:49:54] "[33mGET /static/static\\upload\\0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039.jpg HTTP/1.1[0m" 404 -
-2024-04-23 09:49:54,256 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:49:54] "[33mGET /static/static\\upload\\0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039.jpg HTTP/1.1[0m" 404 -
-2024-04-23 09:49:54,690 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:49:54] "GET /profile/0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039 HTTP/1.1" 200 -
-2024-04-23 09:49:54,712 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:49:54] "[33mGET /static/static\\upload\\0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039.jpg HTTP/1.1[0m" 404 -
-2024-04-23 09:50:24,019 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:50:24] "GET /profile/0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039 HTTP/1.1" 200 -
-2024-04-23 09:50:25,687 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:50:25] "GET /modify-profile HTTP/1.1" 200 -
-2024-04-23 09:50:30,192 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:50:30] "[32mPOST /modify-profile HTTP/1.1[0m" 302 -
-2024-04-23 09:50:30,200 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:50:30] "GET /profile/0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039 HTTP/1.1" 200 -
-2024-04-23 09:50:30,315 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:50:30] "GET /static/upload/0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039.jpg HTTP/1.1" 200 -
-2024-04-23 09:50:31,297 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:50:31] "GET /modify-profile HTTP/1.1" 200 -
-2024-04-23 09:50:31,346 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:50:31] "[36mGET /static/upload/0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039.jpg HTTP/1.1[0m" 304 -
-2024-04-23 09:50:32,889 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:50:32] "[32mPOST /modify-profile HTTP/1.1[0m" 302 -
-2024-04-23 09:50:32,904 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:50:32] "GET /profile/0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039 HTTP/1.1" 200 -
-2024-04-23 09:50:32,958 - INFO   (werkzeug)   127.0.0.1 - - [23/Apr/2024 09:50:32] "[36mGET /static/upload/0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039.jpg HTTP/1.1[0m" 304 -
+2024-04-24 22:42:36,483 - WARNING   (werkzeug)    * Debugger is active!
+2024-04-24 22:42:36,483 - INFO   (werkzeug)    * Debugger PIN: 271-889-394
+2024-04-24 22:43:00,549 - INFO   (werkzeug)   127.0.0.1 - - [24/Apr/2024 22:43:00] "GET /upload HTTP/1.1" 200 -
+2024-04-24 22:43:22,749 - INFO   (werkzeug)   127.0.0.1 - - [24/Apr/2024 22:43:22] "POST /upload HTTP/1.1" 200 -
+2024-04-24 22:43:37,213 - INFO   (werkzeug)   127.0.0.1 - - [24/Apr/2024 22:43:37] "GET /profile/889e84da557064ae65c22b06548ea8756ab00faf1390162a0d29d67df1936f86 HTTP/1.1" 200 -
+2024-04-24 22:43:38,025 - INFO   (werkzeug)   127.0.0.1 - - [24/Apr/2024 22:43:38] "GET /cheat-sheet/6d22461b-d9e4-4b85-adde-8653c8b97d28 HTTP/1.1" 200 -
+2024-04-24 22:43:40,128 - INFO   (werkzeug)   127.0.0.1 - - [24/Apr/2024 22:43:40] "GET /search/fg&context HTTP/1.1" 200 -
