@@ -162,7 +162,6 @@ def handle_profile(server_account_manager: ServerAccountManager, hashed_token: s
             else:
                 is_user = bool(account_info["id"] == user_account_info["id"])
             profile_picture: str = account_info["profile_picture"]
-            print(profile_picture)
             response: Response = make_response(render_html(
                 "user_profile.html",
                 server_account_manager,

@@ -14,12 +14,6 @@ def remove_duplicates(array: list) -> list:
     return cleaned
 
 
-def print_dict(d: dict) -> None:
-    print("*" * 50)
-    print(json.dumps(d, indent=4))
-
-
-
 categories: list = [
     "maths",
     "physics",
