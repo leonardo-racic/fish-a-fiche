@@ -1,5 +1,4 @@
 flask
-jsons
+json
 logging
-whoosh
-pdflatex
+pdfkit

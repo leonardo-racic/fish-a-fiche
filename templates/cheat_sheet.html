@@ -3,7 +3,7 @@
 
 {% block body %}
     <div class="container">
-        <div class="mb-4">
+        <div class="mb-4" id="content-div">
             <div class="mb-4">
                 <h1 class="display-1">{{title}}</h1>
                 <h6 class="display-6">
@@ -95,9 +95,11 @@
                             </button>
                         </li>
                         <li>
-                            <form action="/cheat-sheet/{{cheat_sheet_token}}" method="post">
+                            <form action="/cheat-sheet/{{cheat_sheet_token}}" method="post" id="download-form">
                                 <input type="hidden" name="input_type" value="download_input">
-                                <button type="submit" class="dropdown-item">
+                                <input type="hidden" name="content" id="content-input">
+                                <input type="hidden" name="title" value="{{title}}">
+                                <button type="submit" class="dropdown-item" onclick="onDowloadClick();">
                                     Download to pdf
                                 </button>
                             </form>
@@ -332,6 +334,22 @@
         contextElement.html("");
         for (let k of keywords) {
             addKeyword(contextElement, k);
+        }
+    </script>
+    <script>
+        function onDowloadClick() {
+            let baseHead = $("#base-head");
+            let contentDiv = $("#content-div");
+            let contentInput = $("#content-input");
+            let downloadForm = $("#download-form");
+            let htmlContent = baseHead.html() + 
+                "<div class=\"container\">" +
+                contentDiv.html() +
+                "</div>"
+            downloadForm.on("submit", function() {
+                contentInput.val(htmlContent);
+                return true;
+            });
         }
     </script>
 {% endblock %}

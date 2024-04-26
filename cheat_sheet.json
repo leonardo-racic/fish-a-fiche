@@ -112,7 +112,7 @@
             "token": "bc46ee56-83db-4811-902b-e3dcd4ba32da",
             "title": "Scalar",
             "author_token": "403bfe03-5901-4342-afef-c438a99b412d",
-            "content": "For all vectors $\\vec{u}$ and $\\vec{v}$\r\n$\\vec{u}\\cdot\\vec{v}=\\lVert\\vec{u}\\rVert\\cdot\\lVert\\vec{v}\\rVert\\cdot\\cos (\\widehat{\\vec{u},\\vec{v}})$\r\n$\\vec{u}\\cdot\\vec{v}=\\dfrac{1}{2}(\\lVert\\vec{u}\\rVert^2 + \\lVert\\vec{v}\\rVert^2 - \\lVert\\vec{u}-\\vec{v}\\rVert^2)$\r\n$\\vec{u}\\cdot\\vec{v}=\\dfrac{1}{2}(\\lVert\\vec{u}+\\vec{v}\\rVert^2 - \\lVert\\vec{u}\\rVert^2 - \\lVert\\vec{v}\\rVert^2)$\r\nFor $\\vec{u}\\begin{pmatrix}x\\\\y\\end{pmatrix}$ and $\\vec{v}\\begin{pmatrix}x'\\\\y'\\end{pmatrix}$ in a 2D orthonormed basis\r\n$\\vec{u}\\cdot\\vec{v}=x\\cdot x'+y\\cdot y'$",
+            "content": "For all vectors $\\vec{u}$ and $\\vec{v}$\r\n$\\vec{u}\\cdot\\vec{v}=\\lVert\\vec{u}\\rVert\\cdot\\lVert\\vec{v}\\rVert\\cdot\\cos (\\widehat{\\vec{u},\\vec{v}})$\r\n$\\vec{u}\\cdot\\vec{v}=\\dfrac{1}{2}(\\lVert\\vec{u}\\rVert^2 + \\lVert\\vec{v}\\rVert^2 - \\lVert\\vec{u}-\\vec{v}\\rVert^2)$\r\n$\\vec{u}\\cdot\\vec{v}=\\dfrac{1}{2}(\\lVert\\vec{u}+\\vec{v}\\rVert^2 - \\lVert\\vec{u}\\rVert^2 - \\lVert\\vec{v}\\rVert^2)$\r\nFor $\\vec{u}\\begin{pmatrix}x\\\\y\\end{pmatrix}$ and $\\vec{v}\\begin{pmatrix}x'\\\\y'\\end{pmatrix}$ in a 2D orthonormed basis\r\n$\\vec{u}\\cdot\\vec{v}=x\\cdot x'+y\\cdot y'$\r\nigtjgyjuyju",
             "context": "maths vectors scalar-product geometry",
             "date": "26/04/2024 - 08:55",
             "likes": [],

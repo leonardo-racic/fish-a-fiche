@@ -1,4 +1,4 @@
-from flask import Response, abort, redirect, flash, request
+from flask import Response, abort, redirect, flash, request, send_file, make_response
 from singletons import render_html, get_form_data
 from .server_account_manager import ServerAccountManager, get_hash
 from .account_module import Account
@@ -7,8 +7,8 @@ from .cheat_sheet_module import CheatSheet
 from environment_variable import reports_path, upload_path
 from terminal_log import inform
 from datetime import datetime
-from pdflatex import PDFLaTeX
 import json
+import pdfkit
 import os
 
 
@@ -151,19 +151,16 @@ def handle_cheat_sheet(
 
 
         elif input_type == "download_input":
-            title: str = cheat_sheet_info["title"]
-            date: str = cheat_sheet_info["date"]
-            author: str = server_account_manager.get_current_username_from_token(cheat_sheet_info["author_token"])
-            content: str = cheat_sheet_info["content"]
-            file_name: str = os.path.join(upload_path, f"{token}.tex")
-            with open(file_name, "w") as file:
-                print(type(file))
-                file_content: str = f"\\documentclass\u007barticle\u007d\n" + \
-                    f"\\title\u007b{title}\u007d\n\\date\u007b{date}\u007d\n\\author\u007b{author}\u007d\n" + \
-                    f"\\begin\u007bdocument\u007d\n\\maketitle\n{content}\n\end\u007bdocument\u007d"
-                file.write(file_content)
-            #https://stackoverflow.com/questions/51711716/compile-latex-document-by-python
-            #implement download
+            content: str = form_data["content"]
+            title: str = form_data["title"]
+            pdf_path: str = upload_path+f"/{token}.pdf"
+            pdfkit.from_string(content, pdf_path)
+            resp: Response = make_response(
+                send_file(pdf_path, as_attachment=True, download_name=f"{title}.pdf")
+            )
+            os.remove(pdf_path)
+            return resp
+            
         return redirect(f"/cheat-sheet/{token}")
 
 
