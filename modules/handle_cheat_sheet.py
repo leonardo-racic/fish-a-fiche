@@ -4,10 +4,12 @@ from .server_account_manager import ServerAccountManager, get_hash
 from .account_module import Account
 from .cheat_sheet_manager import CheatSheetManager
 from .cheat_sheet_module import CheatSheet
-from environment_variable import reports_path
+from environment_variable import reports_path, upload_path
 from terminal_log import inform
 from datetime import datetime
+from pdflatex import PDFLaTeX
 import json
+import os
 
 
 def get_current_date() -> str:
@@ -30,11 +32,11 @@ def handle_cheat_sheet(
     server_account_manager: ServerAccountManager,
     token: str,
 ) -> Response:
+    cheat_sheet_info: dict = cheat_sheet_manager.get_cheat_sheet_info(token)
     if request.method == "GET":
-        cheat_sheet_info: dict = cheat_sheet_manager.get_cheat_sheet_info(token)
         if cheat_sheet_info == {}:
-            abort(404)
             flash("Cheat sheet info is not found", "danger")
+            abort(404)
         author_token: str = cheat_sheet_info["author_token"]
         author_username: str = server_account_manager.get_current_username_from_token(author_token)
         is_author_dead: bool = cheat_sheet_info == {} or author_username == ""
@@ -147,6 +149,21 @@ def handle_cheat_sheet(
             else:
                 flash("It has already been reported", "warning")
 
+
+        elif input_type == "download_input":
+            title: str = cheat_sheet_info["title"]
+            date: str = cheat_sheet_info["date"]
+            author: str = server_account_manager.get_current_username_from_token(cheat_sheet_info["author_token"])
+            content: str = cheat_sheet_info["content"]
+            file_name: str = os.path.join(upload_path, f"{token}.tex")
+            with open(file_name, "w") as file:
+                print(type(file))
+                file_content: str = f"\\documentclass\u007barticle\u007d\n" + \
+                    f"\\title\u007b{title}\u007d\n\\date\u007b{date}\u007d\n\\author\u007b{author}\u007d\n" + \
+                    f"\\begin\u007bdocument\u007d\n\\maketitle\n{content}\n\end\u007bdocument\u007d"
+                file.write(file_content)
+            #https://stackoverflow.com/questions/51711716/compile-latex-document-by-python
+            #implement download
         return redirect(f"/cheat-sheet/{token}")
 
 

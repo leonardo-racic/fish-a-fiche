@@ -1,20 +1,2 @@
-2024-04-26 11:21:53,689 - WARNING   (werkzeug)    * Debugger is active!
-2024-04-26 11:21:53,748 - INFO   (werkzeug)    * Debugger PIN: 142-332-117
-2024-04-26 11:22:16,982 - INFO   (werkzeug)   127.0.0.1 - - [26/Apr/2024 11:22:16] "GET / HTTP/1.1" 200 -
-2024-04-26 11:22:18,375 - INFO   (werkzeug)   127.0.0.1 - - [26/Apr/2024 11:22:18] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2024-04-26 11:22:19,985 - INFO   (werkzeug)   127.0.0.1 - - [26/Apr/2024 11:22:19] "GET /sign-up HTTP/1.1" 200 -
-2024-04-26 11:22:23,890 - INFO   (werkzeug)   127.0.0.1 - - [26/Apr/2024 11:22:23] "[32mPOST /sign-up HTTP/1.1[0m" 302 -
-2024-04-26 11:22:23,931 - INFO   (werkzeug)   127.0.0.1 - - [26/Apr/2024 11:22:23] "GET / HTTP/1.1" 200 -
-2024-04-26 11:22:34,262 - INFO   (werkzeug)   127.0.0.1 - - [26/Apr/2024 11:22:34] "GET / HTTP/1.1" 200 -
-2024-04-26 11:22:37,968 - INFO   (werkzeug)   127.0.0.1 - - [26/Apr/2024 11:22:37] "GET /create-cheat-sheet HTTP/1.1" 200 -
-2024-04-26 11:22:54,204 - INFO   (werkzeug)   127.0.0.1 - - [26/Apr/2024 11:22:54] "[32mPOST /create-cheat-sheet HTTP/1.1[0m" 302 -
-2024-04-26 11:22:54,490 - INFO   (werkzeug)   127.0.0.1 - - [26/Apr/2024 11:22:54] "GET /cheat-sheet/9a99aa1e-bb14-4527-bbd5-e26a6d14a808 HTTP/1.1" 200 -
-2024-04-26 11:23:13,341 - INFO   (werkzeug)   127.0.0.1 - - [26/Apr/2024 11:23:13] "GET /cheat-sheet/9a99aa1e-bb14-4527-bbd5-e26a6d14a808 HTTP/1.1" 200 -
-2024-04-26 11:23:40,975 - INFO   (werkzeug)   127.0.0.1 - - [26/Apr/2024 11:23:40] "GET /search/ HTTP/1.1" 200 -
-2024-04-26 11:23:43,721 - INFO   (werkzeug)   127.0.0.1 - - [26/Apr/2024 11:23:43] "GET /cheat-sheet/bc46ee56-83db-4811-902b-e3dcd4ba32da HTTP/1.1" 200 -
-2024-04-26 11:23:54,912 - INFO   (werkzeug)   127.0.0.1 - - [26/Apr/2024 11:23:54] "GET /search/maths&context HTTP/1.1" 200 -
-2024-04-26 11:25:14,345 - INFO   (werkzeug)   127.0.0.1 - - [26/Apr/2024 11:25:14] "GET /profile/c6da29423b5e108e3dbbb5d332a5d8437b7df8e68d734b5701d1656d0754685c HTTP/1.1" 200 -
-2024-04-26 11:25:19,214 - INFO   (werkzeug)   127.0.0.1 - - [26/Apr/2024 11:25:19] "GET /cheat-sheet/9a99aa1e-bb14-4527-bbd5-e26a6d14a808 HTTP/1.1" 200 -
-2024-04-26 11:25:55,348 - INFO   (werkzeug)   127.0.0.1 - - [26/Apr/2024 11:25:55] "GET /profile/c6da29423b5e108e3dbbb5d332a5d8437b7df8e68d734b5701d1656d0754685c HTTP/1.1" 200 -
-2024-04-26 11:26:49,786 - INFO   (werkzeug)   127.0.0.1 - - [26/Apr/2024 11:26:49] "GET /profile/c6da29423b5e108e3dbbb5d332a5d8437b7df8e68d734b5701d1656d0754685c HTTP/1.1" 200 -
-2024-04-26 11:26:54,699 - INFO   (werkzeug)   127.0.0.1 - - [26/Apr/2024 11:26:54] "GET /cheat-sheet/9a99aa1e-bb14-4527-bbd5-e26a6d14a808 HTTP/1.1" 200 -
+2024-04-26 13:07:15,693 - WARNING   (werkzeug)    * Debugger is active!
+2024-04-26 13:07:15,721 - INFO   (werkzeug)    * Debugger PIN: 142-332-117

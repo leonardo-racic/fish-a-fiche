@@ -2,3 +2,4 @@ flask
 jsons
 logging
 whoosh
+pdflatex

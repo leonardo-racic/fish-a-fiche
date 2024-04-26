@@ -94,6 +94,14 @@
                                 Create collection
                             </button>
                         </li>
+                        <li>
+                            <form action="/cheat-sheet/{{cheat_sheet_token}}" method="post">
+                                <input type="hidden" name="input_type" value="download_input">
+                                <button type="submit" class="dropdown-item">
+                                    Download to pdf
+                                </button>
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </div>
