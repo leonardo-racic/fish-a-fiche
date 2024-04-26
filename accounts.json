@@ -174,6 +174,28 @@
                     "name": "f"
                 }
             ]
+        },
+        "87a9b63f-8433-4166-a851-f28361ceab39": {
+            "username": "frka",
+            "password": "8ee7e2ab2793d4fdcf2bcc468a9d1a4a15aa38ebd869f11389f2a81cf6ac3d6e",
+            "description": "",
+            "profile_picture": "",
+            "id": "87a9b63f-8433-4166-a851-f28361ceab39",
+            "cheat_sheet": [
+                {
+                    "token": "9a99aa1e-bb14-4527-bbd5-e26a6d14a808",
+                    "title": "a",
+                    "author_token": "87a9b63f-8433-4166-a851-f28361ceab39",
+                    "content": "<small>qzdqzd</small>",
+                    "context": "s",
+                    "date": "26/04/2024 - 11:21",
+                    "likes": [],
+                    "dislikes": [],
+                    "original_lang": "EN",
+                    "comments": []
+                }
+            ],
+            "collections": []
         }
     }
 }
