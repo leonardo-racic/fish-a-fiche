@@ -27,6 +27,7 @@
         const MIN_LENGTH = 0;
         const MAX_TITLE_LENGTH = 32;
         const MAX_KEYWORDS = 10;
+        const MAX_KEYWORD_LENGTH = 20;
     
 
         let titleInput = $("#title-input");
@@ -68,7 +69,7 @@
             let cache = [];
             let keywords = input.split(" ");
             for (let k of keywords) {
-                if (!cache.includes(k)) {
+                if (!cache.includes(k) && k.length < MAX_KEYWORD_LENGTH) {
                     cache.push(k);
                 } else {
                     return false;
