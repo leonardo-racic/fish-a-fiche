@@ -38,7 +38,7 @@
                                 <div class="card col text-center my-2 mx-1" style="max-width: 18rem;">
                                     <div class="card-body">
                                         <h5 class="card-title">{{c.title}}</h5>
-                                        <p class="card-text">{{c.context}}</p>
+                                        <small class="card-text text-muted">{{c.context}}</small><br>
                                         <a href=/cheat-sheet/{{c.token}} class="btn btn-primary mb-2">Display</a>
                                         {% if is_user %}
                                             <form action="/cheat-sheet/{{c.token}}" method="post">
