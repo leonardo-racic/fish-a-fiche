@@ -40,7 +40,7 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
             if sam.has_user_collection(collection_name):
                 warn(f'{request.remote_addr}:{request.cookies.get("account-token")} tried to create already existing collection')
                 flash('Collection already exists', 'warning')
-                if "cheat-sheet" in source:
+                if source == "cheat-sheet":
                     return redirect(f"/cheat-sheet/{source}")
                 return render_html(
                     "collections.html",
@@ -53,7 +53,7 @@ def handle_collections(sam: ServerAccountManager, hashed_token: str) -> Response
             else:
                 sam.add_new_collection_to_account(collection_name, target_account.get_id(), is_public)
                 inform(f'{request.remote_addr}:{request.cookies.get("account-token")} created collection : {collection_name}, {target_account.id}, {is_public}')
-                if "cheat-sheet" in source:
+                if source == "cheat-sheet":
                     return redirect(source)
                 return redirect(f"/collections/{hashed_token}")
             

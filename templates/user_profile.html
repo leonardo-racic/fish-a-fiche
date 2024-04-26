@@ -1,9 +1,6 @@
 {% extends "base.html" %}
 
 
-{% set max_c_per_row = 4 %}
-
-
 {% block body %}
     <div class="container">
         <div class="card mb-2">
@@ -36,7 +33,7 @@
                             <a href="/create-cheat-sheet" class="btn btn-primary">Create new cheat sheet</a>
                         {% endif %}
                     {% else %}
-                        <div class="row row-col-{{max_c_per_row}}">
+                        <div class="row row-cols-4">
                             {% for c in cheat_sheet %}
                                 <div class="card col text-center my-2 mx-1" style="max-width: 18rem;">
                                     <div class="card-body">
