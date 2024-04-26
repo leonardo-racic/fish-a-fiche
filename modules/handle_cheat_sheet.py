@@ -153,7 +153,7 @@ def handle_cheat_sheet(
         elif input_type == "download_input":
             content: str = form_data["content"]
             title: str = form_data["title"]
-            pdf_path: str = upload_path+f"/{token}.pdf"
+            pdf_path: str = os.path.join(upload_path, f"{token}.pdf")
             pdfkit.from_string(content, pdf_path)
             resp: Response = make_response(
                 send_file(pdf_path, as_attachment=True, download_name=f"{title}.pdf")
