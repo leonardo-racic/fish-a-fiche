@@ -5,7 +5,7 @@ from .account_module import Account
 from .cheat_sheet_manager import CheatSheetManager
 from .cheat_sheet_module import CheatSheet
 from environment_variable import reports_path, upload_path
-from terminal_log import inform
+from terminal_log import inform, warn
 from datetime import datetime
 import json
 import pdfkit
@@ -97,6 +97,7 @@ def handle_cheat_sheet(
                 "content": form_data["comment"],
                 "date": get_current_date(),
             }
+            inform(f"New comment on CS {token}: {str(new_comment)}")
             cheat_sheet_manager.add_comment_to_cheat_sheet(token, new_comment)
         
 
@@ -105,13 +106,15 @@ def handle_cheat_sheet(
             user_token: str = server_account_manager.get_user_account_token()
             cheat_sheet_manager.delete_cheat_sheet(token)
             server_account_manager.delete_cheat_sheet(user_token, token)
+            inform(f"CS ({token}) deleted")
             return redirect(f"/profile/{user_hashed_token}")
         
         
         elif input_type == "delete_comment_input":
             comment_content: str = form_data["comment_content"]
             cheat_sheet_manager.remove_comment(token, comment_content)
-        
+            inform(f"Comment deleted with content: {comment_content}")
+
 
         elif input_type == "like_input":
             cheat_sheet_info: dict = cheat_sheet_manager.get_cheat_sheet_info(token)
@@ -120,10 +123,12 @@ def handle_cheat_sheet(
             
             if liked:
                 cheat_sheet_manager.remove_like(token, user_token)
+                inform(f"user({user_token}) unliked CS({cheat_sheet_info["token"]})")
             else:
                 cheat_sheet_manager.add_like(token, user_token)
                 cheat_sheet_manager.remove_dislike(token, user_token)
-        
+                inform(f"user({user_token}) liked CS({cheat_sheet_info["token"]})")
+
 
         elif input_type == "dislike_input":
             cheat_sheet_info: dict = cheat_sheet_manager.get_cheat_sheet_info(token)
@@ -132,9 +137,11 @@ def handle_cheat_sheet(
             
             if disliked:
                 cheat_sheet_manager.remove_dislike(token, user_token)
+                inform(f"user({user_token}) undisliked CS({cheat_sheet_info["token"]})")
             else:
                 cheat_sheet_manager.add_dislike(token, user_token)
                 cheat_sheet_manager.remove_like(token, user_token)
+                inform(f"user({user_token}) disliked CS({cheat_sheet_info["token"]})")
         
 
         elif input_type == "report_input":
@@ -146,8 +153,10 @@ def handle_cheat_sheet(
                 with open(reports_path, "w") as f:
                     f.write(json.dumps(reports_dict, indent=4))
                 flash("Sucessfully reported!", "success")
+                inform(f"CS({token}) has been reported")
             else:
                 flash("It has already been reported", "warning")
+                warn(f"CS({token}) has been reported once again")
 
 
         elif input_type == "download_input":
@@ -162,6 +171,10 @@ def handle_cheat_sheet(
             return resp
             
         return redirect(f"/cheat-sheet/{token}")
+
+
+    else:
+        return "Method not supported"
 
 
 def handle_create_cheat_sheet(
@@ -180,12 +193,11 @@ def handle_create_cheat_sheet(
     elif request.method == "POST":
         cheat_sheet_data: dict = get_form_data()
         if user_logged_in:
-            inform('creating cheat_sheet')
             cheat_sheet_data["author_token"] = server_account_manager.get_user_account_token()
             cheat_sheet: CheatSheet = cheat_sheet_manager.create_new_cheat_sheet(cheat_sheet_data)
             server_account_manager.add_cheat_sheet_to_user(cheat_sheet)
-            inform('cheat-sheet created')
             flash('cheat-sheet created','success')
+            inform(f"CS({cheat_sheet.token}) has been created")
             return redirect(f"/cheat-sheet/{cheat_sheet.token}")
         else:
             flash('not logged in','warning')
@@ -193,6 +205,8 @@ def handle_create_cheat_sheet(
                 "create_cheat_sheet.html",
                 server_account_manager,
             )
+    else:
+        return "Method not supported"
 
 
 def handle_modify_cheat_sheet(
@@ -215,4 +229,5 @@ def handle_modify_cheat_sheet(
             server_account_manager,
             old_cheat_sheet=cheat_sheet_info,
         )
-    flash('method not suported','warning')
+    else:
+        return "Method not supported"

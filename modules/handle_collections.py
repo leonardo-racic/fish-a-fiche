@@ -140,3 +140,7 @@ def handle_collection(
             is_user=is_user,
             is_public=sam.is_collection_public(author.get_id(), collection_name),
         )
+    
+
+    else:
+        return "Method not supported"

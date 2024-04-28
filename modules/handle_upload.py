@@ -58,8 +58,8 @@ def allowed_file(filename: str) -> bool:
     :param filename: the name of the file to check
     :return: True if the file has a valid extension, False otherwise
     """
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+    extension: str = filename.rsplit('.', 1)[1].lower()
+    return '.' in filename and extension in ALLOWED_EXTENSIONS
 
 
 def handle_upload(server_account_manager: ServerAccountManager) -> Response:
@@ -104,6 +104,7 @@ def handle_upload(server_account_manager: ServerAccountManager) -> Response:
                 f'{request.remote_addr}:{server_account_manager.get_user_account_token()} upload succesfull, redirecting'
             )
             flash('upload succesfull','success')
+
 
     return render_html(
         'upload.html',
@@ -156,6 +157,6 @@ def handle_profile_picture_upload(new_image_input: FileStorage, sam: ServerAccou
         file_name: str = secure_filename(f"{hashed_user_id}.{extension}")
         path: str = os.path.join(app.config["UPLOAD_FOLDER"], file_name)
         new_image_input.save(path)
-        flask_path: str = f"upload/{file_name}"
+        flask_path: str = os.path.join("upload", file_name)
         return flask_path
     return ""

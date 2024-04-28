@@ -18,9 +18,7 @@ def handle_login(server_account_manager: ServerAccountManager) -> Response:
             server_account_manager,
         )
     else:
-        warn(f'{request.remote_addr} used invalid method')
-        flash('Invalid method', 'warning')
-    return redirect('/login')
+        return "Method not supported"
 
 
 def handle_post_login(server_account_manager: ServerAccountManager) -> Response:
@@ -73,9 +71,7 @@ def handle_sign_up(server_account_manager: ServerAccountManager) -> Response:
             server_account_manager,
         )
     else:
-        warn(f'{request.remote_addr} used invalid method')
-        flash('This method does not exist', 'warning')
-        return redirect('/sign-up')
+        return "Method not supported"
 
 
 def handle_post_sign_up(server_account_manager: ServerAccountManager, input_username: str, input_password: str) -> Response:
@@ -91,6 +87,7 @@ def handle_post_sign_up(server_account_manager: ServerAccountManager, input_user
             new_account: Account = server_account_manager.create_account(input_username, input_password)
             response: Response = make_response(redirect(url_for("main")))
             response.set_cookie("account-token", new_account.get_id())
+            inform(f"user({new_account.get_id()}) has been signed in")
             return response
     warn(f'{request.remote_addr} gave invalid input {input_username}, {input_password}')
     flash('Invalid input', 'warning')
@@ -127,9 +124,7 @@ def handle_modify_profile(server_account_manager: ServerAccountManager) -> Respo
             cheat_sheet=current_account_info["cheat_sheet"],
         )
     else:
-        flash('This method does not exist', 'warning')
-        warn(f'{request.remote_addr} used invalid method')
-        return redirect('/')    
+        return "Method not supported"   
 
 
 def handle_post_modify_profile(server_account_manager: ServerAccountManager) -> Response:
@@ -186,6 +181,7 @@ def handle_profile(server_account_manager: ServerAccountManager, hashed_token: s
                 flash("Account does not exist", "warning")
                 abort(404)
             server_account_manager.delete_account(account)
+            inform(f"user({account.get_id()}) has been deleted")
             return redirect("/profile")
         
 
@@ -200,6 +196,12 @@ def handle_profile(server_account_manager: ServerAccountManager, hashed_token: s
                 with open(reports_path, "w") as f:
                     f.write(json.dumps(reports_dict, indent=4))
                 flash("Sucessfully reported!", "success")
+                inform(f"user({account.get_id()}) has been reported")
             else:
                 flash("It has already been reported", "warning")
+                warn(f"user({account.get_id()}) has been reported once again")
             return redirect(f"/profile/{hashed_account_id}")
+    
+
+    else:
+        return "Method not supported"
