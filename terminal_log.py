@@ -2,7 +2,6 @@ import logging
 from flask import Flask
 
 
-
 app: Flask = Flask(__name__)
 logger: logging.Logger = app.logger
 
@@ -15,6 +14,7 @@ def run_logging() -> None:
         filename='debug.log',
     )
     logger.propagate = False
+
 
 def debug(msg: str, *args) -> None:
     logger.debug(msg, *args)
