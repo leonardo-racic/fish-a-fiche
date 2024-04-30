@@ -30,7 +30,7 @@
                 {% elif cheat_sheet == None %}
                     <small class="text-muted mb-2">you need exact name for this to work will be improved</small>
                 {% else %}
-                    <div class="row row-cols-6">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
                         {% for c in cheat_sheet %}
                             <div class="card col text-center my-2 mx-1" style="max-width: 18rem;">
                                 <div class="card-body">
@@ -56,7 +56,7 @@
                 {% if profiles == [] %}
                     <small class="text-muted mb-2">No results</small>
                 {% else %}
-                    <div class="row row-cols-6">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
                         {% for profile in profiles %}
                             <div class="card col text-center my-2 mx-1">
                                 <div class="card-body">
