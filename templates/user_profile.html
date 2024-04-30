@@ -25,34 +25,34 @@
         </div>
         <div class="card mb-2">
             <div class="card-body">
-                    <h4 class="text-center">{{"My public cheat-sheets" if is_user else "Their public cheat-sheets"}}</h4>
-                    {% if cheat_sheet == [] %}
-                        <small class="text-muted mb-2">No personally made cheat sheet yet...</small>
-                        {% if is_user %}
-                            <a href="/create-cheat-sheet" class="btn btn-primary">Create new cheat sheet</a>
-                        {% endif %}
-                    {% else %}
-                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-                            {% for c in cheat_sheet %}
-                                <div class="card col text-center my-2 mx-1" style="max-width: 18rem;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{c.title}}</h5>
-                                        <small class="card-text text-muted">{{c.context}}</small><br>
-                                        <a href=/cheat-sheet/{{c.token}} class="btn btn-primary mb-2">Display</a>
-                                        {% if is_user %}
-                                            <form action="/cheat-sheet/{{c.token}}" method="post">
-                                                <input type="hidden" name="input_type" value="delete_cheat_sheet_input">
-                                                <input type="hidden" name="cheat_sheet_token" value="{{c.token}}">
-                                                <button type="submit" class="btn btn-secondary">
-                                                    Delete
-                                                </button>
-                                            </form>
-                                        {% endif %}
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </div>
+                <h4 class="text-center">{{"My public cheat-sheets" if is_user else "Their public cheat-sheets"}}</h4>
+                {% if cheat_sheet == [] %}
+                    <small class="text-muted mb-2">No personally made cheat sheet yet...</small>
+                    {% if is_user %}
+                        <a href="/create-cheat-sheet" class="btn btn-primary ms-2">Create new cheat sheet</a>
                     {% endif %}
+                {% else %}
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+                        {% for c in cheat_sheet %}
+                            <div class="card col text-center my-2 mx-1" style="max-width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{c.title}}</h5>
+                                    <small class="card-text text-muted">{{c.context}}</small><br>
+                                    <a href=/cheat-sheet/{{c.token}} class="btn btn-primary mb-2">Display</a>
+                                    {% if is_user %}
+                                        <form action="/cheat-sheet/{{c.token}}" method="post">
+                                            <input type="hidden" name="input_type" value="delete_cheat_sheet_input">
+                                            <input type="hidden" name="cheat_sheet_token" value="{{c.token}}">
+                                            <button type="submit" class="btn btn-secondary">
+                                                Delete
+                                            </button>
+                                        </form>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
             </div>
         </div>
         <div class="d-flex align-items-left">

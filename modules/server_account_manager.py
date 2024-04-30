@@ -4,9 +4,10 @@ from .account_module import Account
 from .cheat_sheet_module import CheatSheet, json_to_cheat_sheet
 from json import loads as load_json, dumps as to_json
 from flask import request
-from terminal_log import inform, debug
+from terminal_log import inform
 import hashlib
 from environment_variable import account_path, cs_path
+
 
 def get_hash(this_text: str) -> str:
     return hashlib.sha256(this_text.encode()).hexdigest()
@@ -240,8 +241,14 @@ class ServerAccountManager:
     def get_account_cheat_sheet_info(self, token: str) -> list:
         with open(account_path) as f:
             accounts_dict: dict = load_json(f.read())["accounts"]
-        return accounts_dict[token]["cheat_sheet"]
-    
+        cs: list = accounts_dict[token]["cheat_sheet"]
+        cheat_sheet: list = []
+        with open(cs_path) as f:
+            cs_dict: dict = load_json(f.read())["cheat_sheet"]
+            for cs_info in cs:
+                cheat_sheet.append(cs_dict[cs_info["token"]])
+        return cheat_sheet
+
 
     def get_account_from_hashed_token(self, hashed_token: str) -> Account:
         for account in self.get_all_accounts():
