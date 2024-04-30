@@ -100,7 +100,7 @@
                                 <input type="hidden" name="content" id="content-input">
                                 <input type="hidden" name="title" value="{{title}}">
                                 <button type="submit" class="dropdown-item" onclick="onDowloadClick();">
-                                    Download to pdf
+                                    Download (.txt)
                                 </button>
                             </form>
                         </li>
@@ -338,14 +338,8 @@
     </script>
     <script>
         function onDowloadClick() {
-            let baseHead = $("#base-head");
             let contentDiv = $("#content-div");
-            let contentInput = $("#content-input");
-            let downloadForm = $("#download-form");
-            let htmlContent = baseHead.html() + 
-                "<div class=\"container\">" +
-                contentDiv.html() +
-                "</div>"
+            let htmlContent = contentDiv.html();
             downloadForm.on("submit", function() {
                 contentInput.val(htmlContent);
                 return true;

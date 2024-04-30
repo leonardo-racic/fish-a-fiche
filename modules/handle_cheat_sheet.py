@@ -4,11 +4,10 @@ from .server_account_manager import ServerAccountManager, get_hash
 from .account_module import Account
 from .cheat_sheet_manager import CheatSheetManager
 from .cheat_sheet_module import CheatSheet
-from environment_variable import reports_path, upload_path
+from environment_variable import reports_path, upload_path, cs_path
 from terminal_log import inform, warn
 from datetime import datetime
 import json
-import pdfkit
 import os
 
 
@@ -158,19 +157,22 @@ def handle_cheat_sheet(
 
 
         elif input_type == "download_input":
-            content: str = form_data["content"]
+            with open(cs_path) as f:
+                cs: dict = json.loads(f.read())["cheat_sheet"][token]
+            content: str = cs["content"]
             title: str = form_data["title"]
-            pdf_path: str = os.path.join(upload_path, f"{token}.pdf")
-            pdfkit.from_string(content, pdf_path)
+            extension: str = "txt"
+            file_path: str = os.path.join(upload_path, f"{token}.{extension}")
+
+            with open(file_path, "w", encoding="utf-8") as f:
+                f.write(content)
+
             resp: Response = make_response(
-                send_file(pdf_path, as_attachment=True, download_name=f"{title}.pdf")
+                send_file(file_path, as_attachment=True, download_name=f"{title}.{extension}")
             )
-            os.remove(pdf_path)
             return resp
             
         return redirect(f"/cheat-sheet/{token}")
-
-
     else:
         return "Method not supported"
 
