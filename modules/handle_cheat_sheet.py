@@ -1,3 +1,4 @@
+from __future__ import annotations
 from flask import Response, abort, redirect, flash, request, send_file, make_response
 from singletons import render_html, get_form_data
 from .server_account_manager import ServerAccountManager, get_hash
@@ -22,7 +23,7 @@ def get_comments(cheat_sheet_info: dict, sam: ServerAccountManager) -> list:
     for i in range(len(comments)):
         current_comment: dict = comments[i]
         current_account: Account | None = sam.get_account_from_hashed_token(current_comment["token"])
-        if current_account is Account:
+        if isinstance(current_account, Account):
             comments[i]["username"] = current_account.username
     return comments
 
@@ -170,7 +171,7 @@ def handle_cheat_sheet(
                 f.write(content)
 
             resp: Response = make_response(
-                send_file(file_path, as_attachment=True, download_name=f"{title}.{extension}")
+                send_file(file_path, as_attachment=True, download_name=f"{title}.{extension}") # type: ignore
             )
             return resp
             

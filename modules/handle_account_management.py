@@ -1,8 +1,9 @@
+from __future__ import annotations
 from flask import Response, make_response, redirect, url_for, flash, abort, request
-from singletons import render_html, get_form_data
-from .account_module import Account
-from .server_account_manager import ServerAccountManager
-from .handle_upload import handle_profile_picture_upload
+from singletons import render_html, get_form_data, get_cookie, get_form_file
+from modules.account_module import Account
+from modules.server_account_manager import ServerAccountManager
+from modules.handle_upload import handle_profile_picture_upload
 from environment_variable import reports_path
 from terminal_log import inform, warn
 from werkzeug.datastructures import FileStorage
@@ -23,8 +24,9 @@ def handle_login(server_account_manager: ServerAccountManager) -> Response:
 
 
 def handle_post_login(server_account_manager: ServerAccountManager) -> Response:
-    input_username: str = request.form.get("username", "")
-    input_password: str = request.form.get("password", "")
+    form_data: dict = get_form_data()
+    input_username: str = form_data.get("username", "")
+    input_password: str = form_data.get("password", "")
 
     is_input_valid: bool; username_exists: bool; password_correct: bool
     is_input_valid, username_exists, password_correct = server_account_manager.is_login_valid(input_username, input_password)
@@ -52,8 +54,9 @@ def handle_post_login(server_account_manager: ServerAccountManager) -> Response:
             server_account_manager,
         )
     
+
     target_account: Account | None = server_account_manager.get_account_by_username(input_username)
-    if target_account is Account:
+    if isinstance(target_account, Account):
         response: Response = make_response(redirect(url_for("main")))
         response.set_cookie("account-token", target_account.get_id())
         inform(f'{request.remote_addr} has logged in as {input_username}')
@@ -66,8 +69,9 @@ def handle_post_login(server_account_manager: ServerAccountManager) -> Response:
 # Sign-up
 def handle_sign_up(server_account_manager: ServerAccountManager) -> Response:
     if request.method == "POST":
-        input_username: str = request.form.get("username", "")
-        input_password: str = request.form.get("password", "")
+        form_data: dict = get_form_data()
+        input_username: str = form_data.get("username", "")
+        input_password: str = form_data.get("password", "")
         return handle_post_sign_up(server_account_manager, input_username, input_password)
     elif request.method == "GET":
         return render_html(
@@ -105,7 +109,7 @@ def handle_post_sign_up(server_account_manager: ServerAccountManager, input_user
 def handle_sign_out() -> Response:
     flash('Successfully signed out', 'info')
     response: Response = make_response(redirect(url_for("main")))
-    inform(f"{request.remote_addr}:{request.cookies.get('account-token')} has delogged")
+    inform(f"{request.remote_addr}:{get_cookie('account-token')} has delogged")
     response.delete_cookie("account-token")
     return response
 
@@ -132,13 +136,14 @@ def handle_modify_profile(server_account_manager: ServerAccountManager) -> Respo
 
 
 def handle_post_modify_profile(server_account_manager: ServerAccountManager) -> Response:
-    new_image_input: FileStorage | None = request.files.get("new_image_input")
-    description_input: str = request.form.get("description_input", "")
-    username_input: str = request.form.get("username_input", "")
+    new_image_input: FileStorage | None = get_form_file("new_image_input")
+    form_data: dict[str, str] = get_form_data()
+    description_input: str = form_data.get("description_input", "")
+    username_input: str = form_data.get("username_input", "")
     if server_account_manager.has_account(server_account_manager.get_user_account()):
         image_path: str = handle_profile_picture_upload(new_image_input, server_account_manager)
         server_account_manager.modify_profile(image_path, description_input, username_input)
-        inform(f"{request.remote_addr}:{request.cookies.get('account-token')} modified {username_input}, with {image_path}, {description_input}")
+        inform(f"{request.remote_addr}:{get_cookie('account-token')} modified {username_input}, with {image_path}, {description_input}")
         flash('Account has been successfully modified', 'success')
     else:
         warn(f'{request.remote_addr}:{server_account_manager.get_user_account()} tried to modify non existant account')
@@ -187,8 +192,9 @@ def handle_profile(server_account_manager: ServerAccountManager, hashed_token: s
             if account is None:
                 flash("Account does not exist", "warning")
                 abort(404)
-            server_account_manager.delete_account(account)
-            inform(f"user({account.get_id()}) has been deleted")
+            else:
+                server_account_manager.delete_account(account)
+                inform(f"user({account.get_id()}) has been deleted")
             return make_response(redirect("/profile"))
         
 
@@ -198,7 +204,7 @@ def handle_profile(server_account_manager: ServerAccountManager, hashed_token: s
             reports: dict = reports_dict["reports"]
             hashed_account_id: str = form_data["hashed_account_id"]
             account = server_account_manager.get_account_from_hashed_token(hashed_account_id)
-            if account is Account:
+            if isinstance(account, Account):
                 if account.get_id() not in reports["accounts"]:
                     reports["accounts"].append(account.get_id())
                     with open(reports_path, "w") as f:

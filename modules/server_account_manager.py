@@ -1,12 +1,12 @@
-# The first import module is only to guarantee a secure variable typing.
 from __future__ import annotations
 from .account_module import Account
 from .cheat_sheet_module import CheatSheet, json_to_cheat_sheet
 from json import loads as load_json, dumps as to_json
 from flask import request
 from terminal_log import inform
-import hashlib
 from environment_variable import account_path, cs_path
+import singletons
+import hashlib
 
 
 def get_hash(this_text: str) -> str:
@@ -185,7 +185,8 @@ class ServerAccountManager:
 
 
     def get_user_account_token(self) -> str:
-        return request.cookies.get("account-token", "")
+        cookie: str = singletons.get_cookie("account-token")
+        return cookie
 
 
     def get_user_account(self) -> Account | None:
@@ -290,7 +291,7 @@ class ServerAccountManager:
 
     def add_new_collection_to_account_from_hashed_token(self, collection: str, hashed_account_id: str, is_public: bool) -> None:
         target_account: Account | None = self.get_account_from_hashed_token(hashed_account_id)
-        if target_account is Account:
+        if isinstance(target_account, Account):
             self.add_new_collection_to_account(collection, target_account.get_id(), is_public)
     
 

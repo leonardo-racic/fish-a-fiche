@@ -1,11 +1,41 @@
-2024-05-02 12:08:06,289 - WARNING   (werkzeug)    * Debugger is active!
-2024-05-02 12:08:06,322 - INFO   (werkzeug)    * Debugger PIN: 142-332-117
-2024-05-02 12:09:40,209 - INFO   (werkzeug)   127.0.0.1 - - [02/May/2024 12:09:40] "GET / HTTP/1.1" 200 -
-2024-05-02 12:09:42,203 - INFO   (werkzeug)   127.0.0.1 - - [02/May/2024 12:09:42] "GET /login HTTP/1.1" 200 -
-2024-05-02 12:09:43,481 - INFO   (werkzeug)   127.0.0.1 - - [02/May/2024 12:09:43] "GET /sign-up HTTP/1.1" 200 -
-2024-05-02 12:09:47,118 - INFO   (werkzeug)   127.0.0.1 - - [02/May/2024 12:09:47] "[32mPOST /sign-up HTTP/1.1[0m" 302 -
-2024-05-02 12:09:47,142 - INFO   (werkzeug)   127.0.0.1 - - [02/May/2024 12:09:47] "GET / HTTP/1.1" 200 -
-2024-05-02 12:09:51,276 - INFO   (werkzeug)   127.0.0.1 - - [02/May/2024 12:09:51] "[32mGET /sign-out HTTP/1.1[0m" 302 -
-2024-05-02 12:09:51,292 - INFO   (werkzeug)   127.0.0.1 - - [02/May/2024 12:09:51] "GET / HTTP/1.1" 200 -
-2024-05-02 12:09:55,473 - INFO   (werkzeug)   127.0.0.1 - - [02/May/2024 12:09:55] "GET /login HTTP/1.1" 200 -
-2024-05-02 12:09:58,597 - INFO   (werkzeug)   127.0.0.1 - - [02/May/2024 12:09:58] "POST /login HTTP/1.1" 200 -
+2024-05-03 00:32:50,956 - WARNING   (werkzeug)    * Debugger is active!
+2024-05-03 00:32:50,956 - INFO   (werkzeug)    * Debugger PIN: 106-920-926
+2024-05-03 00:32:54,040 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:32:54] "GET /favicon.ico HTTP/1.1" 200 -
+2024-05-03 00:32:55,173 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:32:55] "GET /cheat-sheet/bc46ee56-83db-4811-902b-e3dcd4ba32da HTTP/1.1" 200 -
+2024-05-03 00:32:55,283 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:32:55] "GET /favicon.ico HTTP/1.1" 200 -
+2024-05-03 00:33:05,587 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:05] "[32mPOST /collections/a00811e2af288256050502453f5343cb4c54efe931988e7bf33abca47393fe26 HTTP/1.1[0m" 302 -
+2024-05-03 00:33:05,610 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:05] "GET /cheat-sheet/bc46ee56-83db-4811-902b-e3dcd4ba32da HTTP/1.1" 200 -
+2024-05-03 00:33:05,769 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:05] "GET /favicon.ico HTTP/1.1" 200 -
+2024-05-03 00:33:08,159 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:08] "GET /collections/a00811e2af288256050502453f5343cb4c54efe931988e7bf33abca47393fe26 HTTP/1.1" 200 -
+2024-05-03 00:33:08,233 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:08] "GET /favicon.ico HTTP/1.1" 200 -
+2024-05-03 00:33:09,083 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:09] "GET /collections/a00811e2af288256050502453f5343cb4c54efe931988e7bf33abca47393fe26/kimhk HTTP/1.1" 200 -
+2024-05-03 00:33:09,192 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:09] "GET /favicon.ico HTTP/1.1" 200 -
+2024-05-03 00:33:13,509 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:13] "[32mPOST /collections/a00811e2af288256050502453f5343cb4c54efe931988e7bf33abca47393fe26/kimhk HTTP/1.1[0m" 302 -
+2024-05-03 00:33:13,525 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:13] "GET /collections/a00811e2af288256050502453f5343cb4c54efe931988e7bf33abca47393fe26/ml HTTP/1.1" 200 -
+2024-05-03 00:33:13,643 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:13] "GET /favicon.ico HTTP/1.1" 200 -
+2024-05-03 00:33:16,641 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:16] "GET /collections/a00811e2af288256050502453f5343cb4c54efe931988e7bf33abca47393fe26 HTTP/1.1" 200 -
+2024-05-03 00:33:16,702 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:16] "GET /favicon.ico HTTP/1.1" 200 -
+2024-05-03 00:33:18,351 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:18] "GET /profile/a00811e2af288256050502453f5343cb4c54efe931988e7bf33abca47393fe26 HTTP/1.1" 200 -
+2024-05-03 00:33:18,377 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:18] "[36mGET /static/upload/a00811e2af288256050502453f5343cb4c54efe931988e7bf33abca47393fe26.jpg HTTP/1.1[0m" 304 -
+2024-05-03 00:33:18,471 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:18] "GET /favicon.ico HTTP/1.1" 200 -
+2024-05-03 00:33:19,574 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:19] "GET /cheat-sheet/08c8bc73-0915-47ae-99d7-82f67e58f6c0 HTTP/1.1" 200 -
+2024-05-03 00:33:19,729 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:19] "GET /favicon.ico HTTP/1.1" 200 -
+2024-05-03 00:33:24,379 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:24] "[32mPOST /collections/a00811e2af288256050502453f5343cb4c54efe931988e7bf33abca47393fe26 HTTP/1.1[0m" 302 -
+2024-05-03 00:33:24,387 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:24] "GET /cheat-sheet/08c8bc73-0915-47ae-99d7-82f67e58f6c0 HTTP/1.1" 200 -
+2024-05-03 00:33:24,471 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:24] "GET /favicon.ico HTTP/1.1" 200 -
+2024-05-03 00:33:27,619 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:27] "GET /collections/a00811e2af288256050502453f5343cb4c54efe931988e7bf33abca47393fe26 HTTP/1.1" 200 -
+2024-05-03 00:33:27,761 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:27] "GET /favicon.ico HTTP/1.1" 200 -
+2024-05-03 00:33:28,793 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:28] "GET /collections/a00811e2af288256050502453f5343cb4c54efe931988e7bf33abca47393fe26/ml HTTP/1.1" 200 -
+2024-05-03 00:33:28,929 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:28] "GET /favicon.ico HTTP/1.1" 200 -
+2024-05-03 00:33:35,069 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:35] "[32mPOST /collections/a00811e2af288256050502453f5343cb4c54efe931988e7bf33abca47393fe26/ml HTTP/1.1[0m" 302 -
+2024-05-03 00:33:35,086 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:35] "GET /collections/a00811e2af288256050502453f5343cb4c54efe931988e7bf33abca47393fe26/pkk HTTP/1.1" 200 -
+2024-05-03 00:33:35,206 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:35] "GET /favicon.ico HTTP/1.1" 200 -
+2024-05-03 00:33:37,291 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:37] "GET /profile/a00811e2af288256050502453f5343cb4c54efe931988e7bf33abca47393fe26 HTTP/1.1" 200 -
+2024-05-03 00:33:37,347 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:37] "[36mGET /static/upload/a00811e2af288256050502453f5343cb4c54efe931988e7bf33abca47393fe26.jpg HTTP/1.1[0m" 304 -
+2024-05-03 00:33:37,437 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:37] "GET /favicon.ico HTTP/1.1" 200 -
+2024-05-03 00:33:38,194 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:38] "GET /cheat-sheet/08c8bc73-0915-47ae-99d7-82f67e58f6c0 HTTP/1.1" 200 -
+2024-05-03 00:33:38,317 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:38] "GET /favicon.ico HTTP/1.1" 200 -
+2024-05-03 00:33:42,672 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:42] "GET /search/ HTTP/1.1" 200 -
+2024-05-03 00:33:42,802 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:42] "GET /favicon.ico HTTP/1.1" 200 -
+2024-05-03 00:33:43,634 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:43] "GET /cheat-sheet/432c0d1d-05b6-4377-b00b-69ad41696927 HTTP/1.1" 200 -
+2024-05-03 00:33:43,706 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:33:43] "GET /favicon.ico HTTP/1.1" 200 -

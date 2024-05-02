@@ -28,6 +28,7 @@ The main dependencies are:
 Note: this docstring is a modified version of the Google Python Style Guide.
 """
 
+from __future__ import annotations
 import os
 from flask import Flask, Response, request, flash, redirect, make_response
 from werkzeug.utils import secure_filename
@@ -38,7 +39,7 @@ from .server_account_manager import ServerAccountManager
 from .cheat_sheet_manager import CheatSheetManager
 import terminal_log
 from environment_variable import upload_path
-from singletons import render_html
+from singletons import render_html, get_form_file, get_form_data
 
 
 UPLOAD_FOLDER: str = upload_path
@@ -79,7 +80,10 @@ def handle_upload(server_account_manager: ServerAccountManager) -> Response:
             return make_response(redirect(request.url))
         
         terminal_log.inform('requesting file')
-        file: FileStorage = request.files['file']
+        file: FileStorage | None = get_form_file("file")
+        if file is None:
+            terminal_log.warn('no file uploaded')
+            return make_response(redirect(request.url))
 
         # If the user does not select a file, the browser submits an
         # empty file without a filename.
@@ -89,7 +93,7 @@ def handle_upload(server_account_manager: ServerAccountManager) -> Response:
         
         terminal_log.inform('verifying filename')
         if file and allowed_file(file.filename):
-            filename: str = secure_filename(f"{request.form.get('title')}.txt")
+            filename: str = secure_filename(f"{get_form_data.get('title')}.txt")
             terminal_log.inform(f'filename secured FILENAME:{filename}')
             terminal_log.inform('saving file')
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
@@ -121,12 +125,13 @@ def create_cheat_sheet(server_account_manager: ServerAccountManager):
     :param server_account_manager: the server account manager used to authenticate the user
     :return: the new CheatSheet object
     """
-    title: str | None = request.form.get("title")
+    form_data: dict[str, str] = get_form_data()
+    title: str | None = form_data.get("title")
     author_token: str = server_account_manager.get_user_account_token()
     content: str = read_md(
         UPLOAD_FOLDER + "/" + secure_filename(str(title)) + ".txt"
     )
-    description: str | None = request.form.get("description")
+    description: str | None = form_data.get("description")
     new_cs = CheatSheet(str(title), author_token, content, str(description))
     server_account_manager.add_cheat_sheet_to_user(new_cs)
     return new_cs

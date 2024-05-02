@@ -1,6 +1,8 @@
+from __future__ import annotations
 from json import loads as load_json, dumps
 from .cheat_sheet_module import CheatSheet, get_uuid
 from environment_variable import cs_path, account_path
+
 
 def check(csi: dict, cs: CheatSheet, info: str) -> None:
     if csi.get(info):

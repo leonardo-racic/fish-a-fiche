@@ -1,4 +1,5 @@
-from singletons import render_html
+from __future__ import annotations
+from singletons import render_html, get_form_data
 from flask import Response, request, redirect, make_response
 from .sorting import sort_results_by_keywords, sort_results_by_likes
 from .server_account_manager import ServerAccountManager
@@ -9,8 +10,9 @@ from .filtering import filter_context, filter_profiles, filter_title, get_profil
 def handle_search(sam: ServerAccountManager, search: str) -> Response:
     search_by: str | None
     if request.method == 'POST':
-        title: str | None = request.form.get("title")
-        search_by = request.form.get("search_by")
+        form_data: dict[str, str] = get_form_data()
+        title: str | None = form_data.get("title")
+        search_by = form_data.get("search_by")
         return make_response(redirect(f'/search/{title}&{search_by}'))
     else:
         try:
@@ -44,8 +46,9 @@ def handle_search(sam: ServerAccountManager, search: str) -> Response:
 
 def handle_search_empty(sam: ServerAccountManager) -> Response:
     if request.method == 'POST':
-        title: str | None = request.form.get("title")
-        search_by: str | None = request.form.get("search_by")
+        form_data: dict[str, str] = get_form_data()
+        title: str | None = form_data.get("title")
+        search_by: str | None = form_data.get("search_by")
         return make_response(redirect(f'/search/{title}&{search_by}'))
     else:
         return render_html(

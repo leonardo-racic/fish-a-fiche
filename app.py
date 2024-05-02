@@ -126,8 +126,8 @@ def cheat_sheet_market() -> Response:
 
 # Error handling
 @app.errorhandler(404)
-def error404(error: Error404) -> tuple[Response, int]:
-    return handle_404(server_account_manager, error), 404
+def error404(error: Error404) -> Response:
+    return handle_404(server_account_manager, error)
 
 
 # Module execution

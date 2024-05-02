@@ -1,158 +1,19 @@
 {
     "accounts": {
-        "82449f2a-16d4-4c7b-a177-2c0a7a642c5f": {
-            "username": "leonardo",
-            "password": "4694f764f8f00143f4f9c6871bebcc9d3ef1f401348821f1d17666ea90d65a97",
-            "description": "...",
-            "profile_picture": "upload/0bc9dc5b09e7f926b66edcbac6f482a25472e8975267dc58e915034dc08fb039.jpg",
-            "id": "82449f2a-16d4-4c7b-a177-2c0a7a642c5f",
-            "cheat_sheet": [],
-            "collections": []
-        },
-        "e7a86872-78af-49db-b74b-5159d1e5221e": {
-            "username": "a",
-            "password": "3e23e8160039594a33894f6564e1b1348bbd7a0088d42c4acb73eeaed59c009d",
-            "description": "",
-            "profile_picture": "",
-            "id": "e7a86872-78af-49db-b74b-5159d1e5221e",
+        "322c2aab-cd60-4b26-a186-e2422261eb02": {
+            "username": "good",
+            "password": "944c27e5b97ab7793e4b6e9ff29384890ece0c7c04d2e2bf81c5f763469cc66b",
+            "description": "well",
+            "profile_picture": "upload/a00811e2af288256050502453f5343cb4c54efe931988e7bf33abca47393fe26.jpg",
+            "id": "322c2aab-cd60-4b26-a186-e2422261eb02",
             "cheat_sheet": [
                 {
-                    "token": "6d22461b-d9e4-4b85-adde-8653c8b97d28",
-                    "title": "h",
-                    "author_token": "e7a86872-78af-49db-b74b-5159d1e5221e",
-                    "content": "# Hello\n\n\nHpoupodzaeujpod\n",
-                    "context": "fg",
-                    "date": "24/04/2024 - 22:42",
-                    "likes": [],
-                    "dislikes": [],
-                    "original_lang": "EN",
-                    "comments": []
-                }
-            ],
-            "collections": []
-        },
-        "403bfe03-5901-4342-afef-c438a99b412d": {
-            "username": "test",
-            "password": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
-            "description": "",
-            "profile_picture": "",
-            "id": "403bfe03-5901-4342-afef-c438a99b412d",
-            "cheat_sheet": [
-                {
-                    "token": "432c0d1d-05b6-4377-b00b-69ad41696927",
-                    "title": "e",
-                    "author_token": "403bfe03-5901-4342-afef-c438a99b412d",
-                    "content": "a",
-                    "context": "s",
-                    "date": "26/04/2024 - 08:41",
-                    "likes": [],
-                    "dislikes": [],
-                    "original_lang": "EN",
-                    "comments": []
-                },
-                {
-                    "token": "c6d251e5-c4cd-4386-b11f-c0f54a0b7148",
-                    "title": "e",
-                    "author_token": "403bfe03-5901-4342-afef-c438a99b412d",
-                    "content": "a",
-                    "context": "s",
-                    "date": "26/04/2024 - 08:41",
-                    "likes": [],
-                    "dislikes": [],
-                    "original_lang": "EN",
-                    "comments": []
-                },
-                {
-                    "token": "ce8afcd4-9d91-486e-aba7-1918d32fee3a",
-                    "title": "z",
-                    "author_token": "403bfe03-5901-4342-afef-c438a99b412d",
-                    "content": "a",
-                    "context": "s",
-                    "date": "26/04/2024 - 08:41",
-                    "likes": [],
-                    "dislikes": [],
-                    "original_lang": "EN",
-                    "comments": []
-                },
-                {
-                    "token": "63557bdc-97f9-4228-8672-7956e9ed1b55",
-                    "title": "f",
-                    "author_token": "403bfe03-5901-4342-afef-c438a99b412d",
-                    "content": "s",
-                    "context": "q",
-                    "date": "26/04/2024 - 08:41",
-                    "likes": [],
-                    "dislikes": [],
-                    "original_lang": "EN",
-                    "comments": []
-                },
-                {
-                    "token": "94207e29-5cd2-4f90-99aa-65a874fbd26b",
-                    "title": "f",
-                    "author_token": "403bfe03-5901-4342-afef-c438a99b412d",
-                    "content": "s",
-                    "context": "q",
-                    "date": "26/04/2024 - 08:41",
-                    "likes": [],
-                    "dislikes": [],
-                    "original_lang": "EN",
-                    "comments": []
-                },
-                {
-                    "token": "f58c11ba-be0f-4fcd-b5a7-b8be8cfbecb5",
-                    "title": "b",
-                    "author_token": "403bfe03-5901-4342-afef-c438a99b412d",
-                    "content": "sd",
-                    "context": "v",
-                    "date": "26/04/2024 - 08:41",
-                    "likes": [],
-                    "dislikes": [],
-                    "original_lang": "EN",
-                    "comments": []
-                },
-                {
-                    "token": "5e828b30-67c1-4ed9-939d-6b37942d89c2",
-                    "title": "The end of time",
-                    "author_token": "403bfe03-5901-4342-afef-c438a99b412d",
-                    "content": "This is the end",
-                    "context": "history analysis geography culture",
-                    "date": "26/04/2024 - 08:44",
-                    "likes": [],
-                    "dislikes": [],
-                    "original_lang": "EN",
-                    "comments": []
-                },
-                {
-                    "token": "ea104914-e0dd-4381-9e18-3efbb7baebeb",
-                    "title": "ze",
-                    "author_token": "403bfe03-5901-4342-afef-c438a99b412d",
-                    "content": "s",
-                    "context": "ffffffffff fffffffffz fffffffffa fffffffffd fffffffffg fffffffffs fffffffffb ffffffffffp ffffffffffl ffffffffffm",
-                    "date": "26/04/2024 - 08:44",
-                    "likes": [],
-                    "dislikes": [],
-                    "original_lang": "EN",
-                    "comments": []
-                },
-                {
-                    "token": "bc46ee56-83db-4811-902b-e3dcd4ba32da",
-                    "title": "Scalar product",
-                    "author_token": "403bfe03-5901-4342-afef-c438a99b412d",
-                    "content": "\\overrightarrow{u}\\cdot\\overrightarrow{v}=",
-                    "context": "maths vectors scalar-product geometry",
-                    "date": "26/04/2024 - 08:55",
-                    "likes": [],
-                    "dislikes": [],
-                    "original_lang": "EN",
-                    "comments": []
-                },
-                {
-                    "token": "7565c844-0bf3-4944-82c5-72692d1f2eba",
-                    "title": "flowers",
-                    "author_token": "403bfe03-5901-4342-afef-c438a99b412d",
-                    "content": "wow",
-                    "context": "tulips dandelions",
-                    "date": "30/04/2024 - 09:45",
+                    "token": "08c8bc73-0915-47ae-99d7-82f67e58f6c0",
+                    "title": "Pythagorean Theorem",
+                    "author_token": "322c2aab-cd60-4b26-a186-e2422261eb02",
+                    "content": "$AB^2=AC^2+BC^2$",
+                    "context": "maths pythagore pythagorean-theorem theorem",
+                    "date": "03/05/2024 - 00:10",
                     "likes": [],
                     "dislikes": [],
                     "original_lang": "EN",
@@ -162,83 +23,12 @@
             "collections": [
                 {
                     "is_public": false,
-                    "cheat_sheet": [],
-                    "name": "a"
-                },
-                {
-                    "is_public": false,
-                    "cheat_sheet": [],
-                    "name": "v"
-                },
-                {
-                    "is_public": false,
-                    "cheat_sheet": [],
-                    "name": "c"
-                },
-                {
-                    "is_public": false,
-                    "cheat_sheet": [],
-                    "name": "e"
-                },
-                {
-                    "is_public": false,
-                    "cheat_sheet": [],
-                    "name": "f"
+                    "cheat_sheet": [
+                        "08c8bc73-0915-47ae-99d7-82f67e58f6c0"
+                    ],
+                    "name": "pkk"
                 }
             ]
-        },
-        "87a9b63f-8433-4166-a851-f28361ceab39": {
-            "username": "frka",
-            "password": "8ee7e2ab2793d4fdcf2bcc468a9d1a4a15aa38ebd869f11389f2a81cf6ac3d6e",
-            "description": "",
-            "profile_picture": "",
-            "id": "87a9b63f-8433-4166-a851-f28361ceab39",
-            "cheat_sheet": [
-                {
-                    "token": "9a99aa1e-bb14-4527-bbd5-e26a6d14a808",
-                    "title": "a",
-                    "author_token": "87a9b63f-8433-4166-a851-f28361ceab39",
-                    "content": "<small>qzdqzd</small>",
-                    "context": "s",
-                    "date": "26/04/2024 - 11:21",
-                    "likes": [],
-                    "dislikes": [],
-                    "original_lang": "EN",
-                    "comments": []
-                }
-            ],
-            "collections": []
-        },
-        "ea26a944-34c3-4137-b0ce-835f3000f698": {
-            "username": "Ado",
-            "password": "8185d5e4c340bf13a2f2933e13c90727a16ea6991a2314f36bfa5eadfe58fb87",
-            "description": "",
-            "profile_picture": "",
-            "id": "ea26a944-34c3-4137-b0ce-835f3000f698",
-            "cheat_sheet": [
-                {
-                    "token": "378dcb43-c032-4067-b0cf-18e242981c40",
-                    "title": "Hello",
-                    "author_token": "ea26a944-34c3-4137-b0ce-835f3000f698",
-                    "content": "ssss",
-                    "context": "e",
-                    "date": "30/04/2024 - 16:41",
-                    "likes": [],
-                    "dislikes": [],
-                    "original_lang": "EN",
-                    "comments": []
-                }
-            ],
-            "collections": []
-        },
-        "dea6a29e-b59a-4a55-8932-b492213bfd09": {
-            "username": "hello",
-            "password": "486ea46224d1bb4fb680f34f7c9ad96a8f24ec88be73ea8e5a6c65260e9cb8a7",
-            "description": "",
-            "profile_picture": "",
-            "id": "dea6a29e-b59a-4a55-8932-b492213bfd09",
-            "cheat_sheet": [],
-            "collections": []
         }
     }
 }

@@ -1,9 +1,8 @@
-from flask import Response, request
+from flask import Response, request, make_response
 from singletons import render_html
 from .server_account_manager import ServerAccountManager
 from .sorting import sort_results_by_likes
 from .filtering import filter_context
-import json
 
 
 def remove_duplicates(array: list) -> list:
@@ -37,7 +36,7 @@ def handle_features(sam: ServerAccountManager) -> Response:
             sam,
         )
     else:
-        return "I didn't code this yet"
+        return make_response("I didn't code this yet")
 
 
 def handle_home_page(sam: ServerAccountManager) -> Response:
@@ -55,16 +54,19 @@ def handle_home_page(sam: ServerAccountManager) -> Response:
                 "home_page.html",
                 sam,
             )
+    return make_response("Method not supported yet")
 
 
 def handle_about(sam: ServerAccountManager) -> Response:
     if request.method == "GET":
         return render_html("about.html", sam)
+    return make_response("Method not supported yet")
 
 
 def handle_faqs(sam: ServerAccountManager) -> Response:
     if request.method == "GET":
         return render_html("faqs.html", sam)
+    return make_response("Method not supported yet")
 
 
 def handle_cheat_sheet_market(sam: ServerAccountManager) -> Response:
@@ -80,3 +82,4 @@ def handle_cheat_sheet_market(sam: ServerAccountManager) -> Response:
             data[category] = sort_results_by_likes(data[category])
         data_values: list = list(data.values())
         return render_html("cheat_sheet_market.html", sam, data=data_values)
+    return make_response("Method not supported yet")
