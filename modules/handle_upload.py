@@ -166,8 +166,8 @@ def handle_profile_picture_upload(new_image_input: FileStorage | None, sam: Serv
         hashed_user_id: str = sam.get_user_account_hashed_token()
         extension: str = get_extension(new_image_input.filename)
         file_name: str = secure_filename(f"{hashed_user_id}.{extension}")
-        path: str = os.path.join(app.config["UPLOAD_FOLDER"], file_name)
+        path: str = os.path.join(app.config["UPLOAD_FOLDER"].replace("upload", "pfp"), file_name)
         new_image_input.save(path)
-        flask_path: str = os.path.join("upload", file_name)
+        flask_path: str = os.path.join("pfp", file_name)
         return flask_path
     return ""

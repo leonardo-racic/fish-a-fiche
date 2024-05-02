@@ -1,34 +1,13 @@
 {
     "accounts": {
-        "322c2aab-cd60-4b26-a186-e2422261eb02": {
-            "username": "good",
-            "password": "944c27e5b97ab7793e4b6e9ff29384890ece0c7c04d2e2bf81c5f763469cc66b",
-            "description": "well",
-            "profile_picture": "upload/a00811e2af288256050502453f5343cb4c54efe931988e7bf33abca47393fe26.jpg",
-            "id": "322c2aab-cd60-4b26-a186-e2422261eb02",
-            "cheat_sheet": [
-                {
-                    "token": "08c8bc73-0915-47ae-99d7-82f67e58f6c0",
-                    "title": "Pythagorean Theorem",
-                    "author_token": "322c2aab-cd60-4b26-a186-e2422261eb02",
-                    "content": "$AB^2=AC^2+BC^2$",
-                    "context": "maths pythagore pythagorean-theorem theorem",
-                    "date": "03/05/2024 - 00:10",
-                    "likes": [],
-                    "dislikes": [],
-                    "original_lang": "EN",
-                    "comments": []
-                }
-            ],
-            "collections": [
-                {
-                    "is_public": false,
-                    "cheat_sheet": [
-                        "08c8bc73-0915-47ae-99d7-82f67e58f6c0"
-                    ],
-                    "name": "pkk"
-                }
-            ]
+        "6ad0e2c6-9843-4944-926f-24319f523d82": {
+            "username": "tu",
+            "password": "764c4c7b78d6fd3b7bf72e531e81b2304ff57df646d084f9b4bdd51b8e350955",
+            "description": "...",
+            "profile_picture": "pfp/98e5cf8ff3759f5badcfdd0388cbfa443fa99a1527d03665fa3db16b5a932e2e.jpg",
+            "id": "6ad0e2c6-9843-4944-926f-24319f523d82",
+            "cheat_sheet": [],
+            "collections": []
         }
     }
 }

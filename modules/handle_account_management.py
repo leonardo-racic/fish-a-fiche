@@ -128,7 +128,7 @@ def handle_modify_profile(server_account_manager: ServerAccountManager) -> Respo
             server_account_manager,
             username=current_account_info["username"],
             description=current_account_info["description"],
-            profile_picture=current_account_info["profile_picture"],
+            profile_picture=url_for('static', filename=current_account_info["profile_picture"]),
             cheat_sheet=current_account_info["cheat_sheet"],
         )
     else:
@@ -174,7 +174,7 @@ def handle_profile(server_account_manager: ServerAccountManager, hashed_token: s
                 username=account_info["username"],
                 current_hashed_token=hashed_token,
                 description=account_info["description"],
-                profile_picture=profile_picture,
+                profile_picture=url_for('static', filename=profile_picture),
                 is_user=is_user,
                 cheat_sheet=server_account_manager.get_account_cheat_sheet_info(account_info["id"])
             ))
