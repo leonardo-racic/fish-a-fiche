@@ -21,8 +21,9 @@ def get_comments(cheat_sheet_info: dict, sam: ServerAccountManager) -> list:
     comments = cheat_sheet_info["comments"]
     for i in range(len(comments)):
         current_comment: dict = comments[i]
-        current_account: Account = sam.get_account_from_hashed_token(current_comment["token"])
-        comments[i]["username"] = current_account.username
+        current_account: Account | None = sam.get_account_from_hashed_token(current_comment["token"])
+        if current_account is Account:
+            comments[i]["username"] = current_account.username
     return comments
 
 
@@ -106,7 +107,8 @@ def handle_cheat_sheet(
             cheat_sheet_manager.delete_cheat_sheet(token)
             server_account_manager.delete_cheat_sheet(user_token, token)
             inform(f"CS ({token}) deleted")
-            return redirect(f"/profile/{user_hashed_token}")
+            resp: Response = make_response(redirect(f"/profile/{user_hashed_token}"))
+            return resp
         
         
         elif input_type == "delete_comment_input":
@@ -172,9 +174,9 @@ def handle_cheat_sheet(
             )
             return resp
             
-        return redirect(f"/cheat-sheet/{token}")
+        return make_response(redirect(f"/cheat-sheet/{token}"))
     else:
-        return "Method not supported"
+        return make_response("Method not supported")
 
 
 def handle_create_cheat_sheet(
@@ -185,7 +187,7 @@ def handle_create_cheat_sheet(
     if request.method == "GET":
         if not user_logged_in:
             flash("You have to log in first!", "warning")
-            return redirect("/sign-up")
+            return make_response(redirect("/sign-up"))
         return render_html(
             "create_cheat_sheet.html", 
             server_account_manager,
@@ -198,7 +200,7 @@ def handle_create_cheat_sheet(
             server_account_manager.add_cheat_sheet_to_user(cheat_sheet)
             flash('cheat-sheet created','success')
             inform(f"CS({cheat_sheet.token}) has been created")
-            return redirect(f"/cheat-sheet/{cheat_sheet.token}")
+            return make_response(redirect(f"/cheat-sheet/{cheat_sheet.token}"))
         else:
             flash('not logged in','warning')
             return render_html(
@@ -206,7 +208,7 @@ def handle_create_cheat_sheet(
                 server_account_manager,
             )
     else:
-        return "Method not supported"
+        return make_response("Method not supported")
 
 
 def handle_modify_cheat_sheet(
@@ -218,9 +220,9 @@ def handle_modify_cheat_sheet(
         new_cheat_sheet_info: dict = get_form_data()
         cheat_sheet_manager.modify_cheat_sheet(token, new_cheat_sheet_info)
         flash('cheat-sheet modified','success')
-        return redirect(f"/cheat-sheet/{token}")
+        return make_response(redirect(f"/cheat-sheet/{token}"))
     elif request.method == "GET":
-        cheat_sheet: CheatSheet = cheat_sheet_manager.get_cheat_sheet(token)
+        cheat_sheet: CheatSheet | None = cheat_sheet_manager.get_cheat_sheet(token)
         if cheat_sheet is None:
             return Response(f"CheatSheet({token}) does not exist (is None).", status=404)
         cheat_sheet_info: dict = cheat_sheet.get_info()
@@ -230,4 +232,4 @@ def handle_modify_cheat_sheet(
             old_cheat_sheet=cheat_sheet_info,
         )
     else:
-        return "Method not supported"
+        return make_response("Method not supported")

@@ -5,6 +5,7 @@ from .server_account_manager import ServerAccountManager
 from .handle_upload import handle_profile_picture_upload
 from environment_variable import reports_path
 from terminal_log import inform, warn
+from werkzeug.datastructures import FileStorage
 import json
 
 
@@ -18,7 +19,7 @@ def handle_login(server_account_manager: ServerAccountManager) -> Response:
             server_account_manager,
         )
     else:
-        return "Method not supported"
+        return make_response("Method not supported")
 
 
 def handle_post_login(server_account_manager: ServerAccountManager) -> Response:
@@ -51,11 +52,14 @@ def handle_post_login(server_account_manager: ServerAccountManager) -> Response:
             server_account_manager,
         )
     
-    target_account: Account = server_account_manager.get_account_by_username(input_username)
-    response: Response = make_response(redirect(url_for("main")))
-    response.set_cookie("account-token", target_account.get_id())
-    inform(f'{request.remote_addr} has logged in as {input_username}')
-    return response
+    target_account: Account | None = server_account_manager.get_account_by_username(input_username)
+    if target_account is Account:
+        response: Response = make_response(redirect(url_for("main")))
+        response.set_cookie("account-token", target_account.get_id())
+        inform(f'{request.remote_addr} has logged in as {input_username}')
+        return response
+    else:
+        return make_response("/")
 
 
 
@@ -71,7 +75,7 @@ def handle_sign_up(server_account_manager: ServerAccountManager) -> Response:
             server_account_manager,
         )
     else:
-        return "Method not supported"
+        return make_response("Method not supported")
 
 
 def handle_post_sign_up(server_account_manager: ServerAccountManager, input_username: str, input_password: str) -> Response:
@@ -124,11 +128,11 @@ def handle_modify_profile(server_account_manager: ServerAccountManager) -> Respo
             cheat_sheet=current_account_info["cheat_sheet"],
         )
     else:
-        return "Method not supported"   
+        return make_response("Method not supported")
 
 
 def handle_post_modify_profile(server_account_manager: ServerAccountManager) -> Response:
-    new_image_input = request.files.get("new_image_input")
+    new_image_input: FileStorage | None = request.files.get("new_image_input")
     description_input: str = request.form.get("description_input", "")
     username_input: str = request.form.get("username_input", "")
     if server_account_manager.has_account(server_account_manager.get_user_account()):
@@ -139,8 +143,10 @@ def handle_post_modify_profile(server_account_manager: ServerAccountManager) -> 
     else:
         warn(f'{request.remote_addr}:{server_account_manager.get_user_account()} tried to modify non existant account')
         flash('Account does not exist', 'warning') 
-        abort(404)
-    return redirect(f"/profile/{server_account_manager.get_user_account_hashed_token()}")
+        return make_response(abort(404))
+    return make_response(
+        redirect(f"/profile/{server_account_manager.get_user_account_hashed_token()}")
+    )
 
 
 
@@ -148,7 +154,7 @@ def handle_post_modify_profile(server_account_manager: ServerAccountManager) -> 
 # Display profile
 def handle_profile(server_account_manager: ServerAccountManager, hashed_token: str) -> Response:
     if request.method == "GET":
-        account_info: dict = server_account_manager.get_account_info_from_hashed_token(hashed_token)
+        account_info: dict | None = server_account_manager.get_account_info_from_hashed_token(hashed_token)
         does_account_exist: bool = account_info is not None
         if does_account_exist:
             user_account_info: dict = server_account_manager.get_user_account_info()
@@ -169,20 +175,21 @@ def handle_profile(server_account_manager: ServerAccountManager, hashed_token: s
             ))
             return response
         flash('Account does not exist', 'warning')
-        abort(404)
+        return make_response(abort(404))
 
     
     elif request.method == "POST":
         form_data: dict = get_form_data()
         input_type: str = form_data["input_type"]
+        account: Account | None
         if input_type == "delete_account_input":
-            account: Account = server_account_manager.get_account_from_hashed_token(hashed_token)
+            account = server_account_manager.get_account_from_hashed_token(hashed_token)
             if account is None:
                 flash("Account does not exist", "warning")
                 abort(404)
             server_account_manager.delete_account(account)
             inform(f"user({account.get_id()}) has been deleted")
-            return redirect("/profile")
+            return make_response(redirect("/profile"))
         
 
         elif input_type == "report_input":
@@ -190,18 +197,19 @@ def handle_profile(server_account_manager: ServerAccountManager, hashed_token: s
                 reports_dict: dict = json.loads(f.read())
             reports: dict = reports_dict["reports"]
             hashed_account_id: str = form_data["hashed_account_id"]
-            account: Account = server_account_manager.get_account_from_hashed_token(hashed_account_id)
-            if account.get_id() not in reports["accounts"]:
-                reports["accounts"].append(account.get_id())
-                with open(reports_path, "w") as f:
-                    f.write(json.dumps(reports_dict, indent=4))
-                flash("Sucessfully reported!", "success")
-                inform(f"user({account.get_id()}) has been reported")
-            else:
-                flash("It has already been reported", "warning")
-                warn(f"user({account.get_id()}) has been reported once again")
-            return redirect(f"/profile/{hashed_account_id}")
+            account = server_account_manager.get_account_from_hashed_token(hashed_account_id)
+            if account is Account:
+                if account.get_id() not in reports["accounts"]:
+                    reports["accounts"].append(account.get_id())
+                    with open(reports_path, "w") as f:
+                        f.write(json.dumps(reports_dict, indent=4))
+                    flash("Sucessfully reported!", "success")
+                    inform(f"user({account.get_id()}) has been reported")
+                else:
+                    flash("It has already been reported", "warning")
+                    warn(f"user({account.get_id()}) has been reported once again")
+            return make_response(redirect(f"/profile/{hashed_account_id}"))
     
-
+        return make_response(redirect("/profile"))
     else:
-        return "Method not supported"
+        return make_response("Method not supported")

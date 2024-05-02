@@ -29,7 +29,7 @@ Note: this docstring is a modified version of the Google Python Style Guide.
 """
 
 import os
-from flask import Flask, Response, flash, request, redirect
+from flask import Flask, Response, request, flash, redirect, make_response
 from werkzeug.utils import secure_filename
 from werkzeug.datastructures import FileStorage
 import os.path
@@ -51,13 +51,15 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 csm: CheatSheetManager = CheatSheetManager()
 
 
-def allowed_file(filename: str) -> bool:
+def allowed_file(filename: str | None) -> bool:
     """
     This function checks if a file with the given name has a valid extension.
 
     :param filename: the name of the file to check
     :return: True if the file has a valid extension, False otherwise
     """
+    if filename is None:
+        return False
     extension: str = filename.rsplit('.', 1)[1].lower()
     return '.' in filename and extension in ALLOWED_EXTENSIONS
 
@@ -74,7 +76,7 @@ def handle_upload(server_account_manager: ServerAccountManager) -> Response:
         # check if the post request has the file part
         if 'file' not in request.files:
             terminal_log.warn('no files uploaded')
-            return redirect(request.url)
+            return make_response(redirect(request.url))
         
         terminal_log.inform('requesting file')
         file: FileStorage = request.files['file']
@@ -83,7 +85,7 @@ def handle_upload(server_account_manager: ServerAccountManager) -> Response:
         # empty file without a filename.
         if file.filename == '':
             terminal_log.warn('no filename')
-            return redirect(request.url)
+            return make_response(redirect(request.url))
         
         terminal_log.inform('verifying filename')
         if file and allowed_file(file.filename):
@@ -119,13 +121,13 @@ def create_cheat_sheet(server_account_manager: ServerAccountManager):
     :param server_account_manager: the server account manager used to authenticate the user
     :return: the new CheatSheet object
     """
-    title: str = request.form.get("title")
+    title: str | None = request.form.get("title")
     author_token: str = server_account_manager.get_user_account_token()
     content: str = read_md(
-        UPLOAD_FOLDER + "/" + secure_filename(request.form.get("title")) + ".txt"
+        UPLOAD_FOLDER + "/" + secure_filename(str(title)) + ".txt"
     )
-    description: str = request.form.get("description")
-    new_cs = CheatSheet(title, author_token, content, description)
+    description: str | None = request.form.get("description")
+    new_cs = CheatSheet(str(title), author_token, content, str(description))
     server_account_manager.add_cheat_sheet_to_user(new_cs)
     return new_cs
 
@@ -141,15 +143,19 @@ def read_md(file: str) -> str:
         return md.read()
 
 
-def get_extension(file_name: str) -> str:
+def get_extension(file_name: str | None) -> str:
+    if file_name is None:
+        return ""
     try:
         return file_name.split(".")[-1]
     except Exception:
         return ""
 
 
-def handle_profile_picture_upload(new_image_input: FileStorage, sam: ServerAccountManager) -> str:
-    if new_image_input.filename == "":
+def handle_profile_picture_upload(new_image_input: FileStorage | None, sam: ServerAccountManager) -> str:
+    if new_image_input is None:
+        return ""
+    elif new_image_input.filename == "":
         return ""
     elif new_image_input and allowed_file(new_image_input.filename):
         hashed_user_id: str = sam.get_user_account_hashed_token()

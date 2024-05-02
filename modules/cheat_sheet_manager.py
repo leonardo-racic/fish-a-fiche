@@ -47,10 +47,10 @@ class CheatSheetManager:
         self.cheat_sheet: dict = read_cheat_sheet_json()
     
 
-    def get_cheat_sheet(self, token: str) -> CheatSheet:
+    def get_cheat_sheet(self, token: str) -> CheatSheet | None:
         with open(cs_path, "r") as f:
             cheat_sheet_json: dict = load_json(f.read())["cheat_sheet"]
-        cheat_sheet_info: dict = cheat_sheet_json.get(token)
+        cheat_sheet_info: dict | None = cheat_sheet_json.get(token)
         if cheat_sheet_info is None:
             return None
         return json_to_cheat_sheet(cheat_sheet_info)
@@ -61,7 +61,7 @@ class CheatSheetManager:
     
 
     def get_cheat_sheet_info(self, token: str) -> dict:
-        cheat_sheet: CheatSheet = self.get_cheat_sheet(token)
+        cheat_sheet: CheatSheet | None = self.get_cheat_sheet(token)
         if cheat_sheet is None:
             return {}
         return cheat_sheet.get_info()

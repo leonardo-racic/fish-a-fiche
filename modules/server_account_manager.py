@@ -87,12 +87,13 @@ class ServerAccountManager:
         return self.get_accounts_dict().get(token, None)
     
 
-    def get_account_info_by_token(self, token: str) -> dict:
+    def get_account_info_by_token(self, token: str) -> dict | None:
         account: Account = self.get_account_by_token(token)
+        i: dict | None
         if account is not None:
-            i: dict = account.get_info()
+            i = account.get_info()
         else:
-            i: None = None
+            i = None
         return i
     
 
@@ -121,7 +122,9 @@ class ServerAccountManager:
         return account.get_username()
     
 
-    def has_account(self, specific_account: Account) -> bool:
+    def has_account(self, specific_account: Account | None) -> bool:
+        if specific_account is None:
+            return False
         r: bool = specific_account in self.get_all_accounts()
         return r
     
@@ -133,7 +136,7 @@ class ServerAccountManager:
         return False
     
 
-    def get_account_by_username(self, username: str) -> Account:
+    def get_account_by_username(self, username: str) -> Account | None:
         for account_info in self.get_all_account_info():
             if account_info["username"] == username:
                 return Account(
@@ -147,7 +150,7 @@ class ServerAccountManager:
     
 
     def get_account_info_by_username(self, username: str) -> dict:
-        target_account: Account = self.get_account_by_username(username)
+        target_account: Account | None = self.get_account_by_username(username)
         if target_account is None:
             return {}
         return target_account.get_info()
@@ -158,7 +161,7 @@ class ServerAccountManager:
         if not is_input_valid:
             return (False, False, False)
          
-        target_account: Account = self.get_account_by_username(username)
+        target_account: Account | None = self.get_account_by_username(username)
         account_exists: bool = target_account is not None
         password_hash: str = get_hash(password)
         password_correct: bool = target_account.check_password(password_hash) if account_exists else False
@@ -175,7 +178,7 @@ class ServerAccountManager:
 
     def get_user_account_info(self) -> dict:
         self.update()
-        user_account: Account = self.get_user_account()
+        user_account: Account | None = self.get_user_account()
         if user_account is None:
             return {}
         return user_account.get_info()
@@ -185,11 +188,11 @@ class ServerAccountManager:
         return request.cookies.get("account-token", "")
 
 
-    def get_user_account(self) -> Account:
+    def get_user_account(self) -> Account | None:
         with open(account_path) as f:
             accounts_json: dict = load_json(f.read())["accounts"]
         account_token: str = self.get_user_account_token()
-        target_account_info: Account = accounts_json.get(account_token)
+        target_account_info: Account | None = accounts_json.get(account_token)
         if target_account_info is None:
             return None
         target_account: Account = json_to_account(target_account_info)
@@ -250,15 +253,15 @@ class ServerAccountManager:
         return cheat_sheet
 
 
-    def get_account_from_hashed_token(self, hashed_token: str) -> Account:
+    def get_account_from_hashed_token(self, hashed_token: str) -> Account | None:
         for account in self.get_all_accounts():
             if get_hash(account.get_id()) == hashed_token:
                 return account
         return None
     
 
-    def get_account_info_from_hashed_token(self, hashed_token: str) -> dict:
-        account: Account = self.get_account_from_hashed_token(hashed_token)
+    def get_account_info_from_hashed_token(self, hashed_token: str) -> dict | None:
+        account: Account | None = self.get_account_from_hashed_token(hashed_token)
         if account is None:
             return None
         return account.get_info()
@@ -286,8 +289,9 @@ class ServerAccountManager:
     
 
     def add_new_collection_to_account_from_hashed_token(self, collection: str, hashed_account_id: str, is_public: bool) -> None:
-        target_account: Account = self.get_account_from_hashed_token(hashed_account_id)
-        self.add_new_collection_to_account(collection, target_account.get_id(), is_public)
+        target_account: Account | None = self.get_account_from_hashed_token(hashed_account_id)
+        if target_account is Account:
+            self.add_new_collection_to_account(collection, target_account.get_id(), is_public)
     
 
     def add_cheat_sheet_to_collection(self, collection: str, account_id: str, cheat_sheet_token: str) -> None:
@@ -335,7 +339,7 @@ class ServerAccountManager:
         return False
     
 
-    def is_collection_public(self, account_id: str, collection_name: str) -> bool:
+    def is_collection_public(self, account_id: str, collection_name: str) -> bool | None:
         with open(account_path) as f:
             json_data: dict = load_json(f.read())
         target_account_json: dict = json_data["accounts"][account_id]
@@ -385,7 +389,7 @@ class ServerAccountManager:
         self.update()
     
 
-    def get_cheat_sheet_token_from_collection(self, account_id: str, collection_name: str) -> list:
+    def get_cheat_sheet_token_from_collection(self, account_id: str, collection_name: str) -> list | None:
         with open(account_path) as f:
             json_data: dict = load_json(f.read())
         target_account_json: dict = json_data["accounts"][account_id]
