@@ -15,12 +15,12 @@
 
 
             <div class="form-group mb-4">
-                <label for="comment-input">Cheat sheet's keywords</label>
-                <textarea class="form-control" id="context-input" name ="keywords" autocomplete="off"></textarea>
+                <label for="context-input">Cheat sheet's keywords</label>
+                <textarea class="form-control" id="context-input" name="context" autocomplete="off"></textarea>
             </div>
             
             
-            <button class="btn btn-primary" value=Upload type="submit">Upload cheat sheet</button>
+            <button id="upload-button" class="btn btn-primary" type="submit" disabled>Upload cheat sheet</button>
             {% if not logged_in %}
                 <div class="alert alert-warning">
                     You have to <strong>log in</strong> to upload! 
@@ -28,4 +28,5 @@
             {% endif %}
         </form>
     </div>
+    <script type="module" src="../static/js/upload-cheat-sheet.js"></script>
 {% endblock %}

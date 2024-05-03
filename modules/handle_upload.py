@@ -84,12 +84,14 @@ def handle_upload(server_account_manager: ServerAccountManager) -> Response:
         file: FileStorage | None = get_form_file("file")
         if file is None:
             terminal_log.warn('no file uploaded')
+            flash("No file uploaded", "error")
             return make_response(redirect(request.url))
 
         # If the user does not select a file, the browser submits an
         # empty file without a filename.
         if file.filename == '':
             terminal_log.warn('no filename')
+            flash("No filename", "error")
             return make_response(redirect(request.url))
         
         terminal_log.inform('verifying filename')
@@ -134,12 +136,12 @@ def create_cheat_sheet(server_account_manager: ServerAccountManager):
     """
     form_data: dict[str, str] = get_form_data()
     title: str | None = form_data.get("title")
+    context: str | None = form_data.get("context")
     author_token: str = server_account_manager.get_user_account_token()
     content: str = read_md(
         UPLOAD_FOLDER + "/" + secure_filename(str(title)) + ".txt"
     )
-    description: str | None = form_data.get("description")
-    new_cs = CheatSheet(str(title), author_token, content, str(description))
+    new_cs = CheatSheet(str(title), author_token, content, str(context))
     server_account_manager.add_cheat_sheet_to_user(new_cs)
     return new_cs
 

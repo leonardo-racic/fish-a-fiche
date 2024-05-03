@@ -227,6 +227,7 @@ def handle_modify_cheat_sheet(
         if cheat_sheet is None:
             return Response(f"CheatSheet({token}) does not exist (is None).", status=404)
         cheat_sheet_info: dict = cheat_sheet.get_info()
+        print(cheat_sheet_info)
         return render_html(
             "modify_cheat_sheet.html",
             server_account_manager,

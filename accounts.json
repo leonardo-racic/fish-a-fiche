@@ -37,7 +37,32 @@
             "description": "...",
             "profile_picture": "pfp\\7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb.png",
             "id": "94ccc88d-2a44-4779-a102-64f77073b8ec",
-            "cheat_sheet": [],
+            "cheat_sheet": [
+                {
+                    "token": "279fead3-58ef-4988-a846-ae5a51013924",
+                    "title": "Al Kashi Formula",
+                    "author_token": "94ccc88d-2a44-4779-a102-64f77073b8ec",
+                    "content": "$a^2=b^2+c^2-2bc\\cdot\\cos(\\widehat{A})$",
+                    "context": "maths al-kashi geometry",
+                    "date": "03/05/2024 - 12:31",
+                    "likes": [],
+                    "dislikes": [],
+                    "original_lang": "EN",
+                    "comments": []
+                },
+                {
+                    "token": "f675867b-f871-4b99-8a65-afbd766682f5",
+                    "title": "h",
+                    "author_token": "94ccc88d-2a44-4779-a102-64f77073b8ec",
+                    "content": "$h^2=a^2+a^2\\newline h^2=2a^2\\newline \\sqrt{h^2}=sqrt{2a^2}\\newline h=a\\sqrt{2}$",
+                    "context": "u",
+                    "date": "03/05/2024 - 13:04",
+                    "likes": [],
+                    "dislikes": [],
+                    "original_lang": "EN",
+                    "comments": []
+                }
+            ],
             "collections": []
         }
     }

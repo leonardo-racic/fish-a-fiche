@@ -63,17 +63,37 @@ function isContextValid(input) {
 }
 
 
-function isFormInputValid(titleInput, contextInput, contentInput) {
-    let titleValid = isTitleValid(titleInput.val());
-    let contentValid = isInputValid(contentInput.val());
-    let contextValid = isContextValid(contextInput.val());
-    let condition = titleValid && contentValid && contextValid
+function getCondition(titleInput, contextInput, contentInput, particularity) {
+    let condition = [];
+    try {
+        let titleValid = isTitleValid(titleInput.val());
+        let contentValid = isInputValid(contentInput.val());
+        let contextValid = isContextValid(contextInput.val());
+        condition.push(titleValid, contentValid, contextValid);
+    } catch (error) {
+        if (particularity === "no-content") {
+            let titleValid = isTitleValid(titleInput.val());
+            let contextValid = isContextValid(contextInput.val());
+            condition = [titleValid, contextValid];
+        }
+    }
     return condition;
 }
 
 
-function updateButton(titleInput, contextInput, contentInput, button) {
-    if (isFormInputValid(titleInput, contextInput, contentInput)) {
+function isFormInputValid(titleInput, contextInput, contentInput, particularity) {
+    let condition = getCondition(titleInput, contextInput, contentInput, particularity);
+    for (let isValid of condition) {
+        if (!isValid) {
+            return false;
+        }
+    }
+    return true;
+}
+
+
+function updateButton(titleInput, contextInput, contentInput, button, particularity) {
+    if (isFormInputValid(titleInput, contextInput, contentInput, particularity)) {
         button.removeAttr("disabled");
     } else {
         button.attr("disabled", "disabled");
@@ -81,16 +101,20 @@ function updateButton(titleInput, contextInput, contentInput, button) {
 }
 
 
-function updateElement(element, titleInput, contextInput, contentInput, button) {
+function updateElement(element, titleInput, contextInput, contentInput, button, particularity) {
     element.on("input", () => {
-        updateButton(titleInput, contextInput, contentInput, button);
+        updateButton(titleInput, contextInput, contentInput, button, particularity);
     });
 } 
 
 
-export function updateForm(titleInput, contextInput, contentInput, button) {
+export function updateForm(titleInput, contextInput, contentInput, button, particularity = "") {
     let inputFields = [titleInput, contextInput, contentInput];
     for (let element of inputFields) {
-        updateElement(element, titleInput, contextInput, contentInput, button);
+        if (element !== null) {
+            updateElement(element, titleInput, contextInput, contentInput, button, particularity);
+        } else {
+            console.log("element null");
+        }
     }
 }
