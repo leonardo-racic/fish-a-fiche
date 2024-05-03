@@ -1,13 +1,2 @@
-2024-05-03 00:43:17,872 - WARNING   (werkzeug)    * Debugger is active!
-2024-05-03 00:43:17,873 - INFO   (werkzeug)    * Debugger PIN: 106-920-926
-2024-05-03 00:43:22,868 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:43:22] "GET /profile/98e5cf8ff3759f5badcfdd0388cbfa443fa99a1527d03665fa3db16b5a932e2e HTTP/1.1" 200 -
-2024-05-03 00:43:22,886 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:43:22] "GET /static/pfp/98e5cf8ff3759f5badcfdd0388cbfa443fa99a1527d03665fa3db16b5a932e2e.jpg HTTP/1.1" 200 -
-2024-05-03 00:43:22,932 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:43:22] "GET /favicon.ico HTTP/1.1" 200 -
-2024-05-03 00:43:23,986 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:43:23] "GET /modify-profile HTTP/1.1" 200 -
-2024-05-03 00:43:24,047 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:43:24] "[32mGET /static//static/pfp/98e5cf8ff3759f5badcfdd0388cbfa443fa99a1527d03665fa3db16b5a932e2e.jpg HTTP/1.1[0m" 308 -
-2024-05-03 00:43:24,068 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:43:24] "GET /static/static/pfp/98e5cf8ff3759f5badcfdd0388cbfa443fa99a1527d03665fa3db16b5a932e2e.jpg HTTP/1.1" 200 -
-2024-05-03 00:43:24,139 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:43:24] "GET /favicon.ico HTTP/1.1" 200 -
-2024-05-03 00:43:29,844 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:43:29] "[32mPOST /modify-profile HTTP/1.1[0m" 302 -
-2024-05-03 00:43:29,850 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:43:29] "GET /profile/98e5cf8ff3759f5badcfdd0388cbfa443fa99a1527d03665fa3db16b5a932e2e HTTP/1.1" 200 -
-2024-05-03 00:43:29,879 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:43:29] "GET /static/pfp/98e5cf8ff3759f5badcfdd0388cbfa443fa99a1527d03665fa3db16b5a932e2e.jpg HTTP/1.1" 200 -
-2024-05-03 00:43:29,920 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 00:43:29] "GET /favicon.ico HTTP/1.1" 200 -
+2024-05-03 00:44:46,545 - WARNING   (werkzeug)    * Debugger is active!
+2024-05-03 00:44:46,545 - INFO   (werkzeug)    * Debugger PIN: 106-920-926

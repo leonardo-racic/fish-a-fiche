@@ -45,6 +45,7 @@ from singletons import render_html, get_form_file, get_form_data
 UPLOAD_FOLDER: str = upload_path
 ALLOWED_EXTENSIONS: set = {'md','MD','txt', 'jpeg', 'png', 'jpg'}
 
+
 app: Flask = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 

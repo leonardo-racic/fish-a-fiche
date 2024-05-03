@@ -5,7 +5,7 @@ def sort_results_by_keywords(cs: list, keywords: str = "") -> list:
 
     def sort_func(current_cs: dict) -> tuple:
         current_context: str = current_cs["context"]
-        index = 0
+        index: int = 0
         for k in keywords.split():
             if k in current_context.split():
                 index += 1
