@@ -123,12 +123,15 @@ def handle_modify_profile(server_account_manager: ServerAccountManager) -> Respo
         if current_account_info == {}:
             flash("You are not logged in", "danger")
             abort(404)
+        profile_picture: str = current_account_info["profile_picture"]
+        if profile_picture != "":
+            profile_picture = url_for('static', filename=profile_picture.replace("\\", "/"))
         return render_html(
             "modify_user_profile.html",
             server_account_manager,
             username=current_account_info["username"],
             description=current_account_info["description"],
-            profile_picture=url_for('static', filename=current_account_info["profile_picture"]),
+            profile_picture=profile_picture,
             cheat_sheet=current_account_info["cheat_sheet"],
         )
     else:
@@ -140,8 +143,13 @@ def handle_post_modify_profile(server_account_manager: ServerAccountManager) -> 
     form_data: dict[str, str] = get_form_data()
     description_input: str = form_data.get("description_input", "")
     username_input: str = form_data.get("username_input", "")
+    remove_pfp: str = form_data.get("remove_pfp", "")
     if server_account_manager.has_account(server_account_manager.get_user_account()):
+        print(remove_pfp, type(remove_pfp))
         image_path: str = handle_profile_picture_upload(new_image_input, server_account_manager)
+        if remove_pfp == "on":
+            image_path = ""
+        print("image_path", image_path)
         server_account_manager.modify_profile(image_path, description_input, username_input)
         inform(f"{request.remote_addr}:{get_cookie('account-token')} modified {username_input}, with {image_path}, {description_input}")
         flash('Account has been successfully modified', 'success')

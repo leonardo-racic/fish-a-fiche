@@ -222,8 +222,7 @@ class ServerAccountManager:
                 data: dict = load_json(f.read())["accounts"]
             for current_account_info in data.values():
                 if current_account_info["username"] == account_info["username"]:
-                    if new_image_input != "":
-                        current_account_info["profile_picture"] = new_image_input
+                    current_account_info["profile_picture"] = new_image_input
                     current_account_info["description"] = description_input
                     current_account_info["username"] = username_input
                     break

@@ -1,8 +1,22 @@
-2024-05-03 12:17:35,452 - WARNING   (werkzeug)    * Debugger is active!
-2024-05-03 12:17:35,483 - INFO   (werkzeug)    * Debugger PIN: 142-332-117
-2024-05-03 12:17:36,755 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:17:36] "[32mGET /sign-out HTTP/1.1[0m" 302 -
-2024-05-03 12:17:36,794 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:17:36] "GET / HTTP/1.1" 200 -
-2024-05-03 12:17:39,341 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:17:39] "GET /sign-up HTTP/1.1" 200 -
-2024-05-03 12:17:41,946 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:17:41] "[32mPOST /sign-up HTTP/1.1[0m" 302 -
-2024-05-03 12:17:42,055 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:17:42] "GET / HTTP/1.1" 200 -
-2024-05-03 12:17:45,369 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:17:45] "GET /profile/7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb HTTP/1.1" 200 -
+2024-05-03 12:31:11,443 - WARNING   (werkzeug)    * Debugger is active!
+2024-05-03 12:31:11,460 - INFO   (werkzeug)    * Debugger PIN: 142-332-117
+2024-05-03 12:31:12,704 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:31:12] "GET /profile/7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb HTTP/1.1" 200 -
+2024-05-03 12:31:13,058 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:31:13] "[36mGET /static/pfp/7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb.png HTTP/1.1[0m" 304 -
+2024-05-03 12:31:15,031 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:31:15] "GET /modify-profile HTTP/1.1" 200 -
+2024-05-03 12:31:15,131 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:31:15] "GET /static/static/pfp/7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb.png HTTP/1.1" 200 -
+2024-05-03 12:31:17,851 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:31:17] "[32mPOST /modify-profile HTTP/1.1[0m" 302 -
+2024-05-03 12:31:17,881 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:31:17] "GET /profile/7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb HTTP/1.1" 200 -
+2024-05-03 12:31:19,988 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:31:19] "GET /modify-profile HTTP/1.1" 200 -
+2024-05-03 12:31:24,734 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:31:24] "[32mPOST /modify-profile HTTP/1.1[0m" 302 -
+2024-05-03 12:31:24,749 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:31:24] "GET /profile/7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb HTTP/1.1" 200 -
+2024-05-03 12:31:24,979 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:31:24] "GET /static/pfp/7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb.png HTTP/1.1" 200 -
+2024-05-03 12:31:26,461 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:31:26] "GET /modify-profile HTTP/1.1" 200 -
+2024-05-03 12:31:26,596 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:31:26] "GET /static/static/pfp/7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb.png HTTP/1.1" 200 -
+2024-05-03 12:32:22,832 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:32:22] "GET /modify-profile HTTP/1.1" 200 -
+2024-05-03 12:32:22,985 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:32:22] "[36mGET /static/pfp/7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb.png HTTP/1.1[0m" 304 -
+2024-05-03 12:32:26,993 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:32:26] "[32mPOST /modify-profile HTTP/1.1[0m" 302 -
+2024-05-03 12:32:27,014 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:32:27] "GET /profile/7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb HTTP/1.1" 200 -
+2024-05-03 12:32:28,390 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:32:28] "GET /modify-profile HTTP/1.1" 200 -
+2024-05-03 12:32:33,239 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:32:33] "[32mPOST /modify-profile HTTP/1.1[0m" 302 -
+2024-05-03 12:32:33,264 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:32:33] "GET /profile/7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb HTTP/1.1" 200 -
+2024-05-03 12:32:33,418 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:32:33] "GET /static/pfp/7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb.png HTTP/1.1" 200 -
