@@ -3,7 +3,7 @@
 
 {% block body %}
     <div class="container">
-        <form action="/create-cheat-sheet" id="input-form" method="post">
+        <form action="/create-cheat-sheet" method="post">
             <div class="form-group">
                 <label for="title-input">Cheat sheet's title</label>
                 <input class="form-control" type="text" id="title-input" name="title" autocomplete="off">
@@ -23,99 +23,5 @@
             <button class="btn btn-primary" id="create-button" type="submit" disabled>Upload cheat sheet</button>
         </form>
     </div>
-    <script>
-        const MIN_LENGTH = 0;
-        const MAX_TITLE_LENGTH = 32;
-        const MAX_KEYWORDS = 10;
-        const MAX_KEYWORD_LENGTH = 20;
-    
-
-        let titleInput = $("#title-input");
-        let contentInput = $("#content-input");
-        let contextInput = $("#context-input");
-        let createButton = $("#create-button");
-        let form = $("#input-form");
-
-
-        function isInputValid(input) {
-            return (input.length > MIN_LENGTH);
-        }
-
-        
-        function isTitleValid(input) {
-            return isInputValid(input) && input.length <= MAX_TITLE_LENGTH;
-        }
-
-
-        function areCharactersValid(input) {
-            for (let c of input) {
-                if (c.match(/[a-z]/i) || c === "-" || c === " ") {
-                    continue;
-                } else {
-                    return false
-                }
-            }
-            return true;
-        }
-
-
-        function isKeywordNumberValid(input) {
-            let numberOfKeywords = input.split(" ").length;
-            return numberOfKeywords <= MAX_KEYWORDS;
-        }
-
-
-        function noRepeatingKeyword(input) {
-            let cache = [];
-            let keywords = input.split(" ");
-            for (let k of keywords) {
-                if (!cache.includes(k) && k.length < MAX_KEYWORD_LENGTH) {
-                    cache.push(k);
-                } else {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-
-        function isContextValid(input) {
-            if (!isInputValid(input)) {
-                return false;
-            }
-            if (!areCharactersValid(input)) {
-                return false;
-            }
-            if (!isKeywordNumberValid(input)) {
-                return false;
-            }
-            if (!noRepeatingKeyword(input)) {
-                return false;
-            }
-            return true;
-        }
-
-
-        function isFormInputValid() {
-            let titleValid = isTitleValid(titleInput.val());
-            let contentValid = isInputValid(contentInput.val());
-            let contextValid = isContextValid(contextInput.val());
-            let condition = titleValid && contentValid && contextValid
-            return condition;
-        }
-
-
-        function updateButton() {
-            if (isFormInputValid()) {
-                createButton.removeAttr("disabled");
-            } else {
-                createButton.attr("disabled", "disabled");
-            }
-        }
-
-
-        titleInput.on("input", updateButton);
-        contextInput.on("input", updateButton);
-        contentInput.on("input", updateButton);
-    </script>
+    <script type="module" src="../static/js/create-cheat-sheet.js"></script>
 {% endblock %}

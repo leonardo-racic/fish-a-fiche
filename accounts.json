@@ -8,6 +8,28 @@
             "id": "6ad0e2c6-9843-4944-926f-24319f523d82",
             "cheat_sheet": [],
             "collections": []
+        },
+        "4842cc88-04ee-441c-a103-e65f324b1f08": {
+            "username": "test",
+            "password": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
+            "description": "",
+            "profile_picture": "",
+            "id": "4842cc88-04ee-441c-a103-e65f324b1f08",
+            "cheat_sheet": [
+                {
+                    "token": "8f783443-5c35-48bb-bcd8-455cc30dda1e",
+                    "title": "z",
+                    "author_token": "4842cc88-04ee-441c-a103-e65f324b1f08",
+                    "content": "t",
+                    "context": "s",
+                    "date": "03/05/2024 - 11:38",
+                    "likes": [],
+                    "dislikes": [],
+                    "original_lang": "EN",
+                    "comments": []
+                }
+            ],
+            "collections": []
         }
     }
 }

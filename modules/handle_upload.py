@@ -94,23 +94,29 @@ def handle_upload(server_account_manager: ServerAccountManager) -> Response:
         
         terminal_log.inform('verifying filename')
         if file and allowed_file(file.filename):
-            filename: str = secure_filename(f"{get_form_data.get('title')}.txt")
+            filename: str = secure_filename(f"{get_form_data().get('title')}.txt")
             terminal_log.inform(f'filename secured FILENAME:{filename}')
             terminal_log.inform('saving file')
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            path: str = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            file.save(path)
             terminal_log.inform('file saved')
 
-            terminal_log.inform('creating cheat-sheet')
-            new_cs = create_cheat_sheet(server_account_manager)
-            terminal_log.inform(f'cheat_sheet created cs_token: {new_cs.token} author_token: {new_cs.author_token}')
 
-            terminal_log.inform('storing to index')
-            csm.add_cheat_sheet(new_cs)
-            terminal_log.inform('stored to index')
-            terminal_log.inform(
-                f'{request.remote_addr}:{server_account_manager.get_user_account_token()} upload succesfull, redirecting'
-            )
-            flash('upload succesfull','success')
+            if os.path.getsize(path) == 0:
+                os.remove(path)
+                flash("File is empty", "error")
+            else:
+                terminal_log.inform('creating cheat-sheet')
+                new_cs = create_cheat_sheet(server_account_manager)
+                terminal_log.inform(f'cheat_sheet created cs_token: {new_cs.token} author_token: {new_cs.author_token}')
+
+                terminal_log.inform('storing to index')
+                csm.add_cheat_sheet(new_cs)
+                terminal_log.inform('stored to index')
+                terminal_log.inform(
+                    f'{request.remote_addr}:{server_account_manager.get_user_account_token()} upload succesfull, redirecting'
+                )
+                flash('upload succesfull','success')
 
 
     return render_html(
@@ -169,6 +175,10 @@ def handle_profile_picture_upload(new_image_input: FileStorage | None, sam: Serv
         file_name: str = secure_filename(f"{hashed_user_id}.{extension}")
         path: str = os.path.join(app.config["UPLOAD_FOLDER"].replace("upload", "pfp"), file_name)
         new_image_input.save(path)
+        file_size: int = os.path.getsize(path)
+        if file_size == 0:
+            os.remove(path)
+            return ""
         flask_path: str = os.path.join("pfp", file_name)
         return flask_path
     return ""
