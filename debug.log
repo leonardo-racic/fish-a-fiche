@@ -1,2 +1,8 @@
-2024-05-03 12:09:21,251 - WARNING   (werkzeug)    * Debugger is active!
-2024-05-03 12:09:21,278 - INFO   (werkzeug)    * Debugger PIN: 142-332-117
+2024-05-03 12:17:35,452 - WARNING   (werkzeug)    * Debugger is active!
+2024-05-03 12:17:35,483 - INFO   (werkzeug)    * Debugger PIN: 142-332-117
+2024-05-03 12:17:36,755 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:17:36] "[32mGET /sign-out HTTP/1.1[0m" 302 -
+2024-05-03 12:17:36,794 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:17:36] "GET / HTTP/1.1" 200 -
+2024-05-03 12:17:39,341 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:17:39] "GET /sign-up HTTP/1.1" 200 -
+2024-05-03 12:17:41,946 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:17:41] "[32mPOST /sign-up HTTP/1.1[0m" 302 -
+2024-05-03 12:17:42,055 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:17:42] "GET / HTTP/1.1" 200 -
+2024-05-03 12:17:45,369 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 12:17:45] "GET /profile/7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb HTTP/1.1" 200 -

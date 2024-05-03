@@ -168,13 +168,15 @@ def handle_profile(server_account_manager: ServerAccountManager, hashed_token: s
             else:
                 is_user = bool(account_info["id"] == user_account_info["id"])
             profile_picture: str = account_info["profile_picture"]
+            if profile_picture != "":
+                profile_picture = url_for('static', filename=profile_picture.replace("\\", "/"))
             response: Response = make_response(render_html(
                 "user_profile.html",
                 server_account_manager,
                 username=account_info["username"],
                 current_hashed_token=hashed_token,
                 description=account_info["description"],
-                profile_picture=url_for('static', filename=profile_picture),
+                profile_picture=profile_picture,
                 is_user=is_user,
                 cheat_sheet=server_account_manager.get_account_cheat_sheet_info(account_info["id"])
             ))
