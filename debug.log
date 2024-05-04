@@ -1,39 +1,6 @@
-2024-05-03 13:04:34,747 - WARNING   (werkzeug)    * Debugger is active!
-2024-05-03 13:04:34,762 - INFO   (werkzeug)    * Debugger PIN: 142-332-117
-2024-05-03 13:04:35,117 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:04:35] "GET /cheat-sheet/a32a28a4-d376-459b-b98e-69cc32d2a266 HTTP/1.1" 200 -
-2024-05-03 13:04:37,415 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:04:37] "GET /profile/7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb HTTP/1.1" 200 -
-2024-05-03 13:04:37,800 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:04:37] "[36mGET /static/pfp/7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb.png HTTP/1.1[0m" 304 -
-2024-05-03 13:04:39,202 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:04:39] "[32mPOST /cheat-sheet/a32a28a4-d376-459b-b98e-69cc32d2a266 HTTP/1.1[0m" 302 -
-2024-05-03 13:04:39,237 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:04:39] "GET /profile/7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb HTTP/1.1" 200 -
-2024-05-03 13:04:39,391 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:04:39] "[36mGET /static/pfp/7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb.png HTTP/1.1[0m" 304 -
-2024-05-03 13:04:44,776 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:04:44] "GET /upload HTTP/1.1" 200 -
-2024-05-03 13:04:44,881 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:04:44] "[36mGET /static/js/upload-cheat-sheet.js HTTP/1.1[0m" 304 -
-2024-05-03 13:04:44,923 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:04:44] "[36mGET /static/js/cheat-sheet-input.js HTTP/1.1[0m" 304 -
-2024-05-03 13:05:23,104 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:05:23] "GET /profile/7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb HTTP/1.1" 200 -
-2024-05-03 13:05:23,286 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:05:23] "[36mGET /static/pfp/7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb.png HTTP/1.1[0m" 304 -
-2024-05-03 13:05:26,779 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:05:26] "GET /upload HTTP/1.1" 200 -
-2024-05-03 13:05:26,899 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:05:26] "[36mGET /static/js/upload-cheat-sheet.js HTTP/1.1[0m" 304 -
-2024-05-03 13:05:26,929 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:05:26] "[36mGET /static/js/cheat-sheet-input.js HTTP/1.1[0m" 304 -
-2024-05-03 13:05:40,572 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:05:40] "POST /upload HTTP/1.1" 200 -
-2024-05-03 13:05:40,680 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:05:40] "[36mGET /static/js/upload-cheat-sheet.js HTTP/1.1[0m" 304 -
-2024-05-03 13:05:40,740 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:05:40] "[36mGET /static/js/cheat-sheet-input.js HTTP/1.1[0m" 304 -
-2024-05-03 13:05:43,741 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:05:43] "GET /profile/7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb HTTP/1.1" 200 -
-2024-05-03 13:05:43,885 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:05:43] "[36mGET /static/pfp/7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb.png HTTP/1.1[0m" 304 -
-2024-05-03 13:05:46,391 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:05:46] "GET /cheat-sheet/f675867b-f871-4b99-8a65-afbd766682f5 HTTP/1.1" 200 -
-2024-05-03 13:05:52,406 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:05:52] "GET /modify-cheat-sheet/f675867b-f871-4b99-8a65-afbd766682f5 HTTP/1.1" 200 -
-2024-05-03 13:05:52,548 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:05:52] "[36mGET /static/js/modify-cheat-sheet.js HTTP/1.1[0m" 304 -
-2024-05-03 13:05:52,594 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:05:52] "[36mGET /static/js/cheat-sheet-input.js HTTP/1.1[0m" 304 -
-2024-05-03 13:06:23,024 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:06:23] "GET /profile/7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb HTTP/1.1" 200 -
-2024-05-03 13:06:23,217 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:06:23] "[36mGET /static/pfp/7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb.png HTTP/1.1[0m" 304 -
-2024-05-03 13:06:24,755 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:06:24] "[32mPOST /cheat-sheet/f675867b-f871-4b99-8a65-afbd766682f5 HTTP/1.1[0m" 302 -
-2024-05-03 13:06:24,791 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:06:24] "GET /profile/7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb HTTP/1.1" 200 -
-2024-05-03 13:06:24,930 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:06:24] "[36mGET /static/pfp/7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb.png HTTP/1.1[0m" 304 -
-2024-05-03 13:06:26,360 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:06:26] "GET /upload HTTP/1.1" 200 -
-2024-05-03 13:06:26,456 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:06:26] "[36mGET /static/js/upload-cheat-sheet.js HTTP/1.1[0m" 304 -
-2024-05-03 13:06:26,508 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:06:26] "[36mGET /static/js/cheat-sheet-input.js HTTP/1.1[0m" 304 -
-2024-05-03 13:06:37,853 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:06:37] "POST /upload HTTP/1.1" 200 -
-2024-05-03 13:06:37,933 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:06:37] "[36mGET /static/js/upload-cheat-sheet.js HTTP/1.1[0m" 304 -
-2024-05-03 13:06:38,024 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:06:38] "[36mGET /static/js/cheat-sheet-input.js HTTP/1.1[0m" 304 -
-2024-05-03 13:06:40,057 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:06:40] "GET /profile/7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb HTTP/1.1" 200 -
-2024-05-03 13:06:40,205 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:06:40] "[36mGET /static/pfp/7e5667549c4cc7439f380f6db694bdd0baf7427e273fd32bb200b0e349baedfb.png HTTP/1.1[0m" 304 -
-2024-05-03 13:06:41,508 - INFO   (werkzeug)   127.0.0.1 - - [03/May/2024 13:06:41] "GET /cheat-sheet/f675867b-f871-4b99-8a65-afbd766682f5 HTTP/1.1" 200 -
+2024-05-04 22:49:02,730 - WARNING   (werkzeug)    * Debugger is active!
+2024-05-04 22:49:02,809 - INFO   (werkzeug)    * Debugger PIN: 145-353-613
+2024-05-04 22:49:12,047 - INFO   (werkzeug)   127.0.0.1 - - [04/May/2024 22:49:12] "GET / HTTP/1.1" 200 -
+2024-05-04 22:49:12,270 - INFO   (werkzeug)   127.0.0.1 - - [04/May/2024 22:49:12] "GET /favicon.ico HTTP/1.1" 200 -
+2024-05-04 22:49:19,615 - INFO   (werkzeug)   127.0.0.1 - - [04/May/2024 22:49:19] "GET / HTTP/1.1" 200 -
+2024-05-04 22:49:19,848 - INFO   (werkzeug)   127.0.0.1 - - [04/May/2024 22:49:19] "GET /favicon.ico HTTP/1.1" 200 -

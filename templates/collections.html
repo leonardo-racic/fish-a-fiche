@@ -77,49 +77,8 @@
                 {% endfor %}
             </div>
         {% endif %}
-        
     </div>
 
 
-    <script>
-        const minNameLength = 0;
-        const maxNameLength = 32;
-        const forbiddenChars = " ";
-
-
-        let createCollectionButton = $("#create-collection-button");
-        let collectionNameInput = $("#collection-name");
-
-
-        function containsForbiddenChars(chosenName) {
-            for (let i = 0; i < forbiddenChars.length; i++) {
-                if (chosenName.includes(forbiddenChars[i])) {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-
-        function isChosenNameValid(chosenName) {
-            if (chosenName.length <= minNameLength) {
-                return false;
-            } else if (chosenName.length > maxNameLength) {
-                return false;
-            } else if (containsForbiddenChars(chosenName)) {
-                return false;
-            }
-            return true;
-        }
-        
-        
-        collectionNameInput.on("input", function(e) {
-            let chosenName = collectionNameInput.val();
-            if (isChosenNameValid(chosenName)) {
-                createCollectionButton.removeAttr("disabled");
-            } else {
-                createCollectionButton.attr("disabled", "disabled");
-            }
-        });
-    </script>
+    <script src="../static/js/collection-input.js" ></script>
 {% endblock %}
