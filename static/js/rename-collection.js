@@ -1,3 +1,4 @@
+"use strict";
 const MIN_NAME_LENGTH = 0;
 const MAX_NAME_LENGTH = 32;
 const FORBIDDEN_CHARS = " ";

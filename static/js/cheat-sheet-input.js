@@ -1,3 +1,4 @@
+"use strict";
 const MIN_LENGTH = 0;
 const MAX_TITLE_LENGTH = 32;
 const MAX_KEYWORDS = 10;
@@ -113,8 +114,6 @@ export function updateForm(titleInput, contextInput, contentInput, button, parti
     for (let element of inputFields) {
         if (element !== null) {
             updateElement(element, titleInput, contextInput, contentInput, button, particularity);
-        } else {
-            console.log("element null");
         }
     }
 }

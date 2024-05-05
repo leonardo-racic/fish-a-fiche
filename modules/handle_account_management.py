@@ -152,7 +152,8 @@ def handle_post_modify_profile(server_account_manager: ServerAccountManager) -> 
         print("image_path", image_path)
         server_account_manager.modify_profile(image_path, description_input, username_input)
         inform(f"{request.remote_addr}:{get_cookie('account-token')} modified {username_input}, with {image_path}, {description_input}")
-        flash('Account has been successfully modified', 'success')
+        if image_path:
+            flash('Account has been successfully modified', 'success')
     else:
         warn(f'{request.remote_addr}:{server_account_manager.get_user_account()} tried to modify non existant account')
         flash('Account does not exist', 'warning') 

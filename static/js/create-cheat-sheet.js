@@ -1,3 +1,4 @@
+"use strict";
 import { updateForm } from "./cheat-sheet-input.js";
 
 

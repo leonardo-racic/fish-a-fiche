@@ -1,3 +1,4 @@
+"use strict";
 let searchInput = $("#search-input");
 let searchButton = $("#search-button");
 

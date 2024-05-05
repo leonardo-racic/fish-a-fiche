@@ -1,3 +1,4 @@
+"use strict";
 const FADING_FREQUENCY = 25.0;
 const FADING_DIFF = 0.25;
 const MIN_OPACITY = 0.0;

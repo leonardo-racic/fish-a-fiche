@@ -1,6 +1,23 @@
-2024-05-04 22:49:02,730 - WARNING   (werkzeug)    * Debugger is active!
-2024-05-04 22:49:02,809 - INFO   (werkzeug)    * Debugger PIN: 145-353-613
-2024-05-04 22:49:12,047 - INFO   (werkzeug)   127.0.0.1 - - [04/May/2024 22:49:12] "GET / HTTP/1.1" 200 -
-2024-05-04 22:49:12,270 - INFO   (werkzeug)   127.0.0.1 - - [04/May/2024 22:49:12] "GET /favicon.ico HTTP/1.1" 200 -
-2024-05-04 22:49:19,615 - INFO   (werkzeug)   127.0.0.1 - - [04/May/2024 22:49:19] "GET / HTTP/1.1" 200 -
-2024-05-04 22:49:19,848 - INFO   (werkzeug)   127.0.0.1 - - [04/May/2024 22:49:19] "GET /favicon.ico HTTP/1.1" 200 -
+2024-05-05 17:28:08,666 - WARNING   (werkzeug)    * Debugger is active!
+2024-05-05 17:28:08,666 - INFO   (werkzeug)    * Debugger PIN: 621-809-894
+2024-05-05 17:28:14,401 - INFO   (werkzeug)   127.0.0.1 - - [05/May/2024 17:28:14] "GET /modify-profile HTTP/1.1" 200 -
+2024-05-05 17:28:14,455 - INFO   (werkzeug)   127.0.0.1 - - [05/May/2024 17:28:14] "[36mGET /static/js/toast.js HTTP/1.1[0m" 304 -
+2024-05-05 17:28:14,466 - INFO   (werkzeug)   127.0.0.1 - - [05/May/2024 17:28:14] "[36mGET /static/js/text-area-auto-resize.js HTTP/1.1[0m" 304 -
+2024-05-05 17:28:14,471 - INFO   (werkzeug)   127.0.0.1 - - [05/May/2024 17:28:14] "[36mGET /static/js/search-bar.js HTTP/1.1[0m" 304 -
+2024-05-05 17:28:14,579 - INFO   (werkzeug)   127.0.0.1 - - [05/May/2024 17:28:14] "GET /favicon.ico HTTP/1.1" 200 -
+2024-05-05 17:28:14,585 - INFO   (werkzeug)   127.0.0.1 - - [05/May/2024 17:28:14] "GET /favicon.ico HTTP/1.1" 200 -
+2024-05-05 17:28:20,544 - INFO   (werkzeug)   127.0.0.1 - - [05/May/2024 17:28:20] "[32mPOST /modify-profile HTTP/1.1[0m" 302 -
+2024-05-05 17:28:20,600 - INFO   (werkzeug)   127.0.0.1 - - [05/May/2024 17:28:20] "GET /profile/e1749879bc2737e5b9bd275d673372cc0ee836a95b096e7c49f980229515377d HTTP/1.1" 200 -
+2024-05-05 17:28:20,660 - INFO   (werkzeug)   127.0.0.1 - - [05/May/2024 17:28:20] "GET /static/pfp/e1749879bc2737e5b9bd275d673372cc0ee836a95b096e7c49f980229515377d.jpg HTTP/1.1" 200 -
+2024-05-05 17:28:20,665 - INFO   (werkzeug)   127.0.0.1 - - [05/May/2024 17:28:20] "[36mGET /static/js/text-area-auto-resize.js HTTP/1.1[0m" 304 -
+2024-05-05 17:28:20,668 - INFO   (werkzeug)   127.0.0.1 - - [05/May/2024 17:28:20] "[36mGET /static/js/toast.js HTTP/1.1[0m" 304 -
+2024-05-05 17:28:20,671 - INFO   (werkzeug)   127.0.0.1 - - [05/May/2024 17:28:20] "[36mGET /static/js/search-bar.js HTTP/1.1[0m" 304 -
+2024-05-05 17:28:20,761 - INFO   (werkzeug)   127.0.0.1 - - [05/May/2024 17:28:20] "GET /favicon.ico HTTP/1.1" 200 -
+2024-05-05 17:28:20,767 - INFO   (werkzeug)   127.0.0.1 - - [05/May/2024 17:28:20] "GET /favicon.ico HTTP/1.1" 200 -
+2024-05-05 17:28:21,695 - INFO   (werkzeug)   127.0.0.1 - - [05/May/2024 17:28:21] "GET /profile/e1749879bc2737e5b9bd275d673372cc0ee836a95b096e7c49f980229515377d HTTP/1.1" 200 -
+2024-05-05 17:28:21,752 - INFO   (werkzeug)   127.0.0.1 - - [05/May/2024 17:28:21] "[36mGET /static/js/toast.js HTTP/1.1[0m" 304 -
+2024-05-05 17:28:21,754 - INFO   (werkzeug)   127.0.0.1 - - [05/May/2024 17:28:21] "[36mGET /static/pfp/e1749879bc2737e5b9bd275d673372cc0ee836a95b096e7c49f980229515377d.jpg HTTP/1.1[0m" 304 -
+2024-05-05 17:28:21,780 - INFO   (werkzeug)   127.0.0.1 - - [05/May/2024 17:28:21] "[36mGET /static/js/text-area-auto-resize.js HTTP/1.1[0m" 304 -
+2024-05-05 17:28:21,784 - INFO   (werkzeug)   127.0.0.1 - - [05/May/2024 17:28:21] "[36mGET /static/js/search-bar.js HTTP/1.1[0m" 304 -
+2024-05-05 17:28:21,845 - INFO   (werkzeug)   127.0.0.1 - - [05/May/2024 17:28:21] "GET /favicon.ico HTTP/1.1" 200 -
+2024-05-05 17:28:21,850 - INFO   (werkzeug)   127.0.0.1 - - [05/May/2024 17:28:21] "GET /favicon.ico HTTP/1.1" 200 -

@@ -1,3 +1,4 @@
+"use strict";
 $("textarea").each(function () {
     let newStyle = `height: ${this.scrollHeight}px; overflow: hidden;`
     this.setAttribute("style", newStyle);

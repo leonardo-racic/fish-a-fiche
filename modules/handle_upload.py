@@ -95,7 +95,7 @@ def handle_upload(server_account_manager: ServerAccountManager) -> Response:
             return make_response(redirect(request.url))
         
         terminal_log.inform('verifying filename')
-        if file and allowed_file(file.filename):
+        if allowed_file(file.filename):
             filename: str = secure_filename(f"{get_form_data().get('title')}.txt")
             terminal_log.inform(f'filename secured FILENAME:{filename}')
             terminal_log.inform('saving file')
@@ -118,7 +118,7 @@ def handle_upload(server_account_manager: ServerAccountManager) -> Response:
                 terminal_log.inform(
                     f'{request.remote_addr}:{server_account_manager.get_user_account_token()} upload succesfull, redirecting'
                 )
-                flash('upload succesfull','success')
+                flash('upload succesfull', 'success')
 
 
     return render_html(
@@ -171,7 +171,7 @@ def handle_profile_picture_upload(new_image_input: FileStorage | None, sam: Serv
         return ""
     elif new_image_input.filename == "":
         return ""
-    elif new_image_input and allowed_file(new_image_input.filename):
+    elif allowed_file(new_image_input.filename):
         hashed_user_id: str = sam.get_user_account_hashed_token()
         extension: str = get_extension(new_image_input.filename)
         file_name: str = secure_filename(f"{hashed_user_id}.{extension}")
@@ -183,4 +183,6 @@ def handle_profile_picture_upload(new_image_input: FileStorage | None, sam: Serv
             return ""
         flask_path: str = os.path.join("pfp", file_name)
         return flask_path
+    else:
+        flash("invalid extension", "error")
     return ""
