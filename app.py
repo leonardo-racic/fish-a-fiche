@@ -1,5 +1,5 @@
 # Imports
-from flask import Flask, Response
+from flask import Flask, Response, send_file, url_for, redirect, make_response
 
 
 from modules.server_account_manager import ServerAccountManager
@@ -13,6 +13,7 @@ from modules.handle_cheat_sheet import handle_cheat_sheet, handle_create_cheat_s
 from modules.handle_upload import handle_upload
 from modules.handle_collections import handle_collections, handle_collection
 from modules.handle_errors import handle_404
+from modules.handle_files import handle_favicon
 
 
 from terminal_log import run_logging
@@ -26,9 +27,10 @@ run_logging()
 
 
 
-
 app: Flask = Flask(__name__)
 app.secret_key = "Sachin"
+
+
 server_account_manager: ServerAccountManager = ServerAccountManager()
 cheat_sheet_manager: CheatSheetManager = CheatSheetManager()
 
@@ -122,6 +124,11 @@ def faqs() -> Response:
 @app.route("/cheat-sheet-market")
 def cheat_sheet_market() -> Response:
     return handle_cheat_sheet_market(server_account_manager)
+
+
+@app.route("/favicon.ico")
+def send_favicon() -> Response:
+    return handle_favicon()
 
 
 # Error handling
