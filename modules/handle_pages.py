@@ -79,7 +79,7 @@ def handle_cheat_sheet_market(sam: ServerAccountManager) -> Response:
                 cs: list = filter_context(keyword)
                 data[category] += cs
             data[category] = remove_duplicates(data[category])
-            data[category] = sort_results_by_likes(data[category])
+            data[category] = sort_results_by_likes(data[category])[:10]
         data_values: list = list(data.values())
         return render_html("cheat_sheet_market.html", sam, data=data_values)
     return make_response("Method not supported yet")

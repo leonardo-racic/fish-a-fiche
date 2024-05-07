@@ -4,10 +4,9 @@
 {% block body %}
     <div class="container">
         <form method="post" enctype=multipart/form-data>
-                
             <input type= "file" name= "file" class="btn btn-outline-primary me-2">
 
-            <!-- nom de la fiche de révision-->
+
             <div class="form-group">
                 <label for="title-input">Cheat sheet's title</label>
                 <input class="form-control" type="text" id="title-input" name="title" autocomplete="off">
@@ -19,8 +18,13 @@
                 <textarea class="form-control" id="context-input" name="context" autocomplete="off"></textarea>
             </div>
             
-            
+
             <button id="upload-button" class="btn btn-primary" type="submit" disabled>Upload cheat sheet</button>
+            
+            
+            <div class="mt-2">
+                <a href="/create-cheat-sheet" class="link">Wanna write the cheat sheet's content too?</a>
+            </div>
             {% if not logged_in %}
                 <div class="alert alert-warning">
                     You have to <strong>log in</strong> to upload! 
