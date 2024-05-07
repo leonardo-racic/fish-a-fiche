@@ -1,9 +1,6 @@
 {% extends "base.html" %}
 
 
-{% set max_c_per_row = 4 %}
-
-
 {% block body %}
     <div class="container">
         {% if logged_in %}
@@ -34,8 +31,8 @@
                                 <label class="form-check-label" for="remove-pfp">Remove profile picture</label>
                             </div>
                             <div class="mt-3">
-                                <label for="username_input">Change username</label>
-                                <input type="text" id="username_input" class="form-control mb-2" placeholder="Username" value={{username}} name="username_input" autocomplete="off"/>
+                                <label for="username-input">Change username</label>
+                                <input type="text" id="username-input" class="form-control mb-2" placeholder="Username" value={{username}} name="username_input" autocomplete="off"/>
                                 <label for="description_input">Change description</label>
                                 <textarea id="description_input" class="form-control" placeholder="Description" name="description_input">{{description}}</textarea>
                             </div>
@@ -61,11 +58,12 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-primary" type="submit">Save changes</button>
+                <button class="btn btn-primary" type="submit" id="save-changes">Save changes</button>
             </form>
         {% else %}
             <h1>You are not logged in.</h1>
             <h2>Please log in, or sign up if you do not have an account.</h2>
         {% endif %}
     </div>
+    <script src="/static/js/modify-user-input.js"></script>
 {% endblock %}

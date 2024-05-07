@@ -14,5 +14,10 @@
             <br>
             Check a bit the Cheat Sheet Market, and add as much knowledge as you want AND can!
         </p>
+        {% if logged_in %}
+            <a class="btn btn-outline-primary" href="/create-cheat-sheet">
+                Create new cheat sheet
+            </a>
+        {% endif %}
     </div>
 {% endblock %}

@@ -2,7 +2,7 @@ from __future__ import annotations
 from .account_module import Account
 from .cheat_sheet_module import CheatSheet, json_to_cheat_sheet
 from json import loads as load_json, dumps as to_json
-from flask import request
+from flask import url_for, flash
 from terminal_log import inform
 from environment_variable import account_path, cs_path
 import singletons
@@ -216,6 +216,11 @@ class ServerAccountManager:
     
     
     def modify_profile(self, new_image_input: str, description_input: str, username_input: str) -> None:
+        username_invalid: bool = False
+        if self.has_account_username(username_input):
+            flash("username already exists", "error")
+            username_invalid = True
+        print(f"username_invalid {username_invalid}")
         account_info: dict = self.get_user_account_info()
         if account_info != {}:
             with open(account_path) as f:
@@ -224,7 +229,9 @@ class ServerAccountManager:
                 if current_account_info["username"] == account_info["username"]:
                     current_account_info["profile_picture"] = new_image_input
                     current_account_info["description"] = description_input
-                    current_account_info["username"] = username_input
+                    print(f"username_invalid {username_invalid}")
+                    if not username_invalid:
+                        current_account_info["username"] = username_input
                     break
             with open(account_path, "w") as f:
                 f.write(to_json({"accounts": data}, indent=4))
@@ -429,6 +436,19 @@ class ServerAccountManager:
                 break
         with open(account_path, "w") as f:
             f.write(to_json(json_data, indent=4))
+    
+
+    def get_user_profile_picture(self) -> str:
+        current_account_info: dict = self.get_user_account_info()
+        profile_picture: str = current_account_info["profile_picture"]
+        return profile_picture
+    
+
+    def get_user_pfp_path(self) -> str:
+        pfp: str = self.get_user_profile_picture()
+        if pfp != "":
+            pfp = url_for('static', filename=pfp.replace("\\", "/"))
+        return pfp
 
 
 if __name__ == "__main__":

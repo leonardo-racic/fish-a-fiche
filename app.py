@@ -1,10 +1,9 @@
 # Imports
-from flask import Flask, Response, send_file, url_for, redirect, make_response
+from flask import Flask, Response
 
 
 from modules.server_account_manager import ServerAccountManager
 from modules.cheat_sheet_manager import CheatSheetManager
-
 
 from modules.handle_pages import handle_features, handle_home_page, handle_about, handle_faqs, handle_cheat_sheet_market
 from modules.handle_account_management import handle_login, handle_sign_up, handle_sign_out, handle_modify_profile, handle_profile

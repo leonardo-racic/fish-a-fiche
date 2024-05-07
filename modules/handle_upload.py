@@ -168,9 +168,9 @@ def get_extension(file_name: str | None) -> str:
 
 def handle_profile_picture_upload(new_image_input: FileStorage | None, sam: ServerAccountManager) -> str:
     if new_image_input is None:
-        return ""
+        return sam.get_user_profile_picture()
     elif new_image_input.filename == "":
-        return ""
+        return sam.get_user_profile_picture()
     elif allowed_file(new_image_input.filename):
         hashed_user_id: str = sam.get_user_account_hashed_token()
         extension: str = get_extension(new_image_input.filename)

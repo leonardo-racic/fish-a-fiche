@@ -1,7 +1,6 @@
 from __future__ import annotations
 from werkzeug.datastructures import ImmutableMultiDict, FileStorage
-from typing import Any
-from flask import render_template, Response, request
+from flask import render_template, make_response, Response, request
 import modules
 import modules.server_account_manager
 
@@ -43,9 +42,12 @@ def render_html(
     sam: modules.server_account_manager.ServerAccountManager,
     **kwargs
 ) -> Response:
-    return render_template(
-        template_name,
-        logged_in=sam.is_user_logged_in(),
-        hashed_token=sam.get_user_account_hashed_token(),
-        **kwargs
+    return make_response(
+        render_template(
+            template_name,
+            logged_in=sam.is_user_logged_in(),
+            profile_picture=sam.get_user_pfp_path(),
+            hashed_token=sam.get_user_account_hashed_token(),
+            **kwargs
+        )
     )

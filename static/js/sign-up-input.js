@@ -8,7 +8,7 @@ let usernameInput = $("#username-input");
 let signUpButton = $("#sign-up-button");
 
 
-function isUsernameValid(username) {
+export function isUsernameValid(username) {
     for (let i = 0; i < username.length; i++) {
         if (FORBIDDEN_CHARS.includes(username[i])) {
             return false;
