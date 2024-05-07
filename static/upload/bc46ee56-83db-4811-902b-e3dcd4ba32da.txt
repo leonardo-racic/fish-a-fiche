@@ -1,0 +1,6 @@
+For all vectors $\vec{u}$ and $\vec{v}$
+$\vec{u}\cdot\vec{v}=\lVert\vec{u}\rVert\cdot\lVert\vec{v}\rVert\cdot\cos (\widehat{\vec{u},\vec{v}})$
+$\vec{u}\cdot\vec{v}=\dfrac{1}{2}(\lVert\vec{u}\rVert^2 + \lVert\vec{v}\rVert^2 - \lVert\vec{u}-\vec{v}\rVert^2)$
+$\vec{u}\cdot\vec{v}=\dfrac{1}{2}(\lVert\vec{u}+\vec{v}\rVert^2 - \lVert\vec{u}\rVert^2 - \lVert\vec{v}\rVert^2)$
+For $\vec{u}\begin{pmatrix}x\\y\end{pmatrix}$ and $\vec{v}\begin{pmatrix}x'\\y'\end{pmatrix}$ in a 2D orthonormed basis
+$\vec{u}\cdot\vec{v}=x\cdot x'+y\cdot y'$

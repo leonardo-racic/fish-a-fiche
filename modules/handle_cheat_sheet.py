@@ -25,6 +25,8 @@ def get_comments(cheat_sheet_info: dict, sam: ServerAccountManager) -> list:
         current_account: Account | None = sam.get_account_from_hashed_token(current_comment["token"])
         if isinstance(current_account, Account):
             comments[i]["username"] = current_account.username
+        else:
+            comments[i]["username"] = "DELETED_ACCOUNT;"
     return comments
 
 
