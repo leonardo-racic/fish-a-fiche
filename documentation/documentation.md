@@ -1,10 +1,8 @@
-# Fish a fiche !
+# Fish a fiche
 
 **FR** : Bonjour à tous ! Bienvenu dans la documentation de notre projet de NSI, visant à créer un site internet permettant de créer des fiches de révisions et les poster en ligne.
 
 **EN** : Hello everyone ! Welcome to the documention of our NSI project, an web-site allowing you to create revision sheet and post them online ! Wonderful isn't it ?
-
-# Documentation
 
 ## Introduction
 
@@ -25,10 +23,11 @@ A folder acting as a data base : [INDEX](/index), still need some imporvement, b
 ### folder "modules"
 
 A folder containing all the important [modules](/modules)
-	- Accounts are handled by [server_account_manager.py](/modules/server_account_manager.py) thanks to the "Account" class from [account_module.py](/modules/account_module.py)
-	- Cheat sheet's are handled by [cheat_sheet_manager.py](/modules/cheat_sheet_manager.py) thanks to the "CheatSheet" class from [cheat_sheet_module.py](/modules/cheat_sheet_module.py)
-	- All search motors are run thanks to [sheet_search_engine.py](/modules/sheet_search_engine.py)
-	- Specific files handling multiple aspects of the website thanks to the main's file routing
+
+- Accounts are handled by [server_account_manager.py](/modules/server_account_manager.py) thanks to the "Account" class from [account_module.py](/modules/account_module.py)
+- Cheat sheet's are handled by [cheat_sheet_manager.py](/modules/cheat_sheet_manager.py) thanks to the "CheatSheet" class from [cheat_sheet_module.py](/modules/cheat_sheet_module.py)
+- All search motors are run thanks to [sheet_search_engine.py](/modules/sheet_search_engine.py)
+- Specific files handling multiple aspects of the website thanks to the main's file routing
 
 ### folder "sheets"
 
@@ -64,7 +63,7 @@ This file is the MAIN file, the file connecting all the others, essential for th
 
 ### cheat_sheet.json
 
-An example of cheat_sheet that you can create
+A json containing all the cheat sheet.
 
 ### debug.log
 
@@ -84,9 +83,12 @@ A file listing all the external modules that need to be imported for the proper 
 
 ### singletons.py
 
-A file containing multitasking functions which avoid having to put them back each time in other files
+A file containing multitasking functions which avoid having to put them back each time in other files.
 
 ### terminal_log.py
 
-A file which allows a user encountering a problem with the site to record their errors before sending them to the site's moderation team. Team which will therefore be able to analyze its problem based on the data recorded by the user
+A file which allows a user encountering a problem with the site to record their errors before sending them to the site's moderation team. Team which will therefore be able to analyze its problem based on the data recorded by the user.
 
+### JS modules
+
+A folder in which js modules are stocked and used to verify the user's input.
