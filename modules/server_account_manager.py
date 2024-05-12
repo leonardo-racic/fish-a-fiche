@@ -47,8 +47,8 @@ def read_accounts_json() -> dict:
             accounts_dict[token] = new_account
         return accounts_dict
 
-        
-    
+
+
 
 
 class ServerAccountManager:
@@ -62,7 +62,7 @@ class ServerAccountManager:
 
     def get_all_accounts(self) -> list[Account]:
         return list(self.get_accounts_dict().values())
-    
+
 
     def get_all_account_info(self) -> list[dict]:
         accounts: list[Account] = self.get_all_accounts()
@@ -85,7 +85,7 @@ class ServerAccountManager:
 
     def get_account_by_token(self, token: str) -> Account:
         return self.get_accounts_dict().get(token, None)
-    
+
 
     def get_account_info_by_token(self, token: str) -> dict | None:
         account: Account = self.get_account_by_token(token)
@@ -95,7 +95,7 @@ class ServerAccountManager:
         else:
             i = None
         return i
-    
+
 
     def delete_account(self, account: Account) -> None:
         with open(account_path, "r") as f:
@@ -113,28 +113,28 @@ class ServerAccountManager:
     def get_accounts_dict(self) -> dict:
         self.update()
         return self.accounts
-    
+
 
     def get_current_username_from_token(self, token: str) -> str:
         account: Account = self.get_account_by_token(token)
         if account is None:
             return ""
         return account.get_username()
-    
+
 
     def has_account(self, specific_account: Account | None) -> bool:
         if specific_account is None:
             return False
         r: bool = specific_account in self.get_all_accounts()
         return r
-    
+
 
     def has_account_username(self, current_username: str) -> bool:
         for account_info in self.get_all_account_info():
             if account_info["username"] == current_username:
                 return True
         return False
-    
+
 
     def get_account_by_username(self, username: str) -> Account | None:
         for account_info in self.get_all_account_info():
@@ -147,7 +147,7 @@ class ServerAccountManager:
                     account_info["id"],
                 )
         return None
-    
+
 
     def get_account_info_by_username(self, username: str) -> dict:
         target_account: Account | None = self.get_account_by_username(username)
@@ -160,7 +160,7 @@ class ServerAccountManager:
         is_input_valid: bool = username != "" and password != ""
         if not is_input_valid:
             return (False, False, False)
-         
+
         target_account: Account | None = self.get_account_by_username(username)
         account_exists: bool = target_account is not None
         password_hash: str = get_hash(password)
@@ -174,7 +174,7 @@ class ServerAccountManager:
         elif password == "":
             return False
         return True
-    
+
 
     def get_user_account_info(self) -> dict:
         self.update()
@@ -198,7 +198,7 @@ class ServerAccountManager:
             return None
         target_account: Account = json_to_account(target_account_info)
         return target_account
-    
+
 
     def is_user_logged_in(self) -> bool:
         account_info: dict = self.get_user_account_info()
@@ -213,8 +213,8 @@ class ServerAccountManager:
         elif self.has_account_username(username) and check_if_username_exists:
             return False
         return True
-    
-    
+
+
     def modify_profile(self, new_image_input: str, description_input: str, username_input: str) -> None:
         username_invalid: bool = False
         if self.has_account_username(username_input):
@@ -236,7 +236,7 @@ class ServerAccountManager:
             with open(account_path, "w") as f:
                 f.write(to_json({"accounts": data}, indent=4))
             self.update()
-    
+
 
     def add_cheat_sheet_to_user(self, cheat_sheet: CheatSheet) -> None:
         cheat_sheet_info: dict = cheat_sheet.get_info()
@@ -265,7 +265,7 @@ class ServerAccountManager:
             if get_hash(account.get_id()) == hashed_token:
                 return account
         return None
-    
+
 
     def get_account_info_from_hashed_token(self, hashed_token: str) -> dict | None:
         account: Account | None = self.get_account_from_hashed_token(hashed_token)
@@ -278,7 +278,7 @@ class ServerAccountManager:
         user_token: str = self.get_user_account_token()
         user_hashed_token: str = get_hash(user_token)
         return user_hashed_token
-    
+
 
     def add_new_collection_to_account(self, collection: str, account_id: str, is_public: bool) -> None:
         with open(account_path) as f:
@@ -293,13 +293,13 @@ class ServerAccountManager:
         with open(account_path, "w") as f:
             f.write(to_json(json_data, indent=4))
         self.update()
-    
+
 
     def add_new_collection_to_account_from_hashed_token(self, collection: str, hashed_account_id: str, is_public: bool) -> None:
         target_account: Account | None = self.get_account_from_hashed_token(hashed_account_id)
         if isinstance(target_account, Account):
             self.add_new_collection_to_account(collection, target_account.get_id(), is_public)
-    
+
 
     def add_cheat_sheet_to_collection(self, collection: str, account_id: str, cheat_sheet_token: str) -> None:
         with open(account_path) as f:
@@ -311,7 +311,7 @@ class ServerAccountManager:
         with open(account_path, "w") as f:
             f.write(to_json(json_data, indent=4))
         self.update()
-    
+
 
     def delete_collection(self, collection_name: str, account_id: str) -> None:
         with open(account_path) as f:
@@ -332,7 +332,7 @@ class ServerAccountManager:
         with open(account_path) as f:
             json_data: dict = load_json(f.read())
         return json_data["accounts"][token].get("collections")
-    
+
 
     def get_user_account_collections(self) -> list:
         return self.get_collections(self.get_user_account_token())
@@ -344,7 +344,7 @@ class ServerAccountManager:
             if c["name"] == collection_name:
                 return True
         return False
-    
+
 
     def is_collection_public(self, account_id: str, collection_name: str) -> bool | None:
         with open(account_path) as f:
@@ -367,7 +367,7 @@ class ServerAccountManager:
         with open(account_path, "w") as f:
             f.write(to_json(json_data, indent=4))
         self.update()
-    
+
 
     def rename_collection(self, account_id: str, old_collection_name: str, new_collection_name: str) -> None:
         with open(account_path) as f:
@@ -380,7 +380,7 @@ class ServerAccountManager:
         with open(account_path, "w") as f:
             f.write(to_json(json_data, indent=4))
         self.update()
-    
+
 
     def save_to_collection(self, collection_name: str, cheat_sheet_token: str) -> None:
         with open(account_path) as f:
@@ -394,7 +394,7 @@ class ServerAccountManager:
         with open(account_path, "w") as f:
             f.write(to_json(json_data, indent=4))
         self.update()
-    
+
 
     def get_cheat_sheet_token_from_collection(self, account_id: str, collection_name: str) -> list | None:
         with open(account_path) as f:
@@ -404,7 +404,7 @@ class ServerAccountManager:
             if c["name"] == collection_name:
                 return c["cheat_sheet"]
         return None
-    
+
 
     def remove_cheat_sheet_from_collection(self, account_id: str, collection_name: str, cheat_sheet_token: str) -> None:
         with open(account_path) as f:
@@ -423,7 +423,7 @@ class ServerAccountManager:
         with open(account_path, "w") as f:
             f.write(to_json(json_data, indent=4))
         self.update()
-        
+
 
     def delete_cheat_sheet(self, account_id: str, cheat_sheet_token: str) -> None:
         with open(account_path) as f:
@@ -436,13 +436,15 @@ class ServerAccountManager:
                 break
         with open(account_path, "w") as f:
             f.write(to_json(json_data, indent=4))
-    
+
 
     def get_user_profile_picture(self) -> str:
         current_account_info: dict = self.get_user_account_info()
+        if current_account_info == {}:
+            return "random_char"#return "pfp\\no_login.png" to set a picture for no login
         profile_picture: str = current_account_info["profile_picture"]
         return profile_picture
-    
+
 
     def get_user_pfp_path(self) -> str:
         pfp: str = self.get_user_profile_picture()
@@ -458,4 +460,4 @@ if __name__ == "__main__":
     new_cs.author_token = account.get_id()
     s.add_cheat_sheet_to_user(new_cs)
 
-    
+
