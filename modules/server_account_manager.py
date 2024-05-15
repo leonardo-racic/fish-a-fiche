@@ -463,7 +463,7 @@ class ServerAccountManager:
 
 
     def get_pfp_path_from_hashed_token(self, hashed_token: str) -> str:
-        pfp: str = self.get_user_profile_picture_from_hashed_token(hashed_token)
+        pfp: str = self.get_profile_picture_from_hashed_token(hashed_token)
         if pfp != "":
             pfp = url_for('static', filename=pfp.replace("\\", "/"))
         return pfp
