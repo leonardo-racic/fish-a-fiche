@@ -177,7 +177,7 @@ def handle_profile_picture_upload(new_image_input: FileStorage | None, sam: Serv
         extension: str = get_extension(new_image_input.filename)
         file_name: str = secure_filename(f"{hashed_user_id}.{extension}")
         path: str = os.path.join(UPLOAD_PFP_FOLDER, file_name)
-        inform(path)
+        flash(path)
         new_image_input.save(path)
         file_size: int = os.path.getsize(path)
         if file_size == 0:
