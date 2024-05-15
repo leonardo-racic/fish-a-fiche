@@ -453,9 +453,20 @@ class ServerAccountManager:
     def get_user_pfp_path(self) -> str:
         pfp: str = self.get_user_profile_picture()
         if pfp != "":
-            pfp = url_for('static', filename=pfp.replace("\\", "/")) #pfp_path + pfp.replace("\\", "/")
+            pfp = url_for('static', filename=pfp.replace("\\", "/"))
         return pfp
 
+    def get_profile_picture_from_hashed_token(self, hashed_token: str) -> str:
+        current_account_info: dict = self.get_account_info_from_hashed_token(hashed_token)
+        profile_picture: str = current_account_info["profile_picture"]
+        return profile_picture
+
+
+    def get_pfp_path_from_hashed_token(self, hashed_token: str) -> str:
+        pfp: str = self.get_user_profile_picture_from_hashed_token(hashed_token)
+        if pfp != "":
+            pfp = url_for('static', filename=pfp.replace("\\", "/"))
+        return pfp
 
 if __name__ == "__main__":
     s: ServerAccountManager = ServerAccountManager()

@@ -175,7 +175,8 @@ def handle_profile(server_account_manager: ServerAccountManager, hashed_token: s
                 current_hashed_token=hashed_token,
                 description=account_info["description"],
                 is_user=is_user,
-                cheat_sheet=server_account_manager.get_account_cheat_sheet_info(account_info["id"])
+                cheat_sheet=server_account_manager.get_account_cheat_sheet_info(account_info["id"]),
+                profile_picture=server_account_manager.get_pfp_path_from_hashed_token(hashed_token)
             ))
             return response
         flash('Account does not exist', 'warning')

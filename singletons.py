@@ -52,7 +52,7 @@ def render_html(
         render_template(
             template_name,
             logged_in=logged_in,
-            profile_picture=profile_picture,
+            user_profile_picture=profile_picture,
             hashed_token=sam.get_user_account_hashed_token(),
             **kwargs
         )
