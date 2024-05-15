@@ -12,4 +12,4 @@ account_path: str = "/home/greandelephant/leonardo-racic.github.io/accounts.json
 log_path: str = "/home/greandelephant/leonardo-racic.github.io/debug.log"
 upload_path: str = "/home/greandelephant/leonardo-racic.github.io/sheets"
 reports_path: str = "/home/greandelephant/leonardo-racic.github.io/reports.json"
-pfp_path:str = "/home/greandelephant/leonardo-racic.github.io/static/"
+pfp_path:str = "/home/greandelephant/leonardo-racic.github.io/static/pfp"

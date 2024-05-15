@@ -38,11 +38,12 @@ from .cheat_sheet_module import CheatSheet
 from .server_account_manager import ServerAccountManager
 from .cheat_sheet_manager import CheatSheetManager
 import terminal_log
-from environment_variable import upload_path
+from environment_variable import upload_path, upload_pfp_path
 from singletons import render_html, get_form_file, get_form_data
 
 
 UPLOAD_FOLDER: str = upload_path
+UPLOAD_PFP_FOLDER: str = upload_pfp_path
 ALLOWED_EXTENSIONS: set = {'md','MD','txt', 'jpeg', 'png', 'jpg'}
 
 
@@ -175,7 +176,8 @@ def handle_profile_picture_upload(new_image_input: FileStorage | None, sam: Serv
         hashed_user_id: str = sam.get_user_account_hashed_token()
         extension: str = get_extension(new_image_input.filename)
         file_name: str = secure_filename(f"{hashed_user_id}.{extension}")
-        path: str = os.path.join(app.config["UPLOAD_FOLDER"].replace("upload", "pfp"), file_name)
+        path: str = os.path.join(UPLOAD_PFP_FOLDER, file_name)
+        inform(path)
         new_image_input.save(path)
         file_size: int = os.path.getsize(path)
         if file_size == 0:
