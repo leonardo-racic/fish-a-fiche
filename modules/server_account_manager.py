@@ -446,8 +446,6 @@ class ServerAccountManager:
 
     def get_user_profile_picture(self) -> str:
         current_account_info: dict = self.get_user_account_info()
-        if current_account_info == {}:
-            return "random_char"#return "pfp\\no_login.png" to set a picture for no login
         profile_picture: str = current_account_info["profile_picture"]
         return profile_picture
 

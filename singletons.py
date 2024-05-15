@@ -42,11 +42,17 @@ def render_html(
     sam: modules.server_account_manager.ServerAccountManager,
     **kwargs
 ) -> Response:
+
+    logged_in = sam.is_user_logged_in()
+    if logged_in:
+        profile_picture = sam.get_user_pfp_path()
+    else:
+        profile_picture = ""
     return make_response(
         render_template(
             template_name,
-            logged_in=sam.is_user_logged_in(),
-            profile_picture=sam.get_user_pfp_path(),
+            logged_in=logged_in,
+            profile_picture=profile_picture,
             hashed_token=sam.get_user_account_hashed_token(),
             **kwargs
         )
