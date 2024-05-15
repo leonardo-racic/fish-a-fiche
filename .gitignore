@@ -2,8 +2,7 @@
 *.pyc
 __pycache__
 accounts.json
-debug.log
-accounts.json
 cheat_sheet.json
 debug.log
+reports.json
 *.kdev4
