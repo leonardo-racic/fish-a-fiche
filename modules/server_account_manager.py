@@ -454,7 +454,7 @@ class ServerAccountManager:
         pfp: str = self.get_user_profile_picture()
         inform(pfp)
         if pfp != "":
-            pfp = pfp_path + pfp.replace("\\", "/") #url_for('static', filename=pfp.replace("\\", "/"))
+            pfp = url_for('static', filename=pfp.replace("\\", "/")) #pfp_path + pfp.replace("\\", "/")
         inform(pfp)
         return pfp
 
