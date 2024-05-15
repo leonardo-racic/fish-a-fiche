@@ -38,12 +38,12 @@ from .cheat_sheet_module import CheatSheet
 from .server_account_manager import ServerAccountManager
 from .cheat_sheet_manager import CheatSheetManager
 import terminal_log
-from environment_variable import upload_path, upload_pfp_path
+from environment_variable import upload_path, pfp_path
 from singletons import render_html, get_form_file, get_form_data
 
 
 UPLOAD_FOLDER: str = upload_path
-UPLOAD_PFP_FOLDER: str = upload_pfp_path
+UPLOAD_PFP_FOLDER: str = pfp_path
 ALLOWED_EXTENSIONS: set = {'md','MD','txt', 'jpeg', 'png', 'jpg'}
 
 
