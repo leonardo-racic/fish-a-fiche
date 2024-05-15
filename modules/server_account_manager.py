@@ -215,19 +215,25 @@ class ServerAccountManager:
         return True
 
 
-    def modify_profile(self, new_image_input: str, description_input: str, username_input: str) -> None:
+    def modify_profile(
+        self,
+        new_image_input: str,
+        description_input: str,
+        username_input: str,
+        remove_pfp: bool,
+    ) -> None:
+        account_info: dict = self.get_user_account_info()
         username_invalid: bool = False
-        if self.has_account_username(username_input):
+        if self.has_account_username(username_input) and username_input != account_info["username"]:
             flash("username already exists", "error")
             username_invalid = True
         print(f"username_invalid {username_invalid}")
-        account_info: dict = self.get_user_account_info()
         if account_info != {}:
             with open(account_path) as f:
                 data: dict = load_json(f.read())["accounts"]
             for current_account_info in data.values():
                 if current_account_info["username"] == account_info["username"]:
-                    current_account_info["profile_picture"] = new_image_input
+                    current_account_info["profile_picture"] = new_image_input if not remove_pfp else ""
                     current_account_info["description"] = description_input
                     print(f"username_invalid {username_invalid}")
                     if not username_invalid:

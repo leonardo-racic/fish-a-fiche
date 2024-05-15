@@ -1,21 +1,6 @@
-2024-05-07 09:54:44,640 - WARNING   (werkzeug)    * Debugger is active!
-2024-05-07 09:54:44,684 - INFO   (werkzeug)    * Debugger PIN: 179-945-512
-2024-05-07 09:54:44,767 - INFO   (werkzeug)   127.0.0.1 - - [07/May/2024 09:54:44] "GET /cheat-sheet/bc46ee56-83db-4811-902b-e3dcd4ba32da HTTP/1.1" 200 -
-2024-05-07 09:54:45,007 - INFO   (werkzeug)   127.0.0.1 - - [07/May/2024 09:54:45] "[36mGET /static/js/text-area-auto-resize.js HTTP/1.1[0m" 304 -
-2024-05-07 09:54:45,017 - INFO   (werkzeug)   127.0.0.1 - - [07/May/2024 09:54:45] "[36mGET /static/js/search-bar.js HTTP/1.1[0m" 304 -
-2024-05-07 09:54:45,021 - INFO   (werkzeug)   127.0.0.1 - - [07/May/2024 09:54:45] "GET /static/pfp/023ef2831a463101b7d11480e7da7712bcf344a3af9c9b42a77a1eea1042acb8.jpeg HTTP/1.1" 200 -
-2024-05-07 09:54:45,027 - INFO   (werkzeug)   127.0.0.1 - - [07/May/2024 09:54:45] "[36mGET /static/js/comments.js HTTP/1.1[0m" 304 -
-2024-05-07 09:54:45,041 - INFO   (werkzeug)   127.0.0.1 - - [07/May/2024 09:54:45] "[36mGET /static/js/toast.js HTTP/1.1[0m" 304 -
-2024-05-07 09:54:45,049 - INFO   (werkzeug)   127.0.0.1 - - [07/May/2024 09:54:45] "[36mGET /static/js/collection-input.js HTTP/1.1[0m" 304 -
-2024-05-07 09:54:45,055 - INFO   (werkzeug)   127.0.0.1 - - [07/May/2024 09:54:45] "[36mGET /static/js/render-keywords.js HTTP/1.1[0m" 304 -
-2024-05-07 09:54:45,058 - INFO   (werkzeug)   127.0.0.1 - - [07/May/2024 09:54:45] "[36mGET /static/js/download-cheat-sheet.js HTTP/1.1[0m" 304 -
-2024-05-07 09:54:48,211 - INFO   (werkzeug)   127.0.0.1 - - [07/May/2024 09:54:48] "GET /profile/f54fd05554ff7395cfccdd8c2c045af11428100a82036d36f07f6513ec7487a2 HTTP/1.1" 200 -
-2024-05-07 09:54:48,234 - INFO   (werkzeug)   127.0.0.1 - - [07/May/2024 09:54:48] "[36mGET /static/js/toast.js HTTP/1.1[0m" 304 -
-2024-05-07 09:54:48,241 - INFO   (werkzeug)   127.0.0.1 - - [07/May/2024 09:54:48] "[36mGET /static/js/search-bar.js HTTP/1.1[0m" 304 -
-2024-05-07 09:54:48,241 - INFO   (werkzeug)   127.0.0.1 - - [07/May/2024 09:54:48] "[36mGET /static/js/text-area-auto-resize.js HTTP/1.1[0m" 304 -
-2024-05-07 09:54:48,266 - INFO   (werkzeug)   127.0.0.1 - - [07/May/2024 09:54:48] "[36mGET /static/pfp/023ef2831a463101b7d11480e7da7712bcf344a3af9c9b42a77a1eea1042acb8.jpeg HTTP/1.1[0m" 304 -
-2024-05-07 09:54:52,266 - INFO   (werkzeug)   127.0.0.1 - - [07/May/2024 09:54:52] "GET /profile/f54fd05554ff7395cfccdd8c2c045af11428100a82036d36f07f6513ec7487a2 HTTP/1.1" 200 -
-2024-05-07 09:54:52,292 - INFO   (werkzeug)   127.0.0.1 - - [07/May/2024 09:54:52] "[36mGET /static/js/toast.js HTTP/1.1[0m" 304 -
-2024-05-07 09:54:52,297 - INFO   (werkzeug)   127.0.0.1 - - [07/May/2024 09:54:52] "[36mGET /static/js/search-bar.js HTTP/1.1[0m" 304 -
-2024-05-07 09:54:52,297 - INFO   (werkzeug)   127.0.0.1 - - [07/May/2024 09:54:52] "[36mGET /static/js/text-area-auto-resize.js HTTP/1.1[0m" 304 -
-2024-05-07 09:54:52,320 - INFO   (werkzeug)   127.0.0.1 - - [07/May/2024 09:54:52] "[36mGET /static/pfp/023ef2831a463101b7d11480e7da7712bcf344a3af9c9b42a77a1eea1042acb8.jpeg HTTP/1.1[0m" 304 -
+2024-05-15 11:03:50,916 - WARNING   (werkzeug)    * Debugger is active!
+2024-05-15 11:03:50,931 - INFO   (werkzeug)    * Debugger PIN: 142-332-117
+2024-05-15 11:04:21,103 - INFO   (werkzeug)   127.0.0.1 - - [15/May/2024 11:04:21] "GET /profile/8f7c52e46bbd923e032f664f0fae1fa60e8e49ef4a8ad2f74e94ea66535e00b9 HTTP/1.1" 200 -
+2024-05-15 11:04:21,625 - INFO   (werkzeug)   127.0.0.1 - - [15/May/2024 11:04:21] "[36mGET /static/js/toast.js HTTP/1.1[0m" 304 -
+2024-05-15 11:04:21,647 - INFO   (werkzeug)   127.0.0.1 - - [15/May/2024 11:04:21] "[36mGET /static/js/text-area-auto-resize.js HTTP/1.1[0m" 304 -
+2024-05-15 11:04:21,647 - INFO   (werkzeug)   127.0.0.1 - - [15/May/2024 11:04:21] "[36mGET /static/js/search-bar.js HTTP/1.1[0m" 304 -

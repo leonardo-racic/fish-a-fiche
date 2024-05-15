@@ -142,9 +142,7 @@ def handle_post_modify_profile(server_account_manager: ServerAccountManager) -> 
     remove_pfp: str = form_data.get("remove_pfp", "")
     if server_account_manager.has_account(server_account_manager.get_user_account()):
         image_path: str = handle_profile_picture_upload(new_image_input, server_account_manager)
-        if remove_pfp:
-            image_path = ""
-        server_account_manager.modify_profile(image_path, description_input, username_input)
+        server_account_manager.modify_profile(image_path, description_input, username_input, bool(remove_pfp))
         inform(f"{request.remote_addr}:{get_cookie('account-token')} modified {username_input}, with {image_path}, {description_input}")
         if image_path:
             flash('Account has been successfully modified', 'success')
