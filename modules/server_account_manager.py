@@ -452,10 +452,10 @@ class ServerAccountManager:
 
     def get_user_pfp_path(self) -> str:
         pfp: str = self.get_user_profile_picture()
-        debug(pfp)
+        inform(pfp)
         if pfp != "":
             pfp = pfp_path + pfp.replace("\\", "/") #url_for('static', filename=pfp.replace("\\", "/"))
-        debug(pfp)
+        inform(pfp)
         return pfp
 
 
