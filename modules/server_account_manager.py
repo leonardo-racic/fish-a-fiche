@@ -4,7 +4,7 @@ from .cheat_sheet_module import CheatSheet, json_to_cheat_sheet
 from json import loads as load_json, dumps as to_json
 from flask import url_for, flash
 from terminal_log import inform
-from environment_variable import account_path, cs_path
+from environment_variable import account_path, cs_path, pfp_path
 import singletons
 import hashlib
 
@@ -452,8 +452,10 @@ class ServerAccountManager:
 
     def get_user_pfp_path(self) -> str:
         pfp: str = self.get_user_profile_picture()
+        debug(pfp)
         if pfp != "":
-            pfp = url_for('static', filename=pfp.replace("\\", "/"))
+            pfp = pfp_path + pfp.replace("\\", "/") #url_for('static', filename=pfp.replace("\\", "/"))
+        debug(pfp)
         return pfp
 
 
