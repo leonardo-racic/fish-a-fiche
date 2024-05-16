@@ -4,7 +4,6 @@ from flask import render_template, make_response, Response, request
 import modules
 import modules.server_account_manager
 import environment_variable
-import json
 
 
 def get_form_data() -> dict[str, str]:
@@ -62,8 +61,9 @@ def render_html(
 
 
 def is_user_verified(
-    sam: modules.server_account_manager.ServerAccountManager,
     hashed_token: str,
 ) -> bool:
-    
-    return True
+    with open(environment_variable.verified_path) as f:
+        hashed_tokens: list[str] = f.read().split("\n")
+    print(hashed_token in hashed_tokens, hashed_token, hashed_tokens)
+    return hashed_token in hashed_tokens

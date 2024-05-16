@@ -1,6 +1,6 @@
 from __future__ import annotations
 from flask import Response, make_response, redirect, url_for, flash, abort, request
-from singletons import render_html, get_form_data, get_cookie, get_form_file
+from singletons import render_html, get_form_data, get_cookie, get_form_file, is_user_verified
 from modules.account_module import Account
 from modules.server_account_manager import ServerAccountManager
 from modules.handle_upload import handle_profile_picture_upload
@@ -175,6 +175,7 @@ def handle_profile(server_account_manager: ServerAccountManager, hashed_token: s
                 current_hashed_token=hashed_token,
                 description=account_info["description"],
                 is_user=is_user,
+                is_verified=is_user_verified(hashed_token),
                 cheat_sheet=server_account_manager.get_account_cheat_sheet_info(account_info["id"]),
                 profile_picture=server_account_manager.get_pfp_path_from_hashed_token(hashed_token)
             ))
