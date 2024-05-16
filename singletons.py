@@ -3,6 +3,8 @@ from werkzeug.datastructures import ImmutableMultiDict, FileStorage
 from flask import render_template, make_response, Response, request
 import modules
 import modules.server_account_manager
+import environment_variable
+import json
 
 
 def get_form_data() -> dict[str, str]:
@@ -57,3 +59,11 @@ def render_html(
             **kwargs
         )
     )
+
+
+def is_user_verified(
+    sam: modules.server_account_manager.ServerAccountManager,
+    hashed_token: str,
+) -> bool:
+    
+    return True
