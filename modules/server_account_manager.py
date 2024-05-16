@@ -457,8 +457,8 @@ class ServerAccountManager:
         return pfp
 
     def get_profile_picture_from_hashed_token(self, hashed_token: str) -> str:
-        current_account_info: dict = self.get_account_info_from_hashed_token(hashed_token)
-        profile_picture: str = current_account_info["profile_picture"]
+        current_account_info: dict | None = self.get_account_info_from_hashed_token(hashed_token)
+        profile_picture: str = current_account_info["profile_picture"] if current_account_info is not None else ""
         return profile_picture
 
 
