@@ -7,3 +7,4 @@ debug.log
 reports.json
 *.kdev4
 environment_variable.py
+verified.txt
