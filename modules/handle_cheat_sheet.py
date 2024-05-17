@@ -124,26 +124,32 @@ def handle_cheat_sheet(
             user_token: str = server_account_manager.get_user_account_token()
             liked: bool = user_token in cheat_sheet_info["likes"]
             cheat_sheet_token: str = cheat_sheet_info["token"]
-            if liked:
-                cheat_sheet_manager.remove_like(token, user_token)
-                inform(f"user({user_token}) unliked CS({cheat_sheet_token})")
+            if user_token != "":
+                if liked:
+                    cheat_sheet_manager.remove_like(token, user_token)
+                    inform(f"user({user_token}) unliked CS({cheat_sheet_token})")
+                else:
+                    cheat_sheet_manager.add_like(token, user_token)
+                    cheat_sheet_manager.remove_dislike(token, user_token)
+                    inform(f"user({user_token}) liked CS({cheat_sheet_token})")
             else:
-                cheat_sheet_manager.add_like(token, user_token)
-                cheat_sheet_manager.remove_dislike(token, user_token)
-                inform(f"user({user_token}) liked CS({cheat_sheet_token})")
+                flash("You cannot like if you are not logged in", "error")
 
 
         elif input_type == "dislike_input":
             user_token: str = server_account_manager.get_user_account_token()
             cheat_sheet_token: str = cheat_sheet_info["token"]
             disliked: bool = user_token in cheat_sheet_info["dislikes"]
-            if disliked:
-                cheat_sheet_manager.remove_dislike(token, user_token)
-                inform(f"user({user_token}) undisliked CS({cheat_sheet_token})")
+            if user_token != "":
+                if disliked:
+                    cheat_sheet_manager.remove_dislike(token, user_token)
+                    inform(f"user({user_token}) undisliked CS({cheat_sheet_token})")
+                else:
+                    cheat_sheet_manager.add_dislike(token, user_token)
+                    cheat_sheet_manager.remove_like(token, user_token)
+                    inform(f"user({user_token}) disliked CS({cheat_sheet_token})")
             else:
-                cheat_sheet_manager.add_dislike(token, user_token)
-                cheat_sheet_manager.remove_like(token, user_token)
-                inform(f"user({user_token}) disliked CS({cheat_sheet_token})")
+                flash("You cannot dislike if you are not logged in", "error")
         
 
         elif input_type == "report_input":
