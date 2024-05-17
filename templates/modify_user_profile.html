@@ -41,21 +41,19 @@
                 </div>
                 <div class="card mb-2">
                     <div class="card-body">
-                        <div class="d-flex flex-column align-items-center text-center">
-                            <h4>My public cheat-sheet</h4>
-                            {% for c in cheat_sheet %}
-                                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-                                    <div class="card col text-center my-2 mx-1" style="max-width: 18rem;">
-                                        <div class="card-body">
-                                            <h5 class="card-title">{{c.title}}</h5>
-                                            <p class="card-text">{{c.context}}</p>
-                                        </div>
+                        <h4>My public cheat-sheet</h4>
+                        {% for c in cheat_sheet %}
+                            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+                                <div class="card col text-center my-2 mx-1" style="max-width: 18rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{c.title}}</h5>
+                                        <p class="card-text">{{c.context}}</p>
                                     </div>
                                 </div>
-                            {% else %}
-                                <small class="text-muted mb-2">No personally made cheat sheet yet...</small>
-                            {% endfor %}
-                        </div>
+                            </div>
+                        {% else %}
+                            <small class="text-muted mb-2">No personally made cheat sheet yet...</small>
+                        {% endfor %}
                     </div>
                 </div>
                 <button class="btn btn-primary" type="submit" id="save-changes">Save changes</button>
